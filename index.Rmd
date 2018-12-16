@@ -1,5 +1,5 @@
 --- 
-title: "The Open Quant Live Book - ZITA"
+title: "The Open Quant Live Book - ZITA Kambusha!!!"
 author: "Tharsis T. P. Souza"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
