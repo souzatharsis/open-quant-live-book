@@ -5,7 +5,7 @@ bookdown::gitbook:
       before: |
         <li><a href="./">The Open Quant Live Book</a></li>
       after: |
-        <li><a href="https://github.com/souzatharsis/open-quant-live-book" target="blank">See source code on Github.</a></li>
+        <li><a href="https://github.com/souzatharsis/open-quant-live-book" target="blank">See source code on Github</a></li>
     edit: https://github.com/souzatharsis/open-quant-live-book/edit/master/%s
     download: ["pdf", "epub"]
 bookdown::pdf_book:
