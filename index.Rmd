@@ -1,6 +1,6 @@
 --- 
 title: "The Open Quant Live Book"
-author: "Tharsis T. P. Souza"
+author: "Thársis T. P. Souza"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 output: bookdown::gitbook

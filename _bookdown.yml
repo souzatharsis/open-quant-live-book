@@ -1,7 +1,7 @@
-book_filename: "bookdown-demo"
+book_filename: "open-quant-live-book"
 language:
   ui:
     chapter_name: "Chapter "
 delete_merged_file: true
 
-rmd_files: ["index.Rmd", "introduction.Rmd"]
+rmd_files: ["index.Rmd", "chapters/introduction.Rmd"]
