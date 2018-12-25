@@ -25,7 +25,7 @@
 <meta name="author" content="Thársis T. P. Souza">
 
 
-<meta name="date" content="2018-12-16">
+<meta name="date" content="2018-12-24">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -104,7 +104,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li><a href="./">The Open Quant Live Book</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Working Content</a></li>
 <li class="part"><span><b>I The Basics</b></span></li>
 <li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
 <li class="divider"></li>
@@ -130,17 +130,43 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="header">
 <h1 class="title">The Open Quant Live Book</h1>
 <p class="author"><em>Thársis T. P. Souza</em></p>
-<p class="date"><em>2018-12-16</em></p>
+<p class="date"><em>2018-12-24</em></p>
 </div>
-<div id="preface" class="section level1 unnumbered">
-<h1>Preface</h1>
-<p>This is a <em>sample</em> book written in <strong>Markdown</strong>. You can use anything that Pandoc’s Markdown supports, e.g., a math equation <span class="math inline">\(a^2 + b^2 = c^2\)</span>.</p>
-<p>The <strong>bookdown</strong> package can be installed from CRAN or Github:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;bookdown&quot;</span>)
-<span class="co"># or the development version</span>
-<span class="co"># devtools::install_github(&quot;rstudio/bookdown&quot;)</span></code></pre></div>
-<p>Remember each Rmd file contains one and only one chapter, and a chapter is defined by the first-level heading <code>#</code>.</p>
-<p>To compile this example to PDF, you need XeLaTeX. You are recommended to install TinyTeX (which includes XeLaTeX): <a href="https://yihui.name/tinytex/" class="uri">https://yihui.name/tinytex/</a>.</p>
+<div id="working-content" class="section level1 unnumbered">
+<h1>Working Content</h1>
+<ol style="list-style-type: decimal">
+<li>The Basics</li>
+</ol>
+<ul>
+<li>I/O</li>
+<li>Stylized Facts</li>
+<li>Correlation &amp; Causation</li>
+</ul>
+<ol start="2" style="list-style-type: decimal">
+<li>Algo Trading</li>
+</ol>
+<ul>
+<li>Investment Process</li>
+<li>Backtesting</li>
+<li>Factor Investing</li>
+</ul>
+<ol start="3" style="list-style-type: decimal">
+<li><p>Portfolio Optimization</p></li>
+<li><p>Machine Learning</p></li>
+</ol>
+<ul>
+<li>Intro</li>
+<li>AutoML</li>
+<li>Hierarchical Risk Parity</li>
+</ul>
+<ol start="5" style="list-style-type: decimal">
+<li>Econophysics</li>
+</ol>
+<ul>
+<li>Entropy</li>
+<li>Financial Networks</li>
+<li>Scaling Laws</li>
+</ul>
 
 </div>
 
@@ -197,19 +223,6 @@ gitbook.start({
 });
 </script>
 
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    var src = "";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:" && /^https?:/.test(src))
-      src = src.replace(/^https?:/, '');
-    script.src = src;
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script>
 </body>
 
 </html>

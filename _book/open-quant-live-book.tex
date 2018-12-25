@@ -125,7 +125,7 @@
   \postauthor{\par}
       \predate{\centering\large\emph}
   \postdate{\par}
-    \date{2018-12-16}
+    \date{2018-12-24}
 
 \usepackage{booktabs}
 \usepackage{amsthm}
@@ -143,29 +143,80 @@
 \setcounter{tocdepth}{1}
 \tableofcontents
 }
-\chapter*{Preface}\label{preface}
-\addcontentsline{toc}{chapter}{Preface}
+\chapter*{Working Content}\label{working-content}
+\addcontentsline{toc}{chapter}{Working Content}
 
-This is a \emph{sample} book written in \textbf{Markdown}. You can use
-anything that Pandoc's Markdown supports, e.g., a math equation
-\(a^2 + b^2 = c^2\).
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  The Basics
+\end{enumerate}
 
-The \textbf{bookdown} package can be installed from CRAN or Github:
+\begin{itemize}
+\tightlist
+\item
+  I/O
+\item
+  Stylized Facts
+\item
+  Correlation \& Causation
+\end{itemize}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{install.packages}\NormalTok{(}\StringTok{"bookdown"}\NormalTok{)}
-\CommentTok{# or the development version}
-\CommentTok{# devtools::install_github("rstudio/bookdown")}
-\end{Highlighting}
-\end{Shaded}
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  Algo Trading
+\end{enumerate}
 
-Remember each Rmd file contains one and only one chapter, and a chapter
-is defined by the first-level heading \texttt{\#}.
+\begin{itemize}
+\tightlist
+\item
+  Investment Process
+\item
+  Backtesting
+\item
+  Factor Investing
+\end{itemize}
 
-To compile this example to PDF, you need XeLaTeX. You are recommended to
-install TinyTeX (which includes XeLaTeX):
-\url{https://yihui.name/tinytex/}.
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\item
+  Portfolio Optimization
+\item
+  Machine Learning
+\end{enumerate}
+
+\begin{itemize}
+\tightlist
+\item
+  Intro
+\item
+  AutoML
+\item
+  Hierarchical Risk Parity
+\end{itemize}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{4}
+\tightlist
+\item
+  Econophysics
+\end{enumerate}
+
+\begin{itemize}
+\tightlist
+\item
+  Entropy
+\item
+  Financial Networks
+\item
+  Scaling Laws
+\end{itemize}
 
 \part{The Basics}\label{part-the-basics}
 
