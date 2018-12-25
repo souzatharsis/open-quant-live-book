@@ -3,7 +3,9 @@ title: "The Open Quant Live Book"
 author: "Thársis T. P. Souza"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
-output: bookdown::gitbook
+output: 
+bookdown::gitbook:
+theme: flatly
 documentclass: book
 bibliography: [book.bib, packages.bib]
 biblio-style: apalike
