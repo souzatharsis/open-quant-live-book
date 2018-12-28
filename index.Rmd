@@ -38,7 +38,6 @@ if(!knitr:::is_html_output())
 
 <img style="border:5px solid black" src="./fig/cover1.jpg" alt="The Open Quant Book">
 
-
 ### Working Contents {-}
 
 1. The Basics
@@ -78,12 +77,12 @@ Licensed under [Attribution-NonCommercial-ShareAlike 4.0 International](https://
 knitr::include_graphics('fig/by-nc-sa.png')
 ```
 
-
-
-
 ```{block2, type='flushright', html.tag='p'}
 Copyright (c) 2018. Thársis T. P. Souza. New York, NY.
 ```
+
+### Contribute!
+The Book is [Open](https://github.com/souzatharsis/open-quant-live-book) and we are looking for co-authors (as I will never have the time or the knowledge to right it all by myself). Feel free to reach out or simply create a pull request with your Chapter on our [Github project](https://github.com/souzatharsis/open-quant-live-book).
 
 ```{r include=FALSE}
 # automatically create a bib database for R packages
