@@ -1,10 +1,10 @@
 
-# Preface {-}
+## The Open Quant Live Book
 
-<img style="border:5px solid black" src="./fig/cover1.jpg" alt="The Open Quant Book">
+<img style="border:5px solid black" src="./fig/cover1.jpg" alt="The Open Quant Book" border="5">
 
 
-### Working Contents {-}
+### Working Contents
 
 1. The Basics
 
@@ -39,8 +39,6 @@ First published at: [openquant.netlify.com](https://openquant.netlify.com/).
 
 Licensed under [Attribution-NonCommercial-ShareAlike 4.0 International](https://creativecommons.org/licenses/by-nc-sa/4.0/). 
 
-```{r echo=FALSE, out.width='20%'}
-knitr::include_graphics('fig/by-nc-sa.png')
-```
+<img src="fig/by-nc-sa.png" width="20%">
 
 Copyright (c) 2018. Thársis T. P. Souza. New York, NY.
