@@ -1,0 +1,3 @@
+[
+["io.html", "1 IO 1.1 Data Sources", " 1 IO 1.1 Data Sources 1.1.1 Alpha Vantage Alpha Vantage offers free access to pricing data including: Stock Time Series Data; Physical and Digital/Crypto Currencies (e.g., Bitcoin); Technical Indicators and Sector Performances. The data are available in JSON and CSV format via REST APIs. The Quantmod and the alphavantager packages offer a lightweight R interfaces to the Alpha Vantage API. getSymbols(&#39;AAPL&#39;, src=&quot;av&quot;, output.size=&quot;full&quot;, adjusted=TRUE, api.key=&#39;your API key&#39;) plot(AAPL$adjusted) 1.1.2 Quandl 1.1.3 IEX "]
+]

@@ -1,26 +1,11 @@
 # StylizedFacts.R
-set_wd <- function() {
-  library(rstudioapi) # make sure you have it installed
-  current_path <- getActiveDocumentContext()$path
-  setwd(dirname(current_path ))
-  print( getwd() )
-}
-set_wd()
-
 ###### Libs
 library(quantmod)
-library(ggplot2)
 library(scales)
 ###### Includes
-source("../util.R")
-###### Options
-options(digits=3)
+source("./chapters/util.R")
 
 
-###### Style
-
-## Colours
-colours<-brewer_pal("qual", "Set1")(6)
 
 # ##### Functions ---------------------------------------------------------
 
@@ -85,8 +70,8 @@ Plot.Prices <- function(prices, title="", axis.title.y=TRUE, colour="black"){
 
 tickers<-c("AAPL", "MSFT", "SPY")
 
-from.dat <- as.Date("01/01/2010", format="%d/%m/%Y")
-to.dat <- as.Date("25/12/2011", format="%d/%m/%Y")
+getSymbols(Symbols=tickers, src="av", output.size="full",
+           adjusted=TRUE, api.key=config::get()$alpha.vantage.key)
 
 PETR0.prices<-Load.Prices(tickers[1], from.dat, to.dat)
 ITAU.prices<-Load.Prices(tickers[2], from.dat, to.dat)
@@ -96,7 +81,7 @@ IBOV.prices<-Load.Prices(tickers[3], from.dat, to.dat)
 
 
 # Plot Prices -------------------------------------------------------------
-p.PETR0<-Plot.Prices(PETR0.prices, tickers[1], colour = colours[1])
+p.PETR0<-Plot.Prices(AAPL, tickers[1], colour = colours[1])
 p.ITAU<-Plot.Prices(ITAU.prices, tickers[2],axis.title.y=FALSE, colour = colours[2])
 
 
@@ -106,7 +91,7 @@ dev.off()
 
 
 # Plot Log-returns --------------------------------------------------------
-prices.intersection <- merge.xts(PETR0.prices,ITAU.prices,join="inner")
+prices.intersection <- merge.xts(AAPL,MSFT,join="inner")
 
 S1.price.name<-paste0(tickers[1], ".Adjusted")
 S1.returns<-Log.Return(prices.intersection[,S1.price.name])
@@ -132,7 +117,6 @@ p.price<-ggplot(df.plot, aes(x= date, y=returns, group=stock, color=stock) ) +
   ylab("Log-retorno")+
   theme(panel.border = element_rect(colour = "black", fill=NA, size=1),legend.justification=c(1,1),
         legend.position=c(0.2, 1),
-        legend.position="none",
         axis.text.x  = element_text(size=20),axis.text.y  = element_text(size=20),
         axis.title.x = element_text(size=25),
         axis.title.y = element_text(size=25),

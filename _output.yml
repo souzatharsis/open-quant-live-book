@@ -6,12 +6,17 @@ bookdown::gitbook:
         <li><a href="./">The Open Quant Live Book</a></li>
       after: |
         <li><a href="https://github.com/souzatharsis/open-quant-live-book" target="blank">See source code on Github</a></li>
+      scroll_highlight: yes
     edit: https://github.com/souzatharsis/open-quant-live-book/edit/master/%s
     download: ["pdf", "epub"]
+
 bookdown::pdf_book:
   includes:
     in_header: preamble.tex
+  fig_caption: true
   latex_engine: xelatex
   citation_package: natbib
   keep_tex: yes
+  template: template.tex
+
 bookdown::epub_book: default

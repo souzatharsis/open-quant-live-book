@@ -1,0 +1,47 @@
+```{r include=FALSE}
+library(quantmod)
+```
+
+
+# I/O
+
+
+## Data Sources
+
+### Alpha Vantage
+
+Alpha Vantage offers free access to pricing data including: 
+
+* Stock Time Series Data; 
+* Physical and Digital/Crypto Currencies (e.g., Bitcoin); 
+* Technical Indicators and 
+* Sector Performances.
+
+The data are available in JSON and CSV format via REST APIs.
+The **quantmod** and the **alphavantager** R packages offer a lightweight R interface to the Alpha Vantage API.
+For instance, daily stock prices can be obtained with the `quantmod::getSymbols` function as follows:
+```{r eval=TRUE, echo=FALSE, cache=TRUE, results='hide', include=FALSE}
+getSymbols(Symbols='AAPL', src="av", output.size="full", adjusted=TRUE, api.key=config::get()$alpha.vantage.key)
+```
+```{r eval=FALSE, echo=TRUE, cache=FALSE}
+getSymbols(Symbols='AAPL', src="av", output.size="full", adjusted=TRUE, api.key='your API key')
+```
+```{r eval=TRUE, echo=TRUE, cache=TRUE}
+plot(AAPL$AAPL.Adjusted)
+``` 
+
+We called the `quantmod::getSymbols` function with the following arguments:
+
+* `Symbols='AAPL'` defines a character vector specifying the names of each symbol to be loaded, here specified by the symbol of the company Apple Inc.;
+* `src="av"` specifies the sourcing method, here defined with the value corresponding to Alpha Vantage;
+* `output.size="full"`, strings `compact` and `full` are accepted with the following specifications: `compact` returns only the latest 100 data points; `full` returns the full-length time series of up to 20 years of historical data;
+* `adjusted=TRUE`, defines boolean variable to include a column of closing prices adjusted for dividends and splits;
+* `api.key`, specifies your Alpha Vantage API key.
+
+### IEX
+
+
+### Quandl
+
+
+

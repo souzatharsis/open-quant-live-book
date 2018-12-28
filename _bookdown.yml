@@ -4,4 +4,16 @@ language:
     chapter_name: "Chapter "
 delete_merged_file: true
 
-rmd_files: ["index.Rmd", "chapters/StylizedFacts/StylizedFacts.Rmd"]
+rmd_files: ["index.Rmd",
+"./chapters/Part1.Rmd",
+"./chapters/IO/IO.Rmd",
+"./chapters/StylizedFacts/StylizedFacts.Rmd",
+"./chapters/CorrelationCausation/CorrelationCausation.Rmd",
+"./chapters/Part2.Rmd",
+"./chapters/LimitOrder/LimitOrder.Rmd",
+"./chapters/Part3.Rmd",
+"./chapters/Part4.Rmd",
+"./chapters/Part5.Rmd",
+"./chapters/Entropy/Entropy.Rmd",
+"./chapters/TransferEntropy/TransferEntropy.Rmd",
+"./chapters/FinancialNetworks/FinancialNetworks.Rmd"]

@@ -1,0 +1,14 @@
+base
+methods
+datasets
+utils
+grDevices
+graphics
+stats
+zoo
+xts
+TTR
+quantmod
+ggplot2
+scales
+rstudioapi

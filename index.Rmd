@@ -2,24 +2,49 @@
 title: "The Open Quant Live Book"
 author: "Thársis T. P. Souza"
 date: "`r Sys.Date()`"
+output: bookdown::gitbook
 site: bookdown::bookdown_site
-output: 
-bookdown::gitbook:
-theme: flatly
 documentclass: book
 bibliography: [book.bib, packages.bib]
 biblio-style: apalike
 link-citations: yes
+colorlinks: yes
+links-as-notes: true
+toc_depth: 3
+toc_unnumbered: no
+toc_appendix: yes
 github-repo: souzatharsis/open-quant-live-book
+cover-image: ./fig/cover1.jpg
 description: "The Open Quant Live Book"
 ---
 
-# Working Content {-}
+
+
+```{r include=FALSE}
+source("./chapters/util.R")
+```
+
+```{r include = FALSE}
+if(!knitr:::is_html_output())
+{
+  options("width"=56)
+  knitr::opts_chunk$set(tidy.opts=list(width.cutoff=56, indent = 2), tidy = TRUE)
+  knitr::opts_chunk$set(fig.pos = 'H')
+}
+```
+
+# Preface {-}
+
+```{r fig.align='center', echo=FALSE, include=identical(knitr:::pandoc_to(), 'html')}
+knitr::include_graphics('fig/cover1.jpg', dpi = NA)
+```
+
+## Working Content {-}
 
 1. The Basics
 
-+ I/O
-+ Stylized Facts
++ I/O (25%)
++ Stylized Facts (25%)
 + Correlation & Causation
 
 2. Algo Trading   
@@ -27,6 +52,7 @@ description: "The Open Quant Live Book"
 + Investment Process
 + Backtesting
 + Factor Investing
++ Limit Order
 
 3. Portfolio Optimization
 
@@ -38,9 +64,15 @@ description: "The Open Quant Live Book"
 
 5. Econophysics
 
-+ Entropy
-+ Financial Networks
-+ Scaling Laws
++ Entropy, Efficiency and Coupling
++ Transfer Entropy, Information Transfer and Causality
++ Financial Networks, Taxonomy and Core-Periphery Structure
+
+
+```{block2, type='flushright', html.tag='p'}
+Thársis T. P. Souza 
+New York, NY
+```
 
 ```{r include=FALSE}
 # automatically create a bib database for R packages

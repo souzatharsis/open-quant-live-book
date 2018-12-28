@@ -1,5 +1,55 @@
 # Stylized Facts
 
-## Motivation
-
 ## Introduction
+
+## Distribution of Returns
+
+### Fat Tails
+
+A distribuição de retornos financeiros apresenta leptokurtose. 
+A ocorrência de eventos extremos é mais provável comparado com uma distribuição normal, i.e., as caudas da distribuição empírica de retornos são mais ``pesadas'' 
+comparadas com as caudas esperadas supondo uma distribuição normal de probabilidade.
+
+### Skewness
+
+A distribuição empírica de retornos é distorcida para esquerda. Retornos negativos são mais prováveis que retornos positivos.
+
+## Volatility
+
+
+\begin{equation}
+ \sigma = \sqrt{ \frac{1}{N-1} \sum_{i=1}^N (x_i - \overline{x})^2}
+(\#eq:sd)
+\end{equation}
+
+
+### Time-invariance
+
+A volatilidade de retornos financeiros não é constante ao longo do tempo.
+
+### Volatility Clustering
+
+Eventos extremos são observados próximos um dos outros.
+
+### Correlation with Trading Volume
+
+O volume de negociação de um ativo tem correlação significante com a volatilidade do mesmo.
+
+## Correlation
+
+\begin{equation}
+(\#eq:correlation)
+\rho = \frac{\sum\limits_{t=1}^{T} (r_t - \hat{r}_t)(s_t - \hat{s}_t)}{\sqrt{\sum\limits_{t=1}^{T} (r_t^{\tau} - \hat{r}_t^{\tau})^2}\sqrt{\sum\limits_{t=1}^{T}(s_t - \hat{s}_t)^2}},
+\end{equation}
+onde $\hat{r}_t$ e $\hat{s}_t$ são a média amostral de $r_t$ e $s_t$, respectivamente.
+
+### Time-invariance
+
+A correlação entre duas series temporais de retornos financeiros não é constante ao longo do tempo.
+
+### Auto-correlation
+
+Retornos financeiros apresentam baixa autocorrelação (linear), exceto em escalas de tempo muito baixas, e.g., minutos, onde há presença de efeitos de microstructura.
+Por outro lado, a função de autocorrelação do valor absoluto de retornos financeiros decai lentamente com o tempo.
+
+A correlação contemporânea é maior do que a correlação cruzada.

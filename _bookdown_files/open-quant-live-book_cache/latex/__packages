@@ -1,0 +1,9 @@
+base
+ggplot2
+config
+scales
+zoo
+xts
+TTR
+quantmod
+formatR

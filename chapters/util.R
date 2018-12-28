@@ -1,3 +1,19 @@
+############ OPTIONS
+options(digits=3)
+
+############ LIBRARIES
+library(ggplot2)
+library(config)
+library(scales)
+library(formatR)
+############ Style
+
+## Colours
+colours<-brewer_pal("qual", "Set1")(6)
+
+
+############ FUNCTIONS
+
 set_wd <- function() {
   library(rstudioapi) # make sure you have it installed
   current_path <- getActiveDocumentContext()$path
