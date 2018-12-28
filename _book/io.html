@@ -12,7 +12,7 @@
   <meta property="og:title" content="Chapter 1 I/O | The Open Quant Live Book />
   <meta property="og:type" content="book" />
   
-  
+  <meta property="og:image" content="./fig/cover1.jpg" />
   <meta property="og:description" content="Chapter 1 I/O | The Open Quant Live Book />
   <meta name="github-repo" content="souzatharsis/open-quant-live-book" />
 
@@ -20,12 +20,12 @@
   <meta name="twitter:title" content="Chapter 1 I/O | The Open Quant Live Book />
   
   <meta name="twitter:description" content="Chapter 1 I/O | The Open Quant Live Book />
-  
+  <meta name="twitter:image" content="./fig/cover1.jpg" />
 
 <meta name="author" content="Thársis T. P. Souza">
 
 
-<meta name="date" content="2018-12-27">
+<meta name="date" content="2018-12-28">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -105,7 +105,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a><ul>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#working-content"><i class="fa fa-check"></i>Working Content</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#working-contents"><i class="fa fa-check"></i>Working Contents</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#books-information"><i class="fa fa-check"></i>Book’s information</a></li>
 </ul></li>
 <li class="part"><span><b>I The Basics</b></span></li>
 <li class="chapter" data-level="1" data-path="io.html"><a href="io.html"><i class="fa fa-check"></i><b>1</b> I/O</a><ul>
@@ -176,7 +177,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>The data are available in JSON and CSV format via REST APIs. The <strong>quantmod</strong> and the <strong>alphavantager</strong> R packages offer a lightweight R interface to the Alpha Vantage API. For instance, daily stock prices can be obtained with the <code>quantmod::getSymbols</code> function as follows:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">getSymbols</span>(<span class="dt">Symbols=</span><span class="st">&#39;AAPL&#39;</span>, <span class="dt">src=</span><span class="st">&quot;av&quot;</span>, <span class="dt">output.size=</span><span class="st">&quot;full&quot;</span>, <span class="dt">adjusted=</span><span class="ot">TRUE</span>, <span class="dt">api.key=</span><span class="st">&#39;your API key&#39;</span>)</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(AAPL<span class="op">$</span>AAPL.Adjusted)</code></pre></div>
-<p><img src="open-quant-live-book_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<p><img src="open-quant-live-book_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
 <p>We called the <code>quantmod::getSymbols</code> function with the following arguments:</p>
 <ul>
 <li><code>Symbols='AAPL'</code> defines a character vector specifying the names of each symbol to be loaded, here specified by the symbol of the company Apple Inc.;</li>
@@ -240,7 +241,8 @@ gitbook.start({
 },
 "download": ["open-quant-live-book.pdf", "open-quant-live-book.epub"],
 "toc": {
-"collapse": "subsection"
+"collapse": "subsection",
+"scroll_highlight": true
 }
 });
 });

@@ -35,11 +35,10 @@ if(!knitr:::is_html_output())
 
 # Preface {-}
 
-```{r fig.align='center', echo=FALSE, include=identical(knitr:::pandoc_to(), 'html')}
-knitr::include_graphics('fig/cover1.jpg', dpi = NA)
-```
+<img style="border:5px solid black" src="./fig/cover1.jpg" alt="The Open Quant Book">
 
-## Working Content {-}
+
+### Working Contents {-}
 
 1. The Basics
 
@@ -68,10 +67,21 @@ knitr::include_graphics('fig/cover1.jpg', dpi = NA)
 + Transfer Entropy, Information Transfer and Causality
 + Financial Networks, Taxonomy and Core-Periphery Structure
 
+### Book's information {-}
+
+First published at: [openquant.netlify.com](https://openquant.netlify.com/).
+
+Licensed under [Attribution-NonCommercial-ShareAlike 4.0 International](https://creativecommons.org/licenses/by-nc-sa/4.0/). 
+
+```{r echo=FALSE, out.width='20%'}
+knitr::include_graphics('fig/by-nc-sa.png')
+```
+
+
+
 
 ```{block2, type='flushright', html.tag='p'}
-Thársis T. P. Souza 
-New York, NY
+Copyright (c) 2018. Thársis T. P. Souza. New York, NY.
 ```
 
 ```{r include=FALSE}
