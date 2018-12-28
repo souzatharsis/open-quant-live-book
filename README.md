@@ -6,7 +6,7 @@
 
 ### Contribute!
 
-The Book is Open and we are looking for co-authors (as I will never have the time or the knowledge to right it all by myself).
+The Book is Open and we are looking for co-authors (as I will never have the time or the knowledge to write it all by myself).
 Feel free to reach out or simply create a pull request with your Chapter!
 
 ### Working Contents
