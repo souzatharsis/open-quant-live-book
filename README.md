@@ -1,7 +1,7 @@
 
 ## The Open Quant Live Book
 
-<img style="border:5px solid black" src="./fig/cover1.jpg" alt="The Open Quant Book" border="5">
+<img style="border:5px solid black" src="./fig/cover1.jpg" alt="The Open Quant Book" border="5" class="center">
 
 
 ### Working Contents
@@ -33,7 +33,7 @@
 + Transfer Entropy, Information Transfer and Causality
 + Financial Networks, Taxonomy and Core-Periphery Structure
 
-### Book's information {-}
+### Book's information
 
 First published at: [openquant.netlify.com](https://openquant.netlify.com/).
 
