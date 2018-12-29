@@ -4,7 +4,7 @@
 
 <img style="border:5px solid black" src="./fig/cover1.jpg" alt="The Open Quant Book" border="5" class="center">
 
-### Contribute!
+### Contribute
 
 The Book is Open and we are looking for co-authors (as I will never have the time or the knowledge to write it all by myself).
 Feel free to reach out or simply create a pull request with your Chapter!

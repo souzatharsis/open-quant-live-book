@@ -1,4 +1,6 @@
 bookdown::gitbook:
+  includes:
+    in_header: preamble.html
   css: style.css
   config:
     toc:
@@ -9,6 +11,15 @@ bookdown::gitbook:
       scroll_highlight: yes
     edit: https://github.com/souzatharsis/open-quant-live-book/edit/master/%s
     download: ["pdf", "epub"]
+    sharing:
+      facebook: yes
+      twitter: yes
+      google: no
+      linkedin: yes
+      weibo: no
+      instapaper: no
+      vk: no
+      all: ['facebook', 'google', 'twitter', 'linkedin', 'weibo', 'instapaper']
 
 bookdown::pdf_book:
   includes:

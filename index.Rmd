@@ -35,7 +35,6 @@ if(!knitr:::is_html_output())
 
 # Preface {-}
 
-[![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
 
 <img style="border:5px solid black" src="./fig/cover1.jpg" alt="The Open Quant Book">
 
@@ -68,6 +67,11 @@ if(!knitr:::is_html_output())
 + Transfer Entropy, Information Transfer and Causality
 + Financial Networks, Taxonomy and Core-Periphery Structure
 
+### Contribute {-}
+
+The Book is [Open](https://github.com/souzatharsis/open-quant-live-book) and we are looking for co-authors (as I will never have the time or the knowledge to write it all by myself). Feel free to reach out or simply create a pull request with your Chapter on our [Github project](https://github.com/souzatharsis/open-quant-live-book).
+
+
 ### Book's information {-}
 
 First published at: [openquant.netlify.com](https://openquant.netlify.com/).
@@ -82,9 +86,6 @@ knitr::include_graphics('fig/by-nc-sa.png')
 Copyright (c) 2018. Thársis T. P. Souza. New York, NY.
 ```
 
-### Contribute {-}
-
-The Book is [Open](https://github.com/souzatharsis/open-quant-live-book) and we are looking for co-authors (as I will never have the time or the knowledge to write it all by myself). Feel free to reach out or simply create a pull request with your Chapter on our [Github project](https://github.com/souzatharsis/open-quant-live-book).
 
 ```{r include=FALSE}
 # automatically create a bib database for R packages
