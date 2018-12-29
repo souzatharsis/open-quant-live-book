@@ -1,12 +1,12 @@
 
-## The Open Quant Live Book
+## The Open Quant Live Book Initiative
 [![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
 
 <img style="border:5px solid black" src="./fig/cover1.jpg" alt="The Open Quant Book" border="5" class="center">
 
 ### Contribute
 
-The Book is Open and we are looking for co-authors (as I will never have the time or the knowledge to write it all by myself). Feel free to [reach out](http://www.souzatharsis.com/) or simply create a pull request with your contribution!
+The Book is Open and we are looking for co-authors. Feel free to [reach out](http://www.souzatharsis.com/) or simply create a pull request with your contribution!
 
 ### Working Contents
 
