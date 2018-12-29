@@ -12,8 +12,8 @@ The Book is Open and we are looking for co-authors (as I will never have the tim
 
 1. The Basics
 
-+ I/O (25%)
-+ Stylized Facts (25%)
++ I/O
++ Stylized Facts
 + Correlation & Causation
 
 2. Algo Trading   
@@ -25,6 +25,10 @@ The Book is Open and we are looking for co-authors (as I will never have the tim
 
 3. Portfolio Optimization
 
++ Modern Portfolio Theory
++ Measuring Risk
++ Linear Programming
+
 4. Machine Learning
 
 + Intro
@@ -35,7 +39,7 @@ The Book is Open and we are looking for co-authors (as I will never have the tim
 
 + Entropy, Efficiency and Coupling
 + Transfer Entropy, Information Transfer and Causality
-+ Financial Networks, Taxonomy and Core-Periphery Structure
++ Financial Networks
 
 ### Book's information
 
