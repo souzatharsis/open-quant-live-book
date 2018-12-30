@@ -6,7 +6,7 @@
 
 ### Contribute
 
-The Book is Open and we are looking for co-authors. Feel free to [reach out](http://www.souzatharsis.com/) or simply create a pull request with your contribution!
+The Book is Open and we are looking for co-authors. Feel free to [reach out](http://www.souzatharsis.com/) or simply create a pull request with your contribution! See project structure, guidelines and how to contribute [here](https://github.com/souzatharsis/open-quant-live-book/blob/master/CONTRIBUTING.md).
 
 ### Working Contents
 
