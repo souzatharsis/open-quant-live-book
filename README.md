@@ -41,6 +41,8 @@ The Book is Open and we are looking for co-authors. Feel free to [reach out](htt
 + Transfer Entropy, Information Transfer and Causality
 + Financial Networks
 
+6. Alternative Data
+
 ### Book's information
 
 First published at: [openquant.netlify.com](https://openquant.netlify.com/).
