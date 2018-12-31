@@ -32,6 +32,8 @@ The Book is Open and we are looking for co-authors. Feel free to [reach out](htt
 4. Machine Learning
 
 + Intro
++ Agent-Based Models
++ Binary Classifiers
 + AutoML
 + Hierarchical Risk Parity
 
