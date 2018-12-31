@@ -2,7 +2,7 @@
 ## The Open Quant Live Book Initiative
 [![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
 
-<img style="border:5px solid black" src="./fig/cover1.jpg" alt="The Open Quant Book" border="5" class="center">
+<img style="margin: 0 1em 0 1em" src="./fig/cover1.jpg" alt="The Open Quant Book" border="5" class="center">
 
 ### Contribute
 
