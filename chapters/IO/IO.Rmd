@@ -5,6 +5,58 @@ library(quantmod)
 
 # I/O
 
+In this Chapter, we will introduce basic input and output functions in R. 
+You will learn how to read text and excel files as well as how to read large files.
+We will also show how to obtain free financial and economic data from sources such as Quandl, IEX and Alpha Vantage.
+
+## Reading and Writing
+
+### Text Files
+
+The most basic and commonly used option to import data from text files in R is the use of the function `read.table` from the **R Base**. We can use this function to read files with extensions such as `.txt` and `.csv`.
+```{r eval=FALSE}
+dat.table <- read.table(file = "<name of your file>.txt")
+dat.csv <- read.csv(file = "<name of your file>.csv")
+```
+
+The package **readr** provides functions for reading text data into R that are much faster that the functions from the **R Base**. The ``read_table`` function from the package **readr** provides a near-replacement for the `read.table` function.
+
+```{r eval=FALSE}
+library(readr)
+dat.table <- readr::read_table2(file = "<name of your file>.txt")
+dat.csv <- readr::read_csv(file = "<name of your file>.csv")
+```
+
+
+Another option to save data is to write it in `rds` format. Data stored in `rds` format has the advantage to keep the original data struture and type of the object saved. Also, `.rds` files are compressed and consume less space then saving the data in `.csv`, for instance. For example, a data.frame object `dat.frame` can be saved in `rds` format and then loaded back follows: 
+```{r eval=FALSE}
+write_rds(dat.frame, path = "<name of your file>.rds")
+dat.frame <- read_rds(path = "<name of your file>.rds")
+```
+
+### Excel Files
+
+The package `readxl` has an easy to use interface to functions to load excel documents in R. The functions `read_xls` and `read_xlsx` can be used to read excel files.
+
+```{r eval=FALSE}
+library(readxl)
+readxl::read_xls(path = "<name of your file>.xls")
+readxl::read_xlsx(path = "<name of your file>.xlsx")
+```
+
+The function `read_excel()` automatically detects the extension of the file.
+
+```{r eval=FALSE}
+readxl::read_excel("<name and extension of your file>", sheet = "<sheet name or index>")
+```
+
+In the `read_excel` function, the `sheet` argument can receive either the target sheet name or index, where sheet indexing starts at 1.
+
+The `readxl` has been oberving increased use compared to other comparable packages such as **gdata** and the **xlsx** due to its relative ease of use and performance. Also, the `readxl` do not have depency with external code libraries while the packages **gdata** and **xlsx** depend on `ActiveState PERL` and the `Java JDK`, respectively.
+
+### Large Files
+
+<!-- https://stackoverflow.com/questions/1727772/quickly-reading-very-large-tables-as-dataframes -->
 
 ## Data Sources
 

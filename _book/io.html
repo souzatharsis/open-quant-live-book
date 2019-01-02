@@ -25,7 +25,7 @@
 <meta name="author" content="Thársis T. P. Souza">
 
 
-<meta name="date" content="2018-12-31">
+<meta name="date" content="2019-01-02">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -124,10 +124,15 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="part"><span><b>I The Basics</b></span></li>
 <li class="chapter" data-level="1" data-path="io.html"><a href="io.html"><i class="fa fa-check"></i><b>1</b> I/O</a><ul>
-<li class="chapter" data-level="1.1" data-path="io.html"><a href="io.html#data-sources"><i class="fa fa-check"></i><b>1.1</b> Data Sources</a><ul>
-<li class="chapter" data-level="1.1.1" data-path="io.html"><a href="io.html#alpha-vantage"><i class="fa fa-check"></i><b>1.1.1</b> Alpha Vantage</a></li>
-<li class="chapter" data-level="1.1.2" data-path="io.html"><a href="io.html#iex"><i class="fa fa-check"></i><b>1.1.2</b> IEX</a></li>
-<li class="chapter" data-level="1.1.3" data-path="io.html"><a href="io.html#quandl"><i class="fa fa-check"></i><b>1.1.3</b> Quandl</a></li>
+<li class="chapter" data-level="1.1" data-path="io.html"><a href="io.html#reading-and-writing"><i class="fa fa-check"></i><b>1.1</b> Reading and Writing</a><ul>
+<li class="chapter" data-level="1.1.1" data-path="io.html"><a href="io.html#text-files"><i class="fa fa-check"></i><b>1.1.1</b> Text Files</a></li>
+<li class="chapter" data-level="1.1.2" data-path="io.html"><a href="io.html#excel-files"><i class="fa fa-check"></i><b>1.1.2</b> Excel Files</a></li>
+<li class="chapter" data-level="1.1.3" data-path="io.html"><a href="io.html#large-files"><i class="fa fa-check"></i><b>1.1.3</b> Large Files</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="io.html"><a href="io.html#data-sources"><i class="fa fa-check"></i><b>1.2</b> Data Sources</a><ul>
+<li class="chapter" data-level="1.2.1" data-path="io.html"><a href="io.html#alpha-vantage"><i class="fa fa-check"></i><b>1.2.1</b> Alpha Vantage</a></li>
+<li class="chapter" data-level="1.2.2" data-path="io.html"><a href="io.html#iex"><i class="fa fa-check"></i><b>1.2.2</b> IEX</a></li>
+<li class="chapter" data-level="1.2.3" data-path="io.html"><a href="io.html#quandl"><i class="fa fa-check"></i><b>1.2.3</b> Quandl</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="stylized-facts.html"><a href="stylized-facts.html"><i class="fa fa-check"></i><b>2</b> Stylized Facts</a><ul>
@@ -156,7 +161,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="6" data-path="transfer-entropy.html"><a href="transfer-entropy.html"><i class="fa fa-check"></i><b>6</b> Transfer Entropy</a></li>
 <li class="chapter" data-level="7" data-path="financial-networks.html"><a href="financial-networks.html"><i class="fa fa-check"></i><b>7</b> Financial Networks</a></li>
 <li class="divider"></li>
+<li><a href="https://creativecommons.org/licenses/by/4.0/" target="blank">CC-BY 4.0</a></li>
 <li><a href="https://github.com/souzatharsis/open-quant-live-book" target="blank">See source code on Github</a></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Made with bookdown</a></li>
 
 </ul>
 
@@ -177,10 +184,42 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="io" class="section level1">
 <h1><span class="header-section-number">Chapter 1</span> I/O</h1>
+<p>In this Chapter, we will introduce basic input and output functions in R. You will learn how to read text and excel files as well as how to read large files. We will also show how to obtain free financial and economic data from sources such as Quandl, IEX and Alpha Vantage.</p>
+<div id="reading-and-writing" class="section level2">
+<h2><span class="header-section-number">1.1</span> Reading and Writing</h2>
+<div id="text-files" class="section level3">
+<h3><span class="header-section-number">1.1.1</span> Text Files</h3>
+<p>The most basic and commonly used option to import data from text files in R is the use of the function <code>read.table</code> from the <strong>R Base</strong>. We can use this function to read files with extensions such as <code>.txt</code> and <code>.csv</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">dat.table &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="dt">file =</span> <span class="st">&quot;&lt;name of your file&gt;.txt&quot;</span>)
+dat.csv &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="dt">file =</span> <span class="st">&quot;&lt;name of your file&gt;.csv&quot;</span>)</code></pre></div>
+<p>The package <strong>readr</strong> provides functions for reading text data into R that are much faster that the functions from the <strong>R Base</strong>. The <code>read_table</code> function from the package <strong>readr</strong> provides a near-replacement for the <code>read.table</code> function.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(readr)
+dat.table &lt;-<span class="st"> </span>readr<span class="op">::</span><span class="kw">read_table2</span>(<span class="dt">file =</span> <span class="st">&quot;&lt;name of your file&gt;.txt&quot;</span>)
+dat.csv &lt;-<span class="st"> </span>readr<span class="op">::</span><span class="kw">read_csv</span>(<span class="dt">file =</span> <span class="st">&quot;&lt;name of your file&gt;.csv&quot;</span>)</code></pre></div>
+<p>Another option to save data is to write it in <code>rds</code> format. Data stored in <code>rds</code> format has the advantage to keep the original data struture and type of the object saved. Also, <code>.rds</code> files are compressed and consume less space then saving the data in <code>.csv</code>, for instance. For example, a data.frame object <code>dat.frame</code> can be saved in <code>rds</code> format and then loaded back follows:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">write_rds</span>(dat.frame, <span class="dt">path =</span> <span class="st">&quot;&lt;name of your file&gt;.rds&quot;</span>)
+dat.frame &lt;-<span class="st"> </span><span class="kw">read_rds</span>(<span class="dt">path =</span> <span class="st">&quot;&lt;name of your file&gt;.rds&quot;</span>)</code></pre></div>
+</div>
+<div id="excel-files" class="section level3">
+<h3><span class="header-section-number">1.1.2</span> Excel Files</h3>
+<p>The package <code>readxl</code> has an easy to use interface to functions to load excel documents in R. The functions <code>read_xls</code> and <code>read_xlsx</code> can be used to read excel files.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(readxl)
+readxl<span class="op">::</span><span class="kw">read_xls</span>(<span class="dt">path =</span> <span class="st">&quot;&lt;name of your file&gt;.xls&quot;</span>)
+readxl<span class="op">::</span><span class="kw">read_xlsx</span>(<span class="dt">path =</span> <span class="st">&quot;&lt;name of your file&gt;.xlsx&quot;</span>)</code></pre></div>
+<p>The function <code>read_excel()</code> automatically detects the extension of the file.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">readxl<span class="op">::</span><span class="kw">read_excel</span>(<span class="st">&quot;&lt;name and extension of your file&gt;&quot;</span>, <span class="dt">sheet =</span> <span class="st">&quot;&lt;sheet name or index&gt;&quot;</span>)</code></pre></div>
+<p>In the <code>read_excel</code> function, the <code>sheet</code> argument can receive either the target sheet name or index, where sheet indexing starts at 1.</p>
+<p>The <code>readxl</code> has been oberving increased use compared to other comparable packages such as <strong>gdata</strong> and the <strong>xlsx</strong> due to its relative ease of use and performance. Also, the <code>readxl</code> do not have depency with external code libraries while the packages <strong>gdata</strong> and <strong>xlsx</strong> depend on <code>ActiveState PERL</code> and the <code>Java JDK</code>, respectively.</p>
+</div>
+<div id="large-files" class="section level3">
+<h3><span class="header-section-number">1.1.3</span> Large Files</h3>
+<!-- https://stackoverflow.com/questions/1727772/quickly-reading-very-large-tables-as-dataframes -->
+</div>
+</div>
 <div id="data-sources" class="section level2">
-<h2><span class="header-section-number">1.1</span> Data Sources</h2>
+<h2><span class="header-section-number">1.2</span> Data Sources</h2>
 <div id="alpha-vantage" class="section level3">
-<h3><span class="header-section-number">1.1.1</span> Alpha Vantage</h3>
+<h3><span class="header-section-number">1.2.1</span> Alpha Vantage</h3>
 <p>Alpha Vantage offers free access to pricing data including:</p>
 <ul>
 <li>Stock Time Series Data;</li>
@@ -191,7 +230,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>The data are available in JSON and CSV format via REST APIs. The <strong>quantmod</strong> and the <strong>alphavantager</strong> R packages offer a lightweight R interface to the Alpha Vantage API. For instance, daily stock prices can be obtained with the <code>quantmod::getSymbols</code> function as follows:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">getSymbols</span>(<span class="dt">Symbols=</span><span class="st">&#39;AAPL&#39;</span>, <span class="dt">src=</span><span class="st">&quot;av&quot;</span>, <span class="dt">output.size=</span><span class="st">&quot;full&quot;</span>, <span class="dt">adjusted=</span><span class="ot">TRUE</span>, <span class="dt">api.key=</span><span class="st">&#39;your API key&#39;</span>)</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(AAPL<span class="op">$</span>AAPL.Adjusted)</code></pre></div>
-<p><img src="open-quant-live-book_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<p><img src="open-quant-live-book_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
 <p>We called the <code>quantmod::getSymbols</code> function with the following arguments:</p>
 <ul>
 <li><code>Symbols='AAPL'</code> defines a character vector specifying the names of each symbol to be loaded, here specified by the symbol of the company Apple Inc.;</li>
@@ -202,10 +241,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul>
 </div>
 <div id="iex" class="section level3">
-<h3><span class="header-section-number">1.1.2</span> IEX</h3>
+<h3><span class="header-section-number">1.2.2</span> IEX</h3>
 </div>
 <div id="quandl" class="section level3">
-<h3><span class="header-section-number">1.1.3</span> Quandl</h3>
+<h3><span class="header-section-number">1.2.3</span> Quandl</h3>
 
 </div>
 </div>
