@@ -126,7 +126,7 @@
 
 \title{The Open Quant Live Book}
 \author{Thársis T. P. Souza}
-\date{2018-12-28}
+\date{2019-01-02}
 
 \let\BeginKnitrBlock\begin \let\EndKnitrBlock\end
 \begin{document}
@@ -242,8 +242,7 @@
 
 The Book is
 \href{https://github.com/souzatharsis/open-quant-live-book}{Open} and we
-are looking for co-authors (as I will never have the time or the
-knowledge to write it all by myself). Feel free to
+are looking for co-authors. Feel free to
 \href{http://www.souzatharsis.com/}{reach out} or simply create a pull
 request with your contribution on our
 \href{https://github.com/souzatharsis/open-quant-live-book}{Github
@@ -268,6 +267,91 @@ Copyright (c) 2018. Thársis T. P. Souza. New York, NY.
 \part{The Basics}\label{part-the-basics}
 
 \chapter{I/O}\label{io}
+
+In this Chapter, we will introduce basic input and output functions in
+R. You will learn how to read text and excel files as well as how to
+read large files. We will also show how to obtain free financial and
+economic data from sources such as Quandl, IEX and Alpha Vantage.
+
+\section{Reading and Writing}\label{reading-and-writing}
+
+\subsection{Text Files}\label{text-files}
+
+The most basic and commonly used option to import data from text files
+in R is the use of the function \texttt{read.table} from the \textbf{R
+Base}. We can use this function to read files with extensions such as
+\texttt{.txt} and \texttt{.csv}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{dat.table <-}\StringTok{ }\KeywordTok{read.table}\NormalTok{(}\DataTypeTok{file =} \StringTok{"<name of your file>.txt"}\NormalTok{)}
+\NormalTok{dat.csv <-}\StringTok{ }\KeywordTok{read.csv}\NormalTok{(}\DataTypeTok{file =} \StringTok{"<name of your file>.csv"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+The package \textbf{readr} provides functions for reading text data into
+R that are much faster that the functions from the \textbf{R Base}. The
+\texttt{read\_table} function from the package \textbf{readr} provides a
+near-replacement for the \texttt{read.table} function.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(readr)}
+\NormalTok{dat.table <-}\StringTok{ }\NormalTok{readr}\OperatorTok{::}\KeywordTok{read_table2}\NormalTok{(}\DataTypeTok{file =} \StringTok{"<name of your file>.txt"}\NormalTok{)}
+\NormalTok{dat.csv <-}\StringTok{ }\NormalTok{readr}\OperatorTok{::}\KeywordTok{read_csv}\NormalTok{(}\DataTypeTok{file =} \StringTok{"<name of your file>.csv"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Another option to save data is to write it in \texttt{rds} format. Data
+stored in \texttt{rds} format has the advantage to keep the original
+data struture and type of the object saved. Also, \texttt{.rds} files
+are compressed and consume less space then saving the data in
+\texttt{.csv}, for instance. For example, a data.frame object
+\texttt{dat.frame} can be saved in \texttt{rds} format and then loaded
+back follows:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{write_rds}\NormalTok{(dat.frame, }\DataTypeTok{path =} \StringTok{"<name of your file>.rds"}\NormalTok{)}
+\NormalTok{dat.frame <-}\StringTok{ }\KeywordTok{read_rds}\NormalTok{(}\DataTypeTok{path =} \StringTok{"<name of your file>.rds"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Excel Files}\label{excel-files}
+
+The package \texttt{readxl} has an easy to use interface to functions to
+load excel documents in R. The functions \texttt{read\_xls} and
+\texttt{read\_xlsx} can be used to read excel files.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(readxl)}
+\NormalTok{readxl}\OperatorTok{::}\KeywordTok{read_xls}\NormalTok{(}\DataTypeTok{path =} \StringTok{"<name of your file>.xls"}\NormalTok{)}
+\NormalTok{readxl}\OperatorTok{::}\KeywordTok{read_xlsx}\NormalTok{(}\DataTypeTok{path =} \StringTok{"<name of your file>.xlsx"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+The function \texttt{read\_excel()} automatically detects the extension
+of the file.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{readxl}\OperatorTok{::}\KeywordTok{read_excel}\NormalTok{(}\StringTok{"<name and extension of your file>"}\NormalTok{, }\DataTypeTok{sheet =} \StringTok{"<sheet name or index>"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+In the \texttt{read\_excel} function, the \texttt{sheet} argument can
+receive either the target sheet name or index, where sheet indexing
+starts at 1.
+
+The \texttt{readxl} has been oberving increased use compared to other
+comparable packages such as \textbf{gdata} and the \textbf{xlsx} due to
+its relative ease of use and performance. Also, the \texttt{readxl} do
+not have depency with external code libraries while the packages
+\textbf{gdata} and \textbf{xlsx} depend on \texttt{ActiveState\ PERL}
+and the \texttt{Java\ JDK}, respectively.
+
+\subsection{Large Files}\label{large-files}
 
 \section{Data Sources}\label{data-sources}
 
@@ -306,7 +390,7 @@ function as follows:
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{open-quant-live-book_files/figure-latex/unnamed-chunk-9-1.pdf}
+\includegraphics{open-quant-live-book_files/figure-latex/unnamed-chunk-14-1.pdf}
 
 We called the \texttt{quantmod::getSymbols} function with the following
 arguments:
