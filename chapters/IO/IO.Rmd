@@ -13,13 +13,13 @@ We will also show how to obtain free financial and economic data from sources su
 
 ### Text Files
 
-The most basic and commonly used option to import data from text files in R is the use of the function `read.table` from the **R Base**. We can use this function to read files with extensions such as `.txt` and `.csv`.
+The most basic and commonly used option to import data from text files in R is the use of the function `read.table` from the **r-base**. We can use this function to read text files with extensions such as `.txt` and `.csv`.
 ```{r eval=FALSE}
 dat.table <- read.table(file = "<name of your file>.txt")
 dat.csv <- read.csv(file = "<name of your file>.csv")
 ```
 
-The package **readr** provides functions for reading text data into R that are much faster that the functions from the **R Base**. The ``read_table`` function from the package **readr** provides a near-replacement for the `read.table` function.
+The package **readr** provides functions for reading text data into R that are much faster that the functions from the **r-base**. The ``read_table`` function from the package **readr** provides a near-replacement for the `read.table` function.
 
 ```{r eval=FALSE}
 library(readr)
@@ -27,8 +27,7 @@ dat.table <- readr::read_table2(file = "<name of your file>.txt")
 dat.csv <- readr::read_csv(file = "<name of your file>.csv")
 ```
 
-
-Another option to save data is to write it in `rds` format. Data stored in `rds` format has the advantage to keep the original data struture and type of the object saved. Also, `.rds` files are compressed and consume less space then saving the data in `.csv`, for instance. For example, a data.frame object `dat.frame` can be saved in `rds` format and then loaded back follows: 
+Another option to save data is to write it in `rds` format. Data stored in `rds` format has the advantage to keep the original data struture and type of the object saved. Also, `.rds` files are compressed and consume less space than files saved in `.csv` format. A data.frame object can be saved in `rds` format and then loaded back as follows: 
 ```{r eval=FALSE}
 write_rds(dat.frame, path = "<name of your file>.rds")
 dat.frame <- read_rds(path = "<name of your file>.rds")
@@ -36,7 +35,7 @@ dat.frame <- read_rds(path = "<name of your file>.rds")
 
 ### Excel Files
 
-The package `readxl` has an easy to use interface to functions to load excel documents in R. The functions `read_xls` and `read_xlsx` can be used to read excel files.
+The package `readxl` has an ease to use interface to functions that load excel documents in R. The functions `read_xls` and `read_xlsx` can be used to read excel files as follows:
 
 ```{r eval=FALSE}
 library(readxl)
@@ -44,13 +43,13 @@ readxl::read_xls(path = "<name of your file>.xls")
 readxl::read_xlsx(path = "<name of your file>.xlsx")
 ```
 
-The function `read_excel()` automatically detects the extension of the file.
+The function `read_excel()` automatically detects the extension of the input file as follows:
 
 ```{r eval=FALSE}
 readxl::read_excel("<name and extension of your file>", sheet = "<sheet name or index>")
 ```
 
-In the `read_excel` function, the `sheet` argument can receive either the target sheet name or index, where sheet indexing starts at 1.
+In the `read_excel` function, the `sheet` argument can receive either the target sheet name or index number, where sheet indexing starts at 1.
 
 The `readxl` has been oberving increased use compared to other comparable packages such as **gdata** and the **xlsx** due to its relative ease of use and performance. Also, the `readxl` do not have depency with external code libraries while the packages **gdata** and **xlsx** depend on `ActiveState PERL` and the `Java JDK`, respectively.
 
@@ -71,14 +70,18 @@ Alpha Vantage offers free access to pricing data including:
 
 The data are available in JSON and CSV format via REST APIs.
 The **quantmod** and the **alphavantager** R packages offer a lightweight R interface to the Alpha Vantage API.
-For instance, daily stock prices can be obtained with the `quantmod::getSymbols` function as follows:
+Daily stock prices can be obtained with the `quantmod::getSymbols` function as follows:
 ```{r eval=TRUE, echo=FALSE, cache=TRUE, results='hide', include=FALSE}
 getSymbols(Symbols='AAPL', src="av", output.size="full", adjusted=TRUE, api.key=config::get()$alpha.vantage.key)
 ```
 ```{r eval=FALSE, echo=TRUE, cache=FALSE}
 getSymbols(Symbols='AAPL', src="av", output.size="full", adjusted=TRUE, api.key='your API key')
 ```
+
+The output data looks like this
+
 ```{r eval=TRUE, echo=TRUE, cache=TRUE}
+head(AAPL)
 plot(AAPL$AAPL.Adjusted)
 ``` 
 
@@ -86,9 +89,9 @@ We called the `quantmod::getSymbols` function with the following arguments:
 
 * `Symbols='AAPL'` defines a character vector specifying the names of each symbol to be loaded, here specified by the symbol of the company Apple Inc.;
 * `src="av"` specifies the sourcing method, here defined with the value corresponding to Alpha Vantage;
-* `output.size="full"`, strings `compact` and `full` are accepted with the following specifications: `compact` returns only the latest 100 data points; `full` returns the full-length time series of up to 20 years of historical data;
-* `adjusted=TRUE`, defines boolean variable to include a column of closing prices adjusted for dividends and splits;
-* `api.key`, specifies your Alpha Vantage API key.
+* `output.size="full"`specified length of the time series returned. The strings `compact` and `full` are accepted with the following specifications: `compact` returns only the latest 100 data points; `full` returns the full-length time series of up to 20 years of historical data;
+* `adjusted=TRUE` defines a boolean variable to include a column of closing prices adjusted for dividends and splits;
+* `api.key` specifies your Alpha Vantage API key.
 
 ### IEX
 
