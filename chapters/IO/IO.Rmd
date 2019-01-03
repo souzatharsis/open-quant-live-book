@@ -95,6 +95,17 @@ We called the `quantmod::getSymbols` function with the following arguments:
 
 ### IEX
 
+IEX Group operates the Investors Exchange (IEX), a stock exchange for U.S. equities that is built for investors and companies.
+IEX offers U.S. reference and market data including end-of-day and intraday pricing data freely available for commercial use.
+IEX offers an API with "a set of services designed for developers and engineers. It can be used to build high-quality apps and services." Data sourced from the IEX API is subject to [conditions](<https://iextrading.com/api-exhibit-a/>) 
+and the use of their API is subject to additional [terms](<https://iextrading.com/api-terms/>).
+
+IEX lists the following github project as an unofficial API for R: https://github.com/imanuelcostigan/iex.
+
+```{r eval=FALSE, echo=TRUE, cache=FALSE}
+library(devtools)
+install_github("imanuelcostigan/iex")
+```
 
 ### Quandl
 
