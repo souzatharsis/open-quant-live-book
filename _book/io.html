@@ -25,7 +25,7 @@
 <meta name="author" content="Thársis T. P. Souza">
 
 
-<meta name="date" content="2019-01-03">
+<meta name="date" content="2019-01-04">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -101,7 +101,7 @@ code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* Com
 code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
-<link rel="stylesheet" href="custom_style.css" type="text/css" />
+<link rel="stylesheet" href="custom_style2.css" type="text/css" />
 </head>
 
 <body>
@@ -218,7 +218,7 @@ readxl<span class="op">::</span><span class="kw">read_xlsx</span>(<span class="d
 </div>
 <div id="data-sources" class="section level2">
 <h2><span class="header-section-number">1.2</span> Data Sources</h2>
-<p>In this section, we will provide examples of on how to obtain financial and economic data from public sources.</p>
+<p>In this section, we will show how to obtain financial and economic data from public sources.</p>
 <div id="alpha-vantage" class="section level3">
 <h3><span class="header-section-number">1.2.1</span> Alpha Vantage</h3>
 <p>Alpha Vantage offers free access to pricing data including:</p>
@@ -323,7 +323,7 @@ readxl<span class="op">::</span><span class="kw">read_xlsx</span>(<span class="d
 <li><code>version</code>: The API version number, which is used to define the API URL.</li>
 </ul>
 <p>We can obtain intraday stock price data with the <code>last</code> function as follows:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">dat &lt;-<span class="st"> </span><span class="kw">last</span>(<span class="dt">symbols =</span> <span class="kw">c</span>(<span class="st">&quot;AAPL&quot;</span>), <span class="dt">fields  =</span> <span class="kw">c</span>(<span class="st">&quot;symbol&quot;</span>, <span class="st">&quot;price&quot;</span>, <span class="st">&quot;size&quot;</span>)) </code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">dat &lt;-<span class="st"> </span>iex<span class="op">::</span><span class="kw">last</span>(<span class="dt">symbols =</span> <span class="kw">c</span>(<span class="st">&quot;AAPL&quot;</span>), <span class="dt">fields  =</span> <span class="kw">c</span>(<span class="st">&quot;symbol&quot;</span>, <span class="st">&quot;price&quot;</span>, <span class="st">&quot;size&quot;</span>)) </code></pre></div>
 <p>The function returns an S3 object of class <code>iex_api</code> which has three accessible fields: <code>path</code> , <code>response</code> and <code>content</code>.</p>
 <ul>
 <li>The <code>path</code> contains the corresponding IEX API path:</li>
@@ -335,7 +335,7 @@ readxl<span class="op">::</span><span class="kw">read_xlsx</span>(<span class="d
 </ul>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">dat<span class="op">$</span>response</code></pre></div>
 <pre><code>## Response [https://api.iextrading.com/1.0/tops/last?symbols=AAPL&amp;filter=symbol%2Cprice%2Csize]
-##   Date: 2019-01-04 04:51
+##   Date: 2019-01-04 06:47
 ##   Status: 200
 ##   Content-Type: application/json; charset=utf-8
 ##   Size: 45 B</code></pre>

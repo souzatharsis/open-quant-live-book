@@ -25,3 +25,19 @@ x<-getSymbols(Symbols='AAPL', src="av", output.size="full", output.size="full", 
 
 
 
+######################## Quandl
+# library(Quandl)
+#
+#
+# Quandl.api_key('V2TuJHRGC5irmyAXBszA')
+#
+# from.dat <- as.Date("01/01/2010", format="%d/%m/%Y")
+# to.dat <- as.Date("01/01/2018", format="%d/%m/%Y")
+# ticker <- "AAPL"
+# dat<-Quandl(ticker, start_date = from.dat, end_date = to.dat, type="xts", adjusted=TRUE)
+#
+# plot(dat$)
+#
+# https://www.quandl.com/api/v3/databases?api_key=V2TuJHRGC5irmyAXBszA&current_page=2
+
+

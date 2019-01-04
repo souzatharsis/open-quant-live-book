@@ -7,6 +7,7 @@ if(!require(iex)){
 ```
 
 
+
 # I/O
 
 In this Chapter, we will introduce basic input and output functions in R. 
@@ -136,7 +137,7 @@ For instance, the `last` function has the following arguments:
 
 We can obtain intraday stock price data with the `last` function as follows:
 ```{r eval=TRUE, echo=TRUE, cache=TRUE}
-dat <- last(symbols = c("AAPL"), fields  = c("symbol", "price", "size")) 
+dat <- iex::last(symbols = c("AAPL"), fields  = c("symbol", "price", "size")) 
 ``` 
 
 The function returns an S3 object of class `iex_api` which has three accessible fields:

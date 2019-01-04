@@ -126,7 +126,7 @@
 
 \title{The Open Quant Live Book}
 \author{Thársis T. P. Souza}
-\date{2019-01-03}
+\date{2019-01-04}
 
 \let\BeginKnitrBlock\begin \let\EndKnitrBlock\end
 \begin{document}
@@ -137,14 +137,14 @@
 
 {
 \hypersetup{linkcolor=}
-\setcounter{tocdepth}{1}
+\setcounter{tocdepth}{2}
 \tableofcontents
 }
 \chapter*{Preface}\label{preface}
-\addcontentsline{toc}{chapter}{Preface}
+
 
 \subsection*{Working Contents}\label{working-contents}
-\addcontentsline{toc}{subsection}{Working Contents}
+
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -250,7 +250,7 @@
 \end{enumerate}
 
 \subsection*{Contribute}\label{contribute}
-\addcontentsline{toc}{subsection}{Contribute}
+
 
 The Book is
 \href{https://github.com/souzatharsis/open-quant-live-book}{Open} and we
@@ -261,7 +261,7 @@ request with your contribution on our
 project}.
 
 \subsection*{Book's information}\label{books-information}
-\addcontentsline{toc}{subsection}{Book's information}
+
 
 First published at:
 \href{https://openquant.netlify.com/}{openquant.netlify.com}.
@@ -366,8 +366,8 @@ and the \texttt{Java\ JDK}, respectively.
 
 \section{Data Sources}\label{data-sources}
 
-In this section, we will provide examples of on how to obtain financial
-and economic data from public sources.
+In this section, we will show how to obtain financial and economic data
+from public sources.
 
 \subsection{Alpha Vantage}\label{alpha-vantage}
 
@@ -514,8 +514,8 @@ as follows:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{dat <-}\StringTok{ }\KeywordTok{last}\NormalTok{(}\DataTypeTok{symbols =} \KeywordTok{c}\NormalTok{(}\StringTok{"AAPL"}\NormalTok{), }\DataTypeTok{fields =} \KeywordTok{c}\NormalTok{(}\StringTok{"symbol"}\NormalTok{, }\StringTok{"price"}\NormalTok{, }
-  \StringTok{"size"}\NormalTok{))}
+\NormalTok{dat <-}\StringTok{ }\NormalTok{iex}\OperatorTok{::}\KeywordTok{last}\NormalTok{(}\DataTypeTok{symbols =} \KeywordTok{c}\NormalTok{(}\StringTok{"AAPL"}\NormalTok{), }\DataTypeTok{fields =} \KeywordTok{c}\NormalTok{(}\StringTok{"symbol"}\NormalTok{, }
+  \StringTok{"price"}\NormalTok{, }\StringTok{"size"}\NormalTok{))}
 \end{Highlighting}
 \end{Shaded}
 
@@ -553,7 +553,7 @@ three accessible fields: \texttt{path} , \texttt{response} and
 
 \begin{verbatim}
 ## Response [https://api.iextrading.com/1.0/tops/last?symbols=AAPL&filter=symbol%2Cprice%2Csize]
-##   Date: 2019-01-04 04:49
+##   Date: 2019-01-04 06:53
 ##   Status: 200
 ##   Content-Type: application/json; charset=utf-8
 ##   Size: 45 B

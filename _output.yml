@@ -1,7 +1,7 @@
 bookdown::gitbook:
   includes:
     in_header: preamble.html
-  css: custom_style.css
+  css: custom_style2.css
   config:
     toc:
       before: |
@@ -30,6 +30,10 @@ bookdown::pdf_book:
   latex_engine: xelatex
   citation_package: natbib
   keep_tex: yes
+  toc_depth: 3
+  toc_unnumbered: no
+  toc_appendix: yes
+  quote_footer: ["\\VA{", "}{}"]
   template: template.tex
 
 bookdown::epub_book: default
