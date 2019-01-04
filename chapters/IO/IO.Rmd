@@ -10,8 +10,7 @@ if(!require(iex)){
 
 # I/O
 
-In this Chapter, we will introduce basic input and output functions in R. 
-You will learn how to read text and excel files as well as how to read large files.
+In this Chapter, we will introduce basic functions to read text and excel files as well as large files.
 We will also show how to obtain free financial and economic data from sources such as Quandl, IEX and Alpha Vantage.
 
 ## Reading and Writing
@@ -60,6 +59,7 @@ The `readxl` has been oberving increased use compared to other comparable packag
 
 ### Large Files
 
+Fast data manipulation in a short and flexible syntax.
 <!-- https://stackoverflow.com/questions/1727772/quickly-reading-very-large-tables-as-dataframes -->
 
 ## Data Sources
@@ -162,4 +162,30 @@ According to the developer, this package causes R to pause 0.2 seconds after exe
 ### Quandl
 
 
+## Conclusion
 
+* We showed how to load and import data from both local files and external sources.
+* We provided examples on how to read tabular data and how to handle large files.
+* We showed how to obtain financial and economic data from freely available sources.
+
+### Key Packages Used
+
+* Importing Flat Files
+++ **readr** and **data.table**
+
+* Obtaining Financial Data
+++ **quantmod**, **imanuelcostigan/iex** and **quandl**
+
+### Further Reading
+
+We recommend the book R for Data Science: Import, Tidy, Transform, Visualize, and Model Data.
+Additional relevant R packages include:
+
+* dplyr: Fast data frames manipulation and database query.
+* reshape2: Flexibly rearrange, reshape and aggregate data.
+* readr: A fast and friendly way to read tabular data into R.
+* tidyr: Easily tidy data with spread and gather functions.
+* rlist: A toolbox for non-tabular data manipulation with lists.
+* jsonlite: A robust and quick way to parse JSON files in R.
+* ff: Data structures designed to store large datasets.
+* lubridate: A set of functions to work with dates and times.
