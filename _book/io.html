@@ -25,7 +25,7 @@
 <meta name="author" content="Thársis T. P. Souza">
 
 
-<meta name="date" content="2019-01-02">
+<meta name="date" content="2019-01-03">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -101,7 +101,7 @@ code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* Com
 code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
-<link rel="stylesheet" href="style.css" type="text/css" />
+<link rel="stylesheet" href="custom_style.css" type="text/css" />
 </head>
 
 <body>
@@ -189,26 +189,26 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h2><span class="header-section-number">1.1</span> Reading and Writing</h2>
 <div id="text-files" class="section level3">
 <h3><span class="header-section-number">1.1.1</span> Text Files</h3>
-<p>The most basic and commonly used option to import data from text files in R is the use of the function <code>read.table</code> from the <strong>R Base</strong>. We can use this function to read files with extensions such as <code>.txt</code> and <code>.csv</code>.</p>
+<p>The most basic and commonly used option to import data from text files in R is the use of the function <code>read.table</code> from the <strong>r-base</strong>. We can use this function to read text files with extensions such as <code>.txt</code> and <code>.csv</code>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">dat.table &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="dt">file =</span> <span class="st">&quot;&lt;name of your file&gt;.txt&quot;</span>)
 dat.csv &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="dt">file =</span> <span class="st">&quot;&lt;name of your file&gt;.csv&quot;</span>)</code></pre></div>
-<p>The package <strong>readr</strong> provides functions for reading text data into R that are much faster that the functions from the <strong>R Base</strong>. The <code>read_table</code> function from the package <strong>readr</strong> provides a near-replacement for the <code>read.table</code> function.</p>
+<p>The package <strong>readr</strong> provides functions for reading text data into R that are much faster that the functions from the <strong>r-base</strong>. The <code>read_table</code> function from the package <strong>readr</strong> provides a near-replacement for the <code>read.table</code> function.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(readr)
 dat.table &lt;-<span class="st"> </span>readr<span class="op">::</span><span class="kw">read_table2</span>(<span class="dt">file =</span> <span class="st">&quot;&lt;name of your file&gt;.txt&quot;</span>)
 dat.csv &lt;-<span class="st"> </span>readr<span class="op">::</span><span class="kw">read_csv</span>(<span class="dt">file =</span> <span class="st">&quot;&lt;name of your file&gt;.csv&quot;</span>)</code></pre></div>
-<p>Another option to save data is to write it in <code>rds</code> format. Data stored in <code>rds</code> format has the advantage to keep the original data struture and type of the object saved. Also, <code>.rds</code> files are compressed and consume less space then saving the data in <code>.csv</code>, for instance. For example, a data.frame object <code>dat.frame</code> can be saved in <code>rds</code> format and then loaded back follows:</p>
+<p>Another option to save data is to write it in <code>rds</code> format. Data stored in <code>rds</code> format has the advantage to keep the original data struture and type of the object saved. Also, <code>.rds</code> files are compressed and consume less space than files saved in <code>.csv</code> format. A data.frame object can be saved in <code>rds</code> format and then loaded back as follows:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">write_rds</span>(dat.frame, <span class="dt">path =</span> <span class="st">&quot;&lt;name of your file&gt;.rds&quot;</span>)
 dat.frame &lt;-<span class="st"> </span><span class="kw">read_rds</span>(<span class="dt">path =</span> <span class="st">&quot;&lt;name of your file&gt;.rds&quot;</span>)</code></pre></div>
 </div>
 <div id="excel-files" class="section level3">
 <h3><span class="header-section-number">1.1.2</span> Excel Files</h3>
-<p>The package <code>readxl</code> has an easy to use interface to functions to load excel documents in R. The functions <code>read_xls</code> and <code>read_xlsx</code> can be used to read excel files.</p>
+<p>The package <code>readxl</code> has an ease to use interface to functions that load excel documents in R. The functions <code>read_xls</code> and <code>read_xlsx</code> can be used to read excel files as follows:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(readxl)
 readxl<span class="op">::</span><span class="kw">read_xls</span>(<span class="dt">path =</span> <span class="st">&quot;&lt;name of your file&gt;.xls&quot;</span>)
 readxl<span class="op">::</span><span class="kw">read_xlsx</span>(<span class="dt">path =</span> <span class="st">&quot;&lt;name of your file&gt;.xlsx&quot;</span>)</code></pre></div>
-<p>The function <code>read_excel()</code> automatically detects the extension of the file.</p>
+<p>The function <code>read_excel()</code> automatically detects the extension of the input file as follows:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">readxl<span class="op">::</span><span class="kw">read_excel</span>(<span class="st">&quot;&lt;name and extension of your file&gt;&quot;</span>, <span class="dt">sheet =</span> <span class="st">&quot;&lt;sheet name or index&gt;&quot;</span>)</code></pre></div>
-<p>In the <code>read_excel</code> function, the <code>sheet</code> argument can receive either the target sheet name or index, where sheet indexing starts at 1.</p>
+<p>In the <code>read_excel</code> function, the <code>sheet</code> argument can receive either the target sheet name or index number, where sheet indexing starts at 1.</p>
 <p>The <code>readxl</code> has been oberving increased use compared to other comparable packages such as <strong>gdata</strong> and the <strong>xlsx</strong> due to its relative ease of use and performance. Also, the <code>readxl</code> do not have depency with external code libraries while the packages <strong>gdata</strong> and <strong>xlsx</strong> depend on <code>ActiveState PERL</code> and the <code>Java JDK</code>, respectively.</p>
 </div>
 <div id="large-files" class="section level3">
@@ -218,6 +218,7 @@ readxl<span class="op">::</span><span class="kw">read_xlsx</span>(<span class="d
 </div>
 <div id="data-sources" class="section level2">
 <h2><span class="header-section-number">1.2</span> Data Sources</h2>
+<p>In this section, we will provide examples of on how to obtain financial and economic data from public sources.</p>
 <div id="alpha-vantage" class="section level3">
 <h3><span class="header-section-number">1.2.1</span> Alpha Vantage</h3>
 <p>Alpha Vantage offers free access to pricing data including:</p>
@@ -227,21 +228,131 @@ readxl<span class="op">::</span><span class="kw">read_xlsx</span>(<span class="d
 <li>Technical Indicators and</li>
 <li>Sector Performances.</li>
 </ul>
-<p>The data are available in JSON and CSV format via REST APIs. The <strong>quantmod</strong> and the <strong>alphavantager</strong> R packages offer a lightweight R interface to the Alpha Vantage API. For instance, daily stock prices can be obtained with the <code>quantmod::getSymbols</code> function as follows:</p>
+<p>The data are available in JSON and CSV format via REST APIs. The <strong>quantmod</strong> and the <strong>alphavantager</strong> R packages offer a lightweight R interface to the Alpha Vantage API. Daily stock prices can be obtained with the <code>quantmod::getSymbols</code> function as follows:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">getSymbols</span>(<span class="dt">Symbols=</span><span class="st">&#39;AAPL&#39;</span>, <span class="dt">src=</span><span class="st">&quot;av&quot;</span>, <span class="dt">output.size=</span><span class="st">&quot;full&quot;</span>, <span class="dt">adjusted=</span><span class="ot">TRUE</span>, <span class="dt">api.key=</span><span class="st">&#39;your API key&#39;</span>)</code></pre></div>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(AAPL<span class="op">$</span>AAPL.Adjusted)</code></pre></div>
+<p>The output data is stored in an object with the same name as the corresponding symbol, in this example <code>AAPL</code>. The output data looks like this</p>
+<table>
+<thead>
+<tr class="header">
+<th align="right">AAPL.Open</th>
+<th align="right">AAPL.High</th>
+<th align="right">AAPL.Low</th>
+<th align="right">AAPL.Close</th>
+<th align="right">AAPL.Volume</th>
+<th align="right">AAPL.Adjusted</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">13.6</td>
+<td align="right">16.2</td>
+<td align="right">13.5</td>
+<td align="right">16.2</td>
+<td align="right">6411700</td>
+<td align="right">0.512</td>
+</tr>
+<tr class="even">
+<td align="right">16.5</td>
+<td align="right">16.6</td>
+<td align="right">15.2</td>
+<td align="right">15.9</td>
+<td align="right">5820300</td>
+<td align="right">0.501</td>
+</tr>
+<tr class="odd">
+<td align="right">15.9</td>
+<td align="right">20.0</td>
+<td align="right">14.8</td>
+<td align="right">18.9</td>
+<td align="right">16182800</td>
+<td align="right">0.597</td>
+</tr>
+<tr class="even">
+<td align="right">18.8</td>
+<td align="right">19.0</td>
+<td align="right">17.3</td>
+<td align="right">17.5</td>
+<td align="right">9300200</td>
+<td align="right">0.552</td>
+</tr>
+<tr class="odd">
+<td align="right">17.4</td>
+<td align="right">18.6</td>
+<td align="right">16.9</td>
+<td align="right">18.2</td>
+<td align="right">6910900</td>
+<td align="right">0.574</td>
+</tr>
+<tr class="even">
+<td align="right">18.1</td>
+<td align="right">19.4</td>
+<td align="right">17.5</td>
+<td align="right">18.2</td>
+<td align="right">7915600</td>
+<td align="right">0.574</td>
+</tr>
+</tbody>
+</table>
 <p><img src="open-quant-live-book_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
 <p>We called the <code>quantmod::getSymbols</code> function with the following arguments:</p>
 <ul>
 <li><code>Symbols='AAPL'</code> defines a character vector specifying the names of each symbol to be loaded, here specified by the symbol of the company Apple Inc.;</li>
 <li><code>src=&quot;av&quot;</code> specifies the sourcing method, here defined with the value corresponding to Alpha Vantage;</li>
-<li><code>output.size=&quot;full&quot;</code>, strings <code>compact</code> and <code>full</code> are accepted with the following specifications: <code>compact</code> returns only the latest 100 data points; <code>full</code> returns the full-length time series of up to 20 years of historical data;</li>
-<li><code>adjusted=TRUE</code>, defines boolean variable to include a column of closing prices adjusted for dividends and splits;</li>
-<li><code>api.key</code>, specifies your Alpha Vantage API key.</li>
+<li><code>output.size=&quot;full&quot;</code>specified length of the time series returned. The strings <code>compact</code> and <code>full</code> are accepted with the following specifications: <code>compact</code> returns only the latest 100 data points; <code>full</code> returns the full-length time series of up to 20 years of historical data;</li>
+<li><code>adjusted=TRUE</code> defines a boolean variable to include a column of closing prices adjusted for dividends and splits;</li>
+<li><code>api.key</code> specifies your Alpha Vantage API key.</li>
 </ul>
 </div>
 <div id="iex" class="section level3">
 <h3><span class="header-section-number">1.2.2</span> IEX</h3>
+<p>The IEX Group operates the Investors Exchange (IEX), a stock exchange for U.S. equities that is built for investors and companies. IEX offers U.S. reference and market data including end-of-day and intraday pricing data. IEX offers an API with “a set of services designed for developers and engineers. It can be used to build high-quality apps and services”. Data sourced from the IEX API is freely available for commercial subject to <a href="https://iextrading.com/api-exhibit-a/">conditions</a> and the use of their API is subject to additional <a href="https://iextrading.com/api-terms/">terms of use</a>.</p>
+<p>IEX lists the following github project as an unofficial API for R: <a href="https://github.com/imanuelcostigan/iex" class="uri">https://github.com/imanuelcostigan/iex</a>. We will provide examples on how to obtain intraday pricing data using this package. First, we will use the <strong>devtools</strong> to install the package directly from its github repository as follows:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(devtools)
+<span class="kw">install_github</span>(<span class="st">&quot;imanuelcostigan/iex&quot;</span>)</code></pre></div>
+<p>The <strong>iex</strong> package provides 4 set of functions as follows:</p>
+<ul>
+<li><code>last</code>: Provides IEX near real time last sale price, size and time. Last is ideal for developers that need a lightweight stock quote. <a href="https://iextrading.com/developer/docs/#last">IEX API real time API documentation</a>.</li>
+<li><code>market</code>: Provides exchange trade volume data in near real time. <a href="https://iextrading.com/developer/#market-market">IEX market API documentation</a>.</li>
+<li><code>stats</code>: A set of functions that return trading statistics. <a href="https://iextrading.com/developer/#stats">IEX stats API documentation</a>.</li>
+<li><code>tops</code>: Provides IEX’s aggregated bid and offer position in near real time for all securities on IEX’s displayed limit order book. <a href="https://iextrading.com/developer/#tops-tops">IEX API TOPS documentation</a>.</li>
+</ul>
+<p>For instance, the <code>last</code> function has the following arguments:</p>
+<ul>
+<li><code>symbols</code>: A vector of tickers (case insensitive). Special characters will be escaped. A list of eligible symbols is <a href="https://iextrading.com/trading/eligible-symbols/">published daily</a> by the IEX. When set to <code>NULL</code> (default) returns values for all symbols.</li>
+<li><code>fields</code>: A vector of fields names to return (case sensitive). When set to <code>NULL</code> (default) returns values for all fields.</li>
+<li><code>version</code>: The API version number, which is used to define the API URL.</li>
+</ul>
+<p>We can obtain intraday stock price data with the <code>last</code> function as follows:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">dat &lt;-<span class="st"> </span><span class="kw">last</span>(<span class="dt">symbols =</span> <span class="kw">c</span>(<span class="st">&quot;AAPL&quot;</span>), <span class="dt">fields  =</span> <span class="kw">c</span>(<span class="st">&quot;symbol&quot;</span>, <span class="st">&quot;price&quot;</span>, <span class="st">&quot;size&quot;</span>)) </code></pre></div>
+<p>The function returns an S3 object of class <code>iex_api</code> which has three accessible fields: <code>path</code> , <code>response</code> and <code>content</code>.</p>
+<ul>
+<li>The <code>path</code> contains the corresponding IEX API path:</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">dat<span class="op">$</span>path</code></pre></div>
+<pre><code>## [1] &quot;tops/last&quot;</code></pre>
+<ul>
+<li>The <code>response</code> contains the unparsed IEX API response:</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">dat<span class="op">$</span>response</code></pre></div>
+<pre><code>## Response [https://api.iextrading.com/1.0/tops/last?symbols=AAPL&amp;filter=symbol%2Cprice%2Csize]
+##   Date: 2019-01-04 04:51
+##   Status: 200
+##   Content-Type: application/json; charset=utf-8
+##   Size: 45 B</code></pre>
+<ul>
+<li>The <code>content</code> contains the parsed content from the API’s response (usually being a list).</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">dat<span class="op">$</span>content</code></pre></div>
+<pre><code>## [[1]]
+## [[1]]$symbol
+## [1] &quot;AAPL&quot;
+## 
+## [[1]]$price
+## [1] 142
+## 
+## [[1]]$size
+## [1] 100</code></pre>
+<p>According to the developer, this package causes R to pause 0.2 seconds after executing an API call to avoid the user being throttled by the IEX API (which enforces a 5 request per second limit). Documentation about the other set of functions can be obtained at <a href="https://github.com/imanuelcostigan/iex/tree/master/man" class="uri">https://github.com/imanuelcostigan/iex/tree/master/man</a>.</p>
 </div>
 <div id="quandl" class="section level3">
 <h3><span class="header-section-number">1.2.3</span> Quandl</h3>

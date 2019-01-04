@@ -1,5 +1,9 @@
 ```{r include=FALSE}
 library(quantmod)
+if(!require(iex)){
+  install_github("imanuelcostigan/iex")
+  library(iex)
+}
 ```
 
 
@@ -59,6 +63,8 @@ The `readxl` has been oberving increased use compared to other comparable packag
 
 ## Data Sources
 
+In this section, we will provide examples of on how to obtain financial and economic data from public sources.
+
 ### Alpha Vantage
 
 Alpha Vantage offers free access to pricing data including: 
@@ -78,10 +84,12 @@ getSymbols(Symbols='AAPL', src="av", output.size="full", adjusted=TRUE, api.key=
 getSymbols(Symbols='AAPL', src="av", output.size="full", adjusted=TRUE, api.key='your API key')
 ```
 
-The output data looks like this
+The output data is stored in an object with the same name as the corresponding symbol, in this example `AAPL`. The output data looks like this
 
-```{r eval=TRUE, echo=TRUE, cache=TRUE}
-head(AAPL)
+```{r eval=TRUE, echo=FALSE, cache=TRUE}
+knitr::kable(
+  head(AAPL), booktabs = TRUE
+)
 plot(AAPL$AAPL.Adjusted)
 ``` 
 
@@ -93,19 +101,65 @@ We called the `quantmod::getSymbols` function with the following arguments:
 * `adjusted=TRUE` defines a boolean variable to include a column of closing prices adjusted for dividends and splits;
 * `api.key` specifies your Alpha Vantage API key.
 
+
+
 ### IEX
 
-IEX Group operates the Investors Exchange (IEX), a stock exchange for U.S. equities that is built for investors and companies.
-IEX offers U.S. reference and market data including end-of-day and intraday pricing data freely available for commercial use.
-IEX offers an API with "a set of services designed for developers and engineers. It can be used to build high-quality apps and services." Data sourced from the IEX API is subject to [conditions](<https://iextrading.com/api-exhibit-a/>) 
-and the use of their API is subject to additional [terms](<https://iextrading.com/api-terms/>).
+The IEX Group operates the Investors Exchange (IEX), a stock exchange for U.S. equities that is built for investors and companies.
+IEX offers U.S. reference and market data including end-of-day and intraday pricing data.
+IEX offers an API with "a set of services designed for developers and engineers. It can be used to build high-quality apps and services". Data sourced from the IEX API is freely available for commercial subject to [conditions](<https://iextrading.com/api-exhibit-a/>) 
+and the use of their API is subject to additional [terms of use](<https://iextrading.com/api-terms/>).
 
-IEX lists the following github project as an unofficial API for R: https://github.com/imanuelcostigan/iex.
-
+IEX lists the following github project as an unofficial API for R: https://github.com/imanuelcostigan/iex. We will provide examples on how to obtain intraday pricing data using this package. First, we will use the **devtools** to install the package directly from its github repository as follows:
 ```{r eval=FALSE, echo=TRUE, cache=FALSE}
 library(devtools)
 install_github("imanuelcostigan/iex")
 ```
+
+The **iex** package provides 4 set of functions as follows:
+
+
+* ```last```: Provides IEX near real time last sale price, size and time. Last is ideal for developers that need a lightweight stock quote. 
+[IEX API real time API documentation](https://iextrading.com/developer/docs/#last). 
+* ```market```: Provides exchange trade volume data in near real time. [IEX market API documentation](https://iextrading.com/developer/#market-market).
+* ```stats```: A set of functions that return trading statistics. [IEX stats API documentation](https://iextrading.com/developer/#stats).
+* ```tops```: Provides IEX's aggregated bid and offer position in near real time for all securities on IEX's displayed limit order book. [IEX API TOPS documentation](https://iextrading.com/developer/#tops-tops).
+
+
+For instance, the `last` function has the following arguments:
+
+
+* ```symbols```: A vector of tickers (case insensitive). Special characters will be escaped. A list of eligible symbols is [published daily](https://iextrading.com/trading/eligible-symbols/) by the IEX. When set to `NULL` (default) returns values for all symbols.
+* ```fields```: A vector of fields names to return (case sensitive). When set to `NULL` (default) returns values for all fields.
+* ```version```: The API version number, which is used to define the API URL.
+
+
+We can obtain intraday stock price data with the `last` function as follows:
+```{r eval=TRUE, echo=TRUE, cache=TRUE}
+dat <- last(symbols = c("AAPL"), fields  = c("symbol", "price", "size")) 
+``` 
+
+The function returns an S3 object of class `iex_api` which has three accessible fields:
+ `path` , `response` and `content`. 
+ 
+ * The `path` contains the corresponding IEX API path:
+```{r eval=TRUE, echo=TRUE, cache=TRUE}
+dat$path
+```
+ 
+ * The `response` contains the unparsed IEX API response:
+```{r eval=TRUE, echo=TRUE, cache=TRUE}
+dat$response
+```
+ 
+ * The `content` contains the parsed content from the API's response (usually
+ being a list). 
+```{r eval=TRUE, echo=TRUE, cache=TRUE}
+dat$content
+```
+ 
+According to the developer, this package causes R to pause 0.2 seconds after executing an API call to avoid the user being throttled by the IEX API (which enforces a 5 request per second limit). Documentation about the other set of functions can be obtained at https://github.com/imanuelcostigan/iex/tree/master/man.
+ 
 
 ### Quandl
 

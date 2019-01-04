@@ -62,6 +62,8 @@ if(!knitr:::is_html_output())
 4. Machine Learning
 
 + Intro
++ Agent-Based Models
++ Binary Classifiers
 + AutoML
 + Hierarchical Risk Parity
 
@@ -70,6 +72,8 @@ if(!knitr:::is_html_output())
 + Entropy, Efficiency and Coupling
 + Transfer Entropy, Information Transfer and Causality
 + Financial Networks
+
+6. Alternative Data
 
 ### Contribute {-}
 

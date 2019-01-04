@@ -1,4 +1,11 @@
 library(quantmod)
+if(!require(iex)){
+  install_github("imanuelcostigan/iex")
+  library(iex)
+}
+
+###################### ALPHA VANTAGE
+
 config::get()$alpha.vantage.key
 
 setDefaults(getSymbols.av, api.key='XG3T5XUFFDLJ0JGY')
@@ -11,5 +18,10 @@ to.dat <- as.Date("25/12/2011", format="%d/%m/%Y")
 symbol<-tickers[1]
 
 x<-getSymbols(Symbols='AAPL', src="av", output.size="full", output.size="full", adjusted=TRUE, api.key=config::get()$alpha.vantage.key)
+
+
+###################### IEX
+
+
 
 

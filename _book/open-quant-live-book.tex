@@ -126,7 +126,7 @@
 
 \title{The Open Quant Live Book}
 \author{Thársis T. P. Souza}
-\date{2019-01-02}
+\date{2019-01-03}
 
 \let\BeginKnitrBlock\begin \let\EndKnitrBlock\end
 \begin{document}
@@ -214,6 +214,10 @@
 \item
   Intro
 \item
+  Agent-Based Models
+\item
+  Binary Classifiers
+\item
   AutoML
 \item
   Hierarchical Risk Parity
@@ -236,6 +240,14 @@
 \item
   Financial Networks
 \end{itemize}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{5}
+\tightlist
+\item
+  Alternative Data
+\end{enumerate}
 
 \subsection*{Contribute}\label{contribute}
 \addcontentsline{toc}{subsection}{Contribute}
@@ -278,9 +290,9 @@ economic data from sources such as Quandl, IEX and Alpha Vantage.
 \subsection{Text Files}\label{text-files}
 
 The most basic and commonly used option to import data from text files
-in R is the use of the function \texttt{read.table} from the \textbf{R
-Base}. We can use this function to read files with extensions such as
-\texttt{.txt} and \texttt{.csv}.
+in R is the use of the function \texttt{read.table} from the
+\textbf{r-base}. We can use this function to read text files with
+extensions such as \texttt{.txt} and \texttt{.csv}.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -290,7 +302,7 @@ Base}. We can use this function to read files with extensions such as
 \end{Shaded}
 
 The package \textbf{readr} provides functions for reading text data into
-R that are much faster that the functions from the \textbf{R Base}. The
+R that are much faster that the functions from the \textbf{r-base}. The
 \texttt{read\_table} function from the package \textbf{readr} provides a
 near-replacement for the \texttt{read.table} function.
 
@@ -305,10 +317,9 @@ near-replacement for the \texttt{read.table} function.
 Another option to save data is to write it in \texttt{rds} format. Data
 stored in \texttt{rds} format has the advantage to keep the original
 data struture and type of the object saved. Also, \texttt{.rds} files
-are compressed and consume less space then saving the data in
-\texttt{.csv}, for instance. For example, a data.frame object
-\texttt{dat.frame} can be saved in \texttt{rds} format and then loaded
-back follows:
+are compressed and consume less space than files saved in \texttt{.csv}
+format. A data.frame object can be saved in \texttt{rds} format and then
+loaded back as follows:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -319,9 +330,9 @@ back follows:
 
 \subsection{Excel Files}\label{excel-files}
 
-The package \texttt{readxl} has an easy to use interface to functions to
-load excel documents in R. The functions \texttt{read\_xls} and
-\texttt{read\_xlsx} can be used to read excel files.
+The package \texttt{readxl} has an ease to use interface to functions
+that load excel documents in R. The functions \texttt{read\_xls} and
+\texttt{read\_xlsx} can be used to read excel files as follows:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -332,7 +343,7 @@ load excel documents in R. The functions \texttt{read\_xls} and
 \end{Shaded}
 
 The function \texttt{read\_excel()} automatically detects the extension
-of the file.
+of the input file as follows:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -341,8 +352,8 @@ of the file.
 \end{Shaded}
 
 In the \texttt{read\_excel} function, the \texttt{sheet} argument can
-receive either the target sheet name or index, where sheet indexing
-starts at 1.
+receive either the target sheet name or index number, where sheet
+indexing starts at 1.
 
 The \texttt{readxl} has been oberving increased use compared to other
 comparable packages such as \textbf{gdata} and the \textbf{xlsx} due to
@@ -354,6 +365,9 @@ and the \texttt{Java\ JDK}, respectively.
 \subsection{Large Files}\label{large-files}
 
 \section{Data Sources}\label{data-sources}
+
+In this section, we will provide examples of on how to obtain financial
+and economic data from public sources.
 
 \subsection{Alpha Vantage}\label{alpha-vantage}
 
@@ -373,9 +387,8 @@ Alpha Vantage offers free access to pricing data including:
 
 The data are available in JSON and CSV format via REST APIs. The
 \textbf{quantmod} and the \textbf{alphavantager} R packages offer a
-lightweight R interface to the Alpha Vantage API. For instance, daily
-stock prices can be obtained with the \texttt{quantmod::getSymbols}
-function as follows:
+lightweight R interface to the Alpha Vantage API. Daily stock prices can
+be obtained with the \texttt{quantmod::getSymbols} function as follows:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -384,11 +397,23 @@ function as follows:
 \end{Highlighting}
 \end{Shaded}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{plot}\NormalTok{(AAPL}\OperatorTok{$}\NormalTok{AAPL.Adjusted)}
-\end{Highlighting}
-\end{Shaded}
+The output data is stored in an object with the same name as the
+corresponding symbol, in this example \texttt{AAPL}. The output data
+looks like this
+
+\begin{tabular}{rrrrrr}
+\toprule
+AAPL.Open & AAPL.High & AAPL.Low & AAPL.Close & AAPL.Volume & AAPL.Adjusted\\
+\midrule
+13.6 & 16.2 & 13.5 & 16.2 & 6411700 & 0.512\\
+16.5 & 16.6 & 15.2 & 15.9 & 5820300 & 0.501\\
+15.9 & 20.0 & 14.8 & 18.9 & 16182800 & 0.597\\
+18.8 & 19.0 & 17.3 & 17.5 & 9300200 & 0.552\\
+17.4 & 18.6 & 16.9 & 18.2 & 6910900 & 0.574\\
+\addlinespace
+18.1 & 19.4 & 17.5 & 18.2 & 7915600 & 0.574\\
+\bottomrule
+\end{tabular}
 
 \includegraphics{open-quant-live-book_files/figure-latex/unnamed-chunk-14-1.pdf}
 
@@ -405,19 +430,165 @@ arguments:
   \texttt{src="av"} specifies the sourcing method, here defined with the
   value corresponding to Alpha Vantage;
 \item
-  \texttt{output.size="full"}, strings \texttt{compact} and
-  \texttt{full} are accepted with the following specifications:
-  \texttt{compact} returns only the latest 100 data points;
-  \texttt{full} returns the full-length time series of up to 20 years of
-  historical data;
+  \texttt{output.size="full"}specified length of the time series
+  returned. The strings \texttt{compact} and \texttt{full} are accepted
+  with the following specifications: \texttt{compact} returns only the
+  latest 100 data points; \texttt{full} returns the full-length time
+  series of up to 20 years of historical data;
 \item
-  \texttt{adjusted=TRUE}, defines boolean variable to include a column
+  \texttt{adjusted=TRUE} defines a boolean variable to include a column
   of closing prices adjusted for dividends and splits;
 \item
-  \texttt{api.key}, specifies your Alpha Vantage API key.
+  \texttt{api.key} specifies your Alpha Vantage API key.
 \end{itemize}
 
 \subsection{IEX}\label{iex}
+
+The IEX Group operates the Investors Exchange (IEX), a stock exchange
+for U.S. equities that is built for investors and companies. IEX offers
+U.S. reference and market data including end-of-day and intraday pricing
+data. IEX offers an API with ``a set of services designed for developers
+and engineers. It can be used to build high-quality apps and services''.
+Data sourced from the IEX API is freely available for commercial subject
+to \href{https://iextrading.com/api-exhibit-a/}{conditions} and the use
+of their API is subject to additional
+\href{https://iextrading.com/api-terms/}{terms of use}.
+
+IEX lists the following github project as an unofficial API for R:
+\url{https://github.com/imanuelcostigan/iex}. We will provide examples
+on how to obtain intraday pricing data using this package. First, we
+will use the \textbf{devtools} to install the package directly from its
+github repository as follows:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(devtools)}
+\KeywordTok{install_github}\NormalTok{(}\StringTok{"imanuelcostigan/iex"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+The \textbf{iex} package provides 4 set of functions as follows:
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{last}: Provides IEX near real time last sale price, size and
+  time. Last is ideal for developers that need a lightweight stock
+  quote. \href{https://iextrading.com/developer/docs/\#last}{IEX API
+  real time API documentation}.
+\item
+  \texttt{market}: Provides exchange trade volume data in near real
+  time. \href{https://iextrading.com/developer/\#market-market}{IEX
+  market API documentation}.
+\item
+  \texttt{stats}: A set of functions that return trading statistics.
+  \href{https://iextrading.com/developer/\#stats}{IEX stats API
+  documentation}.
+\item
+  \texttt{tops}: Provides IEX's aggregated bid and offer position in
+  near real time for all securities on IEX's displayed limit order book.
+  \href{https://iextrading.com/developer/\#tops-tops}{IEX API TOPS
+  documentation}.
+\end{itemize}
+
+For instance, the \texttt{last} function has the following arguments:
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{symbols}: A vector of tickers (case insensitive). Special
+  characters will be escaped. A list of eligible symbols is
+  \href{https://iextrading.com/trading/eligible-symbols/}{published
+  daily} by the IEX. When set to \texttt{NULL} (default) returns values
+  for all symbols.
+\item
+  \texttt{fields}: A vector of fields names to return (case sensitive).
+  When set to \texttt{NULL} (default) returns values for all fields.
+\item
+  \texttt{version}: The API version number, which is used to define the
+  API URL.
+\end{itemize}
+
+We can obtain intraday stock price data with the \texttt{last} function
+as follows:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{dat <-}\StringTok{ }\KeywordTok{last}\NormalTok{(}\DataTypeTok{symbols =} \KeywordTok{c}\NormalTok{(}\StringTok{"AAPL"}\NormalTok{), }\DataTypeTok{fields =} \KeywordTok{c}\NormalTok{(}\StringTok{"symbol"}\NormalTok{, }\StringTok{"price"}\NormalTok{, }
+  \StringTok{"size"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+The function returns an S3 object of class \texttt{iex\_api} which has
+three accessible fields: \texttt{path} , \texttt{response} and
+\texttt{content}.
+
+\begin{itemize}
+\tightlist
+\item
+  The \texttt{path} contains the corresponding IEX API path:
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{dat}\OperatorTok{$}\NormalTok{path}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "tops/last"
+\end{verbatim}
+
+\begin{itemize}
+\tightlist
+\item
+  The \texttt{response} contains the unparsed IEX API response:
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{dat}\OperatorTok{$}\NormalTok{response}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Response [https://api.iextrading.com/1.0/tops/last?symbols=AAPL&filter=symbol%2Cprice%2Csize]
+##   Date: 2019-01-04 04:49
+##   Status: 200
+##   Content-Type: application/json; charset=utf-8
+##   Size: 45 B
+\end{verbatim}
+
+\begin{itemize}
+\tightlist
+\item
+  The \texttt{content} contains the parsed content from the API's
+  response (usually being a list).
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{dat}\OperatorTok{$}\NormalTok{content}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [[1]]
+## [[1]]$symbol
+## [1] "AAPL"
+## 
+## [[1]]$price
+## [1] 142
+## 
+## [[1]]$size
+## [1] 100
+\end{verbatim}
+
+According to the developer, this package causes R to pause 0.2 seconds
+after executing an API call to avoid the user being throttled by the IEX
+API (which enforces a 5 request per second limit). Documentation about
+the other set of functions can be obtained at
+\url{https://github.com/imanuelcostigan/iex/tree/master/man}.
 
 \subsection{Quandl}\label{quandl}
 

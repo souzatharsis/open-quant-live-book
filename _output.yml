@@ -1,7 +1,7 @@
 bookdown::gitbook:
   includes:
     in_header: preamble.html
-  css: style.css
+  css: custom_style.css
   config:
     toc:
       before: |
