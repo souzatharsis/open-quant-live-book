@@ -75,7 +75,7 @@ Alpha Vantage offers free access to pricing data including:
 * Technical Indicators and 
 * Sector Performances.
 
-The data are available in JSON and CSV format via REST APIs.
+The data are available in JSON and CSV formats via REST APIs.
 The **quantmod** and the **alphavantager** R packages offer a lightweight R interface to the Alpha Vantage API.
 Daily stock prices can be obtained with the `quantmod::getSymbols` function as follows:
 ```{r eval=TRUE, echo=FALSE, cache=TRUE, results='hide', include=FALSE}
@@ -85,7 +85,7 @@ getSymbols(Symbols='AAPL', src="av", output.size="full", adjusted=TRUE, api.key=
 getSymbols(Symbols='AAPL', src="av", output.size="full", adjusted=TRUE, api.key='your API key')
 ```
 
-The output data is stored in an object with the same name as the corresponding symbol, in this example `AAPL`. The output data looks like this
+The output data is stored in an object with the same name as the corresponding symbol, in this example `AAPL`. The output data looks like the following
 
 ```{r eval=TRUE, echo=FALSE, cache=TRUE}
 knitr::kable(
@@ -129,11 +129,9 @@ The **iex** package provides 4 set of functions as follows:
 
 For instance, the `last` function has the following arguments:
 
-
 * ```symbols```: A vector of tickers (case insensitive). Special characters will be escaped. A list of eligible symbols is [published daily](https://iextrading.com/trading/eligible-symbols/) by the IEX. When set to `NULL` (default) returns values for all symbols.
 * ```fields```: A vector of fields names to return (case sensitive). When set to `NULL` (default) returns values for all fields.
 * ```version```: The API version number, which is used to define the API URL.
-
 
 We can obtain intraday stock price data with the `last` function as follows:
 ```{r eval=TRUE, echo=TRUE, cache=TRUE}
@@ -153,8 +151,7 @@ dat$path
 dat$response
 ```
  
- * The `content` contains the parsed content from the API's response (usually
- being a list). 
+ * The `content` contains the parsed content from the API's response:
 ```{r eval=TRUE, echo=TRUE, cache=TRUE}
 dat$content
 ```
