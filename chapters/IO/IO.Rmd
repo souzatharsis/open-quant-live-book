@@ -63,7 +63,7 @@ The `readxl` has been oberving increased use compared to other comparable packag
 
 ## Data Sources
 
-In this section, we will provide examples of on how to obtain financial and economic data from public sources.
+In this section, we will show how to obtain financial and economic data from public sources.
 
 ### Alpha Vantage
 
