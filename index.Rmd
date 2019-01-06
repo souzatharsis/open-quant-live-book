@@ -5,7 +5,7 @@ date: "`r Sys.Date()`"
 output: bookdown::gitbook
 site: bookdown::bookdown_site
 documentclass: book
-bibliography: [book.bib, packages.bib]
+bibliography: [book.bib]
 biblio-style: apalike
 link-citations: yes
 colorlinks: yes
@@ -95,9 +95,3 @@ Copyright (c) 2018. Thársis T. P. Souza. New York, NY.
 ```
 
 
-```{r include=FALSE}
-# automatically create a bib database for R packages
-knitr::write_bib(c(
-  .packages(), 'bookdown', 'knitr', 'rmarkdown'
-), 'packages.bib')
-```
