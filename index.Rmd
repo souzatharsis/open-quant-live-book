@@ -33,6 +33,10 @@ if(!knitr:::is_html_output())
 }
 ```
 
+\newcommand{\independent}{\perp\!\!\!\!\perp}
+\DeclarePairedDelimiter\ceil{\lceil}{\rceil}
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+
 # Preface {-}
 
 
@@ -86,7 +90,7 @@ First published at: [openquant.netlify.com](https://openquant.netlify.com/).
 
 Licensed under [Attribution-NonCommercial-ShareAlike 4.0 International](https://creativecommons.org/licenses/by-nc-sa/4.0/). 
 
-```{r echo=FALSE, out.width='20%'}
+```{r echo=FALSE, out.width='15%'}
 knitr::include_graphics('fig/by-nc-sa.png')
 ```
 

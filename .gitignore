@@ -3,3 +3,4 @@
 .Ruserdata
 config.yml
 *.log
+.Rproj.user

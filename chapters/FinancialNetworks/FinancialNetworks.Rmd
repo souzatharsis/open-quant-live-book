@@ -1,1 +1,78 @@
 # Financial Networks
+
+
+## Introduction
+
+Financial markets can be regarded as a complex network in which nodes represent different financial assets and edges 
+represent one or many types of relationships among those assets. 
+Filtered correlation-based networks have successfully been used in the literature to study financial markets structure particularly 
+from observational data derived from empirical financial time series \cite{bardoscia2017pathways, 10.1371/journal.pone.0017994, Mantegna1999, aste2010correlation, Tumminello201040, Tumminello26072005}.
+The underlying principle is to use correlations from empirical financial time series to construct a sparse network representing 
+the most relevant connections.
+Analyses on filtered correlation-based networks for information extraction \cite{song2008analysis,aste2010correlation} 
+have widely been used to 
+explain market interconnectedness from high-dimensional data.
+Applications include asset allocation \cite{LI2018, pozzi2013spread}, market stability assessments \cite{morales2012dynamical}, 
+hierarchical structure analyses \cite{Mantegna1999, aste2010correlation,Tumminello201040, musmeci2014clustering, song2012hierarchical} 
+and the identification of lead-lag relationships \cite{curme2015coupled}.
+
+## Network Construction
+
+We selected $N = 100$ of the most capitalized companies that were part of the S\&P500 index 
+from 09/05/2012 to 08/25/2017. 
+The list of these companies' ticker symbols is reported in the Appendix \ref{sec:comps}.
+For each stock $i$ the financial variable was defined as 
+the daily stock's log-return $R_i(\tau)$ at time $\tau$. 
+
+Stock returns $R_i$ and social media opinion scores $O_i$ each amounted to a time series of length equals to 1251 trading days.
+These series were divided time-wise into $M = 225$ windows $t = 1, 2, \ldots, M$
+of width $T = 126$ trading days. 
+A window step length parameter of $\delta T = 5$ trading days defined the displacement of the window, i.e., the number of trading days 
+between two consecutive windows. The choice of window width $T$ and window step $\delta T$ is arbitrary, and
+it is a trade-off between having analysis that is either too dynamic or too smooth. 
+The smaller the window width and the larger the window steps, the more dynamic the data are.
+
+To characterize the synchronous time evolution of assets, 
+we used equal time Kendall's rank coefficients
+between assets $i$ and $j$, defined as
+\begin{equation}
+ \rho_{i, j}(t) = \sum\limits_{t' < \tau}sgn(V_i(t') - V_i(\tau))sgn(V_j(t') - V_j(\tau)),
+\end{equation}
+where $t'$ and $\tau$ are time indexes within the window $t$ and $V_i \in \{R_i, O_i\}$.
+
+Kendall's rank coefficients takes into account possible nonlinear (monotonic) relationships.
+It fulfill the condition $-1 \leq \rho_{i, j} \leq 1$ and form the $N \times N$ correlation matrix
+$C(t)$ that served as the basis for the networks constructed in this work. To construct 
+the asset-based financial and social networks, we defined a distance between a pair of stocks. This
+distance was associated with the edge connecting the stocks, and it reflected the level at which they were correlated.
+We used a simple non-linear transformation $d_{i, j}(t) = \sqrt{2(1 - \rho_{i,j}(t))}$ to obtain distances with the
+property $2 \geq d_{i,j} \geq 0$, forming a $N \times N$ symmetric distance matrix $D(t)$. 
+
+### Network Filtering: Asset Graphs
+
+We extract the $N(N-1)/2$ distinct distance elements from the upper triangular part of the distance matrix $D(t)$, which were then sorted in an ascending order to form an ordered sequence 
+$d_1(t), d_2(t), \ldots, d_{N(N-1)/2}(t)$. Since we require the graph to be representative of the market,
+it is natural to build the network by including only the strongest connections. This is a network filtering procedure that has been successfully applied in the construction of \textit{asset graphs} for the analyses of market structure \cite{1402-4896-2003-T106-011, refId0-Onnela-2004}.
+The number of edges to include is arbitrary, and we included those from the bottom quartile, 
+which represented the 25\% shortest edges in the graph (largest correlations), thus giving $E(t) = \{d_1(t), d_2(t), \ldots, d_{\floor{N/4}}(t)\}$.
+%The presented mechanism for constructing networks defines them uniquely and, consequently,
+%no additional hypothesis about graph topology is required. 
+
+We denoted $E^{F}(t)$ as the set of edges constructed from the distance matrix derived from 
+stock returns $R(t)$. The financial network considered is $G^{F} = ( V, E^{F} )$, where $V$ is the vertex set of stocks.
+
+
+### Network Filtering: MST
+
+### Network Filtering: PMFG
+
+## Applications
+
+### Industry Taxonomy
+
+### Market Volatility
+
+The Jaccard Distance, defined as
+$$ Jaccard(G^{F}(t'), G^{F}(t)) = \frac{\|G^{F}(t') \cap G^{F}(t)\|}{\|G^{F}(t') \cup G^{F}(t)\|}.$$
+
+### Portfolio Construction

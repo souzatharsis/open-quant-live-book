@@ -1,1 +1,108 @@
 # Correlation & Causation
+
+## Introduction
+
+## A First Definition of Causality
+
+We quantify causality by using the notion of the causal relation introduced by Granger where a signal $X$ is said to Granger-cause $Y$ if the future realizations of $Y$ can be better explained using the past information from $X$ and $Y$ rather than $Y$ alone.
+
+The most common definitions of Granger-causality rely on the prediction of a future 
+value of the variable $Y$ by using the past values of $X$ and $Y$ itself. 
+In that form, $X$ is said to G-cause $Y$ if the use of $X$ improves the prediction of $Y$.
+
+Let $X_t$ be a random variable associated at time $t$ while $X^t$ represents the collection of random variables up to time $t$.
+We consider ${X_t}, {Y_t}$ and ${Z_t}$ to be three stochastic processes. 
+Let $\hat Y_{t+1}$ be a predictor for the value of the variable $Y$ at time $t+1$. 
+
+We compare the expected value of a loss function $g(e)$ with the error $e=\hat{Y}_{t+1} - Y_{t+1}$ of two models: 
+
+1. The expected value of the prediction error given only $Y^t$ 
+\begin{equation}
+ \mathcal{R}(Y^{t+1} \, | \, Y^t,Z^t) = \mathbb{E}[g(Y_{t+1} - f_1(X^{t},Z^t))]
+\end{equation}
+2. The expected value of the prediction error given $Y^t$ and $X^t$
+\begin{equation}
+ \mathcal{R}(Y^{t+1} \, | \, X^{t},Y^t,Z^t) = \mathbb{E}[g(Y_{t+1} - f_2(X^{t},Y^t,Z^t))].
+\end{equation}
+
+In both models, the functions $f_1(.)$ and $f_2(.)$ are chosen to minimize the expected value of the loss function.  In most cases, these functions are retrieved with linear and, possibly, with nonlinear regressions. Typical forms for $g(.)$ are the $l1$- or $l2$-norms.
+
+We can now provide our first definition of statistical causality under the Granger causal notion as follows:
+
+```{definition G1}
+$X$ does not Granger-cause $Y$ relative to side information $Z$ if and only if $\mathcal{R}(Y_{t+1} \; | \; X^t, Y^t, Z^t) = \mathcal{R}(Y_{t+1} \; | \; Y^t, Z^t)$.
+```
+
+A more general definition than \@ref{def:G1} that does not depend on assuming prediction functions can be formulated by considering conditional probabilities.
+A probabilistic definition of G-causality assumes that $Y_{t+1}$ and $X^{t}$ are independent given the 
+past information $(X^{t}, Y^{t})$ if and only if
+$p(Y_{t+1} \, | \, X^{t}, Y^{t}, Z^{t}) = p(Y_{t+1} \, | \, Y^{t}, Z^{t})$, 
+where $p(. \, | \, .)$ represents the conditional probability distribution.
+In other words, omitting past information from $X$ does not change the probability distribution of $Y$. This leads to our second definition of statistical causality as follows:
+```{definition G2}
+$X$ does not Granger-cause $Y$ relative to side information $Z$ if and only if $Y_{t+1} \independent X^{t} \; | \; Y^{t}, Z^{t}$.
+```
+
+Def. \@ref{def:G2} does not assume any functional form in the coupling between $X$ and $Y$. 
+Nevertheless, it requires a method to assess their conditional dependency. 
+
+In the next Section, we define a parametric linear specification of G-causality based on Def. \@ref(def:G1).
+
+## Quantifying Granger-Causality
+
+
+### Model Specification
+
+Standard Granger-causality  tests  assume  a  linear  relationship  among the causes and effects and are implemented by fitting autoregressive models \cite{Wiener56, granger:econ}.
+
+Consider the linear vector-autoregressive (VAR) equations:
+\begin{align}
+Y(t) &= {\alpha} + \sum^k_{\Delta t=1}{{\beta}_{\Delta t} Y(t-\Delta t)} + \epsilon_t, (\#eq:AR11)\\
+Y(t) &= \widehat{\alpha} + \sum^k_{\Delta t=1}{{\widehat{\beta}}_{\Delta t} Y(t-\Delta t)} +  \sum^k_{\Delta t=1}{{\widehat{\gamma}}_{\Delta t}X(t-\Delta t)}+ \widehat{\epsilon}_t, (\#eq:AR22)
+\end{align}
+where $k$ is the number of lags considered.
+
+From Def \@ref(def:G1), $X$ does not G-cause $Y$ if and only if the prediction errors of $X$ in the restricted Eq. \@ref(eq:AR11) and unrestricted regression models Eq. \@ref(eq:AR22) are equal (i.e., they are statistically indistinguishable).
+
+### Test for Misspecification
+
+A statistically significant causality can be reported only if the linear models from Eqs. \@ref(eq:AR11) and \@ref(eq:AR22) are not misspecified. For that purpose, we utilize the BDS test \cite{citeulike:9300127} for the model misspecification (see Section \ref{sec:bds}).
+
+The BDS test \cite{citeulike:9300127} is used to detect nonlinear dependence in time series. 
+When applied to the residuals of a linear model, the BDS tests the null hypothesis that these residuals are independent and identically distributed.
+The BDS test is a powerful test to detect linear misspecification and nonlinearity \cite{citeulike:9300127,Barnett97asingle-blind}.
+
+Let $\epsilon_t = (\epsilon_{t=1}, \ldots, \epsilon_{t=n})$ be the residuals of the linear fitted model and define its $m$-embedding as
+$\epsilon_t^m = (\epsilon_{t}, \epsilon_{t-1}, \ldots, \epsilon_{t-m+1})$. The  $m$-embedding correlation integral is given by
+\begin{align}
+C_{m,n}(\Delta \epsilon) = \frac{2}{k(k-1)}\sum_{s = 1}^{t}{\sum_{t=s}^{n}{ \chi(\| \epsilon_s^m - \epsilon_t^m \|, \Delta \epsilon)    }}, \nonumber
+\end{align}
+and
+\begin{align}
+C_{m}(\Delta \epsilon) = \lim_{n\to\infty} C_{m,n}(\Delta \epsilon), \nonumber
+\end{align}
+where $\chi$ is an indicator function where $\chi(\| \epsilon_s^m - \epsilon_t^m \|, \Delta \epsilon) = 1$ if 
+$\| \epsilon_s^m - \epsilon_t^m \| < \Delta \epsilon$ and zero, otherwise.
+
+The null hypothesis of the BDS test assumes that $\epsilon_t$ is iid. In this case,
+\begin{align}
+C_{m}(\Delta \epsilon) = C_{1}(\Delta \epsilon)^m. \nonumber
+\end{align}
+
+The BDS statistic is a measure of the extent that this relation holds in the data. This statistic is given by the following:
+\begin{align}
+V_{m}(\Delta \epsilon) = \sqrt{n}\frac{C_{m}(\Delta \epsilon) - C_{1}(\Delta \epsilon)^m}{\sigma_m(\Delta \epsilon)}, \nonumber
+\end{align}
+where $\sigma_m(\Delta \epsilon)$ can be estimated as described in \cite{citeulike:9300127}. 
+
+The null hypothesis of the BDS test indicates that the model tested is not misspecified and it is rejected at the 5\% significance level if $\|V_m(\Delta \epsilon)\| > 1.96$.
+
+The parameter $\Delta \epsilon$ is commonly set as a factor of the variance ($\sigma_\epsilon$) of $\epsilon$. We report results for $\Delta \epsilon = \sigma_\epsilon/2$ and the embedding dimension $m = 2$. We also performed tests for $\Delta \epsilon = \sigma_\epsilon$ and $m = 3$ with no significant differences in the results.
+
+### Analysis of Variance
+
+A one-way ANOVA test is utilized to test if the residuals from Eqs. \@ref(eq:AR11) and \@ref(eq:AR22) differ from each other significantly. 
+
+### Multiple Hypotheses Testing Correction
+
+When more than one lag $k$ is tested, a Bonferroni correction is applied to control for multiple hypotheses testing.

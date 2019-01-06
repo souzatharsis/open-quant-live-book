@@ -1,1 +1,29 @@
 # Entropy
+
+Let $X$ be a random variable and $P_X(x)$ be its probability density function (pdf). The entropy $H(X)$ is a measure of the uncertainty of $X$ 
+and is defined in the discrete case as follows:
+\begin{equation}
+H(X) = -\sum_{x \in X}{P_X(x)\log{P_X(x)}}.
+\label{eq:H}
+\end{equation}
+
+If the $\log$ is taken to base two, then the unit of $H$ is the \textit{bit} (binary digit). 
+We employ the natural logarithm which implies the unit in \textit{nat} (natural unit of information).
+
+Given a coupled system $(X,Y)$, where $P_Y(y)$ is the pdf of the random variable $Y$ and $P_{X,Y}$ is the joint pdf between $X$ and $Y$, 
+the joint entropy between $X$ and $Y$ is given by the following:
+\begin{equation}
+H(X,Y) = -\sum_{x \in X}{\sum_{y \in Y}{P_{X,Y}(x,y)\log{P_{X,Y}(x,y)}}}.
+\label{eq:HXY}
+\end{equation}
+
+The conditional entropy is defined by the following:
+\begin{equation}
+H\left(Y\middle\vert X\right) = H(X,Y) - H(X).
+\end{equation}
+We can interpret $H\left(Y\middle\vert X\right)$ as the uncertainty of $Y$ given a realization of $X$.
+
+## Market Efficiency and Bubbles
+
+## Quantifying Non-linear Correlation
+
