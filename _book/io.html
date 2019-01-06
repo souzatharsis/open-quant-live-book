@@ -217,11 +217,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-\usepackage{booktabs}
-\usepackage{amsthm}
-\usepackage{pdfpages}
-\usepackage{graphicx}
-\usepackage{mathtools}
 <div id="io" class="section level1">
 <h1><span class="header-section-number">Chapter 1</span> I/O</h1>
 <p>In this Chapter, we will introduce basic functions to read text and excel files as well as large files. We will also show how to obtain free financial and economic data from sources such as Quandl, IEX and Alpha Vantage.</p>
@@ -333,7 +328,7 @@ readxl<span class="op">::</span><span class="kw">read_xlsx</span>(<span class="d
 </tr>
 </tbody>
 </table>
-<p><img src="open-quant-live-book_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
+<p><img src="open-quant-live-book_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
 <p>We called the <code>quantmod::getSymbols</code> function with the following arguments:</p>
 <ul>
 <li><code>Symbols='AAPL'</code> defines a character vector specifying the names of each symbol to be loaded, here specified by the symbol of the company Apple Inc.;</li>
@@ -375,7 +370,7 @@ readxl<span class="op">::</span><span class="kw">read_xlsx</span>(<span class="d
 </ul>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">dat<span class="op">$</span>response</code></pre></div>
 <pre><code>## Response [https://api.iextrading.com/1.0/tops/last?symbols=AAPL&amp;filter=symbol%2Cprice%2Csize]
-##   Date: 2019-01-04 06:47
+##   Date: 2019-01-06 06:57
 ##   Status: 200
 ##   Content-Type: application/json; charset=utf-8
 ##   Size: 45 B</code></pre>
@@ -388,7 +383,7 @@ readxl<span class="op">::</span><span class="kw">read_xlsx</span>(<span class="d
 ## [1] &quot;AAPL&quot;
 ## 
 ## [[1]]$price
-## [1] 142
+## [1] 148
 ## 
 ## [[1]]$size
 ## [1] 100</code></pre>

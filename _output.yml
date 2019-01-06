@@ -1,7 +1,6 @@
 bookdown::gitbook:
   includes:
     in_header: preamble.html
-    before_body: preamble.tex
   css: custom_style2.css
   config:
     toc:
