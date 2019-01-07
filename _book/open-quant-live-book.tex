@@ -579,7 +579,7 @@ three accessible fields: \texttt{path} , \texttt{response} and
 
 \begin{verbatim}
 ## Response [https://api.iextrading.com/1.0/tops/last?symbols=AAPL&filter=symbol%2Cprice%2Csize]
-##   Date: 2019-01-04 06:53
+##   Date: 2019-01-07 03:12
 ##   Status: 200
 ##   Content-Type: application/json; charset=utf-8
 ##   Size: 45 B
@@ -636,17 +636,30 @@ the other set of functions can be obtained at
 \subsection{Key Packages Used}\label{key-packages-used}
 
 \begin{itemize}
+\tightlist
 \item
-  Importing Flat Files ++ \textbf{readr} and \textbf{data.table}
+  Importing Flat Files
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \textbf{readr} and \textbf{data.table}
+  \end{itemize}
 \item
-  Obtaining Financial Data ++ \textbf{quantmod},
-  \textbf{imanuelcostigan/iex} and \textbf{quandl}
+  Obtaining Financial Data
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \textbf{quantmod}, \textbf{imanuelcostigan/iex} and \textbf{quandl}
+  \end{itemize}
 \end{itemize}
 
 \subsection{Further Reading}\label{further-reading}
 
-We recommend the book R for Data Science: Import, Tidy, Transform,
-Visualize, and Model Data. Additional relevant R packages include:
+To further learn how to use R to load, transform, visualize and model
+data see \citep{Wickham:2017:RDS:3086927}. Additional relevant R
+packages include:
 
 \begin{itemize}
 \tightlist
@@ -676,62 +689,22 @@ Visualize, and Model Data. Additional relevant R packages include:
 
 \subsection{Fat Tails}\label{fat-tails}
 
-A distribuição de retornos financeiros apresenta leptokurtose. A
-ocorrência de eventos extremos é mais provável comparado com uma
-distribuição normal, i.e., as caudas da distribuição empírica de
-retornos são mais ``pesadas'' comparadas com as caudas esperadas supondo
-uma distribuição normal de probabilidade.
-
 \subsection{Skewness}\label{skewness}
-
-A distribuição empírica de retornos é distorcida para esquerda. Retornos
-negativos são mais prováveis que retornos positivos.
 
 \section{Volatility}\label{volatility}
 
-\begin{equation}
- \sigma = \sqrt{ \frac{1}{N-1} \sum_{i=1}^N (x_i - \overline{x})^2}
-\label{eq:sd}
-\end{equation}
-
 \subsection{Time-invariance}\label{time-invariance}
 
-A volatilidade de retornos financeiros não é constante ao longo do
-tempo.
-
 \subsection{Volatility Clustering}\label{volatility-clustering}
-
-Eventos extremos são observados próximos um dos outros.
 
 \subsection{Correlation with Trading
 Volume}\label{correlation-with-trading-volume}
 
-O volume de negociação de um ativo tem correlação significante com a
-volatilidade do mesmo.
-
 \section{Correlation}\label{correlation}
-
-\begin{equation}
-\label{eq:correlation}
-\rho = \frac{\sum\limits_{t=1}^{T} (r_t - \hat{r}_t)(s_t - \hat{s}_t)}{\sqrt{\sum\limits_{t=1}^{T} (r_t^{\tau} - \hat{r}_t^{\tau})^2}\sqrt{\sum\limits_{t=1}^{T}(s_t - \hat{s}_t)^2}},
-\end{equation}
-
-onde \(\hat{r}_t\) e \(\hat{s}_t\) são a média amostral de \(r_t\) e
-\(s_t\), respectivamente.
 
 \subsection{Time-invariance}\label{time-invariance-1}
 
-A correlação entre duas series temporais de retornos financeiros não é
-constante ao longo do tempo.
-
 \subsection{Auto-correlation}\label{auto-correlation}
-
-Retornos financeiros apresentam baixa autocorrelação (linear), exceto em
-escalas de tempo muito baixas, e.g., minutos, onde há presença de
-efeitos de microstructura. Por outro lado, a função de autocorrelação do
-valor absoluto de retornos financeiros decai lentamente com o tempo.
-
-A correlação contemporânea é maior do que a correlação cruzada.
 
 \chapter{Correlation \& Causation}\label{correlation-causation}
 
@@ -741,14 +714,15 @@ A correlação contemporânea é maior do que a correlação cruzada.
 Causality}\label{a-first-definition-of-causality}
 
 We quantify causality by using the notion of the causal relation
-introduced by Granger where a signal \(X\) is said to Granger-cause
-\(Y\) if the future realizations of \(Y\) can be better explained using
-the past information from \(X\) and \(Y\) rather than \(Y\) alone.
+introduced by Granger \citep{Wiener56, granger:econ} where a signal
+\(X\) is said to Granger-cause \(Y\) if the future realizations of \(Y\)
+can be better explained using the past information from \(X\) and \(Y\)
+rather than \(Y\) alone.
 
 The most common definitions of Granger-causality rely on the prediction
 of a future value of the variable \(Y\) by using the past values of
-\(X\) and \(Y\) itself. In that form, \(X\) is said to G-cause \(Y\) if
-the use of \(X\) improves the prediction of \(Y\).
+\(X\) and \(Y\) itself. In that form, \(X\) is said to \emph{G-cause}
+\(Y\) if the use of \(X\) improves the prediction of \(Y\).
 
 Let \(X_t\) be a random variable associated at time \(t\) while \(X^t\)
 represents the collection of random variables up to time \(t\). We
@@ -790,7 +764,7 @@ the Granger causal notion as follows:
 \(\mathcal{R}(Y_{t+1} \; | \; X^t, Y^t, Z^t) = \mathcal{R}(Y_{t+1} \; | \; Y^t, Z^t)\).
 \EndKnitrBlock{definition}
 
-A more general definition than @ref\{def:G1\} that does not depend on
+A more general definition than Def. \ref{def:G1} that does not depend on
 assuming prediction functions can be formulated by considering
 conditional probabilities. A probabilistic definition of G-causality
 assumes that \(Y_{t+1}\) and \(X^{t}\) are independent given the past
@@ -800,27 +774,67 @@ where \(p(. \, | \, .)\) represents the conditional probability
 distribution. In other words, omitting past information from \(X\) does
 not change the probability distribution of \(Y\). This leads to our
 second definition of statistical causality as follows:
+
 \BeginKnitrBlock{definition}
 \protect\hypertarget{def:G2}{}{\label{def:G2} }\(X\) does not Granger-cause
 \(Y\) relative to side information \(Z\) if and only if
 \(Y_{t+1} \independent X^{t} \; | \; Y^{t}, Z^{t}\).
 \EndKnitrBlock{definition}
 
-Def. @ref\{def:G2\} does not assume any functional form in the coupling
+Def. \ref{def:G2} does not assume any functional form in the coupling
 between \(X\) and \(Y\). Nevertheless, it requires a method to assess
 their conditional dependency.
 
 In the next Section, we define a parametric linear specification of
-G-causality based on Def. \ref{def:G1}.
+G-causality based on Def. \ref{def:G1}. Later in the book, in the
+Section \ref{nonlinearG}, when we cover Econophysics techniques, we will
+present a nonlinear specification for G-causality based on Def.
+\ref{def:G2}.
 
-\section{Quantifying
-Granger-Causality}\label{quantifying-granger-causality}
+\section{Quantifying Granger-Causality}\label{LinearG}
+
+We will take the following procedure to quantify Granger-causality
+according to Def. \ref{def:G1}:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Specify two predictive models:
+\end{enumerate}
+
+\begin{itemize}
+\tightlist
+\item
+  The first considers \(Y^t\) to predict \(Y^{t+1}\) (Model
+  \(\mathcal{M}\));
+\item
+  The second considers \(Y^t\) and \(X^t\) to predict \(Y^{t+1}\) (Model
+  \(\mathcal{M}^*\));
+\end{itemize}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  Test for model misspecification;
+\item
+  Test the hypothesis that the expected value of the prediction error of
+  the Models \(\mathcal{M}\) and \(\mathcal{M}^*\) are statistically the
+  same;
+\item
+  Apply correction for multiple hypothesis testing.
+\end{enumerate}
+
+If the null hypothesis from 3. is rejected then there is evidence that
+\(X\) Granger-causes \(Y\) under Def. \ref{def:G1}.
 
 \subsection{Model Specification}\label{model-specification}
 
 Standard Granger-causality tests assume a linear relationship among the
 causes and effects and are implemented by fitting autoregressive models
-\cite{Wiener56, granger:econ}.
+\citep{Wiener56, granger:econ}.
 
 Consider the linear vector-autoregressive (VAR) equations:
 
@@ -840,15 +854,15 @@ are statistically indistinguishable).
 
 A statistically significant causality can be reported only if the linear
 models from Eqs. \eqref{eq:AR11} and \eqref{eq:AR22} are not misspecified.
-For that purpose, we utilize the BDS test \cite{citeulike:9300127} for
-the model misspecification (see Section \ref{sec:bds}).
+For that purpose, we utilize the BDS test \citep{citeulike:9300127} for
+the model misspecification.
 
-The BDS test \cite{citeulike:9300127} is used to detect nonlinear
+The BDS test \citep{citeulike:9300127} is used to detect nonlinear
 dependence in time series. When applied to the residuals of a linear
 model, the BDS tests the null hypothesis that these residuals are
 independent and identically distributed. The BDS test is a powerful test
 to detect linear misspecification and nonlinearity
-\cite{citeulike:9300127,Barnett97asingle-blind}.
+\citep{citeulike:9300127, Barnett97asingle-blind}.
 
 Let \(\epsilon_t = (\epsilon_{t=1}, \ldots, \epsilon_{t=n})\) be the
 residuals of the linear fitted model and define its \(m\)-embedding as
@@ -885,18 +899,13 @@ V_{m}(\Delta \epsilon) = \sqrt{n}\frac{C_{m}(\Delta \epsilon) - C_{1}(\Delta \ep
 \end{align}
 
 where \(\sigma_m(\Delta \epsilon)\) can be estimated as described in
-\cite{citeulike:9300127}.
+\citep{citeulike:9300127}.
 
 The null hypothesis of the BDS test indicates that the model tested is
 not misspecified and it is rejected at the 5\% significance level if
-\(\|V_m(\Delta \epsilon)\| > 1.96\).
-
-The parameter \(\Delta \epsilon\) is commonly set as a factor of the
-variance (\(\sigma_\epsilon\)) of \(\epsilon\). We report results for
-\(\Delta \epsilon = \sigma_\epsilon/2\) and the embedding dimension
-\(m = 2\). We also performed tests for
-\(\Delta \epsilon = \sigma_\epsilon\) and \(m = 3\) with no significant
-differences in the results.
+\(\|V_m(\Delta \epsilon)\| > 1.96\). The parameter \(\Delta \epsilon\)
+is commonly set as a factor of the variance (\(\sigma_\epsilon\)) of
+\(\epsilon\).
 
 \subsection{Analysis of Variance}\label{analysis-of-variance}
 
@@ -954,25 +963,25 @@ H\left(Y\middle\vert X\right) = H(X,Y) - H(X).
 We can interpret \(H\left(Y\middle\vert X\right)\) as the uncertainty of
 \(Y\) given a realization of \(X\).
 
-\section{Market Efficiency and
-Bubbles}\label{market-efficiency-and-bubbles}
+\section{Efficiency and Bubbles in the Crypto and Equity
+Markets}\label{efficiency-and-bubbles-in-the-crypto-and-equity-markets}
 
-\section{Quantifying Non-linear
-Correlation}\label{quantifying-non-linear-correlation}
+\section{Quantifying Non-linear Correlation Between Equity and Commodity
+Markets}\label{quantifying-non-linear-correlation-between-equity-and-commodity-markets}
 
 \chapter{Transfer Entropy}\label{transfer-entropy}
 
 \section{Introduction}\label{introduction-2}
 
-\section{Nonlinear G-Causality}\label{nonlinear-g-causality}
+\section{Nonlinear G-Causality}\label{nonlinearG}
 
 To compute the nonlinear G-Causality, we use the concept of Transfer
-Entropy that, since its introduction by Schreiber (2000)
-\cite{PhysRevLett.85.461}, has been recognized as an important tool in
-the analysis of causal relationships in nonlinear systems
-\cite{citeulike:1447442}. \%It detects directional and dynamical
-information \cite{10.1371/journal.pone.0109462} while not assuming any
-particular functional form to describe interactions among systems.
+Entropy. Since its introduction \citep{PhysRevLett.85.461}, Transfer
+Entropy has been recognized as an important tool in the analysis of
+causal relationships in nonlinear systems \citep{citeulike:1447442}. It
+detects directional and dynamical information
+\citep{10.1371/journal.pone.0109462} while not assuming any particular
+functional form to describe interactions among systems.
 
 The Transfer Entropy can be defined as the difference between the
 conditional entropies:
@@ -1011,18 +1020,19 @@ p-value \(< 0.05\) after Bonferroni correction.
 \section{The Link Between Linear Granger-causality and Transfer
 Entropy}\label{the-link-between-linear-granger-causality-and-transfer-entropy}
 
-Barnett et al. (2009) \cite{PhysRevLett.103.238701} showed that linear
-G-causality and Transfer Entropy are equivalent if all processes (\(X\)
-and \(Y\)) are jointly Gaussian. In particularly, by assuming the
-standard measure (\(l2\)-norm loss function) of linear G-causality for
-the bivariate case as
+It has been shown \citep{PhysRevLett.103.238701} that linear G-causality
+and Transfer Entropy are equivalent if all processes are jointly
+Gaussian. In particular, by assuming the standard measure (\(l2\)-norm
+loss function) of linear G-causality for the bivariate case as follows
+(see Section \ref{LinearG} for more details on linear-Granger
+causality):
 
 \begin{equation}
 GC_{X \rightarrow Y} = \log\left( \frac{var(\epsilon_t)}{var( \widehat{\epsilon}_t)} \right),
 \label{eq:GCGC}
 \end{equation}
 
-the following can be proved \cite{PhysRevLett.103.238701}:
+the following can be proved \citep{PhysRevLett.103.238701}:
 
 \begin{align}
 TE_{X \rightarrow Y} = GC_{X \rightarrow Y}/2.
@@ -1050,21 +1060,25 @@ of the information flow. In other words, a positive result indicates a
 dominant information flow from \(X\) to \(Y\) compared to the other
 direction or, similarly, it indicates which system provides more
 predictive information about the other system
-\cite{Michalowicz:2013:HDE:2601840}.
+\citep{Michalowicz:2013:HDE:2601840}.
 
-For the nonlinear case, the Transfer Entropy was computed as defined in
-Eq. \eqref{eq:TE}. Conversely, to estimate the linear version of the Net
-Information Flow, we computed the Transfer Entropy using Eq
-\eqref{eq:GCGC2}, i.e., we estimated the linear G-causality
-\eqref{eq:GCGC} and multiplied it by a factor of 1/2.
-
-In the next section, we construct simulated systems and test the
-nonlinear and linear formulations of the net information flow. We show
-that only the nonlinear formulation of net information flow is able to
-capture the nonlinear relationships in the simulated systems.
+In the next sections we will provide empirical examples that show that
+Transfer Entropy can capture information flow in both linear and
+nonlinear systems.
 
 \section{Empirical Experiment: Information Flow on Simulated
 Systems}\label{empirical-experiment-information-flow-on-simulated-systems}
+
+In this section, we construct simulated systems and test the nonlinear
+and linear formulations of the net information flow. We show that only
+the nonlinear formulation of net information flow is able to capture the
+nonlinear relationships in the simulated systems.
+
+For the nonlinear case, we compute Transfer Entropy as defined in Eq.
+\eqref{eq:TE}. Conversely, to estimate the linear version of the Net
+Information Flow, we computed the Transfer Entropy using Eq.
+\eqref{eq:GCGC2}, i.e., by estimating linear G-causality Eq. \eqref{eq:GCGC}
+under a linear-VAR framework.
 
 \section{Empirical Experiment: Information Flow on Global
 Markets}\label{empirical-experiment-information-flow-on-global-markets}
@@ -1079,18 +1093,30 @@ types of relationships among those assets. Filtered correlation-based
 networks have successfully been used in the literature to study
 financial markets structure particularly from observational data derived
 from empirical financial time series
-\cite{bardoscia2017pathways, 10.1371/journal.pone.0017994, Mantegna1999, aste2010correlation, Tumminello201040, Tumminello26072005}.
+\citep[\citet{Tumminello26072005}]{bardoscia2017pathways, 10.1371/journal.pone.0017994, Mantegna1999, aste2010correlation, Tumminello201040}.
 The underlying principle is to use correlations from empirical financial
 time series to construct a sparse network representing the most relevant
 connections. Analyses on filtered correlation-based networks for
-information extraction \cite{song2008analysis,aste2010correlation} have
-widely been used to explain market interconnectedness from
+information extraction \citep{song2008analysis, aste2010correlation}
+have widely been used to explain market interconnectedness from
 high-dimensional data. Applications include asset allocation
-\cite{LI2018, pozzi2013spread}, market stability assessments
-\cite{morales2012dynamical}, hierarchical structure analyses
-\cite{Mantegna1999, aste2010correlation,Tumminello201040, musmeci2014clustering, song2012hierarchical}
+\citep{LI2018, pozzi2013spread}, market stability assessments
+\citep{morales2012dynamical}, hierarchical structure analyses
+\citep{Mantegna1999, aste2010correlation, Tumminello201040, musmeci2014clustering, song2012hierarchical}
 and the identification of lead-lag relationships
-\cite{curme2015coupled}.
+\citep{curme2015coupled}.
+
+In this Chapter we will describe how to
+
+\begin{itemize}
+\tightlist
+\item
+  Construct and filter financial networks;
+\item
+  Build price-based dynamic industry taxonomy;
+\item
+  Implement a trading strategy based on financial network structure.
+\end{itemize}
 
 \section{Network Construction}\label{network-construction}
 
@@ -1149,10 +1175,7 @@ procedure that has been successfully applied in the construction of
 to include is arbitrary, and we included those from the bottom quartile,
 which represented the 25\% shortest edges in the graph (largest
 correlations), thus giving
-\(E(t) = \{d_1(t), d_2(t), \ldots, d_{\floor{N/4}}(t)\}\). \%The
-presented mechanism for constructing networks defines them uniquely and,
-consequently, \%no additional hypothesis about graph topology is
-required.
+\(E(t) = \{d_1(t), d_2(t), \ldots, d_{\floor{N/4}}(t)\}\).
 
 We denoted \(E^{F}(t)\) as the set of edges constructed from the
 distance matrix derived from stock returns \(R(t)\). The financial
@@ -1167,13 +1190,65 @@ vertex set of stocks.
 
 \subsection{Industry Taxonomy}\label{industry-taxonomy}
 
-\subsection{Market Volatility}\label{market-volatility}
-
-The Jaccard Distance, defined as
-\[ Jaccard(G^{F}(t'), G^{F}(t)) = \frac{\|G^{F}(t') \cap G^{F}(t)\|}{\|G^{F}(t') \cup G^{F}(t)\|}.\]
-
 \subsection{Portfolio Construction}\label{portfolio-construction}
 
-\bibliography{book.bib,packages.bib}
+\appendix \addcontentsline{toc}{chapter}{\appendixname}
+
+
+\chapter{Statistical Methods}\label{statistical-methods}
+
+This Appendix provides details to some of statistical methods used in
+the book.
+
+\section{Kernel Density Estimation}\label{kde}
+
+In the entropy computation (see Section \ref{entropy}) the empirical
+probability distribution must be estimated. Histogram-based methods and
+kernel density estimations are the two main methods for that.
+Histogram-based is the simplest and most used nonparametric density
+estimator. Nonetheless, it yields density estimates that have
+discontinuities and vary significantly depending on the bin size choice.
+
+Also known as the Parzen-Rosenblatt window method, the kernel density
+estimation (KDE) approach approximates the density function at point
+\(x\) using neighboring observations. However, instead of building up
+the estimate according to the bin edges as in histograms, the KDE method
+uses each point of estimation \(x\) as the center of a bin of width
+\(2h\) and weight it according to a kernel function. Thereby, the kernel
+estimate of the probability density function \(f(x)\) is defined as
+
+\begin{equation}
+\hat{f} = \frac{1}{nh}\sum_{x' \in X}{K\left(\frac{x - x'}{h}\right)}. 
+\label{eq:pdf}
+\end{equation}
+
+A usual choice for the kernel \(K\), which we use here, is the
+(Gaussian) radial basis function:
+
+\begin{equation}
+K(x) = \frac{1}{\sqrt{2\pi}}\exp^{-\frac{1}{2}x^2}. 
+\end{equation}
+
+The problem of selecting the bandwidth \(h\) in Eq. \eqref{eq:pdf} is
+crucial in the density estimation. A large \(h\) will oversmooth the
+estimated density and mask the structure of the data. On the other hand,
+a small bandwidth will reduce the bias of the density estimate at the
+expense of a larger variance in the estimates. If we assume that the
+true distribution is Gaussian and we use a Gaussian kernel, the optimal
+value of \(h\) that minimizes the mean integrated squared error (MISE)
+is
+
+\begin{equation*}
+h^* = 1.06\sigma N^{-1/5},
+\end{equation*}
+
+where \(N\) is the total number of points and \(\sigma\) can be
+estimated as the sample standard deviation. This bandwidth estimation is
+often called the Gaussian approximation or Silverman's rule of thumb for
+kernel density estimation \citep{silverman}. This is the most
+commonly-used method and it is here employed. Other common methods are
+given by \citep{sheather1991reliable} and \citep{scott1992multivariate}.
+
+\bibliography{book,packages}
 
 \end{document}

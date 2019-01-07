@@ -2,16 +2,16 @@
 
 ## Introduction
 
-## Nonlinear G-Causality
+## Nonlinear G-Causality {#nonlinearG}
 
-To compute the nonlinear G-Causality, we use the concept of Transfer Entropy that, since its introduction by Schreiber (2000) \cite{PhysRevLett.85.461}, has been recognized as an important tool in the analysis of causal relationships in nonlinear systems \cite{citeulike:1447442}.
-%It detects directional and dynamical information \cite{10.1371/journal.pone.0109462} while not assuming any particular functional form to describe interactions among systems.
+To compute the nonlinear G-Causality, we use the concept of Transfer Entropy. Since its introduction [@PhysRevLett.85.461], Transfer Entropy has been recognized as an important tool in the analysis of causal relationships in nonlinear systems [@citeulike:1447442].
+It detects directional and dynamical information [@10.1371/journal.pone.0109462] while not assuming any particular functional form to describe interactions among systems.
 
 
 The Transfer Entropy can be defined as the difference between the conditional entropies: 
 \begin{equation}
  TE\left(X \rightarrow Y\right \vert Z) =  H\left(Y^F\middle\vert Y^P,Z^P\right) - H\left(Y^F\middle\vert X^P, Y^P,Z^P\right),
-\label{eq:TE}
+(\#eq:TE)
 \end{equation}
 which can be rewritten as a sum of Shannon entropies:
 \begin{align}
@@ -31,18 +31,22 @@ than the randomized Transfer Entropy. The statistical significance was assessed 
 
 ## The Link Between Linear Granger-causality and Transfer Entropy
 
-Barnett et al. (2009) \cite{PhysRevLett.103.238701} showed that linear G-causality and Transfer Entropy are equivalent 
-if all processes ($X$ and $Y$) are jointly Gaussian.
-In particularly, by assuming the standard measure ($l2$-norm loss function) of linear G-causality for the bivariate case as
+It has been shown [@PhysRevLett.103.238701] that linear G-causality and Transfer Entropy are equivalent 
+if all processes are jointly Gaussian.
+In particular, by assuming the standard measure ($l2$-norm loss function) of linear G-causality for the bivariate case as follows (see Section \@ref(LinearG) for more details on linear-Granger causality):
+
 \begin{equation}
 GC_{X \rightarrow Y} = \log\left( \frac{var(\epsilon_t)}{var( \widehat{\epsilon}_t)} \right),
-\label{eq:GCGC}
+(\#eq:GCGC)
 \end{equation}
-the following can be proved \cite{PhysRevLett.103.238701}:
+
+the following can be proved [@PhysRevLett.103.238701]:
+
 \begin{align}
 TE_{X \rightarrow Y} = GC_{X \rightarrow Y}/2.
-\label{eq:GCGC2}
+(\#eq:GCGC2)
 \end{align}
+
 This result provides a direct mapping between the Transfer Entropy and the linear G-causality implemented in the standard VAR framework.
 Hence, it is possible to estimate the TE both in its general form and with its equivalent form for linear G-causality. 
 
@@ -56,14 +60,18 @@ The Net Information Flow is defined as
 \end{equation}
 One can interpret this quantity as a measure of the dominant direction of the information flow. In other words, 
 a positive result indicates a dominant information flow from $X$ to $Y$ compared to the other direction
-or, similarly, it indicates which system provides more predictive information about the other system \cite{Michalowicz:2013:HDE:2601840}.
+or, similarly, it indicates which system provides more predictive information about the other system [@Michalowicz:2013:HDE:2601840].
 
-For the nonlinear case, the Transfer Entropy was computed as defined in Eq. \eqref{eq:TE}.
-Conversely, to estimate the linear version of the Net Information Flow, we computed the Transfer Entropy using Eq \eqref{eq:GCGC2}, i.e., 
-we estimated the linear G-causality \eqref{eq:GCGC} and multiplied it by a factor of 1/2. 
-
-In the next section, we construct simulated systems and test the nonlinear and linear formulations of the net information flow. We show that only the nonlinear formulation of net information flow is able to capture the nonlinear relationships in the simulated systems.
+In the next sections we will provide empirical examples that show that Transfer Entropy can capture information flow in both linear and nonlinear systems.
 
 ## Empirical Experiment: Information Flow on Simulated Systems
+
+In this section, we construct simulated systems and test the nonlinear and linear formulations of the net information flow. We show that only the nonlinear formulation of net information flow is able to capture the nonlinear relationships in the simulated systems.
+
+For the nonlinear case, we compute Transfer Entropy as defined in Eq. \@ref(eq:TE).
+Conversely, to estimate the linear version of the Net Information Flow, we computed the Transfer Entropy using Eq. \@ref(eq:GCGC2), i.e., 
+by estimating linear G-causality Eq. \@ref(eq:GCGC) under a linear-VAR framework.
+
+
 
 ## Empirical Experiment: Information Flow on Global Markets

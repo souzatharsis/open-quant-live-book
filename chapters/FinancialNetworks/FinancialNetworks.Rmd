@@ -6,15 +6,21 @@
 Financial markets can be regarded as a complex network in which nodes represent different financial assets and edges 
 represent one or many types of relationships among those assets. 
 Filtered correlation-based networks have successfully been used in the literature to study financial markets structure particularly 
-from observational data derived from empirical financial time series \cite{bardoscia2017pathways, 10.1371/journal.pone.0017994, Mantegna1999, aste2010correlation, Tumminello201040, Tumminello26072005}.
+from observational data derived from empirical financial time series [@bardoscia2017pathways; @10.1371/journal.pone.0017994; @Mantegna1999; @aste2010correlation; @Tumminello201040, @Tumminello26072005].
 The underlying principle is to use correlations from empirical financial time series to construct a sparse network representing 
 the most relevant connections.
-Analyses on filtered correlation-based networks for information extraction \cite{song2008analysis,aste2010correlation} 
+Analyses on filtered correlation-based networks for information extraction [@song2008analysis;@aste2010correlation] 
 have widely been used to 
 explain market interconnectedness from high-dimensional data.
-Applications include asset allocation \cite{LI2018, pozzi2013spread}, market stability assessments \cite{morales2012dynamical}, 
-hierarchical structure analyses \cite{Mantegna1999, aste2010correlation,Tumminello201040, musmeci2014clustering, song2012hierarchical} 
-and the identification of lead-lag relationships \cite{curme2015coupled}.
+Applications include asset allocation [@LI2018; @pozzi2013spread], market stability assessments [@morales2012dynamical], 
+hierarchical structure analyses [@Mantegna1999; @aste2010correlation; @Tumminello201040; @musmeci2014clustering; @song2012hierarchical] 
+and the identification of lead-lag relationships [@curme2015coupled].
+
+In this Chapter we will describe how to
+
+* Construct and filter financial networks;
+* Build price-based dynamic industry taxonomy;
+* Implement a trading strategy based on financial network structure.
 
 ## Network Construction
 
@@ -55,12 +61,9 @@ $d_1(t), d_2(t), \ldots, d_{N(N-1)/2}(t)$. Since we require the graph to be repr
 it is natural to build the network by including only the strongest connections. This is a network filtering procedure that has been successfully applied in the construction of \textit{asset graphs} for the analyses of market structure \cite{1402-4896-2003-T106-011, refId0-Onnela-2004}.
 The number of edges to include is arbitrary, and we included those from the bottom quartile, 
 which represented the 25\% shortest edges in the graph (largest correlations), thus giving $E(t) = \{d_1(t), d_2(t), \ldots, d_{\floor{N/4}}(t)\}$.
-%The presented mechanism for constructing networks defines them uniquely and, consequently,
-%no additional hypothesis about graph topology is required. 
 
 We denoted $E^{F}(t)$ as the set of edges constructed from the distance matrix derived from 
 stock returns $R(t)$. The financial network considered is $G^{F} = ( V, E^{F} )$, where $V$ is the vertex set of stocks.
-
 
 ### Network Filtering: MST
 
@@ -69,10 +72,5 @@ stock returns $R(t)$. The financial network considered is $G^{F} = ( V, E^{F} )$
 ## Applications
 
 ### Industry Taxonomy
-
-### Market Volatility
-
-The Jaccard Distance, defined as
-$$ Jaccard(G^{F}(t'), G^{F}(t)) = \frac{\|G^{F}(t') \cap G^{F}(t)\|}{\|G^{F}(t') \cup G^{F}(t)\|}.$$
 
 ### Portfolio Construction

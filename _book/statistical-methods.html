@@ -5,21 +5,21 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Chapter 2 Stylized Facts | The Open Quant Live Book</title>
-  <meta name="description" content="Chapter 2 Stylized Facts | The Open Quant Live Book>
+  <title>A Statistical Methods | The Open Quant Live Book</title>
+  <meta name="description" content="A Statistical Methods | The Open Quant Live Book>
   <meta name="generator" content="bookdown  and GitBook 2.6.7">
 
-  <meta property="og:title" content="Chapter 2 Stylized Facts | The Open Quant Live Book />
+  <meta property="og:title" content="A Statistical Methods | The Open Quant Live Book />
   <meta property="og:type" content="book" />
   
   <meta property="og:image" content="./fig/cover1.jpg" />
-  <meta property="og:description" content="Chapter 2 Stylized Facts | The Open Quant Live Book />
+  <meta property="og:description" content="A Statistical Methods | The Open Quant Live Book />
   <meta name="github-repo" content="souzatharsis/open-quant-live-book" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 2 Stylized Facts | The Open Quant Live Book />
+  <meta name="twitter:title" content="A Statistical Methods | The Open Quant Live Book />
   
-  <meta name="twitter:description" content="Chapter 2 Stylized Facts | The Open Quant Live Book />
+  <meta name="twitter:description" content="A Statistical Methods | The Open Quant Live Book />
   <meta name="twitter:image" content="./fig/cover1.jpg" />
 
 <meta name="author" content="Thársis T. P. Souza">
@@ -32,8 +32,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="io.html">
-<link rel="next" href="correlation-causation.html">
+<link rel="prev" href="financial-networks.html">
+<link rel="next" href="references.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -221,61 +221,39 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="stylized-facts" class="section level1">
-<h1><span class="header-section-number">Chapter 2</span> Stylized Facts</h1>
-<div id="introduction" class="section level2">
-<h2><span class="header-section-number">2.1</span> Introduction</h2>
-</div>
-<div id="distribution-of-returns" class="section level2">
-<h2><span class="header-section-number">2.2</span> Distribution of Returns</h2>
-<div id="fat-tails" class="section level3">
-<h3><span class="header-section-number">2.2.1</span> Fat Tails</h3>
-<!-- A distribuição de retornos financeiros apresenta leptokurtose.  -->
-<!-- A ocorrência de eventos extremos é mais provável comparado com uma distribuição normal, i.e., as caudas da distribuição empírica de retornos são mais ``pesadas''  -->
-<!-- comparadas com as caudas esperadas supondo uma distribuição normal de probabilidade. -->
-</div>
-<div id="skewness" class="section level3">
-<h3><span class="header-section-number">2.2.2</span> Skewness</h3>
-<!-- A distribuição empírica de retornos é distorcida para esquerda. Retornos negativos são mais prováveis que retornos positivos. -->
-</div>
-</div>
-<div id="volatility" class="section level2">
-<h2><span class="header-section-number">2.3</span> Volatility</h2>
-<!-- \begin{equation} -->
-<!--  \sigma = \sqrt{ \frac{1}{N-1} \sum_{i=1}^N (x_i - \overline{x})^2} -->
-<!-- (\#eq:sd) -->
-<!-- \end{equation} -->
-<div id="time-invariance" class="section level3">
-<h3><span class="header-section-number">2.3.1</span> Time-invariance</h3>
-<!-- A volatilidade de retornos financeiros não é constante ao longo do tempo. -->
-</div>
-<div id="volatility-clustering" class="section level3">
-<h3><span class="header-section-number">2.3.2</span> Volatility Clustering</h3>
-<!-- Eventos extremos são observados próximos um dos outros. -->
-</div>
-<div id="correlation-with-trading-volume" class="section level3">
-<h3><span class="header-section-number">2.3.3</span> Correlation with Trading Volume</h3>
-<!-- O volume de negociação de um ativo tem correlação significante com a volatilidade do mesmo. -->
-</div>
-</div>
-<div id="correlation" class="section level2">
-<h2><span class="header-section-number">2.4</span> Correlation</h2>
-<!-- \begin{equation} -->
-<!-- (\#eq:correlation) -->
-<!-- \rho = \frac{\sum\limits_{t=1}^{T} (r_t - \hat{r}_t)(s_t - \hat{s}_t)}{\sqrt{\sum\limits_{t=1}^{T} (r_t^{\tau} - \hat{r}_t^{\tau})^2}\sqrt{\sum\limits_{t=1}^{T}(s_t - \hat{s}_t)^2}}, -->
-<!-- \end{equation} -->
-<!-- onde $\hat{r}_t$ e $\hat{s}_t$ são a média amostral de $r_t$ e $s_t$, respectivamente. -->
-<div id="time-invariance-1" class="section level3">
-<h3><span class="header-section-number">2.4.1</span> Time-invariance</h3>
-<!-- A correlação entre duas series temporais de retornos financeiros não é constante ao longo do tempo. -->
-</div>
-<div id="auto-correlation" class="section level3">
-<h3><span class="header-section-number">2.4.2</span> Auto-correlation</h3>
-<!-- Retornos financeiros apresentam baixa autocorrelação (linear), exceto em escalas de tempo muito baixas, e.g., minutos, onde há presença de efeitos de microstructura. -->
-<!-- Por outro lado, a função de autocorrelação do valor absoluto de retornos financeiros decai lentamente com o tempo. -->
-<!-- A correlação contemporânea é maior do que a correlação cruzada. -->
+<div id="statistical-methods" class="section level1">
+<h1><span class="header-section-number">A</span> Statistical Methods</h1>
+<p>This Appendix provides details to some of statistical methods used in the book.</p>
+<div id="kde" class="section level2">
+<h2><span class="header-section-number">A.1</span> Kernel Density Estimation</h2>
+<p>In the entropy computation (see Section <a href="entropy.html#entropy">5</a>) the empirical probability distribution must be estimated. Histogram-based methods and kernel density estimations are the two main methods for that. Histogram-based is the simplest and most used nonparametric density estimator. Nonetheless, it yields density estimates that have discontinuities and vary significantly depending on the bin size choice.</p>
+Also known as the Parzen-Rosenblatt window method, the kernel density estimation (KDE) approach approximates the density function at point <span class="math inline">\(x\)</span> using neighboring observations. However, instead of building up the estimate according to the bin edges as in histograms, the KDE method uses each point of estimation <span class="math inline">\(x\)</span> as the center of a bin of width <span class="math inline">\(2h\)</span> and weight it according to a kernel function. Thereby, the kernel estimate of the probability density function <span class="math inline">\(f(x)\)</span> is defined as
+<span class="math display" id="eq:pdf">\[\begin{equation}
+\hat{f} = \frac{1}{nh}\sum_{x&#39; \in X}{K\left(\frac{x - x&#39;}{h}\right)}. 
+\tag{A.1}
+\end{equation}\]</span>
+A usual choice for the kernel <span class="math inline">\(K\)</span>, which we use here, is the (Gaussian) radial basis function:
+<span class="math display">\[\begin{equation}
+K(x) = \frac{1}{\sqrt{2\pi}}\exp^{-\frac{1}{2}x^2}. 
+\end{equation}\]</span>
+The problem of selecting the bandwidth <span class="math inline">\(h\)</span> in Eq. <a href="statistical-methods.html#eq:pdf">(A.1)</a> is crucial in the density estimation. A large <span class="math inline">\(h\)</span> will oversmooth the estimated density and mask the structure of the data. On the other hand, a small bandwidth will reduce the bias of the density estimate at the expense of a larger variance in the estimates. If we assume that the true distribution is Gaussian and we use a Gaussian kernel, the optimal value of <span class="math inline">\(h\)</span> that minimizes the mean integrated squared error (MISE) is
+<span class="math display">\[\begin{equation*}
+h^* = 1.06\sigma N^{-1/5},
+\end{equation*}\]</span>
+<p>where <span class="math inline">\(N\)</span> is the total number of points and <span class="math inline">\(\sigma\)</span> can be estimated as the sample standard deviation. This bandwidth estimation is often called the Gaussian approximation or Silverman’s rule of thumb for kernel density estimation <span class="citation">(Silverman and Green <a href="#ref-silverman">1986</a>)</span>. This is the most commonly-used method and it is here employed. Other common methods are given by <span class="citation">(Sheather and Jones <a href="#ref-sheather1991reliable">1991</a>)</span> and <span class="citation">(Scott <a href="#ref-scott1992multivariate">1992</a>)</span>.</p>
 
 </div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-silverman">
+<p>Silverman, B. W., and P. J. Green. 1986. <em>Density Estimation for Statistics and Data Analysis</em>. London: Chapman; Hall.</p>
+</div>
+<div id="ref-sheather1991reliable">
+<p>Sheather, S. J., and M. C. Jones. 1991. “A Reliable Data-Based Bandwidth Selection Method for Kernel Density Estimation.” <em>Journal of the Royal Statistical Society. Series B (Methodological)</em> 53 (3). Blackwell Publishing for the Royal Statistical Society: pp. 683–90.</p>
+</div>
+<div id="ref-scott1992multivariate">
+<p>Scott, D.W. 1992. <em>Multivariate Density Estimation: Theory, Practice, and Visualization</em>. A Wiley-Interscience Publication. Wiley.</p>
 </div>
 </div>
             </section>
@@ -283,8 +261,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           </div>
         </div>
       </div>
-<a href="io.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="correlation-causation.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="financial-networks.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -314,7 +292,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/souzatharsis/open-quant-live-book/edit/master/chapters/StylizedFacts/StylizedFacts.Rmd",
+"link": "https://github.com/souzatharsis/open-quant-live-book/edit/master/chapters/StatisticalMethods/StatisticalMethods.Rmd",
 "text": "Edit"
 },
 "history": {

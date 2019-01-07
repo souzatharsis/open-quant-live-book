@@ -1,4 +1,4 @@
-# Entropy
+# Entropy {#entropy}
 
 Let $X$ be a random variable and $P_X(x)$ be its probability density function (pdf). The entropy $H(X)$ is a measure of the uncertainty of $X$ 
 and is defined in the discrete case as follows:
@@ -23,7 +23,7 @@ H\left(Y\middle\vert X\right) = H(X,Y) - H(X).
 \end{equation}
 We can interpret $H\left(Y\middle\vert X\right)$ as the uncertainty of $Y$ given a realization of $X$.
 
-## Market Efficiency and Bubbles
+## Efficiency and Bubbles in the Crypto and Equity Markets
 
-## Quantifying Non-linear Correlation
+## Quantifying Non-linear Correlation Between Equity and Commodity Markets
 

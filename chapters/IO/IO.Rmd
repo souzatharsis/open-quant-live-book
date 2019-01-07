@@ -171,15 +171,14 @@ According to the developer, this package causes R to pause 0.2 seconds after exe
 ### Key Packages Used
 
 * Importing Flat Files
-++ **readr** and **data.table**
+    * **readr** and **data.table**
 
 * Obtaining Financial Data
-++ **quantmod**, **imanuelcostigan/iex** and **quandl**
+    * **quantmod**, **imanuelcostigan/iex** and **quandl**
 
 ### Further Reading
 
-We recommend the book R for Data Science: Import, Tidy, Transform, Visualize, and Model Data.
-Additional relevant R packages include:
+To further learn how to use R to load, transform, visualize and model data see [@Wickham:2017:RDS:3086927]. Additional relevant R packages include:
 
 * dplyr: Fast data frames manipulation and database query.
 * reshape2: Flexibly rearrange, reshape and aggregate data.

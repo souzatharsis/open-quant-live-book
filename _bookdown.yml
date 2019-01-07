@@ -16,4 +16,7 @@ rmd_files: ["index.Rmd",
 "./chapters/Part5.Rmd",
 "./chapters/Entropy/Entropy.Rmd",
 "./chapters/TransferEntropy/TransferEntropy.Rmd",
-"./chapters/FinancialNetworks/FinancialNetworks.Rmd"]
+"./chapters/FinancialNetworks/FinancialNetworks.Rmd",
+"./chapters/Appendix.Rmd",
+"./chapters/StatisticalMethods/StatisticalMethods.Rmd",
+"./chapters/References.Rmd"]

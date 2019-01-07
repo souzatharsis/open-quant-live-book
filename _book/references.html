@@ -5,21 +5,21 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Chapter 2 Stylized Facts | The Open Quant Live Book</title>
-  <meta name="description" content="Chapter 2 Stylized Facts | The Open Quant Live Book>
+  <title>References | The Open Quant Live Book</title>
+  <meta name="description" content="References | The Open Quant Live Book>
   <meta name="generator" content="bookdown  and GitBook 2.6.7">
 
-  <meta property="og:title" content="Chapter 2 Stylized Facts | The Open Quant Live Book />
+  <meta property="og:title" content="References | The Open Quant Live Book />
   <meta property="og:type" content="book" />
   
   <meta property="og:image" content="./fig/cover1.jpg" />
-  <meta property="og:description" content="Chapter 2 Stylized Facts | The Open Quant Live Book />
+  <meta property="og:description" content="References | The Open Quant Live Book />
   <meta name="github-repo" content="souzatharsis/open-quant-live-book" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 2 Stylized Facts | The Open Quant Live Book />
+  <meta name="twitter:title" content="References | The Open Quant Live Book />
   
-  <meta name="twitter:description" content="Chapter 2 Stylized Facts | The Open Quant Live Book />
+  <meta name="twitter:description" content="References | The Open Quant Live Book />
   <meta name="twitter:image" content="./fig/cover1.jpg" />
 
 <meta name="author" content="Thársis T. P. Souza">
@@ -32,8 +32,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="io.html">
-<link rel="next" href="correlation-causation.html">
+<link rel="prev" href="statistical-methods.html">
+
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -221,60 +221,87 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="stylized-facts" class="section level1">
-<h1><span class="header-section-number">Chapter 2</span> Stylized Facts</h1>
-<div id="introduction" class="section level2">
-<h2><span class="header-section-number">2.1</span> Introduction</h2>
-</div>
-<div id="distribution-of-returns" class="section level2">
-<h2><span class="header-section-number">2.2</span> Distribution of Returns</h2>
-<div id="fat-tails" class="section level3">
-<h3><span class="header-section-number">2.2.1</span> Fat Tails</h3>
-<!-- A distribuição de retornos financeiros apresenta leptokurtose.  -->
-<!-- A ocorrência de eventos extremos é mais provável comparado com uma distribuição normal, i.e., as caudas da distribuição empírica de retornos são mais ``pesadas''  -->
-<!-- comparadas com as caudas esperadas supondo uma distribuição normal de probabilidade. -->
-</div>
-<div id="skewness" class="section level3">
-<h3><span class="header-section-number">2.2.2</span> Skewness</h3>
-<!-- A distribuição empírica de retornos é distorcida para esquerda. Retornos negativos são mais prováveis que retornos positivos. -->
-</div>
-</div>
-<div id="volatility" class="section level2">
-<h2><span class="header-section-number">2.3</span> Volatility</h2>
-<!-- \begin{equation} -->
-<!--  \sigma = \sqrt{ \frac{1}{N-1} \sum_{i=1}^N (x_i - \overline{x})^2} -->
-<!-- (\#eq:sd) -->
-<!-- \end{equation} -->
-<div id="time-invariance" class="section level3">
-<h3><span class="header-section-number">2.3.1</span> Time-invariance</h3>
-<!-- A volatilidade de retornos financeiros não é constante ao longo do tempo. -->
-</div>
-<div id="volatility-clustering" class="section level3">
-<h3><span class="header-section-number">2.3.2</span> Volatility Clustering</h3>
-<!-- Eventos extremos são observados próximos um dos outros. -->
-</div>
-<div id="correlation-with-trading-volume" class="section level3">
-<h3><span class="header-section-number">2.3.3</span> Correlation with Trading Volume</h3>
-<!-- O volume de negociação de um ativo tem correlação significante com a volatilidade do mesmo. -->
-</div>
-</div>
-<div id="correlation" class="section level2">
-<h2><span class="header-section-number">2.4</span> Correlation</h2>
-<!-- \begin{equation} -->
-<!-- (\#eq:correlation) -->
-<!-- \rho = \frac{\sum\limits_{t=1}^{T} (r_t - \hat{r}_t)(s_t - \hat{s}_t)}{\sqrt{\sum\limits_{t=1}^{T} (r_t^{\tau} - \hat{r}_t^{\tau})^2}\sqrt{\sum\limits_{t=1}^{T}(s_t - \hat{s}_t)^2}}, -->
-<!-- \end{equation} -->
-<!-- onde $\hat{r}_t$ e $\hat{s}_t$ são a média amostral de $r_t$ e $s_t$, respectivamente. -->
-<div id="time-invariance-1" class="section level3">
-<h3><span class="header-section-number">2.4.1</span> Time-invariance</h3>
-<!-- A correlação entre duas series temporais de retornos financeiros não é constante ao longo do tempo. -->
-</div>
-<div id="auto-correlation" class="section level3">
-<h3><span class="header-section-number">2.4.2</span> Auto-correlation</h3>
-<!-- Retornos financeiros apresentam baixa autocorrelação (linear), exceto em escalas de tempo muito baixas, e.g., minutos, onde há presença de efeitos de microstructura. -->
-<!-- Por outro lado, a função de autocorrelação do valor absoluto de retornos financeiros decai lentamente com o tempo. -->
-<!-- A correlação contemporânea é maior do que a correlação cruzada. -->
+<div id="references" class="section level1 unnumbered">
+<h1>References</h1>
 
+<div id="refs" class="references">
+<div>
+<p>Aste, Tomaso, W. Shaw, and Tiziana Di Matteo. 2010. “Correlation Structure and Dynamics in Volatile Markets.” <em>New Journal of Physics</em> 12 (8). IOP Publishing: 085009.</p>
+</div>
+<div>
+<p>Bardoscia, Marco, Stefano Battiston, Fabio Caccioli, and Guido Caldarelli. 2017. “Pathways Towards Instability in Financial Networks.” <em>Nature Communications</em> 8. Nature Publishing Group: 14416.</p>
+</div>
+<div>
+<p>Barnett, Lionel, Adam B. Barrett, and Anil K. Seth. 2009. “Granger Causality and Transfer Entropy Are Equivalent for Gaussian Variables.” <em>Phys. Rev. Lett.</em> 103 (23). American Physical Society: 238701. doi:<a href="https://doi.org/10.1103/PhysRevLett.103.238701">10.1103/PhysRevLett.103.238701</a>.</p>
+</div>
+<div>
+<p>Barnett, William A., A. Ronald Gallant, Melvin J. Hinich, Jochen A. Jungeilges, Daniel T. Kaplan, and Mark J. Jensen. 1997. “A Single-Blind Controlled Competition Among Tests for Nonlinearity and Chaos.” <em>Journal of Econometrics</em> 82: 157–92.</p>
+</div>
+<div>
+<p>Brock, W. A., J. A. Scheinkman, W. D. Dechert, and B. LeBaron. 1996. “A test for independence based on the correlation dimension.” <em>Econometric Reviews</em> 15 (3). Taylor &amp; Francis: 197–235. doi:<a href="https://doi.org/10.1080/07474939608800353">10.1080/07474939608800353</a>.</p>
+</div>
+<div>
+<p>Curme, Chester, H Eugene Stanley, and Irena Vodenska. 2015. “Coupled Network Approach to Predictability of Financial Market Returns and News Sentiments.” <em>International Journal of Theoretical and Applied Finance</em> 18 (07). World Scientific Publishing Company: 1550043.</p>
+</div>
+<div>
+<p>Granger, Clive. 1969. “Investigating Causal Relations by Econometric Models and Cross-Spectral Methods.” <em>Econometrica</em> 37 (3): 424–38.</p>
+</div>
+<div>
+<p>Hlavackovaschindler, K., M. Palus, M. Vejmelka, and J. Bhattacharya. 2007. “Causality Detection Based on Information-Theoretic Approaches in Time Series Analysis.” <em>Physics Reports</em> 441 (1): 1–46. doi:<a href="https://doi.org/10.1016/j.physrep.2006.12.004">10.1016/j.physrep.2006.12.004</a>.</p>
+</div>
+<div>
+<p>Li, Yan, Xiong-Fei Jiang, Yue Tian, Sai-Ping Li, and Bo Zheng. 2018. “Portfolio Optimization Based on Network Topology.” <em>Physica A: Statistical Mechanics and Its Applications</em>. doi:<a href="https://doi.org/https://doi.org/10.1016/j.physa.2018.10.014">https://doi.org/10.1016/j.physa.2018.10.014</a>.</p>
+</div>
+<div>
+<p>Mantegna, R. N. 1999. “Hierarchical Structure in Financial Markets.” <em>The European Physical Journal B - Condensed Matter and Complex Systems</em> 11 (1): 193–97. doi:<a href="https://doi.org/10.1007/s100510050929">10.1007/s100510050929</a>.</p>
+</div>
+<div>
+<p>Michalowicz, Joseph Victor, Jonathan M. Nichols, and Frank Bucholtz. 2013. <em>Handbook of Differential Entropy</em>. Chapman &amp; Hall/CRC.</p>
+</div>
+<div>
+<p>Montalto, Luca AND Marinazzo, Alessandro AND Faes. 2014. “MuTE: A Matlab Toolbox to Compare Established and Novel Estimators of the Multivariate Transfer Entropy.” <em>PLoS ONE</em> 9 (10). Public Library of Science: e109462. doi:<a href="https://doi.org/10.1371/journal.pone.0109462">10.1371/journal.pone.0109462</a>.</p>
+</div>
+<div>
+<p>Morales, Raffaello, Tiziana Di Matteo, Ruggero Gramatica, and Tomaso Aste. 2012. “Dynamical Generalized Hurst Exponent as a Tool to Monitor Unstable Periods in Financial Time Series.” <em>Physica A: Statistical Mechanics and Its Applications</em> 391 (11). North-Holland: 3180–9.</p>
+</div>
+<div>
+<p>Musmeci, Nicoló, Tomaso Aste, and Tiziana di Matteo. 2014. “Clustering and Hierarchy of Financial Markets Data: Advantages of the Dbht.” <em>CoRR</em>.</p>
+</div>
+<div>
+<p>Pozzi, Francesco, Tiziana Di Matteo, and Tomaso Aste. 2013. “Spread of Risk Across Financial Markets: Better to Invest in the Peripheries.” <em>Scientific Reports</em> 3. Nature Publishing Group.</p>
+</div>
+<div>
+<p>Schreiber, Thomas. 2000. “Measuring Information Transfer.” <em>Phys. Rev. Lett.</em> 85 (2). American Physical Society: 461–64. doi:<a href="https://doi.org/10.1103/PhysRevLett.85.461">10.1103/PhysRevLett.85.461</a>.</p>
+</div>
+<div>
+<p>Scott, D.W. 1992. <em>Multivariate Density Estimation: Theory, Practice, and Visualization</em>. A Wiley-Interscience Publication. Wiley.</p>
+</div>
+<div>
+<p>Sheather, S. J., and M. C. Jones. 1991. “A Reliable Data-Based Bandwidth Selection Method for Kernel Density Estimation.” <em>Journal of the Royal Statistical Society. Series B (Methodological)</em> 53 (3). Blackwell Publishing for the Royal Statistical Society: pp. 683–90.</p>
+</div>
+<div>
+<p>Silverman, B. W., and P. J. Green. 1986. <em>Density Estimation for Statistics and Data Analysis</em>. London: Chapman; Hall.</p>
+</div>
+<div>
+<p>Song, W.-M., T. Aste, and T. Di Matteo. 2008. “Analysis on Filtered Correlation Graph for Information Extraction.” <em>Statistical Mechanics of Molecular Biophysics</em>, 88.</p>
+</div>
+<div>
+<p>Song, W.-M., T. Di Matteo, and T. Aste. 2012. “Hierarchical Information Clustering by Means of Topologically Embedded Graphs.” <em>PLoS One</em> 7 (3). Public Library of Science: e31929.</p>
+</div>
+<div>
+<p>Tumminello, M., T. Aste, T. Di Matteo, and R. N. Mantegna. 2005. “A Tool for Filtering Information in Complex Systems.” <em>Proceedings of the National Academy of Sciences of the United States of America</em> 102 (30): 10421–6. doi:<a href="https://doi.org/10.1073/pnas.0500298102">10.1073/pnas.0500298102</a>.</p>
+</div>
+<div>
+<p>Tumminello, Michele, Fabrizio Lillo, and Rosario N. Mantegna. 2010. “Correlation, Hierarchies, and Networks in Financial Markets.” <em>Journal of Economic Behavior &amp; Organization</em> 75 (1): 40–58. doi:<a href="https://doi.org/http://dx.doi.org/10.1016/j.jebo.2010.01.004">http://dx.doi.org/10.1016/j.jebo.2010.01.004</a>.</p>
+</div>
+<div>
+<p>Tumminello, Salvatore AND Lillo, Michele AND Miccichè. 2011. “Statistically Validated Networks in Bipartite Complex Systems.” <em>PLoS ONE</em> 6 (3). Public Library of Science: 1–11. doi:<a href="https://doi.org/10.1371/journal.pone.0017994">10.1371/journal.pone.0017994</a>.</p>
+</div>
+<div>
+<p>Wickham, Hadley, and Garrett Grolemund. 2017. <em>R for Data Science: Import, Tidy, Transform, Visualize, and Model Data</em>. 1st ed. O’Reilly Media, Inc.</p>
+</div>
+<div>
+<p>Wiener, N. 1956. “The theory of prediction.” In <em>Modern Mathematics for Engineers</em>, edited by E. F. Beckenbach. McGraw-Hill, New York.</p>
 </div>
 </div>
 </div>
@@ -283,8 +310,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           </div>
         </div>
       </div>
-<a href="io.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="correlation-causation.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="statistical-methods.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -314,7 +341,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/souzatharsis/open-quant-live-book/edit/master/chapters/StylizedFacts/StylizedFacts.Rmd",
+"link": "https://github.com/souzatharsis/open-quant-live-book/edit/master/chapters/References.Rmd",
 "text": "Edit"
 },
 "history": {

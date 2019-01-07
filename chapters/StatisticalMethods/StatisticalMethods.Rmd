@@ -1,0 +1,33 @@
+# Statistical Methods
+
+This Appendix provides details to some of statistical methods used in the book.
+
+## Kernel Density Estimation {#kde}
+
+In the entropy computation (see Section \@ref(entropy)) the empirical probability distribution must be estimated.
+Histogram-based methods and kernel density estimations are the two main methods for that.
+Histogram-based is the simplest and most used nonparametric density estimator. 
+Nonetheless, it yields density estimates that have discontinuities and vary significantly depending on the bin size choice.
+
+Also known as the Parzen-Rosenblatt window method, the kernel density estimation (KDE) approach approximates the density function at point $x$ using neighboring observations. 
+However, instead of building up the estimate according to the bin edges as in histograms, the KDE method uses each point of estimation $x$ as the center of a bin of width $2h$ 
+and weight it according to a kernel function. Thereby, the kernel estimate of the probability density function $f(x)$ is defined as
+\begin{equation}
+\hat{f} = \frac{1}{nh}\sum_{x' \in X}{K\left(\frac{x - x'}{h}\right)}. 
+(\#eq:pdf)
+\end{equation}
+
+A usual choice for the kernel $K$, which we use here, is the (Gaussian) radial basis function:
+\begin{equation}
+K(x) = \frac{1}{\sqrt{2\pi}}\exp^{-\frac{1}{2}x^2}. 
+\end{equation}
+
+The problem of selecting the bandwidth $h$ in Eq. \@ref(eq:pdf) is crucial in the density estimation. 
+A large $h$ will oversmooth the estimated density and mask the structure of the data. 
+On the other hand, a small bandwidth will reduce the bias of the density estimate at the expense of a larger variance in the estimates. 
+If we assume that the true distribution is Gaussian and we use a Gaussian kernel, the optimal value of $h$ that minimizes the mean integrated squared error (MISE) is
+\begin{equation*}
+h^* = 1.06\sigma N^{-1/5},
+\end{equation*}
+where $N$ is the total number of points and $\sigma$ can be estimated as the sample standard deviation. 
+This bandwidth estimation is often called the Gaussian approximation or Silverman's rule of thumb for kernel density estimation [@silverman]. This is the most commonly-used method and it is here employed. Other common methods are given by [@sheather1991reliable] and [@scott1992multivariate].

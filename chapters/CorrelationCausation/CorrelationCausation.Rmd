@@ -4,11 +4,11 @@
 
 ## A First Definition of Causality
 
-We quantify causality by using the notion of the causal relation introduced by Granger where a signal $X$ is said to Granger-cause $Y$ if the future realizations of $Y$ can be better explained using the past information from $X$ and $Y$ rather than $Y$ alone.
+We quantify causality by using the notion of the causal relation introduced by Granger [@Wiener56; @granger:econ] where a signal $X$ is said to Granger-cause $Y$ if the future realizations of $Y$ can be better explained using the past information from $X$ and $Y$ rather than $Y$ alone.
 
 The most common definitions of Granger-causality rely on the prediction of a future 
 value of the variable $Y$ by using the past values of $X$ and $Y$ itself. 
-In that form, $X$ is said to G-cause $Y$ if the use of $X$ improves the prediction of $Y$.
+In that form, $X$ is said to *G-cause* $Y$ if the use of $X$ improves the prediction of $Y$.
 
 Let $X_t$ be a random variable associated at time $t$ while $X^t$ represents the collection of random variables up to time $t$.
 We consider ${X_t}, {Y_t}$ and ${Z_t}$ to be three stochastic processes. 
@@ -32,28 +32,42 @@ We can now provide our first definition of statistical causality under the Grang
 ```{definition G1}
 $X$ does not Granger-cause $Y$ relative to side information $Z$ if and only if $\mathcal{R}(Y_{t+1} \; | \; X^t, Y^t, Z^t) = \mathcal{R}(Y_{t+1} \; | \; Y^t, Z^t)$.
 ```
+<br />
 
-A more general definition than \@ref{def:G1} that does not depend on assuming prediction functions can be formulated by considering conditional probabilities.
+A more general definition than Def. \@ref(def:G1) that does not depend on assuming prediction functions can be formulated by considering conditional probabilities.
 A probabilistic definition of G-causality assumes that $Y_{t+1}$ and $X^{t}$ are independent given the 
 past information $(X^{t}, Y^{t})$ if and only if
 $p(Y_{t+1} \, | \, X^{t}, Y^{t}, Z^{t}) = p(Y_{t+1} \, | \, Y^{t}, Z^{t})$, 
 where $p(. \, | \, .)$ represents the conditional probability distribution.
 In other words, omitting past information from $X$ does not change the probability distribution of $Y$. This leads to our second definition of statistical causality as follows:
+
 ```{definition G2}
 $X$ does not Granger-cause $Y$ relative to side information $Z$ if and only if $Y_{t+1} \independent X^{t} \; | \; Y^{t}, Z^{t}$.
 ```
+<br />
 
-Def. \@ref{def:G2} does not assume any functional form in the coupling between $X$ and $Y$. 
+Def. \@ref(def:G2) does not assume any functional form in the coupling between $X$ and $Y$. 
 Nevertheless, it requires a method to assess their conditional dependency. 
 
 In the next Section, we define a parametric linear specification of G-causality based on Def. \@ref(def:G1).
+Later in the book, in the Section \@ref(nonlinearG), when we cover Econophysics techniques, we will present a nonlinear specification for G-causality based on Def. \@ref(def:G2).
 
-## Quantifying Granger-Causality
+## Quantifying Granger-Causality {#LinearG}
 
+We will take the following procedure to quantify Granger-causality according to Def. \@ref(def:G1):
+
+1. Specify two predictive models:
+  * The first considers $Y^t$ to predict $Y^{t+1}$ (Model $\mathcal{M}$);
+  * The second considers $Y^t$ and $X^t$ to predict $Y^{t+1}$ (Model $\mathcal{M}^*$);
+2. Test for model misspecification;
+3. Test the hypothesis that the expected value of the prediction error of the Models $\mathcal{M}$ and $\mathcal{M}^*$ are statistically the same;
+4. Apply correction for multiple hypothesis testing.
+
+If the null hypothesis from 3. is rejected then there is evidence that $X$ Granger-causes $Y$ under Def. \@ref(def:G1).
 
 ### Model Specification
 
-Standard Granger-causality  tests  assume  a  linear  relationship  among the causes and effects and are implemented by fitting autoregressive models \cite{Wiener56, granger:econ}.
+Standard Granger-causality  tests  assume  a  linear  relationship  among the causes and effects and are implemented by fitting autoregressive models [@Wiener56; @granger:econ].
 
 Consider the linear vector-autoregressive (VAR) equations:
 \begin{align}
@@ -66,11 +80,11 @@ From Def \@ref(def:G1), $X$ does not G-cause $Y$ if and only if the prediction e
 
 ### Test for Misspecification
 
-A statistically significant causality can be reported only if the linear models from Eqs. \@ref(eq:AR11) and \@ref(eq:AR22) are not misspecified. For that purpose, we utilize the BDS test \cite{citeulike:9300127} for the model misspecification (see Section \ref{sec:bds}).
+A statistically significant causality can be reported only if the linear models from Eqs. \@ref(eq:AR11) and \@ref(eq:AR22) are not misspecified. For that purpose, we utilize the BDS test [@citeulike:9300127] for the model misspecification.
 
-The BDS test \cite{citeulike:9300127} is used to detect nonlinear dependence in time series. 
+The BDS test [@citeulike:9300127] is used to detect nonlinear dependence in time series. 
 When applied to the residuals of a linear model, the BDS tests the null hypothesis that these residuals are independent and identically distributed.
-The BDS test is a powerful test to detect linear misspecification and nonlinearity \cite{citeulike:9300127,Barnett97asingle-blind}.
+The BDS test is a powerful test to detect linear misspecification and nonlinearity [@citeulike:9300127; @Barnett97asingle-blind].
 
 Let $\epsilon_t = (\epsilon_{t=1}, \ldots, \epsilon_{t=n})$ be the residuals of the linear fitted model and define its $m$-embedding as
 $\epsilon_t^m = (\epsilon_{t}, \epsilon_{t-1}, \ldots, \epsilon_{t-m+1})$. The  $m$-embedding correlation integral is given by
@@ -93,11 +107,12 @@ The BDS statistic is a measure of the extent that this relation holds in the dat
 \begin{align}
 V_{m}(\Delta \epsilon) = \sqrt{n}\frac{C_{m}(\Delta \epsilon) - C_{1}(\Delta \epsilon)^m}{\sigma_m(\Delta \epsilon)}, \nonumber
 \end{align}
-where $\sigma_m(\Delta \epsilon)$ can be estimated as described in \cite{citeulike:9300127}. 
+where $\sigma_m(\Delta \epsilon)$ can be estimated as described in [@citeulike:9300127]. 
 
 The null hypothesis of the BDS test indicates that the model tested is not misspecified and it is rejected at the 5\% significance level if $\|V_m(\Delta \epsilon)\| > 1.96$.
+The parameter $\Delta \epsilon$ is commonly set as a factor of the variance ($\sigma_\epsilon$) of $\epsilon$. 
 
-The parameter $\Delta \epsilon$ is commonly set as a factor of the variance ($\sigma_\epsilon$) of $\epsilon$. We report results for $\Delta \epsilon = \sigma_\epsilon/2$ and the embedding dimension $m = 2$. We also performed tests for $\Delta \epsilon = \sigma_\epsilon$ and $m = 3$ with no significant differences in the results.
+<!-- We report results for $\Delta \epsilon = \sigma_\epsilon/2$ and the embedding dimension $m = 2$. We also performed tests for $\Delta \epsilon = \sigma_\epsilon$ and $m = 3$ with no significant differences in the results. -->
 
 ### Analysis of Variance
 
