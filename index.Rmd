@@ -42,6 +42,12 @@ if(!knitr:::is_html_output())
 
 <img style="border:5px solid black" src="./fig/cover1.jpg" alt="The Open Quant Book">
 
+### Description {-}
+
+The book aims to be an Open Source introductory  reference of the most important aspects of financial data analysis, algo trading, portfolio selection, econophysics and machine learning in finance with an emphasis in reproducibility and openness not to be found in most other typical Wall Street-like references.
+
+The Book is [Open](https://github.com/souzatharsis/open-quant-live-book) and we are looking for co-authors. Feel free to [reach out](http://www.souzatharsis.com/) or simply create a pull request with your contribution on our [Github project](https://github.com/souzatharsis/open-quant-live-book).
+
 ### Working Contents {-}
 
 1. The Basics
@@ -78,11 +84,6 @@ if(!knitr:::is_html_output())
 + Financial Networks
 
 6. Alternative Data
-
-### Contribute {-}
-
-The Book is [Open](https://github.com/souzatharsis/open-quant-live-book) and we are looking for co-authors. Feel free to [reach out](http://www.souzatharsis.com/) or simply create a pull request with your contribution on our [Github project](https://github.com/souzatharsis/open-quant-live-book).
-
 
 ### Book's information {-}
 

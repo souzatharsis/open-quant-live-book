@@ -121,3 +121,6 @@ A one-way ANOVA test is utilized to test if the residuals from Eqs. \@ref(eq:AR1
 ### Multiple Hypotheses Testing Correction
 
 When more than one lag $k$ is tested, a Bonferroni correction is applied to control for multiple hypotheses testing.
+
+## Conclusion
+
