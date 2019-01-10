@@ -4,6 +4,10 @@
 
 <img src="./fig/cover1.jpg" alt="The Open Quant Book" class="center">
 
+### Description
+
+The book aims to be an Open Source introductory reference of the most important aspects of financial data analysis, algo trading, portfolio selection, econophysics and machine learning in finance with an emphasis in reproducibility and openness not to be found in most other typical Wall Street-like references.
+
 ### Contribute
 
 The Book is Open and we are looking for co-authors. Feel free to [reach out](http://www.souzatharsis.com/) or simply create a pull request with your contribution! See project structure, guidelines and how to contribute [here](https://github.com/souzatharsis/open-quant-live-book/blob/master/CONTRIBUTING.md).
