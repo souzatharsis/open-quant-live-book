@@ -51,7 +51,7 @@ The Book is Open and we are looking for co-authors. Feel free to [reach out](htt
 
 ### Book's information
 
-First published at: [openquant.netlify.com](https://openquant.netlify.com/).
+Website: [http://www.openquants.com/](http://www.openquants.com/).
 
 Licensed under [Attribution-NonCommercial-ShareAlike 4.0 International](https://creativecommons.org/licenses/by-nc-sa/4.0/). 
 
