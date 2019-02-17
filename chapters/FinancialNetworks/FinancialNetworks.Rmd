@@ -19,7 +19,7 @@ and the identification of lead-lag relationships [@curme2015coupled].
 In this Chapter we will describe how to
 
 * Construct and filter financial networks;
-* Build price-based dynamic industry taxonomy;
+* Build price-based dynamic industry taxonomies;
 * Implement a trading strategy based on financial network structure.
 
 ## Network Construction

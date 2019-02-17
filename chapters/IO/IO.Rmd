@@ -10,10 +10,22 @@ if(!require(iex)){
 
 # I/O
 
-In this Chapter, we will introduce basic functions to read text and excel files as well as large files.
-We will also show how to obtain free financial and economic data from sources such as Quandl, IEX and Alpha Vantage.
+In this Chapter, we will introduce basic functions to read text, excel and JSON files as well as large files.
 
-## Reading and Writing
+We will also show how to obtain free financial and economic data including 
+
+* End-of-day and real-time pricing;
+* Company financials;
+* Macroeconomic data.
+
+Data sources include 
+
+* The SEC;
+* Quandl;
+* IEX;
+* Alpha Vantage.
+
+## Importing Data
 
 ### Text Files
 
@@ -57,6 +69,16 @@ In the `read_excel` function, the `sheet` argument can receive either the target
 
 The `readxl` has been oberving increased use compared to other comparable packages such as **gdata** and the **xlsx** due to its relative ease of use and performance. Also, the `readxl` do not have depency with external code libraries while the packages **gdata** and **xlsx** depend on `ActiveState PERL` and the `Java JDK`, respectively.
 
+### JSON Files
+
+JSON files are particularly used for transmitting data in web applications but also frequently used as a standard data interchange format.
+
+The `jsonline` package can be used to parse files in JSON format as follows:
+```{r eval=FALSE}
+library(jsonlite)
+result_json <- read_json("<json file>")
+```
+
 ### Large Files
 
 Fast data manipulation in a short and flexible syntax.
@@ -79,6 +101,7 @@ The data are available in JSON and CSV formats via REST APIs.
 The **quantmod** and the **alphavantager** R packages offer a lightweight R interface to the Alpha Vantage API.
 Daily stock prices can be obtained with the `quantmod::getSymbols` function as follows:
 ```{r eval=TRUE, echo=FALSE, cache=TRUE, results='hide', include=FALSE}
+library(quantmod)
 getSymbols(Symbols='AAPL', src="av", output.size="full", adjusted=TRUE, api.key=config::get()$alpha.vantage.key)
 ```
 ```{r eval=FALSE, echo=TRUE, cache=FALSE}
@@ -162,19 +185,102 @@ According to the developer, this package causes R to pause 0.2 seconds after exe
 ### Quandl
 
 
+### SEC
+
+Official filings are freely available from the U.S. Securities and Exchange Commission's EDGAR database. The package `finreportr` provides an interface in R to facilitate financial analysis from SEC's 10K and 10K/A filings.
+
+We can obtain company basic information with the function the `CompanyInfo` function by passing the ticker symbol of the target company as follows:
+```{r eval=TRUE, echo=TRUE, cache=TRUE}
+library("finreportr")
+AAPL.Info<-CompanyInfo("AAPL")
+print(AAPL.Info)
+```
+As a result, we obtain the following information:
+
+* Company name: `r AAPL.Info$company`; 
+* SEC Central Index Key (CIK): `r AAPL.Info$CIK`;  
+* Standard Industrial Classification (SIC): `r AAPL.Info$SIC`, which is the industry code for Electronic Computers;
+* Address: `r AAPL.Info$street.address`, `r AAPL.Info$city.state`;
+* Most recent period of report end is `r AAPL.Info$FY.end`.
+
+The list of company annual reports with corresponding filing dates can be obtained with the function *AnnualReports* as follows:
+
+```{r eval=TRUE, echo=TRUE, cache=TRUE}
+AAPL.reports<-AnnualReports("AAPL")
+```
+```{r eval=TRUE, echo=FALSE, cache=TRUE}
+knitr::kable(
+  head(AAPL.reports), booktabs = TRUE, caption = "Sample Annual Reports"
+)
+```
+
+The accession number is a unique identifier that the SEC creates for each filing.
+
+Company financials are organized into 3 segments: Income Statement, Balance Sheet and Cash Flow. 
+
+**Income Statement**
+
+Financials from the Income Statement segment can be obtained with the *GetIncome* function as follows:
+```{r eval=TRUE, echo=TRUE, cache=TRUE}
+AAPL.IS<-GetIncome("AAPL", 2017)
+```
+```{r eval=TRUE, echo=FALSE, cache=TRUE}
+knitr::kable(
+  head(AAPL.IS), booktabs = TRUE, caption = "Sample Income Statement Financials"
+)
+```
+
+The Income Statement function returns data for the following metrics:
+```{r eval=TRUE, echo=FALSE, cache=TRUE}
+knitr::kable(
+  unique(AAPL.IS$Metric), booktabs = TRUE, caption = "Income Statement Metrics", col.names = "Metrics"
+)
+```
+
+**Balance Sheet**
+
+Financials from the Balance Sheet segment can be obtained with the *GetBalanceSheet* function as follows:
+```{r eval=TRUE, echo=TRUE, cache=TRUE}
+AAPL.BS<-GetBalanceSheet("AAPL", 2017)
+```
+```{r eval=TRUE, echo=FALSE, cache=TRUE}
+knitr::kable(
+  head(AAPL.BS), booktabs = TRUE, caption = "Sample Balance Sheet Financials"
+)
+```
+
+The Balance Sheet function returns data for the following metrics:
+```{r eval=TRUE, echo=FALSE, cache=TRUE}
+knitr::kable(
+  unique(AAPL.BS$Metric), booktabs = TRUE, caption = "Balance Sheet Metrics", col.names = "Metrics"
+)
+```
+
+**Cash Flow**
+
+Financials from the Cash Flow segment can be obtained with the *GetCashFlow* function as follows:
+```{r eval=TRUE, echo=TRUE, cache=TRUE}
+AAPL.CF<-GetCashFlow("AAPL", 2017)
+```
+```{r eval=TRUE, echo=FALSE, cache=TRUE}
+knitr::kable(
+  head(AAPL.CF), booktabs = TRUE, caption = "Sample Cash Flow Financials"
+)
+```
+
+The Cash Flow function returns data for the following metrics:
+```{r eval=TRUE, echo=FALSE, cache=TRUE}
+knitr::kable(
+  unique(AAPL.CF$Metric), booktabs = TRUE, caption = "Cash Flow Metrics", col.names = "Metrics"
+)
+```
+
+
 ## Conclusion
 
 * We showed how to load and import data from both local files and external sources.
 * We provided examples on how to read tabular data and how to handle large files.
 * We showed how to obtain financial and economic data from freely available sources.
-
-### Key Packages Used
-
-* Importing Flat Files
-    * **readr** and **data.table**
-
-* Obtaining Financial Data
-    * **quantmod**, **imanuelcostigan/iex** and **quandl**
 
 ### Further Reading
 

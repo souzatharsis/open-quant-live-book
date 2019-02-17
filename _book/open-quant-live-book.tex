@@ -127,7 +127,7 @@
 
 \title{The Open Quant Live Book}
 \author{Thársis T. P. Souza}
-\date{2019-01-08}
+\date{2019-02-17}
 
 
 
@@ -310,12 +310,37 @@ Copyright (c) 2018. Thársis T. P. Souza. New York, NY.
 
 \chapter{I/O}\label{io}
 
-In this Chapter, we will introduce basic functions to read text and
-excel files as well as large files. We will also show how to obtain free
-financial and economic data from sources such as Quandl, IEX and Alpha
-Vantage.
+In this Chapter, we will introduce basic functions to read text, excel
+and JSON files as well as large files.
 
-\section{Reading and Writing}\label{reading-and-writing}
+We will also show how to obtain free financial and economic data
+including
+
+\begin{itemize}
+\tightlist
+\item
+  End-of-day and real-time pricing;
+\item
+  Company financials;
+\item
+  Macroeconomic data.
+\end{itemize}
+
+Data sources include
+
+\begin{itemize}
+\tightlist
+\item
+  The SEC;
+\item
+  Quandl;
+\item
+  IEX;
+\item
+  Alpha Vantage.
+\end{itemize}
+
+\section{Importing Data}\label{importing-data}
 
 \subsection{Text Files}\label{text-files}
 
@@ -392,6 +417,22 @@ not have depency with external code libraries while the packages
 \textbf{gdata} and \textbf{xlsx} depend on \texttt{ActiveState\ PERL}
 and the \texttt{Java\ JDK}, respectively.
 
+\subsection{JSON Files}\label{json-files}
+
+JSON files are particularly used for transmitting data in web
+applications but also frequently used as a standard data interchange
+format.
+
+The \texttt{jsonline} package can be used to parse files in JSON format
+as follows:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(jsonlite)}
+\NormalTok{result_json <-}\StringTok{ }\KeywordTok{read_json}\NormalTok{(}\StringTok{"<json file>"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
 \subsection{Large Files}\label{large-files}
 
 Fast data manipulation in a short and flexible syntax.
@@ -437,17 +478,17 @@ looks like the following
 \toprule
 AAPL.Open & AAPL.High & AAPL.Low & AAPL.Close & AAPL.Volume & AAPL.Adjusted\\
 \midrule
-13.6 & 16.2 & 13.5 & 16.2 & 6411700 & 0.512\\
-16.5 & 16.6 & 15.2 & 15.9 & 5820300 & 0.501\\
-15.9 & 20.0 & 14.8 & 18.9 & 16182800 & 0.597\\
-18.8 & 19.0 & 17.3 & 17.5 & 9300200 & 0.552\\
-17.4 & 18.6 & 16.9 & 18.2 & 6910900 & 0.574\\
+13.6 & 16.2 & 13.5 & 16.2 & 6411700 & 0.510\\
+16.5 & 16.6 & 15.2 & 15.9 & 5820300 & 0.499\\
+15.9 & 20.0 & 14.8 & 18.9 & 16182800 & 0.595\\
+18.8 & 19.0 & 17.3 & 17.5 & 9300200 & 0.550\\
+17.4 & 18.6 & 16.9 & 18.2 & 6910900 & 0.571\\
 \addlinespace
-18.1 & 19.4 & 17.5 & 18.2 & 7915600 & 0.574\\
+18.1 & 19.4 & 17.5 & 18.2 & 7915600 & 0.571\\
 \bottomrule
 \end{tabular}
 
-\includegraphics{open-quant-live-book_files/figure-latex/unnamed-chunk-14-1.pdf}
+\includegraphics{open-quant-live-book_files/figure-latex/unnamed-chunk-15-1.pdf}
 
 We called the \texttt{quantmod::getSymbols} function with the following
 arguments:
@@ -585,7 +626,7 @@ three accessible fields: \texttt{path} , \texttt{response} and
 
 \begin{verbatim}
 ## Response [https://api.iextrading.com/1.0/tops/last?symbols=AAPL&filter=symbol%2Cprice%2Csize]
-##   Date: 2019-01-07 03:12
+##   Date: 2019-02-17 23:55
 ##   Status: 200
 ##   Content-Type: application/json; charset=utf-8
 ##   Size: 45 B
@@ -624,6 +665,309 @@ the other set of functions can be obtained at
 
 \subsection{Quandl}\label{quandl}
 
+\subsection{SEC}\label{sec}
+
+Official filings are freely available from the U.S. Securities and
+Exchange Commission's EDGAR database. The package \texttt{finreportr}
+provides an interface in R to facilitate financial analysis from SEC's
+10K and 10K/A filings.
+
+We can obtain company basic information with the function the
+\texttt{CompanyInfo} function by passing the ticker symbol of the target
+company as follows:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(}\StringTok{"finreportr"}\NormalTok{)}
+\NormalTok{AAPL.Info <-}\StringTok{ }\KeywordTok{CompanyInfo}\NormalTok{(}\StringTok{"AAPL"}\NormalTok{)}
+\KeywordTok{print}\NormalTok{(AAPL.Info)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##     company        CIK  SIC state state.inc FY.end
+## 1 APPLE INC 0000320193 3571    CA        CA   0930
+##       street.address         city.state
+## 1 ONE APPLE PARK WAY CUPERTINO CA 95014
+\end{verbatim}
+
+As a result, we obtain the following information:
+
+\begin{itemize}
+\tightlist
+\item
+  Company name: APPLE INC;
+\item
+  SEC Central Index Key (CIK): 0000320193;\\
+\item
+  Standard Industrial Classification (SIC): 3571, which is the industry
+  code for Electronic Computers;
+\item
+  Address: ONE APPLE PARK WAY, CUPERTINO CA 95014;
+\item
+  Most recent period of report end is 0930.
+\end{itemize}
+
+The list of company annual reports with corresponding filing dates can
+be obtained with the function \emph{AnnualReports} as follows:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{AAPL.reports <-}\StringTok{ }\KeywordTok{AnnualReports}\NormalTok{(}\StringTok{"AAPL"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{table}[t]
+
+\caption{\label{tab:unnamed-chunk-23}Sample Annual Reports}
+\centering
+\begin{tabular}{lll}
+\toprule
+filing.name & filing.date & accession.no\\
+\midrule
+10-K & 2018-11-05 & 0000320193-18-000145\\
+10-K & 2017-11-03 & 0000320193-17-000070\\
+10-K & 2016-10-26 & 0001628280-16-020309\\
+10-K & 2015-10-28 & 0001193125-15-356351\\
+10-K & 2014-10-27 & 0001193125-14-383437\\
+\addlinespace
+10-K & 2013-10-30 & 0001193125-13-416534\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The accession number is a unique identifier that the SEC creates for
+each filing.
+
+Company financials are organized into 3 segments: Income Statement,
+Balance Sheet and Cash Flow.
+
+\textbf{Income Statement}
+
+Financials from the Income Statement segment can be obtained with the
+\emph{GetIncome} function as follows:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{AAPL.IS <-}\StringTok{ }\KeywordTok{GetIncome}\NormalTok{(}\StringTok{"AAPL"}\NormalTok{, }\DecValTok{2017}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{table}[t]
+
+\caption{\label{tab:unnamed-chunk-25}Sample Income Statement Financials}
+\centering
+\begin{tabular}{lllll}
+\toprule
+Metric & Units & Amount & startDate & endDate\\
+\midrule
+Revenue, Net & usd & 233715000000 & 2014-09-28 & 2015-09-26\\
+Revenue, Net & usd & 75872000000 & 2015-09-27 & 2015-12-26\\
+Revenue, Net & usd & 50557000000 & 2015-12-27 & 2016-03-26\\
+Revenue, Net & usd & 42358000000 & 2016-03-27 & 2016-06-25\\
+Revenue, Net & usd & 46852000000 & 2016-06-26 & 2016-09-24\\
+\addlinespace
+Revenue, Net & usd & 215639000000 & 2015-09-27 & 2016-09-24\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The Income Statement function returns data for the following metrics:
+
+\begin{table}[t]
+
+\caption{\label{tab:unnamed-chunk-26}Income Statement Metrics}
+\centering
+\begin{tabular}{l}
+\toprule
+Metrics\\
+\midrule
+Revenue, Net\\
+Cost of Goods and Services Sold\\
+Gross Profit\\
+Research and Development Expense\\
+Selling, General and Administrative Expense\\
+\addlinespace
+Operating Expenses\\
+Operating Income (Loss)\\
+Nonoperating Income (Expense)\\
+Income (Loss) from Continuing Operations before Income Taxes, Noncontrolling Interest\\
+Income Tax Expense (Benefit)\\
+\addlinespace
+Net Income (Loss) Attributable to Parent\\
+Earnings Per Share, Basic\\
+Earnings Per Share, Diluted\\
+Weighted Average Number of Shares Outstanding, Basic\\
+Weighted Average Number of Shares Outstanding, Diluted\\
+\addlinespace
+Common Stock, Dividends, Per Share, Declared\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\textbf{Balance Sheet}
+
+Financials from the Balance Sheet segment can be obtained with the
+\emph{GetBalanceSheet} function as follows:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{AAPL.BS <-}\StringTok{ }\KeywordTok{GetBalanceSheet}\NormalTok{(}\StringTok{"AAPL"}\NormalTok{, }\DecValTok{2017}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{table}[t]
+
+\caption{\label{tab:unnamed-chunk-28}Sample Balance Sheet Financials}
+\centering
+\begin{tabular}{lllll}
+\toprule
+Metric & Units & Amount & startDate & endDate\\
+\midrule
+Cash and Cash Equivalents, at Carrying Value & usd & 13844000000 & NA & 2014-09-27\\
+Cash and Cash Equivalents, at Carrying Value & usd & 21120000000 & NA & 2015-09-26\\
+Cash and Cash Equivalents, at Carrying Value & usd & 20484000000 & NA & 2016-09-24\\
+Cash and Cash Equivalents, at Carrying Value & usd & 20289000000 & NA & 2017-09-30\\
+Available-for-sale Securities, Current & usd & 46671000000 & NA & 2016-09-24\\
+\addlinespace
+Available-for-sale Securities, Current & usd & 53892000000 & NA & 2017-09-30\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The Balance Sheet function returns data for the following metrics:
+
+\begin{table}[t]
+
+\caption{\label{tab:unnamed-chunk-29}Balance Sheet Metrics}
+\centering
+\begin{tabular}{l}
+\toprule
+Metrics\\
+\midrule
+Cash and Cash Equivalents, at Carrying Value\\
+Available-for-sale Securities, Current\\
+Accounts Receivable, Net, Current\\
+Inventory, Net\\
+Nontrade Receivables, Current\\
+\addlinespace
+Other Assets, Current\\
+Assets, Current\\
+Available-for-sale Securities, Noncurrent\\
+Property, Plant and Equipment, Net\\
+Goodwill\\
+\addlinespace
+Intangible Assets, Net (Excluding Goodwill)\\
+Other Assets, Noncurrent\\
+Assets\\
+Accounts Payable, Current\\
+Accrued Liabilities, Current\\
+\addlinespace
+Deferred Revenue, Current\\
+Commercial Paper\\
+Long-term Debt, Current Maturities\\
+Liabilities, Current\\
+Deferred Revenue, Noncurrent\\
+\addlinespace
+Long-term Debt, Excluding Current Maturities\\
+Other Liabilities, Noncurrent\\
+Liabilities\\
+Commitments and Contingencies\\
+Common Stocks, Including Additional Paid in Capital\\
+\addlinespace
+Retained Earnings (Accumulated Deficit)\\
+Accumulated Other Comprehensive Income (Loss), Net of Tax\\
+Stockholders' Equity Attributable to Parent\\
+Liabilities and Equity\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\textbf{Cash Flow}
+
+Financials from the Cash Flow segment can be obtained with the
+\emph{GetCashFlow} function as follows:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{AAPL.CF <-}\StringTok{ }\KeywordTok{GetCashFlow}\NormalTok{(}\StringTok{"AAPL"}\NormalTok{, }\DecValTok{2017}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{table}[t]
+
+\caption{\label{tab:unnamed-chunk-31}Sample Cash Flow Financials}
+\centering
+\begin{tabular}{lllll}
+\toprule
+Metric & Units & Amount & startDate & endDate\\
+\midrule
+Cash and Cash Equivalents, at Carrying Value & usd & 13844000000 & NA & 2014-09-27\\
+Cash and Cash Equivalents, at Carrying Value & usd & 21120000000 & NA & 2015-09-26\\
+Cash and Cash Equivalents, at Carrying Value & usd & 20484000000 & NA & 2016-09-24\\
+Cash and Cash Equivalents, at Carrying Value & usd & 20289000000 & NA & 2017-09-30\\
+Net Income (Loss) Attributable to Parent & usd & 53394000000 & 2014-09-28 & 2015-09-26\\
+\addlinespace
+Net Income (Loss) Attributable to Parent & usd & 18361000000 & 2015-09-27 & 2015-12-26\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The Cash Flow function returns data for the following metrics:
+
+\begin{table}[t]
+
+\caption{\label{tab:unnamed-chunk-32}Cash Flow Metrics}
+\centering
+\begin{tabular}{l}
+\toprule
+Metrics\\
+\midrule
+Cash and Cash Equivalents, at Carrying Value\\
+Net Income (Loss) Attributable to Parent\\
+Depreciation, Amortization and Accretion, Net\\
+Share-based Compensation\\
+Deferred Income Tax Expense (Benefit)\\
+\addlinespace
+Other Noncash Income (Expense)\\
+Increase (Decrease) in Accounts Receivable\\
+Increase (Decrease) in Inventories\\
+Increase (Decrease) in Other Receivables\\
+Increase (Decrease) in Other Operating Assets\\
+\addlinespace
+Increase (Decrease) in Accounts Payable\\
+Increase (Decrease) in Deferred Revenue\\
+Increase (Decrease) in Other Operating Liabilities\\
+Net Cash Provided by (Used in) Operating Activities\\
+Payments to Acquire Available-for-sale Securities\\
+\addlinespace
+Proceeds from Maturities, Prepayments and Calls of Available-for-sale Securities\\
+Proceeds from Sale of Available-for-sale Securities\\
+Payments to Acquire Businesses, Net of Cash Acquired\\
+Payments to Acquire Property, Plant, and Equipment\\
+Payments to Acquire Intangible Assets\\
+\addlinespace
+Payments to Acquire Other Investments\\
+Payments for (Proceeds from) Other Investing Activities\\
+Net Cash Provided by (Used in) Investing Activities\\
+Proceeds from Issuance of Common Stock\\
+Excess Tax Benefit from Share-based Compensation, Financing Activities\\
+\addlinespace
+Payments Related to Tax Withholding for Share-based Compensation\\
+Payments of Dividends\\
+Payments for Repurchase of Common Stock\\
+Proceeds from Issuance of Long-term Debt\\
+Repayments of Long-term Debt\\
+\addlinespace
+Proceeds from (Repayments of) Commercial Paper\\
+Net Cash Provided by (Used in) Financing Activities\\
+Cash and Cash Equivalents, Period Increase (Decrease)\\
+Income Taxes Paid, Net\\
+Interest Paid\\
+\bottomrule
+\end{tabular}
+\end{table}
+
 \section{Conclusion}\label{conclusion}
 
 \begin{itemize}
@@ -637,28 +981,6 @@ the other set of functions can be obtained at
 \item
   We showed how to obtain financial and economic data from freely
   available sources.
-\end{itemize}
-
-\subsection{Key Packages Used}\label{key-packages-used}
-
-\begin{itemize}
-\tightlist
-\item
-  Importing Flat Files
-
-  \begin{itemize}
-  \tightlist
-  \item
-    \textbf{readr} and \textbf{data.table}
-  \end{itemize}
-\item
-  Obtaining Financial Data
-
-  \begin{itemize}
-  \tightlist
-  \item
-    \textbf{quantmod}, \textbf{imanuelcostigan/iex} and \textbf{quandl}
-  \end{itemize}
 \end{itemize}
 
 \subsection{Further Reading}\label{further-reading}
@@ -1121,7 +1443,7 @@ In this Chapter we will describe how to
 \item
   Construct and filter financial networks;
 \item
-  Build price-based dynamic industry taxonomy;
+  Build price-based dynamic industry taxonomies;
 \item
   Implement a trading strategy based on financial network structure.
 \end{itemize}
@@ -1257,6 +1579,6 @@ kernel density estimation \citep{silverman}. This is the most
 commonly-used method and it is here employed. Other common methods are
 given by \citep{sheather1991reliable} and \citep{scott1992multivariate}.
 
-\bibliography{book,packages}
+\bibliography{book.bib,packages.bib}
 
 \end{document}

@@ -25,7 +25,7 @@
 <meta name="author" content="Thársis T. P. Souza">
 
 
-<meta name="date" content="2019-01-08">
+<meta name="date" content="2019-02-17">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -124,19 +124,20 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="part"><span><b>I The Basics</b></span></li>
 <li class="chapter" data-level="1" data-path="io.html"><a href="io.html"><i class="fa fa-check"></i><b>1</b> I/O</a><ul>
-<li class="chapter" data-level="1.1" data-path="io.html"><a href="io.html#reading-and-writing"><i class="fa fa-check"></i><b>1.1</b> Reading and Writing</a><ul>
+<li class="chapter" data-level="1.1" data-path="io.html"><a href="io.html#importing-data"><i class="fa fa-check"></i><b>1.1</b> Importing Data</a><ul>
 <li class="chapter" data-level="1.1.1" data-path="io.html"><a href="io.html#text-files"><i class="fa fa-check"></i><b>1.1.1</b> Text Files</a></li>
 <li class="chapter" data-level="1.1.2" data-path="io.html"><a href="io.html#excel-files"><i class="fa fa-check"></i><b>1.1.2</b> Excel Files</a></li>
-<li class="chapter" data-level="1.1.3" data-path="io.html"><a href="io.html#large-files"><i class="fa fa-check"></i><b>1.1.3</b> Large Files</a></li>
+<li class="chapter" data-level="1.1.3" data-path="io.html"><a href="io.html#json-files"><i class="fa fa-check"></i><b>1.1.3</b> JSON Files</a></li>
+<li class="chapter" data-level="1.1.4" data-path="io.html"><a href="io.html#large-files"><i class="fa fa-check"></i><b>1.1.4</b> Large Files</a></li>
 </ul></li>
 <li class="chapter" data-level="1.2" data-path="io.html"><a href="io.html#data-sources"><i class="fa fa-check"></i><b>1.2</b> Data Sources</a><ul>
 <li class="chapter" data-level="1.2.1" data-path="io.html"><a href="io.html#alpha-vantage"><i class="fa fa-check"></i><b>1.2.1</b> Alpha Vantage</a></li>
 <li class="chapter" data-level="1.2.2" data-path="io.html"><a href="io.html#iex"><i class="fa fa-check"></i><b>1.2.2</b> IEX</a></li>
 <li class="chapter" data-level="1.2.3" data-path="io.html"><a href="io.html#quandl"><i class="fa fa-check"></i><b>1.2.3</b> Quandl</a></li>
+<li class="chapter" data-level="1.2.4" data-path="io.html"><a href="io.html#sec"><i class="fa fa-check"></i><b>1.2.4</b> SEC</a></li>
 </ul></li>
 <li class="chapter" data-level="1.3" data-path="io.html"><a href="io.html#conclusion"><i class="fa fa-check"></i><b>1.3</b> Conclusion</a><ul>
-<li class="chapter" data-level="1.3.1" data-path="io.html"><a href="io.html#key-packages-used"><i class="fa fa-check"></i><b>1.3.1</b> Key Packages Used</a></li>
-<li class="chapter" data-level="1.3.2" data-path="io.html"><a href="io.html#further-reading"><i class="fa fa-check"></i><b>1.3.2</b> Further Reading</a></li>
+<li class="chapter" data-level="1.3.1" data-path="io.html"><a href="io.html#further-reading"><i class="fa fa-check"></i><b>1.3.1</b> Further Reading</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="stylized-facts.html"><a href="stylized-facts.html"><i class="fa fa-check"></i><b>2</b> Stylized Facts</a><ul>
@@ -224,9 +225,22 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="io" class="section level1">
 <h1><span class="header-section-number">Chapter 1</span> I/O</h1>
-<p>In this Chapter, we will introduce basic functions to read text and excel files as well as large files. We will also show how to obtain free financial and economic data from sources such as Quandl, IEX and Alpha Vantage.</p>
-<div id="reading-and-writing" class="section level2">
-<h2><span class="header-section-number">1.1</span> Reading and Writing</h2>
+<p>In this Chapter, we will introduce basic functions to read text, excel and JSON files as well as large files.</p>
+<p>We will also show how to obtain free financial and economic data including</p>
+<ul>
+<li>End-of-day and real-time pricing;</li>
+<li>Company financials;</li>
+<li>Macroeconomic data.</li>
+</ul>
+<p>Data sources include</p>
+<ul>
+<li>The SEC;</li>
+<li>Quandl;</li>
+<li>IEX;</li>
+<li>Alpha Vantage.</li>
+</ul>
+<div id="importing-data" class="section level2">
+<h2><span class="header-section-number">1.1</span> Importing Data</h2>
 <div id="text-files" class="section level3">
 <h3><span class="header-section-number">1.1.1</span> Text Files</h3>
 <p>The most basic and commonly used option to import data from text files in R is the use of the function <code>read.table</code> from the <strong>r-base</strong>. We can use this function to read text files with extensions such as <code>.txt</code> and <code>.csv</code>.</p>
@@ -251,8 +265,15 @@ readxl<span class="op">::</span><span class="kw">read_xlsx</span>(<span class="d
 <p>In the <code>read_excel</code> function, the <code>sheet</code> argument can receive either the target sheet name or index number, where sheet indexing starts at 1.</p>
 <p>The <code>readxl</code> has been oberving increased use compared to other comparable packages such as <strong>gdata</strong> and the <strong>xlsx</strong> due to its relative ease of use and performance. Also, the <code>readxl</code> do not have depency with external code libraries while the packages <strong>gdata</strong> and <strong>xlsx</strong> depend on <code>ActiveState PERL</code> and the <code>Java JDK</code>, respectively.</p>
 </div>
+<div id="json-files" class="section level3">
+<h3><span class="header-section-number">1.1.3</span> JSON Files</h3>
+<p>JSON files are particularly used for transmitting data in web applications but also frequently used as a standard data interchange format.</p>
+<p>The <code>jsonline</code> package can be used to parse files in JSON format as follows:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(jsonlite)
+result_json &lt;-<span class="st"> </span><span class="kw">read_json</span>(<span class="st">&quot;&lt;json file&gt;&quot;</span>)</code></pre></div>
+</div>
 <div id="large-files" class="section level3">
-<h3><span class="header-section-number">1.1.3</span> Large Files</h3>
+<h3><span class="header-section-number">1.1.4</span> Large Files</h3>
 <p>Fast data manipulation in a short and flexible syntax. <!-- https://stackoverflow.com/questions/1727772/quickly-reading-very-large-tables-as-dataframes --></p>
 </div>
 </div>
@@ -289,7 +310,7 @@ readxl<span class="op">::</span><span class="kw">read_xlsx</span>(<span class="d
 <td align="right">13.5</td>
 <td align="right">16.2</td>
 <td align="right">6411700</td>
-<td align="right">0.512</td>
+<td align="right">0.510</td>
 </tr>
 <tr class="even">
 <td align="right">16.5</td>
@@ -297,7 +318,7 @@ readxl<span class="op">::</span><span class="kw">read_xlsx</span>(<span class="d
 <td align="right">15.2</td>
 <td align="right">15.9</td>
 <td align="right">5820300</td>
-<td align="right">0.501</td>
+<td align="right">0.499</td>
 </tr>
 <tr class="odd">
 <td align="right">15.9</td>
@@ -305,7 +326,7 @@ readxl<span class="op">::</span><span class="kw">read_xlsx</span>(<span class="d
 <td align="right">14.8</td>
 <td align="right">18.9</td>
 <td align="right">16182800</td>
-<td align="right">0.597</td>
+<td align="right">0.595</td>
 </tr>
 <tr class="even">
 <td align="right">18.8</td>
@@ -313,7 +334,7 @@ readxl<span class="op">::</span><span class="kw">read_xlsx</span>(<span class="d
 <td align="right">17.3</td>
 <td align="right">17.5</td>
 <td align="right">9300200</td>
-<td align="right">0.552</td>
+<td align="right">0.550</td>
 </tr>
 <tr class="odd">
 <td align="right">17.4</td>
@@ -321,7 +342,7 @@ readxl<span class="op">::</span><span class="kw">read_xlsx</span>(<span class="d
 <td align="right">16.9</td>
 <td align="right">18.2</td>
 <td align="right">6910900</td>
-<td align="right">0.574</td>
+<td align="right">0.571</td>
 </tr>
 <tr class="even">
 <td align="right">18.1</td>
@@ -329,11 +350,11 @@ readxl<span class="op">::</span><span class="kw">read_xlsx</span>(<span class="d
 <td align="right">17.5</td>
 <td align="right">18.2</td>
 <td align="right">7915600</td>
-<td align="right">0.574</td>
+<td align="right">0.571</td>
 </tr>
 </tbody>
 </table>
-<p><img src="open-quant-live-book_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
+<p><img src="open-quant-live-book_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
 <p>We called the <code>quantmod::getSymbols</code> function with the following arguments:</p>
 <ul>
 <li><code>Symbols='AAPL'</code> defines a character vector specifying the names of each symbol to be loaded, here specified by the symbol of the company Apple Inc.;</li>
@@ -375,7 +396,7 @@ readxl<span class="op">::</span><span class="kw">read_xlsx</span>(<span class="d
 </ul>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">dat<span class="op">$</span>response</code></pre></div>
 <pre><code>## Response [https://api.iextrading.com/1.0/tops/last?symbols=AAPL&amp;filter=symbol%2Cprice%2Csize]
-##   Date: 2019-01-07 02:50
+##   Date: 2019-02-17 23:16
 ##   Status: 200
 ##   Content-Type: application/json; charset=utf-8
 ##   Size: 45 B</code></pre>
@@ -388,7 +409,7 @@ readxl<span class="op">::</span><span class="kw">read_xlsx</span>(<span class="d
 ## [1] &quot;AAPL&quot;
 ## 
 ## [[1]]$price
-## [1] 148
+## [1] 142
 ## 
 ## [[1]]$size
 ## [1] 100</code></pre>
@@ -396,6 +417,529 @@ readxl<span class="op">::</span><span class="kw">read_xlsx</span>(<span class="d
 </div>
 <div id="quandl" class="section level3">
 <h3><span class="header-section-number">1.2.3</span> Quandl</h3>
+</div>
+<div id="sec" class="section level3">
+<h3><span class="header-section-number">1.2.4</span> SEC</h3>
+<p>Official filings are freely available from the U.S. Securities and Exchange Commission’s EDGAR database. The package <code>finreportr</code> provides an interface in R to facilitate financial analysis from SEC’s 10K and 10K/A filings.</p>
+<p>We can obtain company basic information with the function the <code>CompanyInfo</code> function by passing the ticker symbol of the target company as follows:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(<span class="st">&quot;finreportr&quot;</span>)
+AAPL.Info&lt;-<span class="kw">CompanyInfo</span>(<span class="st">&quot;AAPL&quot;</span>)
+<span class="kw">print</span>(AAPL.Info)</code></pre></div>
+<pre><code>##     company        CIK  SIC state state.inc FY.end     street.address
+## 1 APPLE INC 0000320193 3571    CA        CA   0930 ONE APPLE PARK WAY
+##           city.state
+## 1 CUPERTINO CA 95014</code></pre>
+<p>As a result, we obtain the following information:</p>
+<ul>
+<li>Company name: APPLE INC;</li>
+<li>SEC Central Index Key (CIK): 0000320193;<br />
+</li>
+<li>Standard Industrial Classification (SIC): 3571, which is the industry code for Electronic Computers;</li>
+<li>Address: ONE APPLE PARK WAY, CUPERTINO CA 95014;</li>
+<li>Most recent period of report end is 0930.</li>
+</ul>
+<p>The list of company annual reports with corresponding filing dates can be obtained with the function <em>AnnualReports</em> as follows:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">AAPL.reports&lt;-<span class="kw">AnnualReports</span>(<span class="st">&quot;AAPL&quot;</span>)</code></pre></div>
+<table>
+<caption><span id="tab:unnamed-chunk-23">Table 1.1: </span>Sample Annual Reports</caption>
+<thead>
+<tr class="header">
+<th align="left">filing.name</th>
+<th align="left">filing.date</th>
+<th align="left">accession.no</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">10-K</td>
+<td align="left">2018-11-05</td>
+<td align="left">0000320193-18-000145</td>
+</tr>
+<tr class="even">
+<td align="left">10-K</td>
+<td align="left">2017-11-03</td>
+<td align="left">0000320193-17-000070</td>
+</tr>
+<tr class="odd">
+<td align="left">10-K</td>
+<td align="left">2016-10-26</td>
+<td align="left">0001628280-16-020309</td>
+</tr>
+<tr class="even">
+<td align="left">10-K</td>
+<td align="left">2015-10-28</td>
+<td align="left">0001193125-15-356351</td>
+</tr>
+<tr class="odd">
+<td align="left">10-K</td>
+<td align="left">2014-10-27</td>
+<td align="left">0001193125-14-383437</td>
+</tr>
+<tr class="even">
+<td align="left">10-K</td>
+<td align="left">2013-10-30</td>
+<td align="left">0001193125-13-416534</td>
+</tr>
+</tbody>
+</table>
+<p>The accession number is a unique identifier that the SEC creates for each filing.</p>
+<p>Company financials are organized into 3 segments: Income Statement, Balance Sheet and Cash Flow.</p>
+<p><strong>Income Statement</strong></p>
+<p>Financials from the Income Statement segment can be obtained with the <em>GetIncome</em> function as follows:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">AAPL.IS&lt;-<span class="kw">GetIncome</span>(<span class="st">&quot;AAPL&quot;</span>, <span class="dv">2017</span>)</code></pre></div>
+<table>
+<caption><span id="tab:unnamed-chunk-25">Table 1.2: </span>Sample Income Statement Financials</caption>
+<thead>
+<tr class="header">
+<th align="left">Metric</th>
+<th align="left">Units</th>
+<th align="left">Amount</th>
+<th align="left">startDate</th>
+<th align="left">endDate</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Revenue, Net</td>
+<td align="left">usd</td>
+<td align="left">233715000000</td>
+<td align="left">2014-09-28</td>
+<td align="left">2015-09-26</td>
+</tr>
+<tr class="even">
+<td align="left">Revenue, Net</td>
+<td align="left">usd</td>
+<td align="left">75872000000</td>
+<td align="left">2015-09-27</td>
+<td align="left">2015-12-26</td>
+</tr>
+<tr class="odd">
+<td align="left">Revenue, Net</td>
+<td align="left">usd</td>
+<td align="left">50557000000</td>
+<td align="left">2015-12-27</td>
+<td align="left">2016-03-26</td>
+</tr>
+<tr class="even">
+<td align="left">Revenue, Net</td>
+<td align="left">usd</td>
+<td align="left">42358000000</td>
+<td align="left">2016-03-27</td>
+<td align="left">2016-06-25</td>
+</tr>
+<tr class="odd">
+<td align="left">Revenue, Net</td>
+<td align="left">usd</td>
+<td align="left">46852000000</td>
+<td align="left">2016-06-26</td>
+<td align="left">2016-09-24</td>
+</tr>
+<tr class="even">
+<td align="left">Revenue, Net</td>
+<td align="left">usd</td>
+<td align="left">215639000000</td>
+<td align="left">2015-09-27</td>
+<td align="left">2016-09-24</td>
+</tr>
+</tbody>
+</table>
+<p>The Income Statement function returns data for the following metrics:</p>
+<table>
+<caption><span id="tab:unnamed-chunk-26">Table 1.3: </span>Income Statement Metrics</caption>
+<colgroup>
+<col width="100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Metrics</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Revenue, Net</td>
+</tr>
+<tr class="even">
+<td align="left">Cost of Goods and Services Sold</td>
+</tr>
+<tr class="odd">
+<td align="left">Gross Profit</td>
+</tr>
+<tr class="even">
+<td align="left">Research and Development Expense</td>
+</tr>
+<tr class="odd">
+<td align="left">Selling, General and Administrative Expense</td>
+</tr>
+<tr class="even">
+<td align="left">Operating Expenses</td>
+</tr>
+<tr class="odd">
+<td align="left">Operating Income (Loss)</td>
+</tr>
+<tr class="even">
+<td align="left">Nonoperating Income (Expense)</td>
+</tr>
+<tr class="odd">
+<td align="left">Income (Loss) from Continuing Operations before Income Taxes, Noncontrolling Interest</td>
+</tr>
+<tr class="even">
+<td align="left">Income Tax Expense (Benefit)</td>
+</tr>
+<tr class="odd">
+<td align="left">Net Income (Loss) Attributable to Parent</td>
+</tr>
+<tr class="even">
+<td align="left">Earnings Per Share, Basic</td>
+</tr>
+<tr class="odd">
+<td align="left">Earnings Per Share, Diluted</td>
+</tr>
+<tr class="even">
+<td align="left">Weighted Average Number of Shares Outstanding, Basic</td>
+</tr>
+<tr class="odd">
+<td align="left">Weighted Average Number of Shares Outstanding, Diluted</td>
+</tr>
+<tr class="even">
+<td align="left">Common Stock, Dividends, Per Share, Declared</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Balance Sheet</strong></p>
+<p>Financials from the Balance Sheet segment can be obtained with the <em>GetBalanceSheet</em> function as follows:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">AAPL.BS&lt;-<span class="kw">GetBalanceSheet</span>(<span class="st">&quot;AAPL&quot;</span>, <span class="dv">2017</span>)</code></pre></div>
+<table>
+<caption><span id="tab:unnamed-chunk-28">Table 1.4: </span>Sample Balance Sheet Financials</caption>
+<thead>
+<tr class="header">
+<th align="left">Metric</th>
+<th align="left">Units</th>
+<th align="left">Amount</th>
+<th align="left">startDate</th>
+<th align="left">endDate</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Cash and Cash Equivalents, at Carrying Value</td>
+<td align="left">usd</td>
+<td align="left">13844000000</td>
+<td align="left">NA</td>
+<td align="left">2014-09-27</td>
+</tr>
+<tr class="even">
+<td align="left">Cash and Cash Equivalents, at Carrying Value</td>
+<td align="left">usd</td>
+<td align="left">21120000000</td>
+<td align="left">NA</td>
+<td align="left">2015-09-26</td>
+</tr>
+<tr class="odd">
+<td align="left">Cash and Cash Equivalents, at Carrying Value</td>
+<td align="left">usd</td>
+<td align="left">20484000000</td>
+<td align="left">NA</td>
+<td align="left">2016-09-24</td>
+</tr>
+<tr class="even">
+<td align="left">Cash and Cash Equivalents, at Carrying Value</td>
+<td align="left">usd</td>
+<td align="left">20289000000</td>
+<td align="left">NA</td>
+<td align="left">2017-09-30</td>
+</tr>
+<tr class="odd">
+<td align="left">Available-for-sale Securities, Current</td>
+<td align="left">usd</td>
+<td align="left">46671000000</td>
+<td align="left">NA</td>
+<td align="left">2016-09-24</td>
+</tr>
+<tr class="even">
+<td align="left">Available-for-sale Securities, Current</td>
+<td align="left">usd</td>
+<td align="left">53892000000</td>
+<td align="left">NA</td>
+<td align="left">2017-09-30</td>
+</tr>
+</tbody>
+</table>
+<p>The Balance Sheet function returns data for the following metrics:</p>
+<table>
+<caption><span id="tab:unnamed-chunk-29">Table 1.5: </span>Balance Sheet Metrics</caption>
+<thead>
+<tr class="header">
+<th align="left">Metrics</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Cash and Cash Equivalents, at Carrying Value</td>
+</tr>
+<tr class="even">
+<td align="left">Available-for-sale Securities, Current</td>
+</tr>
+<tr class="odd">
+<td align="left">Accounts Receivable, Net, Current</td>
+</tr>
+<tr class="even">
+<td align="left">Inventory, Net</td>
+</tr>
+<tr class="odd">
+<td align="left">Nontrade Receivables, Current</td>
+</tr>
+<tr class="even">
+<td align="left">Other Assets, Current</td>
+</tr>
+<tr class="odd">
+<td align="left">Assets, Current</td>
+</tr>
+<tr class="even">
+<td align="left">Available-for-sale Securities, Noncurrent</td>
+</tr>
+<tr class="odd">
+<td align="left">Property, Plant and Equipment, Net</td>
+</tr>
+<tr class="even">
+<td align="left">Goodwill</td>
+</tr>
+<tr class="odd">
+<td align="left">Intangible Assets, Net (Excluding Goodwill)</td>
+</tr>
+<tr class="even">
+<td align="left">Other Assets, Noncurrent</td>
+</tr>
+<tr class="odd">
+<td align="left">Assets</td>
+</tr>
+<tr class="even">
+<td align="left">Accounts Payable, Current</td>
+</tr>
+<tr class="odd">
+<td align="left">Accrued Liabilities, Current</td>
+</tr>
+<tr class="even">
+<td align="left">Deferred Revenue, Current</td>
+</tr>
+<tr class="odd">
+<td align="left">Commercial Paper</td>
+</tr>
+<tr class="even">
+<td align="left">Long-term Debt, Current Maturities</td>
+</tr>
+<tr class="odd">
+<td align="left">Liabilities, Current</td>
+</tr>
+<tr class="even">
+<td align="left">Deferred Revenue, Noncurrent</td>
+</tr>
+<tr class="odd">
+<td align="left">Long-term Debt, Excluding Current Maturities</td>
+</tr>
+<tr class="even">
+<td align="left">Other Liabilities, Noncurrent</td>
+</tr>
+<tr class="odd">
+<td align="left">Liabilities</td>
+</tr>
+<tr class="even">
+<td align="left">Commitments and Contingencies</td>
+</tr>
+<tr class="odd">
+<td align="left">Common Stocks, Including Additional Paid in Capital</td>
+</tr>
+<tr class="even">
+<td align="left">Retained Earnings (Accumulated Deficit)</td>
+</tr>
+<tr class="odd">
+<td align="left">Accumulated Other Comprehensive Income (Loss), Net of Tax</td>
+</tr>
+<tr class="even">
+<td align="left">Stockholders’ Equity Attributable to Parent</td>
+</tr>
+<tr class="odd">
+<td align="left">Liabilities and Equity</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Cash Flow</strong></p>
+<p>Financials from the Cash Flow segment can be obtained with the <em>GetCashFlow</em> function as follows:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">AAPL.CF&lt;-<span class="kw">GetCashFlow</span>(<span class="st">&quot;AAPL&quot;</span>, <span class="dv">2017</span>)</code></pre></div>
+<table>
+<caption><span id="tab:unnamed-chunk-31">Table 1.6: </span>Sample Cash Flow Financials</caption>
+<thead>
+<tr class="header">
+<th align="left">Metric</th>
+<th align="left">Units</th>
+<th align="left">Amount</th>
+<th align="left">startDate</th>
+<th align="left">endDate</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Cash and Cash Equivalents, at Carrying Value</td>
+<td align="left">usd</td>
+<td align="left">13844000000</td>
+<td align="left">NA</td>
+<td align="left">2014-09-27</td>
+</tr>
+<tr class="even">
+<td align="left">Cash and Cash Equivalents, at Carrying Value</td>
+<td align="left">usd</td>
+<td align="left">21120000000</td>
+<td align="left">NA</td>
+<td align="left">2015-09-26</td>
+</tr>
+<tr class="odd">
+<td align="left">Cash and Cash Equivalents, at Carrying Value</td>
+<td align="left">usd</td>
+<td align="left">20484000000</td>
+<td align="left">NA</td>
+<td align="left">2016-09-24</td>
+</tr>
+<tr class="even">
+<td align="left">Cash and Cash Equivalents, at Carrying Value</td>
+<td align="left">usd</td>
+<td align="left">20289000000</td>
+<td align="left">NA</td>
+<td align="left">2017-09-30</td>
+</tr>
+<tr class="odd">
+<td align="left">Net Income (Loss) Attributable to Parent</td>
+<td align="left">usd</td>
+<td align="left">53394000000</td>
+<td align="left">2014-09-28</td>
+<td align="left">2015-09-26</td>
+</tr>
+<tr class="even">
+<td align="left">Net Income (Loss) Attributable to Parent</td>
+<td align="left">usd</td>
+<td align="left">18361000000</td>
+<td align="left">2015-09-27</td>
+<td align="left">2015-12-26</td>
+</tr>
+</tbody>
+</table>
+<p>The Cash Flow function returns data for the following metrics:</p>
+<table>
+<caption><span id="tab:unnamed-chunk-32">Table 1.7: </span>Cash Flow Metrics</caption>
+<colgroup>
+<col width="100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Metrics</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Cash and Cash Equivalents, at Carrying Value</td>
+</tr>
+<tr class="even">
+<td align="left">Net Income (Loss) Attributable to Parent</td>
+</tr>
+<tr class="odd">
+<td align="left">Depreciation, Amortization and Accretion, Net</td>
+</tr>
+<tr class="even">
+<td align="left">Share-based Compensation</td>
+</tr>
+<tr class="odd">
+<td align="left">Deferred Income Tax Expense (Benefit)</td>
+</tr>
+<tr class="even">
+<td align="left">Other Noncash Income (Expense)</td>
+</tr>
+<tr class="odd">
+<td align="left">Increase (Decrease) in Accounts Receivable</td>
+</tr>
+<tr class="even">
+<td align="left">Increase (Decrease) in Inventories</td>
+</tr>
+<tr class="odd">
+<td align="left">Increase (Decrease) in Other Receivables</td>
+</tr>
+<tr class="even">
+<td align="left">Increase (Decrease) in Other Operating Assets</td>
+</tr>
+<tr class="odd">
+<td align="left">Increase (Decrease) in Accounts Payable</td>
+</tr>
+<tr class="even">
+<td align="left">Increase (Decrease) in Deferred Revenue</td>
+</tr>
+<tr class="odd">
+<td align="left">Increase (Decrease) in Other Operating Liabilities</td>
+</tr>
+<tr class="even">
+<td align="left">Net Cash Provided by (Used in) Operating Activities</td>
+</tr>
+<tr class="odd">
+<td align="left">Payments to Acquire Available-for-sale Securities</td>
+</tr>
+<tr class="even">
+<td align="left">Proceeds from Maturities, Prepayments and Calls of Available-for-sale Securities</td>
+</tr>
+<tr class="odd">
+<td align="left">Proceeds from Sale of Available-for-sale Securities</td>
+</tr>
+<tr class="even">
+<td align="left">Payments to Acquire Businesses, Net of Cash Acquired</td>
+</tr>
+<tr class="odd">
+<td align="left">Payments to Acquire Property, Plant, and Equipment</td>
+</tr>
+<tr class="even">
+<td align="left">Payments to Acquire Intangible Assets</td>
+</tr>
+<tr class="odd">
+<td align="left">Payments to Acquire Other Investments</td>
+</tr>
+<tr class="even">
+<td align="left">Payments for (Proceeds from) Other Investing Activities</td>
+</tr>
+<tr class="odd">
+<td align="left">Net Cash Provided by (Used in) Investing Activities</td>
+</tr>
+<tr class="even">
+<td align="left">Proceeds from Issuance of Common Stock</td>
+</tr>
+<tr class="odd">
+<td align="left">Excess Tax Benefit from Share-based Compensation, Financing Activities</td>
+</tr>
+<tr class="even">
+<td align="left">Payments Related to Tax Withholding for Share-based Compensation</td>
+</tr>
+<tr class="odd">
+<td align="left">Payments of Dividends</td>
+</tr>
+<tr class="even">
+<td align="left">Payments for Repurchase of Common Stock</td>
+</tr>
+<tr class="odd">
+<td align="left">Proceeds from Issuance of Long-term Debt</td>
+</tr>
+<tr class="even">
+<td align="left">Repayments of Long-term Debt</td>
+</tr>
+<tr class="odd">
+<td align="left">Proceeds from (Repayments of) Commercial Paper</td>
+</tr>
+<tr class="even">
+<td align="left">Net Cash Provided by (Used in) Financing Activities</td>
+</tr>
+<tr class="odd">
+<td align="left">Cash and Cash Equivalents, Period Increase (Decrease)</td>
+</tr>
+<tr class="even">
+<td align="left">Income Taxes Paid, Net</td>
+</tr>
+<tr class="odd">
+<td align="left">Interest Paid</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 <div id="conclusion" class="section level2">
@@ -405,21 +949,8 @@ readxl<span class="op">::</span><span class="kw">read_xlsx</span>(<span class="d
 <li>We provided examples on how to read tabular data and how to handle large files.</li>
 <li>We showed how to obtain financial and economic data from freely available sources.</li>
 </ul>
-<div id="key-packages-used" class="section level3">
-<h3><span class="header-section-number">1.3.1</span> Key Packages Used</h3>
-<ul>
-<li>Importing Flat Files
-<ul>
-<li><strong>readr</strong> and <strong>data.table</strong></li>
-</ul></li>
-<li>Obtaining Financial Data
-<ul>
-<li><strong>quantmod</strong>, <strong>imanuelcostigan/iex</strong> and <strong>quandl</strong></li>
-</ul></li>
-</ul>
-</div>
 <div id="further-reading" class="section level3">
-<h3><span class="header-section-number">1.3.2</span> Further Reading</h3>
+<h3><span class="header-section-number">1.3.1</span> Further Reading</h3>
 <p>To further learn how to use R to load, transform, visualize and model data see <span class="citation">(Wickham and Grolemund <a href="#ref-Wickham:2017:RDS:3086927">2017</a>)</span>. Additional relevant R packages include:</p>
 <ul>
 <li>dplyr: Fast data frames manipulation and database query.</li>
