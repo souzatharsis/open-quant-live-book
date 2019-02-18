@@ -87,7 +87,7 @@ The Book is [Open](https://github.com/souzatharsis/open-quant-live-book) and we 
 
 ### Book's information {-}
 
-First published at: [openquant.netlify.com](https://openquant.netlify.com/).
+First published at: [openquants.com](http://openquants.com/).
 
 Licensed under [Attribution-NonCommercial-ShareAlike 4.0 International](https://creativecommons.org/licenses/by-nc-sa/4.0/). 
 
