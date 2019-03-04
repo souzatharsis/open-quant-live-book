@@ -12,15 +12,15 @@ if(!require(iex)){
 
 In this Chapter, we will introduce basic functions to read text, excel and JSON files as well as large files.
 
-We will also show how to obtain free financial and economic data including 
+We will also show how to obtain free financial and economic data including the following:
 
 * End-of-day and real-time pricing;
 * Company financials;
 * Macroeconomic data.
 
-Data sources include 
+Data sources utilized in this Chapter include the following: 
 
-* The SEC;
+* U.S. Securities and Exchange Commission;
 * Quandl;
 * IEX;
 * Alpha Vantage.
@@ -284,7 +284,7 @@ knitr::kable(
 
 ### Further Reading
 
-To further learn how to use R to load, transform, visualize and model data see [@Wickham:2017:RDS:3086927]. Additional relevant R packages include:
+To further learn how to use R to load, transform, visualize and model data see [@Wickham:2017:RDS:3086927]. Additional relevant R packages include the following:
 
 * dplyr: Fast data frames manipulation and database query.
 * reshape2: Flexibly rearrange, reshape and aggregate data.
