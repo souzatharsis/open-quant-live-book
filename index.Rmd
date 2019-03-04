@@ -96,7 +96,7 @@ knitr::include_graphics('fig/by-nc-sa.png')
 ```
 
 ```{block2, type='flushright', html.tag='p'}
-Copyright (c) 2018. Thársis T. P. Souza. New York, NY.
+Copyright (c) 2019. Thársis T. P. Souza. New York, NY.
 ```
 
 
