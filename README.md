@@ -62,4 +62,4 @@ Licensed under [Attribution-NonCommercial-ShareAlike 4.0 International](https://
 
 <img src="fig/by-nc-sa.png" width="20%">
 
-Copyright (c) 2018. Thársis T. P. Souza. New York, NY.
+Copyright (c) 2019. Thársis T. P. Souza. New York, NY.
