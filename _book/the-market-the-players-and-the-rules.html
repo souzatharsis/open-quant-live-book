@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Chapter 8 The Market, The Players and The Rules | The Open Quant Live Book</title>
+  <meta name="description" content="Chapter 8 The Market, The Players and The Rules | The Open Quant Live Book">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+
+  <meta property="og:title" content="Chapter 8 The Market, The Players and The Rules | The Open Quant Live Book" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:image" content="./fig/cover1.jpg" />
+  <meta property="og:description" content="Chapter 8 The Market, The Players and The Rules | The Open Quant Live Book" />
+  <meta name="github-repo" content="souzatharsis/open-quant-live-book" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 8 The Market, The Players and The Rules | The Open Quant Live Book" />
+  
+  <meta name="twitter:description" content="Chapter 8 The Market, The Players and The Rules | The Open Quant Live Book" />
+  <meta name="twitter:image" content="./fig/cover1.jpg" />
+
+<meta name="author" content="Thársis T. P. Souza">
+
+
+<meta name="date" content="2019-07-06">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="financial-networks.html">
+<link rel="next" href="statistical-methods.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-75703863-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-75703863-2');
+</script>
+
+
+<!-- Hypotheses -->
+<!-- <script src="https://hypothes.is/embed.js" async></script> -->
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="custom_style2.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">The Open Quant Live Book</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#description"><i class="fa fa-check"></i>Description</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#working-contents"><i class="fa fa-check"></i>Working Contents</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#books-information"><i class="fa fa-check"></i>Book’s information</a></li>
+</ul></li>
+<li class="part"><span><b>I The Basics</b></span></li>
+<li class="chapter" data-level="1" data-path="io.html"><a href="io.html"><i class="fa fa-check"></i><b>1</b> I/O</a><ul>
+<li class="chapter" data-level="1.1" data-path="io.html"><a href="io.html#importing-data"><i class="fa fa-check"></i><b>1.1</b> Importing Data</a><ul>
+<li class="chapter" data-level="1.1.1" data-path="io.html"><a href="io.html#text-files"><i class="fa fa-check"></i><b>1.1.1</b> Text Files</a></li>
+<li class="chapter" data-level="1.1.2" data-path="io.html"><a href="io.html#excel-files"><i class="fa fa-check"></i><b>1.1.2</b> Excel Files</a></li>
+<li class="chapter" data-level="1.1.3" data-path="io.html"><a href="io.html#json-files"><i class="fa fa-check"></i><b>1.1.3</b> JSON Files</a></li>
+<li class="chapter" data-level="1.1.4" data-path="io.html"><a href="io.html#large-files"><i class="fa fa-check"></i><b>1.1.4</b> Large Files</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="io.html"><a href="io.html#data-sources"><i class="fa fa-check"></i><b>1.2</b> Data Sources</a><ul>
+<li class="chapter" data-level="1.2.1" data-path="io.html"><a href="io.html#alpha-vantage"><i class="fa fa-check"></i><b>1.2.1</b> Alpha Vantage</a></li>
+<li class="chapter" data-level="1.2.2" data-path="io.html"><a href="io.html#iex"><i class="fa fa-check"></i><b>1.2.2</b> IEX</a></li>
+<li class="chapter" data-level="1.2.3" data-path="io.html"><a href="io.html#quandl"><i class="fa fa-check"></i><b>1.2.3</b> Quandl</a></li>
+<li class="chapter" data-level="1.2.4" data-path="io.html"><a href="io.html#sec"><i class="fa fa-check"></i><b>1.2.4</b> SEC</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="io.html"><a href="io.html#conclusion"><i class="fa fa-check"></i><b>1.3</b> Conclusion</a><ul>
+<li class="chapter" data-level="1.3.1" data-path="io.html"><a href="io.html#further-reading"><i class="fa fa-check"></i><b>1.3.1</b> Further Reading</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="stylized-facts.html"><a href="stylized-facts.html"><i class="fa fa-check"></i><b>2</b> Stylized Facts</a><ul>
+<li class="chapter" data-level="2.1" data-path="stylized-facts.html"><a href="stylized-facts.html#introduction"><i class="fa fa-check"></i><b>2.1</b> Introduction</a></li>
+<li class="chapter" data-level="2.2" data-path="stylized-facts.html"><a href="stylized-facts.html#distribution-of-returns"><i class="fa fa-check"></i><b>2.2</b> Distribution of Returns</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="stylized-facts.html"><a href="stylized-facts.html#fat-tails"><i class="fa fa-check"></i><b>2.2.1</b> Fat Tails</a></li>
+<li class="chapter" data-level="2.2.2" data-path="stylized-facts.html"><a href="stylized-facts.html#skewness"><i class="fa fa-check"></i><b>2.2.2</b> Skewness</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="stylized-facts.html"><a href="stylized-facts.html#volatility"><i class="fa fa-check"></i><b>2.3</b> Volatility</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="stylized-facts.html"><a href="stylized-facts.html#time-invariance"><i class="fa fa-check"></i><b>2.3.1</b> Time-invariance</a></li>
+<li class="chapter" data-level="2.3.2" data-path="stylized-facts.html"><a href="stylized-facts.html#volatility-clustering"><i class="fa fa-check"></i><b>2.3.2</b> Volatility Clustering</a></li>
+<li class="chapter" data-level="2.3.3" data-path="stylized-facts.html"><a href="stylized-facts.html#correlation-with-trading-volume"><i class="fa fa-check"></i><b>2.3.3</b> Correlation with Trading Volume</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="stylized-facts.html"><a href="stylized-facts.html#correlation"><i class="fa fa-check"></i><b>2.4</b> Correlation</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="stylized-facts.html"><a href="stylized-facts.html#time-invariance-1"><i class="fa fa-check"></i><b>2.4.1</b> Time-invariance</a></li>
+<li class="chapter" data-level="2.4.2" data-path="stylized-facts.html"><a href="stylized-facts.html#auto-correlation"><i class="fa fa-check"></i><b>2.4.2</b> Auto-correlation</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="correlation-causation.html"><a href="correlation-causation.html"><i class="fa fa-check"></i><b>3</b> Correlation &amp; Causation</a><ul>
+<li class="chapter" data-level="3.1" data-path="correlation-causation.html"><a href="correlation-causation.html#introduction-1"><i class="fa fa-check"></i><b>3.1</b> Introduction</a></li>
+<li class="chapter" data-level="3.2" data-path="correlation-causation.html"><a href="correlation-causation.html#a-first-definition-of-causality"><i class="fa fa-check"></i><b>3.2</b> A First Definition of Causality</a></li>
+<li class="chapter" data-level="3.3" data-path="correlation-causation.html"><a href="correlation-causation.html#LinearG"><i class="fa fa-check"></i><b>3.3</b> Quantifying Granger-Causality</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="correlation-causation.html"><a href="correlation-causation.html#model-specification"><i class="fa fa-check"></i><b>3.3.1</b> Model Specification</a></li>
+<li class="chapter" data-level="3.3.2" data-path="correlation-causation.html"><a href="correlation-causation.html#test-for-misspecification"><i class="fa fa-check"></i><b>3.3.2</b> Test for Misspecification</a></li>
+<li class="chapter" data-level="3.3.3" data-path="correlation-causation.html"><a href="correlation-causation.html#analysis-of-variance"><i class="fa fa-check"></i><b>3.3.3</b> Analysis of Variance</a></li>
+<li class="chapter" data-level="3.3.4" data-path="correlation-causation.html"><a href="correlation-causation.html#multiple-hypotheses-testing-correction"><i class="fa fa-check"></i><b>3.3.4</b> Multiple Hypotheses Testing Correction</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="correlation-causation.html"><a href="correlation-causation.html#conclusion-1"><i class="fa fa-check"></i><b>3.4</b> Conclusion</a></li>
+</ul></li>
+<li class="part"><span><b>II Algo Trading</b></span></li>
+<li class="chapter" data-level="4" data-path="limit-order.html"><a href="limit-order.html"><i class="fa fa-check"></i><b>4</b> Limit Order</a></li>
+<li class="part"><span><b>III Portfolio Optimization</b></span></li>
+<li class="part"><span><b>IV Machine Learning</b></span></li>
+<li class="part"><span><b>V Econophysics</b></span></li>
+<li class="chapter" data-level="5" data-path="entropy.html"><a href="entropy.html"><i class="fa fa-check"></i><b>5</b> Entropy</a><ul>
+<li class="chapter" data-level="5.1" data-path="entropy.html"><a href="entropy.html#efficiency-and-bubbles-in-the-crypto-and-equity-markets"><i class="fa fa-check"></i><b>5.1</b> Efficiency and Bubbles in the Crypto and Equity Markets</a></li>
+<li class="chapter" data-level="5.2" data-path="entropy.html"><a href="entropy.html#quantifying-non-linear-correlation-between-equity-and-commodity-markets"><i class="fa fa-check"></i><b>5.2</b> Quantifying Non-linear Correlation Between Equity and Commodity Markets</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="transfer-entropy.html"><a href="transfer-entropy.html"><i class="fa fa-check"></i><b>6</b> Transfer Entropy</a><ul>
+<li class="chapter" data-level="6.1" data-path="transfer-entropy.html"><a href="transfer-entropy.html#introduction-2"><i class="fa fa-check"></i><b>6.1</b> Introduction</a></li>
+<li class="chapter" data-level="6.2" data-path="transfer-entropy.html"><a href="transfer-entropy.html#nonlinearG"><i class="fa fa-check"></i><b>6.2</b> Nonlinear G-Causality</a></li>
+<li class="chapter" data-level="6.3" data-path="transfer-entropy.html"><a href="transfer-entropy.html#the-link-between-linear-granger-causality-and-transfer-entropy"><i class="fa fa-check"></i><b>6.3</b> The Link Between Linear Granger-causality and Transfer Entropy</a></li>
+<li class="chapter" data-level="6.4" data-path="transfer-entropy.html"><a href="transfer-entropy.html#net-information-flow"><i class="fa fa-check"></i><b>6.4</b> Net Information Flow</a></li>
+<li class="chapter" data-level="6.5" data-path="transfer-entropy.html"><a href="transfer-entropy.html#empirical-experiment-information-flow-on-simulated-systems"><i class="fa fa-check"></i><b>6.5</b> Empirical Experiment: Information Flow on Simulated Systems</a></li>
+<li class="chapter" data-level="6.6" data-path="transfer-entropy.html"><a href="transfer-entropy.html#empirical-experiment-information-flow-on-global-markets"><i class="fa fa-check"></i><b>6.6</b> Empirical Experiment: Information Flow on Global Markets</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="financial-networks.html"><a href="financial-networks.html"><i class="fa fa-check"></i><b>7</b> Financial Networks</a><ul>
+<li class="chapter" data-level="7.1" data-path="financial-networks.html"><a href="financial-networks.html#introduction-3"><i class="fa fa-check"></i><b>7.1</b> Introduction</a></li>
+<li class="chapter" data-level="7.2" data-path="financial-networks.html"><a href="financial-networks.html#network-construction"><i class="fa fa-check"></i><b>7.2</b> Network Construction</a><ul>
+<li class="chapter" data-level="7.2.1" data-path="financial-networks.html"><a href="financial-networks.html#network-filtering-asset-graphs"><i class="fa fa-check"></i><b>7.2.1</b> Network Filtering: Asset Graphs</a></li>
+<li class="chapter" data-level="7.2.2" data-path="financial-networks.html"><a href="financial-networks.html#network-filtering-mst"><i class="fa fa-check"></i><b>7.2.2</b> Network Filtering: MST</a></li>
+<li class="chapter" data-level="7.2.3" data-path="financial-networks.html"><a href="financial-networks.html#network-filtering-pmfg"><i class="fa fa-check"></i><b>7.2.3</b> Network Filtering: PMFG</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="financial-networks.html"><a href="financial-networks.html#applications"><i class="fa fa-check"></i><b>7.3</b> Applications</a><ul>
+<li class="chapter" data-level="7.3.1" data-path="financial-networks.html"><a href="financial-networks.html#industry-taxonomy"><i class="fa fa-check"></i><b>7.3.1</b> Industry Taxonomy</a></li>
+<li class="chapter" data-level="7.3.2" data-path="financial-networks.html"><a href="financial-networks.html#portfolio-construction"><i class="fa fa-check"></i><b>7.3.2</b> Portfolio Construction</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>VI Alternative Data</b></span></li>
+<li class="chapter" data-level="8" data-path="the-market-the-players-and-the-rules.html"><a href="the-market-the-players-and-the-rules.html"><i class="fa fa-check"></i><b>8</b> The Market, The Players and The Rules</a><ul>
+<li class="chapter" data-level="8.1" data-path="the-market-the-players-and-the-rules.html"><a href="the-market-the-players-and-the-rules.html#the-market"><i class="fa fa-check"></i><b>8.1</b> The Market</a></li>
+<li class="chapter" data-level="8.2" data-path="the-market-the-players-and-the-rules.html"><a href="the-market-the-players-and-the-rules.html#the-data"><i class="fa fa-check"></i><b>8.2</b> The Data</a></li>
+<li class="chapter" data-level="8.3" data-path="the-market-the-players-and-the-rules.html"><a href="the-market-the-players-and-the-rules.html#the-buyers"><i class="fa fa-check"></i><b>8.3</b> The Buyers</a></li>
+<li class="chapter" data-level="8.4" data-path="the-market-the-players-and-the-rules.html"><a href="the-market-the-players-and-the-rules.html#conclusion-2"><i class="fa fa-check"></i><b>8.4</b> Conclusion</a></li>
+</ul></li>
+<li class="appendix"><span><b>Appendix</b></span></li>
+<li class="chapter" data-level="A" data-path="statistical-methods.html"><a href="statistical-methods.html"><i class="fa fa-check"></i><b>A</b> Statistical Methods</a><ul>
+<li class="chapter" data-level="A.1" data-path="statistical-methods.html"><a href="statistical-methods.html#kde"><i class="fa fa-check"></i><b>A.1</b> Kernel Density Estimation</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://creativecommons.org/licenses/by/4.0/" target="blank">CC-BY 4.0</a></li>
+<li><a href="https://github.com/souzatharsis/open-quant-live-book" target="blank">See source code on Github</a></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Made with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">The Open Quant Live Book</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="the-market-the-players-and-the-rules" class="section level1">
+<h1><span class="header-section-number">Chapter 8</span> The Market, The Players and The Rules</h1>
+<div id="the-market" class="section level2">
+<h2><span class="header-section-number">8.1</span> The Market</h2>
+<p>In an industry where almost every player has access to the same (or similar) core financial and fundamental data, investment firms look for Alternative Data seeking differentiated insights into companies not found in filings, earnings calls or fundamental datasets.</p>
+<p>Until recently, the usage of alternative data has been confined mainly to the realm of quantitative investment managers, as these firms were best suited to obtain, clean and process this data. Now, however, alternative data is beginning to go mainstream, with increasing interest from fundamental and hybrid asset managers here <span class="citation">(Johnson <a href="#ref-Greenwich_2019">2019</a>)</span>.</p>
+<blockquote>
+<p><strong>Alternative Data is Untapped Alpha.</strong> The biggest opportunity for investors in this decade comes from the signals buried in the data generated by the digital economy. Alternative data is the deepest, least utilized alpha source in the world today - <a href="www.quandl.com">Quandl</a>.</p>
+</blockquote>
+<p>On June/2019, alternative data went mainstream when Verizon made a bold move by launching a <a href="https://www.linkedin.com/feed/update/urn:li:activity:6544977248175349760">subscription service for Yahoo Finance</a> that offers alternative data and insights to retail investors at a price point of $34.99/month.</p>
+<blockquote>
+<p><strong>The amount spent in Alternative Data have been steadily increasing.</strong> More than half of all quantitative and fundamental investors surveyed recently are either considering or using alternative data as part of their workflow - <a href="https://www.valuewalk.com/2019/07/alternative-data-paradigms-of-fundamental-and-quantitative/">Greenwich Associates</a>.</p>
+</blockquote>
+<p>A recent <a href="https://www.valuewalk.com/2019/07/alternative-data-paradigms-of-fundamental-and-quantitative/">Greenwich Associates report</a> found that a wide majority of investment managers, 72%, stated that alternative data was improving enhanced their signal quality in an arena where filtering out signal noise. Of those who are implementing an alternative data strategy, more than one-fifth claim to have received 20% or more of their alpha from the practice.</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-33"></span>
+<img src="https://cdn-images-1.medium.com/max/1600/0*GirclNZeAoiHWNne.png" alt="Total Buy-side spend on Alternative Data has been steadily increasing and its likely to nearly triple from 2018 to 2020." width="100%" />
+<p class="caption">
+Figure 8.1: Total Buy-side spend on Alternative Data has been steadily increasing and its likely to nearly triple from 2018 to 2020.
+</p>
+</div>
+</div>
+<div id="the-data" class="section level2">
+<h2><span class="header-section-number">8.2</span> The Data</h2>
+<p>But where’s Alternative Data coming from and who are the key players providing access to it?</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-34"></span>
+<img src="https://cdn-images-1.medium.com/max/1600/0*s_Pil2lOeWW6hJ_a.png" alt="Alternative Data are sourced by heterogeneous sources including individuals, businesses and sensors." width="100%" />
+<p class="caption">
+Figure 8.2: Alternative Data are sourced by heterogeneous sources including individuals, businesses and sensors.
+</p>
+</div>
+<p>The growth of Alternative Data has been enabled by the digitalization of the world around us. Data have been produced at an unprecedented rate by heterogeneous sources including:</p>
+<ol style="list-style-type: decimal">
+<li>Individuals who today mirror their lives in the form digital behavior into the Web, Social Media and Apps;</li>
+<li>Sensors, particularly with the emergence of IoT, that generate satellite images, weather forecasts and geolocation data;</li>
+<li>Businesses from which data is generated in the form of traditional official filings and earning calls as well as banking records or supply chain data.</li>
+</ol>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-35"></span>
+<img src="https://cdn-images-1.medium.com/max/1600/0*VsYQ_IxQ2EHp1w8B.png" alt="The number of Alternative Data Providers is exploding." width="100%" />
+<p class="caption">
+Figure 8.3: The number of Alternative Data Providers is exploding.
+</p>
+</div>
+<p>The number of Alternative Data Providers is exploding.The number of alternative data vendors is exploding particularly in the past decade. A few companies are worth mentioning:</p>
+<ol style="list-style-type: decimal">
+<li><a href="https://www.quandl.com"><strong>Quandl</strong></a> is likely the largest financial and alternative data aggregator/provider today. They leverage relationships with third-party providers to be a one-stop-shop for alternative data from consumers, IoT and sentiment to traditional fundamental, pricing and estimates. <a href="https://www.businessinsider.com/nasadaq-buys-alternative-data-firm-quandl-2018-12">Quandl has been recently acquired by Nasdaq</a>.</li>
+<li><a href="https://www.dataminr.com"><strong>Dataminr</strong></a> leverages advanced anomaly detection technology in a real-time AI platform to uncover critical events from social media before the information goes mainstream. The company raised a staggering $500MM+ amount in funding so far and it gives no sign of that is slowing down.</li>
+<li><a href="https://www.thinknum.com"><strong>Thinknum</strong></a> provides a SaaS-based web platform for a variety of alternative data sets, in particular, web-scrapped data such as product comparisons and company ratings on jobs sites. Thinkum claims to have 8 of the 10 largest investment banks as their clients. They recently closed a $11.6 million Series A funding to expand their financial modeling tools.</li>
+<li><a href="https://www.yewno.com"><strong>Yewno</strong></a> is helping the world to uncover the undiscovered through its advanced dynamic Knowledge Graph and AI based inference engine, which introduces an entirely new approach to knowledge extraction to enhance human understanding by correlating concepts across a vast volume of sources. Yewno ingests data from sources such as clinical trials, patents, company transcripts and court opinions and more. Yewno raised about $30 million dollars in funding and it has launched AI-based equity indexes with major partners such as STOXX and Nasdaq and licensed alternative data feeds to buy-side firms.</li>
+</ol>
+<p>Other rising vendors include YipitData, 1010data and Enigma as well as incumbent players such as Refinitiv, S&amp;P Global Market Intelligence, Bloomberg and Factset.</p>
+<blockquote>
+<p>While the alternative data offering is exploding there is a gap between what data vendors offer and what data buyers want.</p>
+</blockquote>
+<p>A <a href="https://alternativedata.org/new-alternative-data-pricing-report/">research</a> report conducted by BattleFin and AlternativeData.org has found that there is a gap between what data vendors offer and what data buyers actually want: - Data buyers view the three most-valuable data categories as: credit/debit cards (14.83%) web data (12.29%), and social/sentiment (11.02%). - By contrast, the percentage of data providers covering these data categories are: credit card (0.69%), web-crawled data (3.94%) and sentiment (4.40%). - Data providers report that the top-three categories their data covers are: business insights (6.48%), web traffic (4.63%) and sentiment (4.40%).</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-36"></span>
+<img src="https://cdn-images-1.medium.com/max/1600/1*I9bxxOlaZu5s7Vk5AhnVXA.png" alt="Data extracted from a research report conducted by BattleFin and AlternativeData.org, which compiles responses from 173 respondents made up of 69 alternative-data buyers and 104 data providers who responded to a 2018 survey conducted by BattleFin." width="100%" />
+<p class="caption">
+Figure 8.4: Data extracted from a research report conducted by BattleFin and AlternativeData.org, which compiles responses from 173 respondents made up of 69 alternative-data buyers and 104 data providers who responded to a 2018 survey conducted by BattleFin.
+</p>
+</div>
+</div>
+<div id="the-buyers" class="section level2">
+<h2><span class="header-section-number">8.3</span> The Buyers</h2>
+<p>The data buyers include your usual suspects such as Two Sigma, Milennium, Third Point, WorldQuant, ExodusPoint and emerging Quant Funds like Credit Suisse’s QT Fund.</p>
+<blockquote>
+<p><strong>80% of buyers expect to purchase</strong> a minimum of one to five datasets in 2019 while nearly 60 percent expects to test and evaluate a minimum of one to five datasets this year - according to a <a href="https://alternativedata.org/new-alternative-data-pricing-report/">research</a> report conducted by BattleFin and AlternativeData.org.</p>
+</blockquote>
+<p>Pension Plans and Index Providers are also entering the space seeking exposure to alternative factors, particularly with the emergence of AI-based strategies that leverage machine learning and computational linguistics techniques to extract signals from unstructured data (see <a href="https://medium.com/@souzatharsis/weve-launched-the-world-s-first-ai-index-9f9a6e931c58?source=friends_link&amp;sk=6d1e820e829669ad10097ac1f19b544c">STOXX</a>’s or <a href="https://medium.com/datadriveninvestor/ai-big-data-etf-ac6f7dda94d8">DWS</a>’s AI-based indexes) as well as the increased interest in themes such as ESG (Environmental, Social and Corporate Governance) - a multi-dimensional multi-sourced theme with increasing demands that are no longer met by traditional data sources alone.</p>
+<p>I have been to a good number of meetings with data buyers (BattleFin is maybe the best event out there for 1-on-1 meetings with high-profile buy-side firms sometimes allowing for 30+ meetings in two days of events in addition to dozens of unofficial ones). Some questions are commonplace:</p>
+<ol style="list-style-type: decimal">
+<li>Can you describe your data sources and your data ingestion process?</li>
+<li>What’s the frequency/history/coverage?</li>
+<li>What’s the delivery method?</li>
+<li>What are the key use cases for your data?</li>
+<li>Can I run a trial with live data?</li>
+<li>Who are your clients?</li>
+<li>What’s pricing like?</li>
+<li>Do you offer exclusivity?</li>
+<li>What is the size/funding/team profile of your firm?</li>
+</ol>
+<p>There is one tricky question though: Whether the data was already licensed to other clients. Particularly if the buyer is looking for alpha, they actually would prefer to be one of the first to test the data and avoid using a dataset that is already “crowded”. By the same token, they would be happy to hear that the dataset was already licensed to reputable clients as a sign of credibility. It’s up to you to navigate through this trade-off.</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-37"></span>
+<img src="https://cdn-images-1.medium.com/max/1600/1*MRcgvpX8o1RT8HZwOr12jw.png" alt="The sales life-cycle of an alternative data product can take up to seven months from lead generation to customer sign-up. Image by Quandl." width="100%" />
+<p class="caption">
+Figure 8.5: The sales life-cycle of an alternative data product can take up to seven months from lead generation to customer sign-up. Image by Quandl.
+</p>
+</div>
+<p>This is just the very first step in the sales and marketing life-cycle. From lead generation to customer sign-up, data buyers can take several months to make a final decision. Here are some <a href="https://alternativedata.org/new-alternative-data-pricing-report/">findings</a>:</p>
+<ol style="list-style-type: decimal">
+<li><strong>Providers and buyers agree that alt-data sales cycle can take up to seven months</strong>, with more than 75% of buyers requiring up to six months to test, evaluate and purchase an alt dataset.</li>
+<li><strong>More than a third of data buyers use backtesting</strong> to inform their purchasing decision. Nearly 60% of providers are not interested in outsourcing the data testing process even if it can be handled efficiently.</li>
+<li><strong>More than 20% of providers sell and distribute using a customized alt-data software platform.</strong> Nearly 18% use no software platform at all.</li>
+</ol>
+</div>
+<div id="conclusion-2" class="section level2">
+<h2><span class="header-section-number">8.4</span> Conclusion</h2>
+<p>Alternative Data, once a treat only for the most advanced Hedge Funds, is becoming a must-have in the alpha-generation war on Wall Street. Total spending in the area has been steadily growing as well as the number of data vendors and variety of data products. Relevant acquisitions have been made in the space and the first unicorn startups have been formed. However, there are critical challenges in the industry. There is a gap between what buyers find most relevant and what the data vendors are producing. Further, the sales life-cycle is long, as players are still figuring out how to test the value of the data and considerable time is spent on on-boarding new datasets. Successful players will be those who bridge the gap between data and insights first. The race has just begun, and it looks like no one wants to be just a spectator.</p>
+
+</div>
+</div>
+
+
+
+</div>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-Greenwich_2019">
+<p>Johnson, Richard. 2019. “Demystifying Alternative Data.” https://www.greenwich.com/asset-management/demystifying-alternative-data; Greenwich Associates.</p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="financial-networks.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="statistical-methods.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": true,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/souzatharsis/open-quant-live-book/edit/master/chapters/AltDataIntro/AltDataIntro.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": ["open-quant-live-book.pdf", "open-quant-live-book.epub"],
+"toc": {
+"collapse": "subsection",
+"scroll_highlight": true
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

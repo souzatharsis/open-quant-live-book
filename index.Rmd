@@ -85,6 +85,9 @@ The Book is [Open](https://github.com/souzatharsis/open-quant-live-book) and we 
 
 6. Alternative Data
 
++ The Market, The Players, The Rules
++ Case Studies
+
 ### Book's information {-}
 
 First published at: [openquants.com](http://openquants.com/).
