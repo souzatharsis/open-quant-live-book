@@ -51,6 +51,9 @@ The Book is Open and we are looking for co-authors. Feel free to [reach out](htt
 
 6. Alternative Data
 
++ The Market, The Players, The Rules
++ Case Studies
+
 ### Book's information
 
 Website: [http://www.openquants.com/](http://www.openquants.com/).
