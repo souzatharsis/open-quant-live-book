@@ -96,6 +96,9 @@ This is just the very first step in the sales and marketing life-cycle. From lea
 ## Conclusion
 
 Alternative Data, once a treat only for the most advanced Hedge Funds, is becoming a must-have in the alpha-generation war on Wall Street.
+
 Total spending in the area has been steadily growing as well as the number of data vendors and variety of data products. Relevant acquisitions have been made in the space and the first unicorn startups have been formed.
+
 However, there are critical challenges in the industry. There is a gap between what buyers find most relevant and what the data vendors are producing. Further, the sales life-cycle is long, as players are still figuring out how to test the value of the data and considerable time is spent on on-boarding new datasets.
+
 Successful players will be those who bridge the gap between data and insights first. The race has just begun, and it looks like no one wants to be just a spectator.
