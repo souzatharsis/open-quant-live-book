@@ -1,8 +1,75 @@
-# Transfer Entropy
+# Information Theory and Statistical Causality
 
-## Introduction
 
-## Nonlinear G-Causality {#nonlinearG}
+```{r, echo=FALSE, out.width='50%', fig.cap="Life is Random (or Nonlinear?)"}
+knitr::include_graphics("rand.png")
+```
+
+\begin{align*}
+x_1 &= 0.441x_1 + \epsilon_1 \\
+x_2 &= 0.51x_1^2 + \epsilon_2, \\ 
+&\epsilon_1, \epsilon_2 \sim \mathcal{N}(0,1).
+\end{align*}
+
+We quantify causality by using the notion of the causal relation introduced by Granger [@Wiener56; @granger:econ] where a signal $X$ is said to Granger-cause $Y$ if the future realizations of $Y$ can be better explained using the past information from $X$ and $Y$ rather than $Y$ alone.
+
+## A First Definition of Causality
+
+The most common definitions of Granger-causality rely on the prediction of a future 
+value of the variable $Y$ by using the past values of $X$ and $Y$ itself. 
+In that form, $X$ is said to *G-cause* $Y$ if the use of $X$ improves the prediction of $Y$.
+
+Let $X_t$ be a random variable associated at time $t$ while $X^t$ represents the collection of random variables up to time $t$.
+We consider ${X_t}, {Y_t}$ and ${Z_t}$ to be three stochastic processes. 
+Let $\hat Y_{t+1}$ be a predictor for the value of the variable $Y$ at time $t+1$. 
+
+We compare the expected value of a loss function $g(e)$ with the error $e=\hat{Y}_{t+1} - Y_{t+1}$ of two models: 
+
+1. The expected value of the prediction error given only $Y^t$ 
+\begin{equation}
+ \mathcal{R}(Y^{t+1} \, | \, Y^t,Z^t) = \mathbb{E}[g(Y_{t+1} - f_1(X^{t},Z^t))]
+\end{equation}
+2. The expected value of the prediction error given $Y^t$ and $X^t$
+\begin{equation}
+ \mathcal{R}(Y^{t+1} \, | \, X^{t},Y^t,Z^t) = \mathbb{E}[g(Y_{t+1} - f_2(X^{t},Y^t,Z^t))].
+\end{equation}
+
+In both models, the functions $f_1(.)$ and $f_2(.)$ are chosen to minimize the expected value of the loss function.  In most cases, these functions are retrieved with linear and, possibly, with nonlinear regressions. Typical forms for $g(.)$ are the $l1$- or $l2$-norms.
+
+We can now provide our first definition of statistical causality under the Granger causal notion as follows:
+
+```{definition G1}
+$X$ does not Granger-cause $Y$ relative to side information $Z$ if and only if $\mathcal{R}(Y_{t+1} \; | \; X^t, Y^t, Z^t) = \mathcal{R}(Y_{t+1} \; | \; Y^t, Z^t)$.
+```
+
+Standard Granger-causality  tests  assume  a  functional form in the  relationship  among the causes and effects and are implemented by fitting autoregressive models [@Wiener56; @granger:econ].
+
+Consider the linear vector-autoregressive (VAR) equations:
+\begin{align}
+Y(t) &= {\alpha} + \sum^k_{\Delta t=1}{{\beta}_{\Delta t} Y(t-\Delta t)} + \epsilon_t, (\#eq:AR11)\\
+Y(t) &= \widehat{\alpha} + \sum^k_{\Delta t=1}{{\widehat{\beta}}_{\Delta t} Y(t-\Delta t)} +  \sum^k_{\Delta t=1}{{\widehat{\gamma}}_{\Delta t}X(t-\Delta t)}+ \widehat{\epsilon}_t, (\#eq:AR22)
+\end{align}
+where $k$ is the number of lags considered. Alternatively, you can choose your DL/SVM/RF/GLM method of choice to fit the model.
+
+From Def \@ref(def:G1), $X$ does not G-cause $Y$ if and only if the prediction errors of $X$ in the restricted Eq. \@ref(eq:AR11) and unrestricted regression models Eq. \@ref(eq:AR22) are equal (i.e., they are statistically indistinguishable). A one-way ANOVA test can be utilized to test if the residuals from Eqs. \@ref(eq:AR11) and \@ref(eq:AR22) differ from each other significantly. When more than one lag $k$ is tested, a Bonferroni correction is applied to control for multiple hypotheses testing.
+
+
+## Transfer Entropy and Statistical Causality {#nonlinearG}
+
+A more general definition than Def. \@ref(def:G1) that does not depend on assuming prediction functions can be formulated by considering conditional probabilities.
+A probabilistic definition of G-causality assumes that $Y_{t+1}$ and $X^{t}$ are independent given the 
+past information $(X^{t}, Y^{t})$ if and only if
+$p(Y_{t+1} \, | \, X^{t}, Y^{t}, Z^{t}) = p(Y_{t+1} \, | \, Y^{t}, Z^{t})$, 
+where $p(. \, | \, .)$ represents the conditional probability distribution.
+In other words, omitting past information from $X$ does not change the probability distribution of $Y$. This leads to our second definition of statistical causality as follows:
+
+```{definition G2}
+$X$ does not Granger-cause $Y$ relative to side information $Z$ if and only if $Y_{t+1} \independent X^{t} \; | \; Y^{t}, Z^{t}$.
+```
+<br />
+
+Def. \@ref(def:G2) does not assume any functional form in the coupling between $X$ and $Y$. 
+Nevertheless, it requires a method to assess their conditional dependency. 
 
 To compute the nonlinear G-Causality, we use the concept of Transfer Entropy. Since its introduction [@PhysRevLett.85.461], Transfer Entropy has been recognized as an important tool in the analysis of causal relationships in nonlinear systems [@citeulike:1447442].
 It detects directional and dynamical information [@10.1371/journal.pone.0109462] while not assuming any particular functional form to describe interactions among systems.
@@ -29,7 +96,22 @@ We compute the randomized Transfer Entropy at each permutation for each time-shi
 We then calculated the frequency at which the observed Transfer Entropy was equal or more extreme 
 than the randomized Transfer Entropy. The statistical significance was assessed using p-value $< 0.05$ after Bonferroni correction.
 
-## The Link Between Linear Granger-causality and Transfer Entropy
+
+## Net Information Flow
+
+Transfer-entropy is an asymmetric measure, i.e., $T_{X \rightarrow Y} \neq T_{Y \rightarrow X}$, and it thus allows 
+the quantification of the directional coupling between systems. 
+The Net Information Flow is defined as 
+\begin{equation}
+\widehat{TE}_{X \rightarrow Y} = TE_{X \rightarrow Y} - TE_{Y \rightarrow X}\;.
+\end{equation}
+One can interpret this quantity as a measure of the dominant direction of the information flow. In other words, 
+a positive result indicates a dominant information flow from $X$ to $Y$ compared to the other direction
+or, similarly, it indicates which system provides more predictive information about the other system [@Michalowicz:2013:HDE:2601840].
+
+In the next sections we will provide empirical examples that show that Transfer Entropy can capture information flow in both linear and nonlinear systems.
+
+## The Link Between Granger-causality and Transfer Entropy
 
 It has been shown [@PhysRevLett.103.238701] that linear G-causality and Transfer Entropy are equivalent 
 if all processes are jointly Gaussian.
@@ -50,20 +132,6 @@ TE_{X \rightarrow Y} = GC_{X \rightarrow Y}/2.
 This result provides a direct mapping between the Transfer Entropy and the linear G-causality implemented in the standard VAR framework.
 Hence, it is possible to estimate the TE both in its general form and with its equivalent form for linear G-causality. 
 
-## Net Information Flow
-
-Transfer-entropy is an asymmetric measure, i.e., $T_{X \rightarrow Y} \neq T_{Y \rightarrow X}$, and it thus allows 
-the quantification of the directional coupling between systems. 
-The Net Information Flow is defined as 
-\begin{equation}
-\widehat{TE}_{X \rightarrow Y} = TE_{X \rightarrow Y} - TE_{Y \rightarrow X}\;.
-\end{equation}
-One can interpret this quantity as a measure of the dominant direction of the information flow. In other words, 
-a positive result indicates a dominant information flow from $X$ to $Y$ compared to the other direction
-or, similarly, it indicates which system provides more predictive information about the other system [@Michalowicz:2013:HDE:2601840].
-
-In the next sections we will provide empirical examples that show that Transfer Entropy can capture information flow in both linear and nonlinear systems.
-
 ## Empirical Experiment: Information Flow on Simulated Systems
 
 In this section, we construct simulated systems and test the nonlinear and linear formulations of the net information flow. We show that only the nonlinear formulation of net information flow is able to capture the nonlinear relationships in the simulated systems.
@@ -73,5 +141,36 @@ Conversely, to estimate the linear version of the Net Information Flow, we compu
 by estimating linear G-causality Eq. \@ref(eq:GCGC) under a linear-VAR framework.
 
 
+Linear System:
+
+\begin{align}
+x_1(n) &= 0.95\sqrt{2}x_1(n-1) - 0.9025x_1(n-1) + w_1\\ \nonumber
+x_2(n) &= 0.5x_1(n-1) + w_2\\ \nonumber
+x_3(n) &= -0.4x_1(n-1) + w_3\\ \nonumber
+x_4(n) &= -0.5x_1(n-1) + 0.25\sqrt{2}x_4(n-1) + 0.25\sqrt{2}x_5(n-1) + w_4\\ \nonumber
+x_5(n) &= -0.25\sqrt{2}x_4(n-1) + 0.25\sqrt{2}x_5(n-1) + w_5, \nonumber
+\end{align}
+$w_1, w_2, w_3, w_4, w_5 \sim N(0, 1)$.
+
+```{r, echo=FALSE, out.width='50%', fig.cap="Interactions between the variables of the simulated linear system."}
+knitr::include_graphics("causality-graph1.png")
+```
+
+
+
+Nonlinear Systems:
+
+\begin{align}
+x_1(n) &= 0.95\sqrt{2}x_1(n-1) - 0.9025x_1(n-1) + w_1\\ \nonumber
+x_2(n) &= \textcolor{red}{0.5x_1^2(n-1)} + w_2\\ \nonumber
+x_3(n) &= -0.4x_1(n-1) + w_3\\ \nonumber
+x_4(n) &= \textcolor{red}{-0.5x_1^2(n-1)} + 0.25\sqrt{2}x_4(n-1) + 0.25\sqrt{2}x_5(n-1) + w_4\\ \nonumber
+x_5(n) &= -0.25\sqrt{2}x_4(n-1) + 0.25\sqrt{2}x_5(n-1) + w_5, \nonumber
+\end{align}
+$w_1, w_2, w_3, w_4, w_5 \sim N(0, 1)$.
+
+```{r, echo=FALSE, out.width='50%', fig.cap="Interactions between the variables of the simulated nonlinear system."}
+knitr::include_graphics("causality-graph2.png")
+```
 
 ## Empirical Experiment: Information Flow on Global Markets
