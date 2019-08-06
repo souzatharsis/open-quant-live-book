@@ -7,6 +7,7 @@ Financial markets can be regarded as a complex network in which nodes represent 
 represent one or many types of relationships among those assets. 
 Filtered correlation-based networks have successfully been used in the literature to study financial markets structure particularly 
 from observational data derived from empirical financial time series [@bardoscia2017pathways; @10.1371/journal.pone.0017994; @Mantegna1999; @aste2010correlation; @Tumminello201040, @Tumminello26072005].
+
 The underlying principle is to use correlations from empirical financial time series to construct a sparse network representing 
 the most relevant connections.
 Analyses on filtered correlation-based networks for information extraction [@song2008analysis;@aste2010correlation] 

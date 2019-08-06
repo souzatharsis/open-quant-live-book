@@ -1,8 +1,8 @@
 # Information Theory and Statistical Causality
 
 
-```{r, echo=FALSE, out.width='50%', fig.cap="Life is Random (or Nonlinear?)"}
-knitr::include_graphics("rand.png")
+```{r, echo=FALSE, out.width='50%', fig.align = "center", fig.cap="Life is Random (or Nonlinear?)"}
+knitr::include_graphics("./chapters/TransferEntropy/rand.png")
 ```
 
 \begin{align*}
@@ -13,7 +13,7 @@ x_2 &= 0.51x_1^2 + \epsilon_2, \\
 
 We quantify causality by using the notion of the causal relation introduced by Granger [@Wiener56; @granger:econ] where a signal $X$ is said to Granger-cause $Y$ if the future realizations of $Y$ can be better explained using the past information from $X$ and $Y$ rather than $Y$ alone.
 
-## A First Definition of Causality
+## A First Definition of Causality {#LinearG}
 
 The most common definitions of Granger-causality rely on the prediction of a future 
 value of the variable $Y$ by using the past values of $X$ and $Y$ itself. 
@@ -54,7 +54,7 @@ where $k$ is the number of lags considered. Alternatively, you can choose your D
 From Def \@ref(def:G1), $X$ does not G-cause $Y$ if and only if the prediction errors of $X$ in the restricted Eq. \@ref(eq:AR11) and unrestricted regression models Eq. \@ref(eq:AR22) are equal (i.e., they are statistically indistinguishable). A one-way ANOVA test can be utilized to test if the residuals from Eqs. \@ref(eq:AR11) and \@ref(eq:AR22) differ from each other significantly. When more than one lag $k$ is tested, a Bonferroni correction is applied to control for multiple hypotheses testing.
 
 
-## Transfer Entropy and Statistical Causality {#nonlinearG}
+## A Probabilistic-Based Definition
 
 A more general definition than Def. \@ref(def:G1) that does not depend on assuming prediction functions can be formulated by considering conditional probabilities.
 A probabilistic definition of G-causality assumes that $Y_{t+1}$ and $X^{t}$ are independent given the 
@@ -70,8 +70,26 @@ $X$ does not Granger-cause $Y$ relative to side information $Z$ if and only if $
 
 Def. \@ref(def:G2) does not assume any functional form in the coupling between $X$ and $Y$. 
 Nevertheless, it requires a method to assess their conditional dependency. 
+In the next section, we will leverage an Information-Theoretical framework for that purpose.
 
-To compute the nonlinear G-Causality, we use the concept of Transfer Entropy. Since its introduction [@PhysRevLett.85.461], Transfer Entropy has been recognized as an important tool in the analysis of causal relationships in nonlinear systems [@citeulike:1447442].
+
+## Transfer Entropy and Statistical Causality {#nonlinearG}
+
+Given a coupled system $(X,Y)$, where $P_Y(y)$ is the pdf of the random variable $Y$ and $P_{X,Y}$ is the joint pdf between $X$ and $Y$, 
+the joint entropy between $X$ and $Y$ is given by the following:
+\begin{equation}
+H(X,Y) = -\sum_{x \in X}{\sum_{y \in Y}{P_{X,Y}(x,y)\log{P_{X,Y}(x,y)}}}.
+\label{eq:HXY}
+\end{equation}
+
+The conditional entropy is defined by the following:
+\begin{equation}
+H\left(Y\middle\vert X\right) = H(X,Y) - H(X).
+\end{equation}
+We can interpret $H\left(Y\middle\vert X\right)$ as the uncertainty of $Y$ given a realization of $X$.
+
+
+To compute G-Causality, we use the concept of Transfer Entropy. Since its introduction [@PhysRevLett.85.461], Transfer Entropy has been recognized as an important tool in the analysis of causal relationships in nonlinear systems [@citeulike:1447442].
 It detects directional and dynamical information [@10.1371/journal.pone.0109462] while not assuming any particular functional form to describe interactions among systems.
 
 
@@ -89,27 +107,24 @@ where $Y^F$ is a forward time-shifted version of $Y$ at lag $\Delta t$ relativel
 Within this framework we say that $X$ does not G-cause $Y$ relative to side information $Z$ if and only if 
 $H\left(Y^F\middle\vert Y^P,Z^P \right) = H\left(Y^F\middle\vert X^P, Y^P,Z^P\right)$, i.e., when $TE\left(X \rightarrow Y,Z^P\right) = 0$.
 
-Empirically, we reject this null hypothesis of causality if the Transfer Entropy from $X$ to $Y$ is significantly higher than the shuffled version of the original data.
+<!-- Empirically, we reject this null hypothesis of causality if the Transfer Entropy from $X$ to $Y$ is significantly higher than the shuffled version of the original data. -->
 
-For this we estimate 400 replicates of $TE(X_{Shuffled} \rightarrow Y)$, where $X_{Shuffled}$ is a random permutation of $X$ relatively to $Y$.
-We compute the randomized Transfer Entropy at each permutation for each time-shift ($\Delta t$) from 1 to 10 days. 
-We then calculated the frequency at which the observed Transfer Entropy was equal or more extreme 
-than the randomized Transfer Entropy. The statistical significance was assessed using p-value $< 0.05$ after Bonferroni correction.
+<!-- For this we estimate 400 replicates of $TE(X_{Shuffled} \rightarrow Y)$, where $X_{Shuffled}$ is a random permutation of $X$ relatively to $Y$. -->
+<!-- We compute the randomized Transfer Entropy at each permutation for each time-shift ($\Delta t$) from 1 to 10 days.  -->
+<!-- We then calculated the frequency at which the observed Transfer Entropy was equal or more extreme  -->
+<!-- than the randomized Transfer Entropy. The statistical significance was assessed using p-value $< 0.05$ after Bonferroni correction. -->
 
 
 ## Net Information Flow
 
-Transfer-entropy is an asymmetric measure, i.e., $T_{X \rightarrow Y} \neq T_{Y \rightarrow X}$, and it thus allows 
-the quantification of the directional coupling between systems. 
+Transfer-entropy is an asymmetric measure, i.e., $T_{X \rightarrow Y} \neq T_{Y \rightarrow X}$, and it thus allows the quantification of the directional coupling between systems. 
 The Net Information Flow is defined as 
 \begin{equation}
 \widehat{TE}_{X \rightarrow Y} = TE_{X \rightarrow Y} - TE_{Y \rightarrow X}\;.
 \end{equation}
-One can interpret this quantity as a measure of the dominant direction of the information flow. In other words, 
+One can interpret this quantity as a measure of the dominant direction of the information flow. In other words,
 a positive result indicates a dominant information flow from $X$ to $Y$ compared to the other direction
 or, similarly, it indicates which system provides more predictive information about the other system [@Michalowicz:2013:HDE:2601840].
-
-In the next sections we will provide empirical examples that show that Transfer Entropy can capture information flow in both linear and nonlinear systems.
 
 ## The Link Between Granger-causality and Transfer Entropy
 
@@ -134,15 +149,10 @@ Hence, it is possible to estimate the TE both in its general form and with its e
 
 ## Empirical Experiment: Information Flow on Simulated Systems
 
-In this section, we construct simulated systems and test the nonlinear and linear formulations of the net information flow. We show that only the nonlinear formulation of net information flow is able to capture the nonlinear relationships in the simulated systems.
+In this section, we construct simulated systems to couple random variables in a causal manner.
+We then quantify information flow using the methods studied in this Chapter.
 
-For the nonlinear case, we compute Transfer Entropy as defined in Eq. \@ref(eq:TE).
-Conversely, to estimate the linear version of the Net Information Flow, we computed the Transfer Entropy using Eq. \@ref(eq:GCGC2), i.e., 
-by estimating linear G-causality Eq. \@ref(eq:GCGC) under a linear-VAR framework.
-
-
-Linear System:
-
+We first assume a linear system, where random variables have linear relationships defined as follow:
 \begin{align}
 x_1(n) &= 0.95\sqrt{2}x_1(n-1) - 0.9025x_1(n-1) + w_1\\ \nonumber
 x_2(n) &= 0.5x_1(n-1) + w_2\\ \nonumber
@@ -152,8 +162,9 @@ x_5(n) &= -0.25\sqrt{2}x_4(n-1) + 0.25\sqrt{2}x_5(n-1) + w_5, \nonumber
 \end{align}
 $w_1, w_2, w_3, w_4, w_5 \sim N(0, 1)$.
 
-```{r, echo=FALSE, out.width='50%', fig.cap="Interactions between the variables of the simulated linear system."}
-knitr::include_graphics("causality-graph1.png")
+Fig. \@ref(fig:causality-graph1) provides a representation of the causal links in the simulated system.
+```{r causality-graph1, echo=FALSE, out.width='50%', fig.align = "center",fig.cap="Interactions between the variables of the simulated linear system."}
+knitr::include_graphics("./chapters/TransferEntropy/causality-graph1.png")
 ```
 
 
@@ -169,8 +180,8 @@ x_5(n) &= -0.25\sqrt{2}x_4(n-1) + 0.25\sqrt{2}x_5(n-1) + w_5, \nonumber
 \end{align}
 $w_1, w_2, w_3, w_4, w_5 \sim N(0, 1)$.
 
-```{r, echo=FALSE, out.width='50%', fig.cap="Interactions between the variables of the simulated nonlinear system."}
-knitr::include_graphics("causality-graph2.png")
+```{r, echo=FALSE, out.width='50%', fig.align = "center", fig.cap="Interactions between the variables of the simulated nonlinear system."}
+knitr::include_graphics("./chapters/TransferEntropy/causality-graph2.png")
 ```
 
 ## Empirical Experiment: Information Flow on Global Markets

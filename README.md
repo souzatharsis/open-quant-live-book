@@ -12,7 +12,7 @@ The book aims to be an Open Source introductory reference of the most important 
 
 ### Contribute
 
-The Book is Open and we are looking for co-authors. Feel free to [reach out](http://www.souzatharsis.com/) or simply create a pull request with your contribution! See project structure, guidelines and how to contribute [here](https://github.com/souzatharsis/open-quant-live-book/blob/master/CONTRIBUTING.md).
+The Book is Open and we are looking for co-authors. Feel free to [reach out](https://www.openquants.com/contact) or simply create a pull request with your contribution! See project structure, guidelines and how to contribute [here](https://github.com/souzatharsis/open-quant-live-book/blob/master/CONTRIBUTING.md).
 
 ### Working Contents
 
@@ -20,7 +20,6 @@ The Book is Open and we are looking for co-authors. Feel free to [reach out](htt
 
 + I/O
 + Stylized Facts
-+ Correlation & Causation
 
 2. Algo Trading   
 
@@ -31,9 +30,8 @@ The Book is Open and we are looking for co-authors. Feel free to [reach out](htt
 
 3. Portfolio Optimization
 
-+ Modern Portfolio Theory
-+ Measuring Risk
-+ Linear Programming
++ Convex Optimization
++ Risk Parity Portfolios
 
 4. Machine Learning
 
@@ -45,8 +43,8 @@ The Book is Open and we are looking for co-authors. Feel free to [reach out](htt
 
 5. Econophysics
 
-+ Entropy, Efficiency and Coupling
-+ Transfer Entropy, Information Transfer and Causality
++ Entropy, Efficiency and Bubbles
++ Nonparametric Statistical Causality: An Information-Theoretical Approach
 + Financial Networks
 
 6. Alternative Data
@@ -62,4 +60,4 @@ Licensed under [Attribution-NonCommercial-ShareAlike 4.0 International](https://
 
 <img src="fig/by-nc-sa.png" width="20%">
 
-Copyright (c) 2019. Thársis T. P. Souza. New York, NY.
+Copyright (c) 2019. OpenQuants.com, New York, NY.

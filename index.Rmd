@@ -1,6 +1,6 @@
 --- 
 title: "The Open Quant Live Book"
-author: "Thársis T. P. Souza"
+author: "by OpenQuants.com"
 date: "`r Sys.Date()`"
 output: bookdown::gitbook
 site: bookdown::bookdown_site
@@ -14,7 +14,7 @@ toc_depth: 3
 toc_unnumbered: no
 toc_appendix: yes
 github-repo: souzatharsis/open-quant-live-book
-cover-image: ./fig/cover1.jpg
+cover-image: ./fig/cover.jpg
 description: "The Open Quant Live Book"
 ---
 
@@ -29,7 +29,7 @@ if(!knitr:::is_html_output())
 {
   options("width"=56)
   knitr::opts_chunk$set(tidy.opts=list(width.cutoff=56, indent = 2), tidy = TRUE)
-  knitr::opts_chunk$set(fig.pos = 'H')
+  knitr::opts_chunk$set(fig.pos = 'H', fig.align = "center")
 }
 ```
 
@@ -40,13 +40,15 @@ if(!knitr:::is_html_output())
 # Preface {-}
 
 
-<img style="border:5px solid black" src="./fig/cover1.jpg" alt="The Open Quant Book">
+<img style="border:5px solid black" src="./fig/cover.jpg" alt="The Open Quant Book">
 
 ### Description {-}
 
-The book aims to be an Open Source introductory  reference of the most important aspects of financial data analysis, algo trading, portfolio selection, econophysics and machine learning in finance with an emphasis in reproducibility and openness not to be found in most other typical Wall Street-like references.
+The book aims to be an Open Source introductory reference of the most important aspects of financial data analysis, algo trading, portfolio selection, econophysics and machine learning in finance with an emphasis in reproducibility and openness not to be found in most other typical Wall Street-like references.
 
-The Book is [Open](https://github.com/souzatharsis/open-quant-live-book) and we are looking for co-authors. Feel free to [reach out](http://www.souzatharsis.com/) or simply create a pull request with your contribution on our [Github project](https://github.com/souzatharsis/open-quant-live-book).
+### Contribute {-}
+
+The Book is Open and we are looking for co-authors. Feel free to [reach out](https://www.openquants.com/contact) or simply create a pull request with your contribution! See project structure, guidelines and how to contribute [here](https://github.com/souzatharsis/open-quant-live-book/blob/master/CONTRIBUTING.md).
 
 ### Working Contents {-}
 
@@ -54,7 +56,6 @@ The Book is [Open](https://github.com/souzatharsis/open-quant-live-book) and we 
 
 + I/O
 + Stylized Facts
-+ Correlation & Causation
 
 2. Algo Trading   
 
@@ -65,9 +66,8 @@ The Book is [Open](https://github.com/souzatharsis/open-quant-live-book) and we 
 
 3. Portfolio Optimization
 
-+ Modern Portfolio Theory
-+ Measuring Risk
-+ Linear Programming
++ Convex Optimization
++ Risk Parity Portfolios
 
 4. Machine Learning
 
@@ -79,8 +79,8 @@ The Book is [Open](https://github.com/souzatharsis/open-quant-live-book) and we 
 
 5. Econophysics
 
-+ Entropy, Efficiency and Coupling
-+ Transfer Entropy, Information Transfer and Causality
++ Entropy, Efficiency and Bubbles
++ Nonparametric Statistical Causality: An Information-Theoretical Approach
 + Financial Networks
 
 6. Alternative Data
@@ -90,7 +90,7 @@ The Book is [Open](https://github.com/souzatharsis/open-quant-live-book) and we 
 
 ### Book's information {-}
 
-First published at: [openquants.com](http://openquants.com/).
+First published at: [openquants.com](https://openquants.com/).
 
 Licensed under [Attribution-NonCommercial-ShareAlike 4.0 International](https://creativecommons.org/licenses/by-nc-sa/4.0/). 
 
@@ -99,7 +99,7 @@ knitr::include_graphics('fig/by-nc-sa.png')
 ```
 
 ```{block2, type='flushright', html.tag='p'}
-Copyright (c) 2019. Thársis T. P. Souza. New York, NY.
+Copyright (c) 2019. OpenQuants.com, New York, NY.
 ```
 
 

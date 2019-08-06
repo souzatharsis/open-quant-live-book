@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Chapter 5 Information Theory and Statistical Causality | The Open Quant Live Book</title>
+  <meta name="description" content="Chapter 5 Information Theory and Statistical Causality | The Open Quant Live Book">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+
+  <meta property="og:title" content="Chapter 5 Information Theory and Statistical Causality | The Open Quant Live Book" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:image" content="./fig/cover.jpg" />
+  <meta property="og:description" content="Chapter 5 Information Theory and Statistical Causality | The Open Quant Live Book" />
+  <meta name="github-repo" content="souzatharsis/open-quant-live-book" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 5 Information Theory and Statistical Causality | The Open Quant Live Book" />
+  
+  <meta name="twitter:description" content="Chapter 5 Information Theory and Statistical Causality | The Open Quant Live Book" />
+  <meta name="twitter:image" content="./fig/cover.jpg" />
+
+<meta name="author" content="by OpenQuants.com">
+
+
+<meta name="date" content="2019-08-06">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="entropy.html">
+<link rel="next" href="financial-networks.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-75703863-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-75703863-2');
+</script>
+
+
+<!-- Hypotheses -->
+<!-- <script src="https://hypothes.is/embed.js" async></script> -->
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="custom_style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">The Open Quant Live Book</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#description"><i class="fa fa-check"></i>Description</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#contribute"><i class="fa fa-check"></i>Contribute</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#working-contents"><i class="fa fa-check"></i>Working Contents</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#books-information"><i class="fa fa-check"></i>Book’s information</a></li>
+</ul></li>
+<li class="part"><span><b>I The Basics</b></span></li>
+<li class="chapter" data-level="1" data-path="io.html"><a href="io.html"><i class="fa fa-check"></i><b>1</b> I/O</a><ul>
+<li class="chapter" data-level="1.1" data-path="io.html"><a href="io.html#importing-data"><i class="fa fa-check"></i><b>1.1</b> Importing Data</a><ul>
+<li class="chapter" data-level="1.1.1" data-path="io.html"><a href="io.html#text-files"><i class="fa fa-check"></i><b>1.1.1</b> Text Files</a></li>
+<li class="chapter" data-level="1.1.2" data-path="io.html"><a href="io.html#excel-files"><i class="fa fa-check"></i><b>1.1.2</b> Excel Files</a></li>
+<li class="chapter" data-level="1.1.3" data-path="io.html"><a href="io.html#json-files"><i class="fa fa-check"></i><b>1.1.3</b> JSON Files</a></li>
+<li class="chapter" data-level="1.1.4" data-path="io.html"><a href="io.html#large-files"><i class="fa fa-check"></i><b>1.1.4</b> Large Files</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="io.html"><a href="io.html#data-sources"><i class="fa fa-check"></i><b>1.2</b> Data Sources</a><ul>
+<li class="chapter" data-level="1.2.1" data-path="io.html"><a href="io.html#alpha-vantage"><i class="fa fa-check"></i><b>1.2.1</b> Alpha Vantage</a></li>
+<li class="chapter" data-level="1.2.2" data-path="io.html"><a href="io.html#iex"><i class="fa fa-check"></i><b>1.2.2</b> IEX</a></li>
+<li class="chapter" data-level="1.2.3" data-path="io.html"><a href="io.html#quandl"><i class="fa fa-check"></i><b>1.2.3</b> Quandl</a></li>
+<li class="chapter" data-level="1.2.4" data-path="io.html"><a href="io.html#sec"><i class="fa fa-check"></i><b>1.2.4</b> SEC</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="io.html"><a href="io.html#conclusion"><i class="fa fa-check"></i><b>1.3</b> Conclusion</a><ul>
+<li class="chapter" data-level="1.3.1" data-path="io.html"><a href="io.html#further-reading"><i class="fa fa-check"></i><b>1.3.1</b> Further Reading</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="stylized-facts.html"><a href="stylized-facts.html"><i class="fa fa-check"></i><b>2</b> Stylized Facts</a><ul>
+<li class="chapter" data-level="2.1" data-path="stylized-facts.html"><a href="stylized-facts.html#introduction"><i class="fa fa-check"></i><b>2.1</b> Introduction</a></li>
+<li class="chapter" data-level="2.2" data-path="stylized-facts.html"><a href="stylized-facts.html#distribution-of-returns"><i class="fa fa-check"></i><b>2.2</b> Distribution of Returns</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="stylized-facts.html"><a href="stylized-facts.html#fat-tails"><i class="fa fa-check"></i><b>2.2.1</b> Fat Tails</a></li>
+<li class="chapter" data-level="2.2.2" data-path="stylized-facts.html"><a href="stylized-facts.html#skewness"><i class="fa fa-check"></i><b>2.2.2</b> Skewness</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="stylized-facts.html"><a href="stylized-facts.html#volatility"><i class="fa fa-check"></i><b>2.3</b> Volatility</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="stylized-facts.html"><a href="stylized-facts.html#time-invariance"><i class="fa fa-check"></i><b>2.3.1</b> Time-invariance</a></li>
+<li class="chapter" data-level="2.3.2" data-path="stylized-facts.html"><a href="stylized-facts.html#volatility-clustering"><i class="fa fa-check"></i><b>2.3.2</b> Volatility Clustering</a></li>
+<li class="chapter" data-level="2.3.3" data-path="stylized-facts.html"><a href="stylized-facts.html#correlation-with-trading-volume"><i class="fa fa-check"></i><b>2.3.3</b> Correlation with Trading Volume</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="stylized-facts.html"><a href="stylized-facts.html#correlation"><i class="fa fa-check"></i><b>2.4</b> Correlation</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="stylized-facts.html"><a href="stylized-facts.html#time-invariance-1"><i class="fa fa-check"></i><b>2.4.1</b> Time-invariance</a></li>
+<li class="chapter" data-level="2.4.2" data-path="stylized-facts.html"><a href="stylized-facts.html#auto-correlation"><i class="fa fa-check"></i><b>2.4.2</b> Auto-correlation</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>II Algo Trading</b></span></li>
+<li class="chapter" data-level="3" data-path="limit-order.html"><a href="limit-order.html"><i class="fa fa-check"></i><b>3</b> Limit Order</a></li>
+<li class="part"><span><b>III Portfolio Optimization</b></span></li>
+<li class="part"><span><b>IV Machine Learning</b></span></li>
+<li class="part"><span><b>V Econophysics</b></span></li>
+<li class="chapter" data-level="4" data-path="entropy.html"><a href="entropy.html"><i class="fa fa-check"></i><b>4</b> Entropy</a><ul>
+<li class="chapter" data-level="4.1" data-path="entropy.html"><a href="entropy.html#definition"><i class="fa fa-check"></i><b>4.1</b> Definition</a></li>
+<li class="chapter" data-level="4.2" data-path="entropy.html"><a href="entropy.html#efficiency-and-bubbles-a-case-study-in-the-crypto-and-equity-markets"><i class="fa fa-check"></i><b>4.2</b> Efficiency and Bubbles: A Case Study in the Crypto and Equity Markets</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="information-theory-and-statistical-causality.html"><a href="information-theory-and-statistical-causality.html"><i class="fa fa-check"></i><b>5</b> Information Theory and Statistical Causality</a><ul>
+<li class="chapter" data-level="5.1" data-path="information-theory-and-statistical-causality.html"><a href="information-theory-and-statistical-causality.html#LinearG"><i class="fa fa-check"></i><b>5.1</b> A First Definition of Causality</a></li>
+<li class="chapter" data-level="5.2" data-path="information-theory-and-statistical-causality.html"><a href="information-theory-and-statistical-causality.html#a-probabilistic-based-definition"><i class="fa fa-check"></i><b>5.2</b> A Probabilistic-Based Definition</a></li>
+<li class="chapter" data-level="5.3" data-path="information-theory-and-statistical-causality.html"><a href="information-theory-and-statistical-causality.html#nonlinearG"><i class="fa fa-check"></i><b>5.3</b> Transfer Entropy and Statistical Causality</a></li>
+<li class="chapter" data-level="5.4" data-path="information-theory-and-statistical-causality.html"><a href="information-theory-and-statistical-causality.html#net-information-flow"><i class="fa fa-check"></i><b>5.4</b> Net Information Flow</a></li>
+<li class="chapter" data-level="5.5" data-path="information-theory-and-statistical-causality.html"><a href="information-theory-and-statistical-causality.html#the-link-between-granger-causality-and-transfer-entropy"><i class="fa fa-check"></i><b>5.5</b> The Link Between Granger-causality and Transfer Entropy</a></li>
+<li class="chapter" data-level="5.6" data-path="information-theory-and-statistical-causality.html"><a href="information-theory-and-statistical-causality.html#empirical-experiment-information-flow-on-simulated-systems"><i class="fa fa-check"></i><b>5.6</b> Empirical Experiment: Information Flow on Simulated Systems</a></li>
+<li class="chapter" data-level="5.7" data-path="information-theory-and-statistical-causality.html"><a href="information-theory-and-statistical-causality.html#empirical-experiment-information-flow-on-global-markets"><i class="fa fa-check"></i><b>5.7</b> Empirical Experiment: Information Flow on Global Markets</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="financial-networks.html"><a href="financial-networks.html"><i class="fa fa-check"></i><b>6</b> Financial Networks</a><ul>
+<li class="chapter" data-level="6.1" data-path="financial-networks.html"><a href="financial-networks.html#introduction-1"><i class="fa fa-check"></i><b>6.1</b> Introduction</a></li>
+<li class="chapter" data-level="6.2" data-path="financial-networks.html"><a href="financial-networks.html#network-construction"><i class="fa fa-check"></i><b>6.2</b> Network Construction</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="financial-networks.html"><a href="financial-networks.html#network-filtering-asset-graphs"><i class="fa fa-check"></i><b>6.2.1</b> Network Filtering: Asset Graphs</a></li>
+<li class="chapter" data-level="6.2.2" data-path="financial-networks.html"><a href="financial-networks.html#network-filtering-mst"><i class="fa fa-check"></i><b>6.2.2</b> Network Filtering: MST</a></li>
+<li class="chapter" data-level="6.2.3" data-path="financial-networks.html"><a href="financial-networks.html#network-filtering-pmfg"><i class="fa fa-check"></i><b>6.2.3</b> Network Filtering: PMFG</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="financial-networks.html"><a href="financial-networks.html#applications"><i class="fa fa-check"></i><b>6.3</b> Applications</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="financial-networks.html"><a href="financial-networks.html#industry-taxonomy"><i class="fa fa-check"></i><b>6.3.1</b> Industry Taxonomy</a></li>
+<li class="chapter" data-level="6.3.2" data-path="financial-networks.html"><a href="financial-networks.html#portfolio-construction"><i class="fa fa-check"></i><b>6.3.2</b> Portfolio Construction</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>VI Alternative Data</b></span></li>
+<li class="chapter" data-level="7" data-path="the-market-the-players-and-the-rules.html"><a href="the-market-the-players-and-the-rules.html"><i class="fa fa-check"></i><b>7</b> The Market, The Players and The Rules</a><ul>
+<li class="chapter" data-level="7.1" data-path="the-market-the-players-and-the-rules.html"><a href="the-market-the-players-and-the-rules.html#the-market"><i class="fa fa-check"></i><b>7.1</b> The Market</a></li>
+<li class="chapter" data-level="7.2" data-path="the-market-the-players-and-the-rules.html"><a href="the-market-the-players-and-the-rules.html#the-data"><i class="fa fa-check"></i><b>7.2</b> The Data</a></li>
+<li class="chapter" data-level="7.3" data-path="the-market-the-players-and-the-rules.html"><a href="the-market-the-players-and-the-rules.html#the-buyers"><i class="fa fa-check"></i><b>7.3</b> The Buyers</a></li>
+<li class="chapter" data-level="7.4" data-path="the-market-the-players-and-the-rules.html"><a href="the-market-the-players-and-the-rules.html#conclusion-1"><i class="fa fa-check"></i><b>7.4</b> Conclusion</a></li>
+</ul></li>
+<li class="appendix"><span><b>Appendix</b></span></li>
+<li class="chapter" data-level="A" data-path="statistical-methods.html"><a href="statistical-methods.html"><i class="fa fa-check"></i><b>A</b> Statistical Methods</a><ul>
+<li class="chapter" data-level="A.1" data-path="statistical-methods.html"><a href="statistical-methods.html#kde"><i class="fa fa-check"></i><b>A.1</b> Kernel Density Estimation</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://creativecommons.org/licenses/by/4.0/" target="blank">CC-BY 4.0</a></li>
+<li><a href="https://github.com/souzatharsis/open-quant-live-book" target="blank">See source code on Github</a></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Made with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">The Open Quant Live Book</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="information-theory-and-statistical-causality" class="section level1">
+<h1><span class="header-section-number">Chapter 5</span> Information Theory and Statistical Causality</h1>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-33"></span>
+<img src="chapters/TransferEntropy/rand.png" alt="Life is Random (or Nonlinear?)" width="50%" />
+<p class="caption">
+Figure 5.1: Life is Random (or Nonlinear?)
+</p>
+</div>
+<span class="math display">\[\begin{align*}
+x_1 &amp;= 0.441x_1 + \epsilon_1 \\
+x_2 &amp;= 0.51x_1^2 + \epsilon_2, \\ 
+&amp;\epsilon_1, \epsilon_2 \sim \mathcal{N}(0,1).
+\end{align*}\]</span>
+<p>We quantify causality by using the notion of the causal relation introduced by Granger <span class="citation">(Wiener <a href="#ref-Wiener56">1956</a>; Granger <a href="#ref-granger:econ">1969</a>)</span> where a signal <span class="math inline">\(X\)</span> is said to Granger-cause <span class="math inline">\(Y\)</span> if the future realizations of <span class="math inline">\(Y\)</span> can be better explained using the past information from <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> rather than <span class="math inline">\(Y\)</span> alone.</p>
+<div id="LinearG" class="section level2">
+<h2><span class="header-section-number">5.1</span> A First Definition of Causality</h2>
+<p>The most common definitions of Granger-causality rely on the prediction of a future value of the variable <span class="math inline">\(Y\)</span> by using the past values of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> itself. In that form, <span class="math inline">\(X\)</span> is said to <em>G-cause</em> <span class="math inline">\(Y\)</span> if the use of <span class="math inline">\(X\)</span> improves the prediction of <span class="math inline">\(Y\)</span>.</p>
+<p>Let <span class="math inline">\(X_t\)</span> be a random variable associated at time <span class="math inline">\(t\)</span> while <span class="math inline">\(X^t\)</span> represents the collection of random variables up to time <span class="math inline">\(t\)</span>. We consider <span class="math inline">\({X_t}, {Y_t}\)</span> and <span class="math inline">\({Z_t}\)</span> to be three stochastic processes. Let <span class="math inline">\(\hat Y_{t+1}\)</span> be a predictor for the value of the variable <span class="math inline">\(Y\)</span> at time <span class="math inline">\(t+1\)</span>.</p>
+<p>We compare the expected value of a loss function <span class="math inline">\(g(e)\)</span> with the error <span class="math inline">\(e=\hat{Y}_{t+1} - Y_{t+1}\)</span> of two models:</p>
+<ol style="list-style-type: decimal">
+<li>The expected value of the prediction error given only <span class="math inline">\(Y^t\)</span>
+<span class="math display">\[\begin{equation}
+ \mathcal{R}(Y^{t+1} \, | \, Y^t,Z^t) = \mathbb{E}[g(Y_{t+1} - f_1(X^{t},Z^t))]
+\end{equation}\]</span></li>
+<li>The expected value of the prediction error given <span class="math inline">\(Y^t\)</span> and <span class="math inline">\(X^t\)</span>
+<span class="math display">\[\begin{equation}
+ \mathcal{R}(Y^{t+1} \, | \, X^{t},Y^t,Z^t) = \mathbb{E}[g(Y_{t+1} - f_2(X^{t},Y^t,Z^t))].
+\end{equation}\]</span></li>
+</ol>
+<p>In both models, the functions <span class="math inline">\(f_1(.)\)</span> and <span class="math inline">\(f_2(.)\)</span> are chosen to minimize the expected value of the loss function. In most cases, these functions are retrieved with linear and, possibly, with nonlinear regressions. Typical forms for <span class="math inline">\(g(.)\)</span> are the <span class="math inline">\(l1\)</span>- or <span class="math inline">\(l2\)</span>-norms.</p>
+<p>We can now provide our first definition of statistical causality under the Granger causal notion as follows:</p>
+
+<div class="definition">
+<span id="def:G1" class="definition"><strong>Definition 5.1  </strong></span><span class="math inline">\(X\)</span> does not Granger-cause <span class="math inline">\(Y\)</span> relative to side information <span class="math inline">\(Z\)</span> if and only if <span class="math inline">\(\mathcal{R}(Y_{t+1} \; | \; X^t, Y^t, Z^t) = \mathcal{R}(Y_{t+1} \; | \; Y^t, Z^t)\)</span>.
+</div>
+
+<p>Standard Granger-causality tests assume a functional form in the relationship among the causes and effects and are implemented by fitting autoregressive models <span class="citation">(Wiener <a href="#ref-Wiener56">1956</a>; Granger <a href="#ref-granger:econ">1969</a>)</span>.</p>
+Consider the linear vector-autoregressive (VAR) equations:
+<span class="math display" id="eq:AR22" id="eq:AR11">\[\begin{align}
+Y(t) &amp;= {\alpha} + \sum^k_{\Delta t=1}{{\beta}_{\Delta t} Y(t-\Delta t)} + \epsilon_t, \tag{5.1}\\
+Y(t) &amp;= \widehat{\alpha} + \sum^k_{\Delta t=1}{{\widehat{\beta}}_{\Delta t} Y(t-\Delta t)} +  \sum^k_{\Delta t=1}{{\widehat{\gamma}}_{\Delta t}X(t-\Delta t)}+ \widehat{\epsilon}_t, \tag{5.2}
+\end{align}\]</span>
+<p>where <span class="math inline">\(k\)</span> is the number of lags considered. Alternatively, you can choose your DL/SVM/RF/GLM method of choice to fit the model.</p>
+<p>From Def <a href="information-theory-and-statistical-causality.html#def:G1">5.1</a>, <span class="math inline">\(X\)</span> does not G-cause <span class="math inline">\(Y\)</span> if and only if the prediction errors of <span class="math inline">\(X\)</span> in the restricted Eq. <a href="information-theory-and-statistical-causality.html#eq:AR11">(5.1)</a> and unrestricted regression models Eq. <a href="information-theory-and-statistical-causality.html#eq:AR22">(5.2)</a> are equal (i.e., they are statistically indistinguishable). A one-way ANOVA test can be utilized to test if the residuals from Eqs. <a href="information-theory-and-statistical-causality.html#eq:AR11">(5.1)</a> and <a href="information-theory-and-statistical-causality.html#eq:AR22">(5.2)</a> differ from each other significantly. When more than one lag <span class="math inline">\(k\)</span> is tested, a Bonferroni correction is applied to control for multiple hypotheses testing.</p>
+</div>
+<div id="a-probabilistic-based-definition" class="section level2">
+<h2><span class="header-section-number">5.2</span> A Probabilistic-Based Definition</h2>
+<p>A more general definition than Def. <a href="information-theory-and-statistical-causality.html#def:G1">5.1</a> that does not depend on assuming prediction functions can be formulated by considering conditional probabilities. A probabilistic definition of G-causality assumes that <span class="math inline">\(Y_{t+1}\)</span> and <span class="math inline">\(X^{t}\)</span> are independent given the past information <span class="math inline">\((X^{t}, Y^{t})\)</span> if and only if <span class="math inline">\(p(Y_{t+1} \, | \, X^{t}, Y^{t}, Z^{t}) = p(Y_{t+1} \, | \, Y^{t}, Z^{t})\)</span>, where <span class="math inline">\(p(. \, | \, .)\)</span> represents the conditional probability distribution. In other words, omitting past information from <span class="math inline">\(X\)</span> does not change the probability distribution of <span class="math inline">\(Y\)</span>. This leads to our second definition of statistical causality as follows:</p>
+
+<div class="definition">
+<span id="def:G2" class="definition"><strong>Definition 5.2  </strong></span><span class="math inline">\(X\)</span> does not Granger-cause <span class="math inline">\(Y\)</span> relative to side information <span class="math inline">\(Z\)</span> if and only if <span class="math inline">\(Y_{t+1} {\perp\!\!\!\!\perp}X^{t} \; | \; Y^{t}, Z^{t}\)</span>.
+</div>
+<p> <br /></p>
+<p>Def. <a href="information-theory-and-statistical-causality.html#def:G2">5.2</a> does not assume any functional form in the coupling between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>. Nevertheless, it requires a method to assess their conditional dependency. In the next section, we will leverage an Information-Theoretical framework for that purpose.</p>
+</div>
+<div id="nonlinearG" class="section level2">
+<h2><span class="header-section-number">5.3</span> Transfer Entropy and Statistical Causality</h2>
+Given a coupled system <span class="math inline">\((X,Y)\)</span>, where <span class="math inline">\(P_Y(y)\)</span> is the pdf of the random variable <span class="math inline">\(Y\)</span> and <span class="math inline">\(P_{X,Y}\)</span> is the joint pdf between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>, the joint entropy between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> is given by the following:
+<span class="math display">\[\begin{equation}
+H(X,Y) = -\sum_{x \in X}{\sum_{y \in Y}{P_{X,Y}(x,y)\log{P_{X,Y}(x,y)}}}.
+\label{eq:HXY}
+\end{equation}\]</span>
+The conditional entropy is defined by the following:
+<span class="math display">\[\begin{equation}
+H\left(Y\middle\vert X\right) = H(X,Y) - H(X).
+\end{equation}\]</span>
+<p>We can interpret <span class="math inline">\(H\left(Y\middle\vert X\right)\)</span> as the uncertainty of <span class="math inline">\(Y\)</span> given a realization of <span class="math inline">\(X\)</span>.</p>
+<p>To compute G-Causality, we use the concept of Transfer Entropy. Since its introduction <span class="citation">(Schreiber <a href="#ref-PhysRevLett.85.461">2000</a>)</span>, Transfer Entropy has been recognized as an important tool in the analysis of causal relationships in nonlinear systems <span class="citation">(Hlavackovaschindler et al. <a href="#ref-citeulike:1447442">2007</a>)</span>. It detects directional and dynamical information <span class="citation">(Montalto <a href="#ref-10.1371/journal.pone.0109462">2014</a>)</span> while not assuming any particular functional form to describe interactions among systems.</p>
+The Transfer Entropy can be defined as the difference between the conditional entropies:
+<span class="math display" id="eq:TE">\[\begin{equation}
+ TE\left(X \rightarrow Y\right \vert Z) =  H\left(Y^F\middle\vert Y^P,Z^P\right) - H\left(Y^F\middle\vert X^P, Y^P,Z^P\right),
+\tag{5.3}
+\end{equation}\]</span>
+which can be rewritten as a sum of Shannon entropies:
+<span class="math display">\[\begin{align}
+TE\left(X \rightarrow Y\right) = H\left(Y^P, X^P\right) - H\left(Y^F, Y^P, X^P\right) + H\left(Y^F, Y^P\right) - H\left(Y^P\right),
+\end{align}\]</span>
+<p>where <span class="math inline">\(Y^F\)</span> is a forward time-shifted version of <span class="math inline">\(Y\)</span> at lag <span class="math inline">\(\Delta t\)</span> relatively to the past time-series <span class="math inline">\(X^P\)</span>, <span class="math inline">\(Y^P\)</span> and <span class="math inline">\(Z^P\)</span>. Within this framework we say that <span class="math inline">\(X\)</span> does not G-cause <span class="math inline">\(Y\)</span> relative to side information <span class="math inline">\(Z\)</span> if and only if <span class="math inline">\(H\left(Y^F\middle\vert Y^P,Z^P \right) = H\left(Y^F\middle\vert X^P, Y^P,Z^P\right)\)</span>, i.e., when <span class="math inline">\(TE\left(X \rightarrow Y,Z^P\right) = 0\)</span>.</p>
+<!-- Empirically, we reject this null hypothesis of causality if the Transfer Entropy from $X$ to $Y$ is significantly higher than the shuffled version of the original data. -->
+<!-- For this we estimate 400 replicates of $TE(X_{Shuffled} \rightarrow Y)$, where $X_{Shuffled}$ is a random permutation of $X$ relatively to $Y$. -->
+<!-- We compute the randomized Transfer Entropy at each permutation for each time-shift ($\Delta t$) from 1 to 10 days.  -->
+<!-- We then calculated the frequency at which the observed Transfer Entropy was equal or more extreme  -->
+<!-- than the randomized Transfer Entropy. The statistical significance was assessed using p-value $< 0.05$ after Bonferroni correction. -->
+</div>
+<div id="net-information-flow" class="section level2">
+<h2><span class="header-section-number">5.4</span> Net Information Flow</h2>
+Transfer-entropy is an asymmetric measure, i.e., <span class="math inline">\(T_{X \rightarrow Y} \neq T_{Y \rightarrow X}\)</span>, and it thus allows the quantification of the directional coupling between systems. The Net Information Flow is defined as
+<span class="math display">\[\begin{equation}
+\widehat{TE}_{X \rightarrow Y} = TE_{X \rightarrow Y} - TE_{Y \rightarrow X}\;.
+\end{equation}\]</span>
+<p>One can interpret this quantity as a measure of the dominant direction of the information flow. In other words, a positive result indicates a dominant information flow from <span class="math inline">\(X\)</span> to <span class="math inline">\(Y\)</span> compared to the other direction or, similarly, it indicates which system provides more predictive information about the other system <span class="citation">(Michalowicz, Nichols, and Bucholtz <a href="#ref-Michalowicz:2013:HDE:2601840">2013</a>)</span>.</p>
+</div>
+<div id="the-link-between-granger-causality-and-transfer-entropy" class="section level2">
+<h2><span class="header-section-number">5.5</span> The Link Between Granger-causality and Transfer Entropy</h2>
+<p>It has been shown <span class="citation">(Barnett, Barrett, and Seth <a href="#ref-PhysRevLett.103.238701">2009</a>)</span> that linear G-causality and Transfer Entropy are equivalent if all processes are jointly Gaussian. In particular, by assuming the standard measure (<span class="math inline">\(l2\)</span>-norm loss function) of linear G-causality for the bivariate case as follows (see Section <a href="information-theory-and-statistical-causality.html#LinearG">5.1</a> for more details on linear-Granger causality):</p>
+<span class="math display" id="eq:GCGC">\[\begin{equation}
+GC_{X \rightarrow Y} = \log\left( \frac{var(\epsilon_t)}{var( \widehat{\epsilon}_t)} \right),
+\tag{5.4}
+\end{equation}\]</span>
+<p>the following can be proved <span class="citation">(Barnett, Barrett, and Seth <a href="#ref-PhysRevLett.103.238701">2009</a>)</span>:</p>
+<span class="math display" id="eq:GCGC2">\[\begin{align}
+TE_{X \rightarrow Y} = GC_{X \rightarrow Y}/2.
+\tag{5.5}
+\end{align}\]</span>
+<p>This result provides a direct mapping between the Transfer Entropy and the linear G-causality implemented in the standard VAR framework. Hence, it is possible to estimate the TE both in its general form and with its equivalent form for linear G-causality.</p>
+</div>
+<div id="empirical-experiment-information-flow-on-simulated-systems" class="section level2">
+<h2><span class="header-section-number">5.6</span> Empirical Experiment: Information Flow on Simulated Systems</h2>
+<p>In this section, we construct simulated systems to couple random variables in a causal manner. We then quantify information flow using the methods studied in this Chapter.</p>
+We first assume a linear system, where random variables have linear relationships defined as follow:
+<span class="math display">\[\begin{align}
+x_1(n) &amp;= 0.95\sqrt{2}x_1(n-1) - 0.9025x_1(n-1) + w_1\\ \nonumber
+x_2(n) &amp;= 0.5x_1(n-1) + w_2\\ \nonumber
+x_3(n) &amp;= -0.4x_1(n-1) + w_3\\ \nonumber
+x_4(n) &amp;= -0.5x_1(n-1) + 0.25\sqrt{2}x_4(n-1) + 0.25\sqrt{2}x_5(n-1) + w_4\\ \nonumber
+x_5(n) &amp;= -0.25\sqrt{2}x_4(n-1) + 0.25\sqrt{2}x_5(n-1) + w_5, \nonumber
+\end{align}\]</span>
+<p><span class="math inline">\(w_1, w_2, w_3, w_4, w_5 \sim N(0, 1)\)</span>.</p>
+Fig. <a href="information-theory-and-statistical-causality.html#fig:causality-graph1">5.2</a> provides a representation of the causal links in the simulated system.
+<div class="figure" style="text-align: center"><span id="fig:causality-graph1"></span>
+<img src="chapters/TransferEntropy/causality-graph1.png" alt="Interactions between the variables of the simulated linear system." width="50%" />
+<p class="caption">
+Figure 5.2: Interactions between the variables of the simulated linear system.
+</p>
+</div>
+<p>Nonlinear Systems:</p>
+<span class="math display">\[\begin{align}
+x_1(n) &amp;= 0.95\sqrt{2}x_1(n-1) - 0.9025x_1(n-1) + w_1\\ \nonumber
+x_2(n) &amp;= \textcolor{red}{0.5x_1^2(n-1)} + w_2\\ \nonumber
+x_3(n) &amp;= -0.4x_1(n-1) + w_3\\ \nonumber
+x_4(n) &amp;= \textcolor{red}{-0.5x_1^2(n-1)} + 0.25\sqrt{2}x_4(n-1) + 0.25\sqrt{2}x_5(n-1) + w_4\\ \nonumber
+x_5(n) &amp;= -0.25\sqrt{2}x_4(n-1) + 0.25\sqrt{2}x_5(n-1) + w_5, \nonumber
+\end{align}\]</span>
+<p><span class="math inline">\(w_1, w_2, w_3, w_4, w_5 \sim N(0, 1)\)</span>.</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-34"></span>
+<img src="chapters/TransferEntropy/causality-graph2.png" alt="Interactions between the variables of the simulated nonlinear system." width="50%" />
+<p class="caption">
+Figure 5.3: Interactions between the variables of the simulated nonlinear system.
+</p>
+</div>
+</div>
+<div id="empirical-experiment-information-flow-on-global-markets" class="section level2">
+<h2><span class="header-section-number">5.7</span> Empirical Experiment: Information Flow on Global Markets</h2>
+
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-Wiener56">
+<p>Wiener, N. 1956. “The theory of prediction.” In <em>Modern Mathematics for Engineers</em>, edited by E. F. Beckenbach. McGraw-Hill, New York.</p>
+</div>
+<div id="ref-granger:econ">
+<p>Granger, Clive. 1969. “Investigating Causal Relations by Econometric Models and Cross-Spectral Methods.” <em>Econometrica</em> 37 (3): 424–38.</p>
+</div>
+<div id="ref-PhysRevLett.85.461">
+<p>Schreiber, Thomas. 2000. “Measuring Information Transfer.” <em>Phys. Rev. Lett.</em> 85 (2). American Physical Society: 461–64. doi:<a href="https://doi.org/10.1103/PhysRevLett.85.461">10.1103/PhysRevLett.85.461</a>.</p>
+</div>
+<div id="ref-citeulike:1447442">
+<p>Hlavackovaschindler, K., M. Palus, M. Vejmelka, and J. Bhattacharya. 2007. “Causality Detection Based on Information-Theoretic Approaches in Time Series Analysis.” <em>Physics Reports</em> 441 (1): 1–46. doi:<a href="https://doi.org/10.1016/j.physrep.2006.12.004">10.1016/j.physrep.2006.12.004</a>.</p>
+</div>
+<div id="ref-10.1371/journal.pone.0109462">
+<p>Montalto, Luca AND Marinazzo, Alessandro AND Faes. 2014. “MuTE: A Matlab Toolbox to Compare Established and Novel Estimators of the Multivariate Transfer Entropy.” <em>PLoS ONE</em> 9 (10). Public Library of Science: e109462. doi:<a href="https://doi.org/10.1371/journal.pone.0109462">10.1371/journal.pone.0109462</a>.</p>
+</div>
+<div id="ref-Michalowicz:2013:HDE:2601840">
+<p>Michalowicz, Joseph Victor, Jonathan M. Nichols, and Frank Bucholtz. 2013. <em>Handbook of Differential Entropy</em>. Chapman &amp; Hall/CRC.</p>
+</div>
+<div id="ref-PhysRevLett.103.238701">
+<p>Barnett, Lionel, Adam B. Barrett, and Anil K. Seth. 2009. “Granger Causality and Transfer Entropy Are Equivalent for Gaussian Variables.” <em>Phys. Rev. Lett.</em> 103 (23). American Physical Society: 238701. doi:<a href="https://doi.org/10.1103/PhysRevLett.103.238701">10.1103/PhysRevLett.103.238701</a>.</p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="entropy.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="financial-networks.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": true,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/souzatharsis/open-quant-live-book/edit/master/chapters/TransferEntropy/TransferEntropy.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": ["open-quant-live-book.epub"],
+"toc": {
+"collapse": "subsection",
+"scroll_highlight": true
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
