@@ -8,6 +8,14 @@ The following is a set of instructions and guidelines for contributing to the Op
 
 This work is licensed under [Attribution-NonCommercial-ShareAlike 4.0 International](https://creativecommons.org/licenses/by-nc-sa/4.0/). Hence, contributions that you make are licensed under the same terms.
 
+## Which languanges should you use?
+
+You can code in any language. However, you need to submit your Chapter in markdown or Rmarkdown.
+
+## Minimum Criteria
+
+Your chapter and results should be reproducible and you should comply with the License of the project.
+
 ## Project Structure
 
 ```
@@ -28,7 +36,7 @@ Create a self-contained folder under /Chapters with the code and markdown/Rmarkd
 
 ### Step 3: Submit pull request
 
-One of our admins will review your pull request and build the book. The output files (html for the ebook) will be available under the directory _book, also automatically available at www.ebook.openquants.com.
+One of our admins will review your pull request and build the book. The output files (html for the ebook) will be available under the directory _book. It will also be automatically available at www.ebook.openquants.com.
 
 ## If you want to build the book yourself before submitting a pull request
 
