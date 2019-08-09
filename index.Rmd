@@ -48,7 +48,7 @@ The book aims to be an Open Source introductory reference of the most important 
 
 ### Contribute {-}
 
-The Book is Open and we are looking for co-authors. Feel free to [reach out](https://www.openquants.com/contact) or simply create a pull request with your contribution! See project structure, guidelines and how to contribute [here](https://github.com/souzatharsis/open-quant-live-book/blob/master/CONTRIBUTING.md).
+The Book is Open and we welcome co-authors. Feel free to [reach out](https://www.openquants.com/contact) or simply create a pull request with your contribution! See project structure, guidelines and how to contribute [here](https://github.com/souzatharsis/open-quant-live-book/blob/master/CONTRIBUTING.md).
 
 ### Working Contents {-}
 
