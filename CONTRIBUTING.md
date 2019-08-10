@@ -8,7 +8,7 @@ The following is a set of instructions and guidelines for contributing to the Op
 
 This work is licensed under [Attribution-NonCommercial-ShareAlike 4.0 International](https://creativecommons.org/licenses/by-nc-sa/4.0/). Hence, contributions that you make are licensed under the same terms.
 
-## Which languanges should you use?
+## What languanges should you use?
 
 You can code in any language. However, you need to submit your Chapter in markdown or Rmarkdown.
 
