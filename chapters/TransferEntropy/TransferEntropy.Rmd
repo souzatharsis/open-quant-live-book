@@ -170,10 +170,10 @@ x_5(n) &= -0.25\sqrt{2}x_4(n-1) + 0.25\sqrt{2}x_5(n-1) + w_5, \nonumber
 \end{align}
 where $w_1, w_2, w_3, w_4, w_5 \sim N(0, 1)$. To simulate this system we assume $x_i(0) = 0, i \in (1, 2, \ldots, 5)$ as initial condition and then iteratively generate $x_i$ for $n \in (1, 2, \ldots, N)$ with a total of $N = 200,000$ iterations by randomly sampling $w_i, i \in (1, 2, \ldots, 5)$ from a normal distribution with zero mean and unit variance. 
 
-The Fig. \@ref{fig:causality-graph1} A) represents the dependencies of the simulated linear system. 
-The Fig. \ref{fig:causality-graph1} B) and Fig. \ref{fig:causality-graph1} C) show the linear and nonlinear Information Flows among the system's variables, respectively.
+The Fig. \@ref(fig:causality-graph1) A) represents the dependencies of the simulated linear system. 
+The Fig. \@ref(fig:causality-graph1) B) and Fig. \@ref(fig:causality-graph1) C) show the linear and nonlinear Information Flows among the system's variables, respectively.
 A cell $(x, y)$ presents the information flow from variable $y$ to variable $x$.
-From Fig. \ref{fig:causality-graph1}, we observe that both the linear and nonlinear approaches presented similar results, i.e., both methods captured the system's dependencies similarly. 
+From Fig. \@ref(fig:causality-graph1), we observe that both the linear and nonlinear approaches presented similar results, i.e., both methods captured the system's dependencies similarly. 
 This result is expected as the system is purely linear and the nonlinear information flow is able to capture both the linear and nonlinear interactions.
 ```{r causality-graph1, echo=FALSE, out.width='100%', fig.align = "center",fig.cap="Interactions between the variables of the simulated linear system."}
 knitr::include_graphics("./chapters/TransferEntropy/S4Fig1.png")
@@ -192,8 +192,8 @@ x_5(n) &= -0.25\sqrt{2}x_4(n-1) + 0.25\sqrt{2}x_5(n-1) + w_5, \nonumber
 \end{align}
 where $w_1, w_2, w_3, w_4$ and $w_5 \sim N(0, 1)$. To simulate this system we assume $x_i(0) = 0, i \in (1, 2, ..., 5)$ as initial condition and then iteratively generate $x_i$ for $n \in (1, 2, ..., N)$ with a total of $N = 200,000$ iterations by randomly sampling $w_i, i \in (1, 2, ..., 5)$ from a normal distribution with zero mean and unit variance. 
 
-The Fig. \ref{fig:C3S4Fig2} A) represents the dependencies of the simulated nonlinear system.
-From Fig. \ref{fig:C3S4Fig2} B) and Fig. \ref{fig:C3S4Fig2} C), we observe that the nonlinear interactions introduced were not captured by the linear form of the information flow. 
+The Fig. \@ref(fig:C3S4Fig2) A) represents the dependencies of the simulated nonlinear system.
+From Fig. \@ref(fig:C3S4Fig2) B) and Fig. \@ref(fig:C3S4Fig2) C), we observe that the nonlinear interactions introduced were not captured by the linear form of the information flow. 
 While all linear interactions presented similar linear and nonlinear information flows, 
 the two nonlinear interactions introduced in the system presented relatively higher nonlinear information flow compared to the linear formulation.
 
