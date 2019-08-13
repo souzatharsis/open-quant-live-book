@@ -58,7 +58,7 @@ You can build the book as a .pdf, epub, or gitbook (renders as a web-page in the
 
 ### Integrating your new Chapter into the book
 
-After you create your self-contained folder under /Chapters with the code and markdown/Rmarkdown file of your chapter, you need to add the path to the markdown file of your Chapter to the file _bookdown.yml located in the root folder of the repo. Now when you build the book it will contain your Chapter in it.
+After you create your folder under /Chapters with the code and markdown/Rmarkdown file of your chapter, you need to add the path to the markdown file of your Chapter to the file _bookdown.yml located in the root folder of the repo. Now when you build the book it will contain your Chapter in it.
 
 
 

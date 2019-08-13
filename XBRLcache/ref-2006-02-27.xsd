@@ -1,0 +1,120 @@
+<schema targetNamespace="http://www.xbrl.org/2006/ref" elementFormDefault="qualified" attributeFormDefault="unqualified" xmlns:ref="http://www.xbrl.org/2006/ref" xmlns:link="http://www.xbrl.org/2003/linkbase" xmlns="http://www.w3.org/2001/XMLSchema">  
+<!-- (c) XBRL International.  See www.xbrl.org/legal  
+ 
+This version is non-normative - it should be identical to the normative
+version that is contained in Appendix B of the specification RECOMMENDATION
+with errata corrections to 2003-06-20 except for this comment.
+
+-->
+
+  <import namespace="http://www.xbrl.org/2003/linkbase" schemaLocation="http://www.xbrl.org/2003/xbrl-linkbase-2003-12-31.xsd"/>
+  <element name="Publisher" type="string" substitutionGroup="link:part" id="ref_Publisher">
+    <annotation>
+      <documentation xml:lang="en">Publisher of the reference material, such as SEC, FASB, or AICPA.</documentation>
+    </annotation>
+  </element>
+  <element name="Name" type="string" substitutionGroup="link:part" id="ref_Name">
+    <annotation>
+      <documentation xml:lang="en">Name refers to the specific publication.  For example, "Statement of Financial Standards", "Statement of Position" or "IFRS".  It does not include the number.</documentation>
+    </annotation>
+  </element>
+  <element name="Number" type="string" substitutionGroup="link:part" id="ref_Number">
+    <annotation>
+      <documentation xml:lang="en">Number is used to record the actual number of the specific publication.  For example, the number for FAS 133 would be 133.</documentation>
+    </annotation>
+  </element>
+  <element name="IssueDate" type="string" substitutionGroup="link:part" id="ref_IssueDate">
+    <annotation>
+      <documentation xml:lang="en">The issue date of the specific reference.  The format is CCYY-MM-DD.</documentation>
+    </annotation>
+  </element>
+  <element name="Chapter" type="string" substitutionGroup="link:part" id="ref_Chapter">
+    <annotation>
+      <documentation xml:lang="en">For a publication that uses chapters, this part should be used to capture this information.  Because chapters are not necessarily numbers, this is a string.</documentation>
+    </annotation>
+  </element>
+  <element name="Article" type="string" substitutionGroup="link:part" id="ref_Article">
+    <annotation>
+      <documentation xml:lang="en">Article refers to a statutory article in legal material.</documentation>
+    </annotation>
+  </element>
+  <element name="Note" type="string" substitutionGroup="link:part" id="ref_Note">
+    <annotation>
+      <documentation xml:lang="en">Notes can contain reference material; use this element when the note is published as a standalone document.  There is a separate element for footnotes within other references.
+      </documentation>
+    </annotation>
+  </element>
+  <element name="Section" type="string" substitutionGroup="link:part" id="ref_Section">
+    <annotation>
+      <documentation xml:lang="en">Section is used to capture information typically captured in sections of legislation or reference documents.</documentation>
+    </annotation>
+  </element>
+  <element name="Subsection" type="string" substitutionGroup="link:part" id="ref_Subsection">
+    <annotation>
+      <documentation xml:lang="en">Subsection is a subsection of the section part.</documentation>
+    </annotation>
+  </element>
+  <element name="Paragraph" type="string" substitutionGroup="link:part" id="ref_Paragraph">
+    <annotation>
+      <documentation xml:lang="en">Paragraph is used to refer to specific paragraphs in a document.</documentation>
+    </annotation>
+  </element>
+  <element name="Subparagraph" type="string" substitutionGroup="link:part" id="ref_Subparagraph">
+    <annotation>
+      <documentation xml:lang="en">Subparagraph of a paragraph.</documentation>
+    </annotation>
+  </element>
+  <element name="Clause" type="string" substitutionGroup="link:part" id="ref_Clause">
+    <annotation>
+      <documentation xml:lang="en">Sub component of a sub paragraph.</documentation>
+    </annotation>
+  </element>
+  <element name="Subclause" type="string" substitutionGroup="link:part" id="ref_Subclause">
+    <annotation>
+      <documentation xml:lang="en">Subcomponent of a clause in a paragraph.</documentation>
+    </annotation>
+  </element>
+  <element name="Appendix" type="string" substitutionGroup="link:part" id="ref_Appendix">
+    <annotation>
+      <documentation xml:lang="en">Refers to the name of an Appendix, which could be a number or text.</documentation>
+    </annotation>
+  </element>
+  <element name="Example" type="string" substitutionGroup="link:part" id="ref_Example">
+    <annotation>
+      <documentation xml:lang="en">Example captures examples used in reference documentation; there is a separate element for Exhibits.</documentation>
+    </annotation>
+  </element>
+  <element name="Page" type="string" substitutionGroup="link:part" id="ref_Page">
+    <annotation>
+      <documentation xml:lang="en">Page number of the reference material.</documentation>
+    </annotation>
+  </element>
+  <element name="Exhibit" type="string" substitutionGroup="link:part" id="ref_Exhibit">
+    <annotation>
+      <documentation xml:lang="en">Exhibit refers to exhibits in reference documentation; examples have a separate element.</documentation>
+    </annotation>
+  </element>
+  <element name="Footnote" type="string" substitutionGroup="link:part" id="ref_Footnote">
+    <annotation>
+      <documentation xml:lang="en">Footnote is used to reference footnotes that appear in reference information.</documentation>
+    </annotation>
+  </element>
+  <element name="Sentence" type="string" substitutionGroup="link:part" id="ref_Sentence">
+    <annotation>
+      <documentation xml:lang="en">In some reference material individual sentences can be referred to, and  this element allows them to be referenced.</documentation>
+    </annotation>
+  </element>
+  <element name="URI" type="anyURI" substitutionGroup="link:part" id="ref_URI">
+    <annotation>
+      <documentation xml:lang="en">Full URI of the reference such as "http://www.fasb.org/fas133".</documentation>
+    </annotation>
+  </element>
+  <element name="URIDate" substitutionGroup="link:part" id="ref_URIDate">
+    <annotation>
+      <documentation xml:lang="en">Date or DateTime that the URI was valid, in CCYY-MM-DD format.</documentation>
+    </annotation>
+    <simpleType>
+      <union memberTypes="date dateTime "/>
+    </simpleType>
+  </element>
+</schema>

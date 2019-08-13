@@ -1,21 +1,28 @@
 # Information Theory and Statistical Causality
 
+We've all heard the say "correlation does not imply causation", but how can we quantify causation? This is an extremely difficult and often misleading task, particularly trying to infer causality from observational data and cannot perform controlled trials or A/B testing.
 
-```{r, echo=FALSE, out.width='50%', fig.align = "center", fig.cap="Life is Random (or Nonlinear?)"}
-knitr::include_graphics("./chapters/TransferEntropy/rand.png")
-```
-
+Take for example the 2-dimensional system from Fig. \@ref(fig:rand). At a first glance, one could say that there is no clear relationship or causality between the random variables $x_1$ and $x_2$. However, this apparent random system presents a causal relationship defined by the following simple equations: 
 \begin{align*}
 x_1 &= 0.441x_1 + \epsilon_1 \\
 x_2 &= 0.51x_1^2 + \epsilon_2, \\ 
 &\epsilon_1, \epsilon_2 \sim \mathcal{N}(0,1).
 \end{align*}
 
-We quantify causality by using the notion of the causal relation introduced by Granger [@Wiener56; @granger:econ] where a signal $X$ is said to Granger-cause $Y$ if the future realizations of $Y$ can be better explained using the past information from $X$ and $Y$ rather than $Y$ alone.
+A simple nonlinearity introduced in the relationship between $x_2$ and $x_1$ was enough to introduce enough complexity into the system and potentially mislead a naive (non-quant) human.
+
+```{r rand, echo=FALSE, out.width='50%', fig.align = "center", fig.cap="Life is Random (or Nonlinear?)"}
+knitr::include_graphics("./chapters/TransferEntropy/rand.png")
+```
+
+
+Fortunately, we can take advantage of statistics and information theory to uncover complex causal relationships from observational data (remember, this is still a very very challenging task). We quantify causality by using the notion of the causal relation introduced by Granger [@Wiener56; @granger:econ], where a signal $X$ is said to Granger-cause $Y$ if the future realizations of $Y$ can be better explained using the past information from $X$ and $Y$ rather than $Y$ alone.
+
+In this Chapter, we will introduce a prediction-based definition of causality and its implementation using a vector auto-regression formulation. Next, we will introduce a probabilistic-definition of causality and its implementation using an information-theoretical framework. We will then symulate linear and nonlinear systems and uncover causal links with the proposed methods. In the final section, we will quantify information flow among global equity indexes further uncovering which indexes and markets are driving the global financial markets.
 
 ## A First Definition of Causality {#LinearG}
 
-The most common definitions of Granger-causality rely on the prediction of a future 
+The most common definitions of Granger-causality (*G-causality*) rely on the prediction of a future 
 value of the variable $Y$ by using the past values of $X$ and $Y$ itself. 
 In that form, $X$ is said to *G-cause* $Y$ if the use of $X$ improves the prediction of $Y$.
 
@@ -34,13 +41,14 @@ We compare the expected value of a loss function $g(e)$ with the error $e=\hat{Y
  \mathcal{R}(Y^{t+1} \, | \, X^{t},Y^t,Z^t) = \mathbb{E}[g(Y_{t+1} - f_2(X^{t},Y^t,Z^t))].
 \end{equation}
 
-In both models, the functions $f_1(.)$ and $f_2(.)$ are chosen to minimize the expected value of the loss function.  In most cases, these functions are retrieved with linear and, possibly, with nonlinear regressions. Typical forms for $g(.)$ are the $l1$- or $l2$-norms.
+In both models, the functions $f_1(.)$ and $f_2(.)$ are chosen to minimize the expected value of the loss function.  In most cases, these functions are retrieved with linear and, possibly, with nonlinear regressions, neural networks etc. Typical forms for $g(.)$ are the $l1$- or $l2$-norms.
 
 We can now provide our first definition of statistical causality under the Granger causal notion as follows:
 
 ```{definition G1}
 $X$ does not Granger-cause $Y$ relative to side information $Z$ if and only if $\mathcal{R}(Y_{t+1} \; | \; X^t, Y^t, Z^t) = \mathcal{R}(Y_{t+1} \; | \; Y^t, Z^t)$.
 ```
+<br />
 
 Standard Granger-causality  tests  assume  a  functional form in the  relationship  among the causes and effects and are implemented by fitting autoregressive models [@Wiener56; @granger:econ].
 
@@ -51,7 +59,7 @@ Y(t) &= \widehat{\alpha} + \sum^k_{\Delta t=1}{{\widehat{\beta}}_{\Delta t} Y(t-
 \end{align}
 where $k$ is the number of lags considered. Alternatively, you can choose your DL/SVM/RF/GLM method of choice to fit the model.
 
-From Def \@ref(def:G1), $X$ does not G-cause $Y$ if and only if the prediction errors of $X$ in the restricted Eq. \@ref(eq:AR11) and unrestricted regression models Eq. \@ref(eq:AR22) are equal (i.e., they are statistically indistinguishable). A one-way ANOVA test can be utilized to test if the residuals from Eqs. \@ref(eq:AR11) and \@ref(eq:AR22) differ from each other significantly. When more than one lag $k$ is tested, a Bonferroni correction is applied to control for multiple hypotheses testing.
+From Def \@ref(def:G1), $X$ does not G-cause $Y$ if and only if the prediction errors of $X$ in the restricted Eq. \@ref(eq:AR11) and unrestricted regression models Eq. \@ref(eq:AR22) are equal (i.e., they are statistically indistinguishable). A one-way ANOVA test can be utilized to test if the residuals from Eqs. \@ref(eq:AR11) and \@ref(eq:AR22) differ from each other significantly. When more than one lag $k$ is tested, a correction for multiple hypotheses testing should be applied, e.g. False Discovery Rate (FDR) or Bonferroni correction.
 
 
 ## A Probabilistic-Based Definition
@@ -160,16 +168,20 @@ x_3(n) &= -0.4x_1(n-1) + w_3\\ \nonumber
 x_4(n) &= -0.5x_1(n-1) + 0.25\sqrt{2}x_4(n-1) + 0.25\sqrt{2}x_5(n-1) + w_4\\ \nonumber
 x_5(n) &= -0.25\sqrt{2}x_4(n-1) + 0.25\sqrt{2}x_5(n-1) + w_5, \nonumber
 \end{align}
-$w_1, w_2, w_3, w_4, w_5 \sim N(0, 1)$.
+where $w_1, w_2, w_3, w_4, w_5 \sim N(0, 1)$. To simulate this system we assume $x_i(0) = 0, i \in (1, 2, \ldots, 5)$ as initial condition and then iteratively generate $x_i$ for $n \in (1, 2, \ldots, N)$ with a total of $N = 200,000$ iterations by randomly sampling $w_i, i \in (1, 2, \ldots, 5)$ from a normal distribution with zero mean and unit variance. 
 
-Fig. \@ref(fig:causality-graph1) provides a representation of the causal links in the simulated system.
-```{r causality-graph1, echo=FALSE, out.width='50%', fig.align = "center",fig.cap="Interactions between the variables of the simulated linear system."}
-knitr::include_graphics("./chapters/TransferEntropy/causality-graph1.png")
+The Fig. \@ref{fig:causality-graph1} A) represents the dependencies of the simulated linear system. 
+The Fig. \ref{fig:causality-graph1} B) and Fig. \ref{fig:causality-graph1} C) show the linear and nonlinear Information Flows among the system's variables, respectively.
+A cell $(x, y)$ presents the information flow from variable $y$ to variable $x$.
+From Fig. \ref{fig:causality-graph1}, we observe that both the linear and nonlinear approaches presented similar results, i.e., both methods captured the system's dependencies similarly. 
+This result is expected as the system is purely linear and the nonlinear information flow is able to capture both the linear and nonlinear interactions.
+```{r causality-graph1, echo=FALSE, out.width='100%', fig.align = "center",fig.cap="Interactions between the variables of the simulated linear system."}
+knitr::include_graphics("./chapters/TransferEntropy/S4Fig1.png")
 ```
 
 
 
-Nonlinear Systems:
+We define a second system by introducing nonlinear interactions between $x_1$ and the variables $x_2$ and $x_5$ as follows:
 
 \begin{align}
 x_1(n) &= 0.95\sqrt{2}x_1(n-1) - 0.9025x_1(n-1) + w_1\\ \nonumber
@@ -178,10 +190,15 @@ x_3(n) &= -0.4x_1(n-1) + w_3\\ \nonumber
 x_4(n) &= \textcolor{red}{-0.5x_1^2(n-1)} + 0.25\sqrt{2}x_4(n-1) + 0.25\sqrt{2}x_5(n-1) + w_4\\ \nonumber
 x_5(n) &= -0.25\sqrt{2}x_4(n-1) + 0.25\sqrt{2}x_5(n-1) + w_5, \nonumber
 \end{align}
-$w_1, w_2, w_3, w_4, w_5 \sim N(0, 1)$.
+where $w_1, w_2, w_3, w_4$ and $w_5 \sim N(0, 1)$. To simulate this system we assume $x_i(0) = 0, i \in (1, 2, ..., 5)$ as initial condition and then iteratively generate $x_i$ for $n \in (1, 2, ..., N)$ with a total of $N = 200,000$ iterations by randomly sampling $w_i, i \in (1, 2, ..., 5)$ from a normal distribution with zero mean and unit variance. 
 
-```{r, echo=FALSE, out.width='50%', fig.align = "center", fig.cap="Interactions between the variables of the simulated nonlinear system."}
-knitr::include_graphics("./chapters/TransferEntropy/causality-graph2.png")
+The Fig. \ref{fig:C3S4Fig2} A) represents the dependencies of the simulated nonlinear system.
+From Fig. \ref{fig:C3S4Fig2} B) and Fig. \ref{fig:C3S4Fig2} C), we observe that the nonlinear interactions introduced were not captured by the linear form of the information flow. 
+While all linear interactions presented similar linear and nonlinear information flows, 
+the two nonlinear interactions introduced in the system presented relatively higher nonlinear information flow compared to the linear formulation.
+
+```{r C3S4Fig2, echo=FALSE, out.width='100%', fig.align = "center", fig.cap="Interactions between the variables of the simulated nonlinear system."}
+knitr::include_graphics("./chapters/TransferEntropy/S4Fig2.png")
 ```
 
 ## Empirical Experiment: Information Flow on Global Markets

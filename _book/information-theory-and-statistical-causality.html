@@ -22,10 +22,10 @@
   <meta name="twitter:description" content="Chapter 5 Information Theory and Statistical Causality | The Open Quant Live Book" />
   <meta name="twitter:image" content="./fig/cover.jpg" />
 
-<meta name="author" content="by OpenQuants.com">
+<meta name="author" content="OpenQuants.com">
 
 
-<meta name="date" content="2019-08-06">
+<meta name="date" content="2019-08-13">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -202,7 +202,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="divider"></li>
 <li><a href="https://creativecommons.org/licenses/by/4.0/" target="blank">CC-BY 4.0</a></li>
 <li><a href="https://github.com/souzatharsis/open-quant-live-book" target="blank">See source code on Github</a></li>
-<li><a href="https://github.com/rstudio/bookdown" target="blank">Made with bookdown</a></li>
 
 </ul>
 
@@ -223,21 +222,25 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="information-theory-and-statistical-causality" class="section level1">
 <h1><span class="header-section-number">Chapter 5</span> Information Theory and Statistical Causality</h1>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-33"></span>
-<img src="chapters/TransferEntropy/rand.png" alt="Life is Random (or Nonlinear?)" width="50%" />
-<p class="caption">
-Figure 5.1: Life is Random (or Nonlinear?)
-</p>
-</div>
+<p>We’ve all heard the say “correlation does not imply causation”, but how can we quantify causation? This is an extremely difficult and often misleading task, particularly trying to infer causality from observational data and cannot perform controlled trials or A/B testing.</p>
+Take for example the 2-dimensional system from Fig. <a href="information-theory-and-statistical-causality.html#fig:rand">5.1</a>. At a first glance, one could say that there is no clear relationship or causality between the random variables <span class="math inline">\(x_1\)</span> and <span class="math inline">\(x_2\)</span>. However, this apparent random system presents a causal relationship defined by the following simple equations:
 <span class="math display">\[\begin{align*}
 x_1 &amp;= 0.441x_1 + \epsilon_1 \\
 x_2 &amp;= 0.51x_1^2 + \epsilon_2, \\ 
 &amp;\epsilon_1, \epsilon_2 \sim \mathcal{N}(0,1).
 \end{align*}\]</span>
-<p>We quantify causality by using the notion of the causal relation introduced by Granger <span class="citation">(Wiener <a href="#ref-Wiener56">1956</a>; Granger <a href="#ref-granger:econ">1969</a>)</span> where a signal <span class="math inline">\(X\)</span> is said to Granger-cause <span class="math inline">\(Y\)</span> if the future realizations of <span class="math inline">\(Y\)</span> can be better explained using the past information from <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> rather than <span class="math inline">\(Y\)</span> alone.</p>
+<p>A simple nonlinearity introduced in the relationship between <span class="math inline">\(x_2\)</span> and <span class="math inline">\(x_1\)</span> was enough to introduce enough complexity into the system and potentially mislead a naive (non-quant) human.</p>
+<div class="figure" style="text-align: center"><span id="fig:rand"></span>
+<img src="chapters/TransferEntropy/rand.png" alt="Life is Random (or Nonlinear?)" width="50%" />
+<p class="caption">
+Figure 5.1: Life is Random (or Nonlinear?)
+</p>
+</div>
+<p>Fortunately, we can take advantage of statistics and information theory to uncover complex causal relationships from observational data (remember, this is still a very very challenging task). We quantify causality by using the notion of the causal relation introduced by Granger <span class="citation">(Wiener <a href="#ref-Wiener56">1956</a>; Granger <a href="#ref-granger:econ">1969</a>)</span>, where a signal <span class="math inline">\(X\)</span> is said to Granger-cause <span class="math inline">\(Y\)</span> if the future realizations of <span class="math inline">\(Y\)</span> can be better explained using the past information from <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> rather than <span class="math inline">\(Y\)</span> alone.</p>
+<p>In this Chapter, we will introduce a prediction-based definition of causality and its implementation using a vector auto-regression formulation. Next, we will introduce a probabilistic-definition of causality and its implementation using an information-theoretical framework. We will then symulate linear and nonlinear systems and uncover causal links with the proposed methods. In the final section, we will quantify information flow among global equity indexes further uncovering which indexes and markets are driving the global financial markets.</p>
 <div id="LinearG" class="section level2">
 <h2><span class="header-section-number">5.1</span> A First Definition of Causality</h2>
-<p>The most common definitions of Granger-causality rely on the prediction of a future value of the variable <span class="math inline">\(Y\)</span> by using the past values of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> itself. In that form, <span class="math inline">\(X\)</span> is said to <em>G-cause</em> <span class="math inline">\(Y\)</span> if the use of <span class="math inline">\(X\)</span> improves the prediction of <span class="math inline">\(Y\)</span>.</p>
+<p>The most common definitions of Granger-causality (<em>G-causality</em>) rely on the prediction of a future value of the variable <span class="math inline">\(Y\)</span> by using the past values of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> itself. In that form, <span class="math inline">\(X\)</span> is said to <em>G-cause</em> <span class="math inline">\(Y\)</span> if the use of <span class="math inline">\(X\)</span> improves the prediction of <span class="math inline">\(Y\)</span>.</p>
 <p>Let <span class="math inline">\(X_t\)</span> be a random variable associated at time <span class="math inline">\(t\)</span> while <span class="math inline">\(X^t\)</span> represents the collection of random variables up to time <span class="math inline">\(t\)</span>. We consider <span class="math inline">\({X_t}, {Y_t}\)</span> and <span class="math inline">\({Z_t}\)</span> to be three stochastic processes. Let <span class="math inline">\(\hat Y_{t+1}\)</span> be a predictor for the value of the variable <span class="math inline">\(Y\)</span> at time <span class="math inline">\(t+1\)</span>.</p>
 <p>We compare the expected value of a loss function <span class="math inline">\(g(e)\)</span> with the error <span class="math inline">\(e=\hat{Y}_{t+1} - Y_{t+1}\)</span> of two models:</p>
 <ol style="list-style-type: decimal">
@@ -250,13 +253,13 @@ x_2 &amp;= 0.51x_1^2 + \epsilon_2, \\
  \mathcal{R}(Y^{t+1} \, | \, X^{t},Y^t,Z^t) = \mathbb{E}[g(Y_{t+1} - f_2(X^{t},Y^t,Z^t))].
 \end{equation}\]</span></li>
 </ol>
-<p>In both models, the functions <span class="math inline">\(f_1(.)\)</span> and <span class="math inline">\(f_2(.)\)</span> are chosen to minimize the expected value of the loss function. In most cases, these functions are retrieved with linear and, possibly, with nonlinear regressions. Typical forms for <span class="math inline">\(g(.)\)</span> are the <span class="math inline">\(l1\)</span>- or <span class="math inline">\(l2\)</span>-norms.</p>
+<p>In both models, the functions <span class="math inline">\(f_1(.)\)</span> and <span class="math inline">\(f_2(.)\)</span> are chosen to minimize the expected value of the loss function. In most cases, these functions are retrieved with linear and, possibly, with nonlinear regressions, neural networks etc. Typical forms for <span class="math inline">\(g(.)\)</span> are the <span class="math inline">\(l1\)</span>- or <span class="math inline">\(l2\)</span>-norms.</p>
 <p>We can now provide our first definition of statistical causality under the Granger causal notion as follows:</p>
 
 <div class="definition">
 <span id="def:G1" class="definition"><strong>Definition 5.1  </strong></span><span class="math inline">\(X\)</span> does not Granger-cause <span class="math inline">\(Y\)</span> relative to side information <span class="math inline">\(Z\)</span> if and only if <span class="math inline">\(\mathcal{R}(Y_{t+1} \; | \; X^t, Y^t, Z^t) = \mathcal{R}(Y_{t+1} \; | \; Y^t, Z^t)\)</span>.
 </div>
-
+<p> <br /></p>
 <p>Standard Granger-causality tests assume a functional form in the relationship among the causes and effects and are implemented by fitting autoregressive models <span class="citation">(Wiener <a href="#ref-Wiener56">1956</a>; Granger <a href="#ref-granger:econ">1969</a>)</span>.</p>
 Consider the linear vector-autoregressive (VAR) equations:
 <span class="math display" id="eq:AR22" id="eq:AR11">\[\begin{align}
@@ -264,7 +267,7 @@ Y(t) &amp;= {\alpha} + \sum^k_{\Delta t=1}{{\beta}_{\Delta t} Y(t-\Delta t)} + \
 Y(t) &amp;= \widehat{\alpha} + \sum^k_{\Delta t=1}{{\widehat{\beta}}_{\Delta t} Y(t-\Delta t)} +  \sum^k_{\Delta t=1}{{\widehat{\gamma}}_{\Delta t}X(t-\Delta t)}+ \widehat{\epsilon}_t, \tag{5.2}
 \end{align}\]</span>
 <p>where <span class="math inline">\(k\)</span> is the number of lags considered. Alternatively, you can choose your DL/SVM/RF/GLM method of choice to fit the model.</p>
-<p>From Def <a href="information-theory-and-statistical-causality.html#def:G1">5.1</a>, <span class="math inline">\(X\)</span> does not G-cause <span class="math inline">\(Y\)</span> if and only if the prediction errors of <span class="math inline">\(X\)</span> in the restricted Eq. <a href="information-theory-and-statistical-causality.html#eq:AR11">(5.1)</a> and unrestricted regression models Eq. <a href="information-theory-and-statistical-causality.html#eq:AR22">(5.2)</a> are equal (i.e., they are statistically indistinguishable). A one-way ANOVA test can be utilized to test if the residuals from Eqs. <a href="information-theory-and-statistical-causality.html#eq:AR11">(5.1)</a> and <a href="information-theory-and-statistical-causality.html#eq:AR22">(5.2)</a> differ from each other significantly. When more than one lag <span class="math inline">\(k\)</span> is tested, a Bonferroni correction is applied to control for multiple hypotheses testing.</p>
+<p>From Def <a href="information-theory-and-statistical-causality.html#def:G1">5.1</a>, <span class="math inline">\(X\)</span> does not G-cause <span class="math inline">\(Y\)</span> if and only if the prediction errors of <span class="math inline">\(X\)</span> in the restricted Eq. <a href="information-theory-and-statistical-causality.html#eq:AR11">(5.1)</a> and unrestricted regression models Eq. <a href="information-theory-and-statistical-causality.html#eq:AR22">(5.2)</a> are equal (i.e., they are statistically indistinguishable). A one-way ANOVA test can be utilized to test if the residuals from Eqs. <a href="information-theory-and-statistical-causality.html#eq:AR11">(5.1)</a> and <a href="information-theory-and-statistical-causality.html#eq:AR22">(5.2)</a> differ from each other significantly. When more than one lag <span class="math inline">\(k\)</span> is tested, a correction for multiple hypotheses testing should be applied, e.g. False Discovery Rate (FDR) or Bonferroni correction.</p>
 </div>
 <div id="a-probabilistic-based-definition" class="section level2">
 <h2><span class="header-section-number">5.2</span> A Probabilistic-Based Definition</h2>
@@ -338,15 +341,15 @@ x_3(n) &amp;= -0.4x_1(n-1) + w_3\\ \nonumber
 x_4(n) &amp;= -0.5x_1(n-1) + 0.25\sqrt{2}x_4(n-1) + 0.25\sqrt{2}x_5(n-1) + w_4\\ \nonumber
 x_5(n) &amp;= -0.25\sqrt{2}x_4(n-1) + 0.25\sqrt{2}x_5(n-1) + w_5, \nonumber
 \end{align}\]</span>
-<p><span class="math inline">\(w_1, w_2, w_3, w_4, w_5 \sim N(0, 1)\)</span>.</p>
-Fig. <a href="information-theory-and-statistical-causality.html#fig:causality-graph1">5.2</a> provides a representation of the causal links in the simulated system.
+<p>where <span class="math inline">\(w_1, w_2, w_3, w_4, w_5 \sim N(0, 1)\)</span>. To simulate this system we assume <span class="math inline">\(x_i(0) = 0, i \in (1, 2, \ldots, 5)\)</span> as initial condition and then iteratively generate <span class="math inline">\(x_i\)</span> for <span class="math inline">\(n \in (1, 2, \ldots, N)\)</span> with a total of <span class="math inline">\(N = 200,000\)</span> iterations by randomly sampling <span class="math inline">\(w_i, i \in (1, 2, \ldots, 5)\)</span> from a normal distribution with zero mean and unit variance.</p>
+The Fig. @ref{fig:causality-graph1} A) represents the dependencies of the simulated linear system. The Fig.  B) and Fig.  C) show the linear and nonlinear Information Flows among the system’s variables, respectively. A cell <span class="math inline">\((x, y)\)</span> presents the information flow from variable <span class="math inline">\(y\)</span> to variable <span class="math inline">\(x\)</span>. From Fig. , we observe that both the linear and nonlinear approaches presented similar results, i.e., both methods captured the system’s dependencies similarly. This result is expected as the system is purely linear and the nonlinear information flow is able to capture both the linear and nonlinear interactions.
 <div class="figure" style="text-align: center"><span id="fig:causality-graph1"></span>
-<img src="chapters/TransferEntropy/causality-graph1.png" alt="Interactions between the variables of the simulated linear system." width="50%" />
+<img src="chapters/TransferEntropy/S4Fig1.png" alt="Interactions between the variables of the simulated linear system." width="100%" />
 <p class="caption">
 Figure 5.2: Interactions between the variables of the simulated linear system.
 </p>
 </div>
-<p>Nonlinear Systems:</p>
+<p>We define a second system by introducing nonlinear interactions between <span class="math inline">\(x_1\)</span> and the variables <span class="math inline">\(x_2\)</span> and <span class="math inline">\(x_5\)</span> as follows:</p>
 <span class="math display">\[\begin{align}
 x_1(n) &amp;= 0.95\sqrt{2}x_1(n-1) - 0.9025x_1(n-1) + w_1\\ \nonumber
 x_2(n) &amp;= \textcolor{red}{0.5x_1^2(n-1)} + w_2\\ \nonumber
@@ -354,9 +357,10 @@ x_3(n) &amp;= -0.4x_1(n-1) + w_3\\ \nonumber
 x_4(n) &amp;= \textcolor{red}{-0.5x_1^2(n-1)} + 0.25\sqrt{2}x_4(n-1) + 0.25\sqrt{2}x_5(n-1) + w_4\\ \nonumber
 x_5(n) &amp;= -0.25\sqrt{2}x_4(n-1) + 0.25\sqrt{2}x_5(n-1) + w_5, \nonumber
 \end{align}\]</span>
-<p><span class="math inline">\(w_1, w_2, w_3, w_4, w_5 \sim N(0, 1)\)</span>.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-34"></span>
-<img src="chapters/TransferEntropy/causality-graph2.png" alt="Interactions between the variables of the simulated nonlinear system." width="50%" />
+<p>where <span class="math inline">\(w_1, w_2, w_3, w_4\)</span> and <span class="math inline">\(w_5 \sim N(0, 1)\)</span>. To simulate this system we assume <span class="math inline">\(x_i(0) = 0, i \in (1, 2, ..., 5)\)</span> as initial condition and then iteratively generate <span class="math inline">\(x_i\)</span> for <span class="math inline">\(n \in (1, 2, ..., N)\)</span> with a total of <span class="math inline">\(N = 200,000\)</span> iterations by randomly sampling <span class="math inline">\(w_i, i \in (1, 2, ..., 5)\)</span> from a normal distribution with zero mean and unit variance.</p>
+<p>The Fig.  A) represents the dependencies of the simulated nonlinear system. From Fig.  B) and Fig.  C), we observe that the nonlinear interactions introduced were not captured by the linear form of the information flow. While all linear interactions presented similar linear and nonlinear information flows, the two nonlinear interactions introduced in the system presented relatively higher nonlinear information flow compared to the linear formulation.</p>
+<div class="figure" style="text-align: center"><span id="fig:C3S4Fig2"></span>
+<img src="chapters/TransferEntropy/S4Fig2.png" alt="Interactions between the variables of the simulated nonlinear system." width="100%" />
 <p class="caption">
 Figure 5.3: Interactions between the variables of the simulated nonlinear system.
 </p>

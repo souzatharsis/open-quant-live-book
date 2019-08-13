@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Schema for numeric types -->
+<xs:schema elementFormDefault="qualified" targetNamespace="http://www.xbrl.org/dtr/type/numeric" xmlns:link="http://www.xbrl.org/2003/linkbase" xmlns:num="http://www.xbrl.org/dtr/type/numeric" xmlns:xbrli="http://www.xbrl.org/2003/instance" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:import namespace="http://www.xbrl.org/2003/instance" schemaLocation="http://www.xbrl.org/2003/xbrl-instance-2003-12-31.xsd"/>
+
+
+<!-- The percent item type is used to indicate that the value of the element is intended to be presented as a percentage.  This does not contravene Specification section 4.8.2, which requires that percentages not be multiplied by 100. -->
+<complexType name="percentItemType" xmlns="http://www.w3.org/2001/XMLSchema">
+<simpleContent>
+<restriction base="xbrli:pureItemType" />
+</simpleContent>
+</complexType>
+
+
+<!-- The per share item type indicates a monetary amount divided by a number of shares.  The per share item type has a Decimal base. -->
+<complexType name="perShareItemType" xmlns="http://www.w3.org/2001/XMLSchema">
+<simpleContent>
+<restriction base="xbrli:decimalItemType" />
+</simpleContent>
+</complexType>
+
+<!-- The area item type is used to indicate that an element represents an area. -->
+<complexType name="areaItemType" xmlns="http://www.w3.org/2001/XMLSchema">
+<simpleContent>
+<restriction base="xbrli:decimalItemType"/>
+</simpleContent>
+</complexType>
+
+<!-- The Volume item type is used to indicate that an element represents a volume and can be used to express the volume of any substance, whether solid, liquid, or gas. -->
+<complexType name="volumeItemType" xmlns="http://www.w3.org/2001/XMLSchema">
+<simpleContent>
+<restriction base="xbrli:decimalItemType" />
+</simpleContent>
+</complexType>
+
+<!--The mass item type represents the mass of an object which can be measured.-->
+<complexType name="massItemType" xmlns="http://www.w3.org/2001/XMLSchema">
+<simpleContent>
+<restriction base="xbrli:decimalItemType"/>
+</simpleContent>
+</complexType>
+
+<!--The weight item type represents the weight of an object which can be measured.-->
+<complexType name="weightItemType" xmlns="http://www.w3.org/2001/XMLSchema">
+<simpleContent>
+<restriction base="xbrli:decimalItemType"/>
+</simpleContent>
+</complexType>
+
+<!--The energy item type represents a unit of energy. -->
+<complexType name="energyItemType" xmlns="http://www.w3.org/2001/XMLSchema">
+<simpleContent>
+<restriction base="xbrli:decimalItemType"/>
+</simpleContent>
+</complexType>
+
+<!-- Measures a rate of energy use or energy production and is equivalent to the use or production of energy during a period of time. I.e. a watt is the equal to one joule of energy per second. -->
+<complexType name="powerItemType" xmlns="http://www.w3.org/2001/XMLSchema">
+<simpleContent>
+<restriction base="xbrli:decimalItemType"/>
+</simpleContent>
+</complexType>
+
+<!-- The length item type is a measure of distance.  -->
+<complexType name="lengthItemType" xmlns="http://www.w3.org/2001/XMLSchema">
+<simpleContent>
+<restriction base="xbrli:decimalItemType"/>
+</simpleContent>
+</complexType>
+
+<!--The memory item type is a measure of memory typically used in the IT industry.-->
+<complexType name="memoryItemType" xmlns="http://www.w3.org/2001/XMLSchema">
+<simpleContent>
+<restriction base="xbrli:decimalItemType"/>
+</simpleContent>
+</complexType>
+
+</xs:schema>

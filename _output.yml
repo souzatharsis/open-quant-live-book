@@ -9,7 +9,6 @@ bookdown::gitbook:
       after: |
         <li><a href="https://creativecommons.org/licenses/by/4.0/" target="blank">CC-BY 4.0</a></li>
         <li><a href="https://github.com/souzatharsis/open-quant-live-book" target="blank">See source code on Github</a></li>
-        <li><a href="https://github.com/rstudio/bookdown" target="blank">Made with bookdown</a></li>
       scroll_highlight: yes
     edit: https://github.com/souzatharsis/open-quant-live-book/edit/master/%s
     download: ["epub"]

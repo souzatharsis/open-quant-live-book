@@ -1,6 +1,6 @@
 --- 
 title: "The Open Quant Live Book"
-author: "by OpenQuants.com"
+author: "OpenQuants.com"
 date: "`r Sys.Date()`"
 output: bookdown::gitbook
 site: bookdown::bookdown_site
@@ -32,6 +32,8 @@ if(!knitr:::is_html_output())
   knitr::opts_chunk$set(fig.pos = 'H', fig.align = "center")
 }
 ```
+
+
 
 \newcommand{\independent}{\perp\!\!\!\!\perp}
 \DeclarePairedDelimiter\ceil{\lceil}{\rceil}

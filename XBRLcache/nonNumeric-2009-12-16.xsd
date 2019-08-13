@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- (c) 2005-2010 XBRL International. All Rights Reserved. http://www.XBRL.org/legal/ 
+This document may be copied and furnished to others, and derivative works that 
+comment on or otherwise explain it or assist in its implementation may be 
+prepared, copied, published and distributed, in whole or in part, without 
+restriction of any kind, provided that the above copyright notice and this
+paragraph are included on all such copies and derivative works. XBRL(r) is a
+trademark or service mark of XBRL International, Inc., registered in the
+United States and in other countries. -->
+<schema targetNamespace="http://www.xbrl.org/dtr/type/non-numeric" elementFormDefault="qualified"
+  xmlns="http://www.w3.org/2001/XMLSchema" xmlns:link="http://www.xbrl.org/2003/linkbase"
+  xmlns:nonnum="http://www.xbrl.org/dtr/type/non-numeric" xmlns:xbrli="http://www.xbrl.org/2003/instance">
+  <annotation>
+    <documentation>Schema for non-numeric types.</documentation>
+  </annotation>
+  <import namespace="http://www.xbrl.org/2003/instance" schemaLocation="http://www.xbrl.org/2003/xbrl-instance-2003-12-31.xsd"/>
+  <complexType name="domainItemType" id="domainItemType">
+    <annotation>
+      <documentation xml:lang="en">The domain item type indicates that an element is a domain or domain member. Domain item types
+        may or may not have attribute abstract="true".</documentation>
+    </annotation>
+    <simpleContent>
+      <restriction base="xbrli:stringItemType">
+        <length fixed="true" value="0"/>
+      </restriction>
+    </simpleContent>
+  </complexType>
+  <complexType name="escapedItemType" id="escapedItemType">
+    <annotation>
+      <documentation xml:lang="en">escapedItemType specializes string. There is no constraint on whether the content resulting
+        from XML un-escaping is well-formed or not. It is a suitable base type for (say) a data type whose unescaped content must
+        conform to an SGML DTD.</documentation>
+    </annotation>
+    <simpleContent>
+      <restriction base="xbrli:stringItemType">
+        <attributeGroup ref="xbrli:nonNumericItemAttrs"/>
+      </restriction>
+    </simpleContent>
+  </complexType>
+  <complexType name="xmlNodesItemType" id="xmlNodesItemType">
+    <annotation>
+      <documentation xml:lang="en">xmlNodesItemType specializes escapedItemType. The unescaped content MUST be a sequence of XML
+        text and well-formed XML nodes. This content constraint cannot be captured by a finite length regular
+        expression.</documentation>
+    </annotation>
+    <simpleContent>
+      <restriction base="nonnum:escapedItemType">
+        <attributeGroup ref="xbrli:nonNumericItemAttrs"/>
+      </restriction>
+    </simpleContent>
+  </complexType>
+  <complexType name="xmlItemType" id="xmlItemType">
+    <annotation>
+      <documentation xml:lang="en">xmlItemType specializes xmlNodesItemType. The unescaped content MUST be well formed XML. This
+        is a suitable base type for elements whose content must conform to a specific XML Schema or DTD. This content constraint
+        cannot be captured by a finite length regular expression, other than that "&lt;" must be the first non-whitespace
+        character and "&gt;" the last non-whitespace character.</documentation>
+    </annotation>
+    <simpleContent>
+      <restriction base="nonnum:xmlNodesItemType">
+        <attributeGroup ref="xbrli:nonNumericItemAttrs"/>
+      </restriction>
+    </simpleContent>
+  </complexType>
+  <complexType name="textBlockItemType" id="textBlockItemType">
+    <annotation>
+      <documentation xml:lang="en">textBlockItemType specializes xmlNodesItemType. The unescaped content MUST have mixed content
+        containing a simple string, or a fragment of XHTML or a mixture of both.</documentation>
+    </annotation>
+    <simpleContent>
+      <restriction base="nonnum:xmlNodesItemType">
+        <attributeGroup ref="xbrli:nonNumericItemAttrs"/>
+      </restriction>
+    </simpleContent>
+  </complexType>
+</schema>
