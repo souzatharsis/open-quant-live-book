@@ -36,7 +36,7 @@ Create a self-contained folder under /Chapters with the code and markdown/Rmarkd
 
 ### Step 3: Submit pull request
 
-One of our admins will review your pull request and build the book. The output files (html for the ebook) will be available under the directory _book. It will also be automatically available at www.ebook.openquants.com.
+One of our admins will review your pull request and build the book. The output files (html for the ebook) will be available under the directory _book.
 
 ## If you want to build the book yourself before submitting a pull request
 
