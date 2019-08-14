@@ -185,9 +185,9 @@ We define a second system by introducing nonlinear interactions between $x_1$ an
 
 \begin{align}
 x_1(n) &= 0.95\sqrt{2}x_1(n-1) - 0.9025x_1(n-1) + w_1\\ \nonumber
-x_2(n) &= \textcolor{red}{0.5x_1^2(n-1)} + w_2\\ \nonumber
+x_2(n) &= 0.5x_1^2(n-1) + w_2\\ \nonumber
 x_3(n) &= -0.4x_1(n-1) + w_3\\ \nonumber
-x_4(n) &= \textcolor{red}{-0.5x_1^2(n-1)} + 0.25\sqrt{2}x_4(n-1) + 0.25\sqrt{2}x_5(n-1) + w_4\\ \nonumber
+x_4(n) &= -0.5x_1^2(n-1) + 0.25\sqrt{2}x_4(n-1) + 0.25\sqrt{2}x_5(n-1) + w_4\\ \nonumber
 x_5(n) &= -0.25\sqrt{2}x_4(n-1) + 0.25\sqrt{2}x_5(n-1) + w_5, \nonumber
 \end{align}
 where $w_1, w_2, w_3, w_4$ and $w_5 \sim N(0, 1)$. To simulate this system we assume $x_i(0) = 0, i \in (1, 2, ..., 5)$ as initial condition and then iteratively generate $x_i$ for $n \in (1, 2, ..., N)$ with a total of $N = 200,000$ iterations by randomly sampling $w_i, i \in (1, 2, ..., 5)$ from a normal distribution with zero mean and unit variance. 
@@ -202,3 +202,41 @@ knitr::include_graphics("./chapters/TransferEntropy/S4Fig2.png")
 ```
 
 ## Empirical Experiment: Information Flow on Global Markets
+
+## Other Applications
+
+### Quantifying Information Flow Between Social Media and the Stock Market
+
+Investors' decisions are modulated not only by companies' fundamentals but also by personal beliefs, 
+peers influence and information generated from news and the Internet. 
+Rational and irrational investor's behavior and their relation with the market efficiency hypothesis [@JOFI:JOFI518]
+have been largely debated in the economics and financial literature [@shleifer2000inefficient]. 
+However, it was only recently that the availability of vast amounts of data from online systems paved the way 
+for the large-scale investigation of investor's collective behavior in financial markets. 
+
+A research paper [@2016arXiv160104535S] used some of the methods studied in this Chapter to uncover that information flows from social media to stock markets revealing that tweets are causing market movements through a nonlinear complex interaction. The authors provide empirical evidence that suggests social media and stock markets have a nonlinear causal relationship. They take advantage of an extensive data set composed of social media messages related to DJIA index components. 
+By using information-theoretic measures to cope for possible nonlinear causal effects between social media and the stock market, 
+the work points out stunning differences in the results with respect to linear coupling. 
+Two main conclusions are drawn: First, social media significant causality on stocks' returns are purely nonlinear in most cases; 
+Second, social media dominates the directional coupling with stock market, an effect not observable within linear modeling. Results also serve as empirical guidance on model adequacy in the investigation of sociotechnical and financial systems.
+
+Fig. \@ref(fig:sigpoints-0) shows the significant causality links found between social media and stocks' returns considering both cases: nonlinear (Transfer Entropy) and linear G-causality (linear VAR framework). 
+The linear analysis discovers only three stocks with significant causality: INTEL CORP., NIKE INC. and WALT DISNEY CO. 
+The Nonlinear analysis discovers that several other
+stocks have significant causality. In addition to the 3 stocks identified with significant linear causality, other 8 stocks presented purely nonlinear causality.
+
+
+```{r sigpoints-0, echo=FALSE, out.width='100%', fig.align = "center", fig.cap="Demonstration that the causality between social media and stocks' returns are mostly nonlinear. Linear causality test indicated that social media caused stock's returns only for 3 stocks. Nonparametric analysis showed that almost 1/3 of the stocks rejected in the linear case have significant nonlinear causality. In the nonlinear case, Transfer Entropy was used to quantify causal inference between the systems with randomized permutations test for significance estimation. In the linear case, a standard linear G-causality test was performed with a F-test under a linear vector-autoregressive framework. A significant linear G-causality was accepted if its linear specification was not rejected by the BDS test. p-values are adjusted with the Bonferroni correction. Significance is given at p-value  < 0.05."}
+knitr::include_graphics("./chapters/TransferEntropy/SM-R-33.png")
+```
+
+The low level of causality obtained under linear constraints is in-line with results from similar
+studies in the literature, where it was found that stocks' returns show weak causality links [@Tobias:2013, @Antweiler+Frank:04a] and
+social media sentiment analytics, at least when taken alone, have small or no predictive power
+[@10.1371/journal.pone.0138441] and do not have significant lead-time information about 
+stock's movements for the majority of the stocks [@citeulike:13108056].
+Contrariwise, results from the nonlinear analyses unveiled a much higher level of causality indicating that linear constraints may be neglecting the relationship between social media and stock markets.
+
+In summary, the [@2016arXiv160104535S] is a good example on how causality can be not only complex but also misleading further highlighting the importance of choice in the methodology used to quantify it.
+
+### Detecting Causal Links Between Investor Sentiment and Cryptocurrency Prices
