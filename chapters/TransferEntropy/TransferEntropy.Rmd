@@ -203,6 +203,8 @@ knitr::include_graphics("./chapters/TransferEntropy/S4Fig2.png")
 
 ## Empirical Experiment: Information Flow on Global Markets
 
+
+
 ## Other Applications
 
 ### Quantifying Information Flow Between Social Media and the Stock Market
@@ -237,6 +239,6 @@ social media sentiment analytics, at least when taken alone, have small or no pr
 stock's movements for the majority of the stocks [@citeulike:13108056].
 Contrariwise, results from the nonlinear analyses unveiled a much higher level of causality indicating that linear constraints may be neglecting the relationship between social media and stock markets.
 
-In summary, the [@2016arXiv160104535S] is a good example on how causality can be not only complex but also misleading further highlighting the importance of choice in the methodology used to quantify it.
+In summary, this paper [@2016arXiv160104535S] is a good example on how causality can be not only complex but also misleading further highlighting the importance of choice in the methodology used to quantify it.
 
 ### Detecting Causal Links Between Investor Sentiment and Cryptocurrency Prices
