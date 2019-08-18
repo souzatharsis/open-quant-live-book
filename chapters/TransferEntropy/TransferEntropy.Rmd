@@ -154,7 +154,7 @@ TE_{X \rightarrow Y} = GC_{X \rightarrow Y}/2.
 This result provides a direct mapping between the Transfer Entropy and the linear G-causality implemented in the standard VAR framework.
 Hence, it is possible to estimate the TE both in its general form and with its equivalent form for linear G-causality. 
 
-## Empirical Experiment: Information Flow on Simulated Systems
+## Information Flow on Simulated Systems
 
 In this section, we construct simulated systems to couple random variables in a causal manner.
 We then quantify information flow using the methods studied in this Chapter.
@@ -200,7 +200,7 @@ the two nonlinear interactions introduced in the system presented relatively hig
 knitr::include_graphics("./chapters/TransferEntropy/S4Fig2.png")
 ```
 
-## Empirical Experiment: Information Flow on Global Markets
+## Information Flow among International Stock Market Indices
 
 The world’s financial markets form a complex, dynamic network in which individual markets
 interact with one another. This multitude of interactions can lead to highly significant and unexpected

@@ -171,8 +171,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="4.3" data-path="information-theory-and-statistical-causality.html"><a href="information-theory-and-statistical-causality.html#nonlinearG"><i class="fa fa-check"></i><b>4.3</b> Transfer Entropy and Statistical Causality</a></li>
 <li class="chapter" data-level="4.4" data-path="information-theory-and-statistical-causality.html"><a href="information-theory-and-statistical-causality.html#net-information-flow"><i class="fa fa-check"></i><b>4.4</b> Net Information Flow</a></li>
 <li class="chapter" data-level="4.5" data-path="information-theory-and-statistical-causality.html"><a href="information-theory-and-statistical-causality.html#the-link-between-granger-causality-and-transfer-entropy"><i class="fa fa-check"></i><b>4.5</b> The Link Between Granger-causality and Transfer Entropy</a></li>
-<li class="chapter" data-level="4.6" data-path="information-theory-and-statistical-causality.html"><a href="information-theory-and-statistical-causality.html#empirical-experiment-information-flow-on-simulated-systems"><i class="fa fa-check"></i><b>4.6</b> Empirical Experiment: Information Flow on Simulated Systems</a></li>
-<li class="chapter" data-level="4.7" data-path="information-theory-and-statistical-causality.html"><a href="information-theory-and-statistical-causality.html#empirical-experiment-information-flow-on-global-markets"><i class="fa fa-check"></i><b>4.7</b> Empirical Experiment: Information Flow on Global Markets</a></li>
+<li class="chapter" data-level="4.6" data-path="information-theory-and-statistical-causality.html"><a href="information-theory-and-statistical-causality.html#information-flow-on-simulated-systems"><i class="fa fa-check"></i><b>4.6</b> Information Flow on Simulated Systems</a></li>
+<li class="chapter" data-level="4.7" data-path="information-theory-and-statistical-causality.html"><a href="information-theory-and-statistical-causality.html#information-flow-among-international-stock-market-indices"><i class="fa fa-check"></i><b>4.7</b> Information Flow among International Stock Market Indices</a></li>
 <li class="chapter" data-level="4.8" data-path="information-theory-and-statistical-causality.html"><a href="information-theory-and-statistical-causality.html#other-applications"><i class="fa fa-check"></i><b>4.8</b> Other Applications</a><ul>
 <li class="chapter" data-level="4.8.1" data-path="information-theory-and-statistical-causality.html"><a href="information-theory-and-statistical-causality.html#quantifying-information-flow-between-social-media-and-the-stock-market"><i class="fa fa-check"></i><b>4.8.1</b> Quantifying Information Flow Between Social Media and the Stock Market</a></li>
 <li class="chapter" data-level="4.8.2" data-path="information-theory-and-statistical-causality.html"><a href="information-theory-and-statistical-causality.html#detecting-causal-links-between-investor-sentiment-and-cryptocurrency-prices"><i class="fa fa-check"></i><b>4.8.2</b> Detecting Causal Links Between Investor Sentiment and Cryptocurrency Prices</a></li>
@@ -342,8 +342,8 @@ TE_{X \rightarrow Y} = GC_{X \rightarrow Y}/2.
 \end{align}\]</span>
 <p>This result provides a direct mapping between the Transfer Entropy and the linear G-causality implemented in the standard VAR framework. Hence, it is possible to estimate the TE both in its general form and with its equivalent form for linear G-causality.</p>
 </div>
-<div id="empirical-experiment-information-flow-on-simulated-systems" class="section level2">
-<h2><span class="header-section-number">4.6</span> Empirical Experiment: Information Flow on Simulated Systems</h2>
+<div id="information-flow-on-simulated-systems" class="section level2">
+<h2><span class="header-section-number">4.6</span> Information Flow on Simulated Systems</h2>
 <p>In this section, we construct simulated systems to couple random variables in a causal manner. We then quantify information flow using the methods studied in this Chapter.</p>
 We first assume a linear system, where random variables have linear relationships defined as follow:
 <span class="math display">\[\begin{align}
@@ -378,8 +378,8 @@ Figure 4.3: Interactions between the variables of the simulated nonlinear system
 </p>
 </div>
 </div>
-<div id="empirical-experiment-information-flow-on-global-markets" class="section level2">
-<h2><span class="header-section-number">4.7</span> Empirical Experiment: Information Flow on Global Markets</h2>
+<div id="information-flow-among-international-stock-market-indices" class="section level2">
+<h2><span class="header-section-number">4.7</span> Information Flow among International Stock Market Indices</h2>
 <p>The world’s financial markets form a complex, dynamic network in which individual markets interact with one another. This multitude of interactions can lead to highly significant and unexpected effects, and it is vital to understand precisely how various markets around the world influence one another <span class="citation">(Junior, Mullokandov, and Kenett <a href="#ref-junior2015dependency">2015</a>)</span>.</p>
 <p>In this section, we use Transfer Entropy for the identification of dependency relations among international stock market indices. First, we select some of the <a href="https://finance.yahoo.com/world-indices/">major global indices</a> for our analysis, namely the S&amp;P 500, the FTSE 100, the DAX, the EURONEXT 100 and the IBOVESPA, which track the following markets, respectively, the US, the UK, Germany, Europe and Brazil. They are defined by the following tickers:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">tickers&lt;-<span class="kw">c</span>(<span class="st">&quot;^GSPC&quot;</span>, <span class="st">&quot;^FTSE&quot;</span>, <span class="st">&quot;^GDAXI&quot;</span>, <span class="st">&quot;^N100&quot;</span>, <span class="st">&quot;^BVSP&quot;</span>)</code></pre></div>
