@@ -323,3 +323,23 @@ Contrariwise, results from the nonlinear analyses unveiled a much higher level o
 In summary, this paper [@2016arXiv160104535S] is a good example on how causality can be not only complex but also misleading further highlighting the importance of choice in the methodology used to quantify it.
 
 ### Detecting Causal Links Between Investor Sentiment and Cryptocurrency Prices
+
+In [@keskin2019information], the authors use information-theoretic measures studied in this Chapter for non-linear causality detection applied to social media sentiment and cryptocurrency prices.
+
+Using these techniques on sentiment and price data over a 48-month
+period to August 2018, for four major cryptocurrencies, namely bitcoin (BTC), ripple (XRP), litecoin (LTC) and ethereum (ETH), the authors detect significant information transfer, on hourly timescales,
+in directions of both sentiment to price and of price to sentiment. The work reports the scale of non-linear
+causality to be an order of magnitude greater than linear causality.
+
+The information-theoretic investigation detected a significant non-linear causal relationship in BTC, LTC and
+XRP, over multiple timescales and in both the directions
+sentiment to price and price to sentiment. The effect was
+strongest and most consistent for BTC and LTC. Fig. \@ref(fig:te-crypto) shows Transfer Entropy results between BTC sentiment and BTC prices.
+
+```{r te-crypto, echo=FALSE, out.width='100%', fig.align = "center", fig.cap="Evidence that BTC sentiment and price are causally coupled in both directions in a non-linear way. Non-linear TE is calculated by multidimensional histograms with 6 quantile bins per dimension. Z-scores, calculated over 50 shuffles, show a high level of significance, especially during 2017 and 2018, in both directions."}
+knitr::include_graphics("./chapters/TransferEntropy/te-crypto.png")
+```
+
+
+All analysis for this paper was performed using a
+Python package (PyCausality), which is available at https://github.com/ZacKeskin/PyCausality.

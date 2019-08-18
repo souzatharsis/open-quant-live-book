@@ -25,7 +25,7 @@
 <meta name="author" content="OpenQuants.com">
 
 
-<meta name="date" content="2019-08-17">
+<meta name="date" content="2019-08-18">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -449,6 +449,16 @@ Figure 4.5: Demonstration that the causality between social media and stocks’ 
 </div>
 <div id="detecting-causal-links-between-investor-sentiment-and-cryptocurrency-prices" class="section level3">
 <h3><span class="header-section-number">4.8.2</span> Detecting Causal Links Between Investor Sentiment and Cryptocurrency Prices</h3>
+<p>In <span class="citation">(Keskin and Aste <a href="#ref-keskin2019information">2019</a>)</span>, the authors use information-theoretic measures studied in this Chapter for non-linear causality detection applied to social media sentiment and cryptocurrency prices.</p>
+<p>Using these techniques on sentiment and price data over a 48-month period to August 2018, for four major cryptocurrencies, namely bitcoin (BTC), ripple (XRP), litecoin (LTC) and ethereum (ETH), the authors detect significant information transfer, on hourly timescales, in directions of both sentiment to price and of price to sentiment. The work reports the scale of non-linear causality to be an order of magnitude greater than linear causality.</p>
+<p>The information-theoretic investigation detected a significant non-linear causal relationship in BTC, LTC and XRP, over multiple timescales and in both the directions sentiment to price and price to sentiment. The effect was strongest and most consistent for BTC and LTC. Fig. <a href="information-theory-and-statistical-causality.html#fig:te-crypto">4.6</a> shows Transfer Entropy results between BTC sentiment and BTC prices.</p>
+<div class="figure" style="text-align: center"><span id="fig:te-crypto"></span>
+<img src="chapters/TransferEntropy/te-crypto.png" alt="Evidence that BTC sentiment and price are causally coupled in both directions in a non-linear way. Non-linear TE is calculated by multidimensional histograms with 6 quantile bins per dimension. Z-scores, calculated over 50 shuffles, show a high level of significance, especially during 2017 and 2018, in both directions." width="100%" />
+<p class="caption">
+Figure 4.6: Evidence that BTC sentiment and price are causally coupled in both directions in a non-linear way. Non-linear TE is calculated by multidimensional histograms with 6 quantile bins per dimension. Z-scores, calculated over 50 shuffles, show a high level of significance, especially during 2017 and 2018, in both directions.
+</p>
+</div>
+<p>All analysis for this paper was performed using a Python package (PyCausality), which is available at <a href="https://github.com/ZacKeskin/PyCausality" class="uri">https://github.com/ZacKeskin/PyCausality</a>.</p>
 
 </div>
 </div>
@@ -499,6 +509,9 @@ Figure 4.5: Demonstration that the causality between social media and stocks’ 
 </div>
 <div id="ref-citeulike:13108056">
 <p>Zheludev, I., R. Smith, and T. Aste. 2014. “When Can Social Media Lead Financial Markets?” <em>Scientific Reports</em> 4 (February).</p>
+</div>
+<div id="ref-keskin2019information">
+<p>Keskin, Z, and T Aste. 2019. “Information-Theoretic Measures for Non-Linear Causality Detection: Application to Social Media Sentiment and Cryptocurrency Prices.” <em>arXiv Preprint arXiv:1906.05740</em>.</p>
 </div>
 </div>
             </section>
