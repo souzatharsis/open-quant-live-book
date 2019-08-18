@@ -3,7 +3,22 @@
 This Chapter provides code for datasets produced for the book.
 
 ## Log-Returns of International Stock Market Indices Prices {#dt-indices}
-```{r eval=FALSE, echo=TRUE, results='hide', include=FALSE}
+
+### Dataset Location 
+
+./data/global_indices_returns.csv
+
+### Dataset Description 
+
+Log-returns of adjusted prices for the indices identified by the following tickers: ^GSPC, ^FTSE, ^GDAXI, ^N100, ^BVSP
+
+### Original Data Source 
+
+Alpha Vantage
+
+### Code
+
+```{r eval=FALSE, echo=TRUE}
 library(quantmod)
 
 tickers<-c("^GSPC", "^FTSE", "^GDAXI", "^N100", "^BVSP")
@@ -30,4 +45,10 @@ names(dataset)<-tickers
 
 tmp <- tempfile()
 write.zoo(dataset,sep=",",file="./data/global_indices_returns.csv")
+```
+
+### Dataset Scheme
+
+```{r eval=TRUE, echo=TRUE, cache=TRUE}
+head(dataset)
 ```
