@@ -25,7 +25,7 @@
 <meta name="author" content="OpenQuants.com">
 
 
-<meta name="date" content="2019-08-13">
+<meta name="date" content="2019-08-17">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -201,6 +201,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="A" data-path="statistical-methods.html"><a href="statistical-methods.html"><i class="fa fa-check"></i><b>A</b> Statistical Methods</a><ul>
 <li class="chapter" data-level="A.1" data-path="statistical-methods.html"><a href="statistical-methods.html#kde"><i class="fa fa-check"></i><b>A.1</b> Kernel Density Estimation</a></li>
 </ul></li>
+<li class="chapter" data-level="B" data-path="datasets.html"><a href="datasets.html"><i class="fa fa-check"></i><b>B</b> Datasets</a><ul>
+<li class="chapter" data-level="B.1" data-path="datasets.html"><a href="datasets.html#dt-indices"><i class="fa fa-check"></i><b>B.1</b> Log-Returns of International Stock Market Indices Prices</a></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://creativecommons.org/licenses/by/4.0/" target="blank">CC-BY 4.0</a></li>
@@ -371,6 +374,56 @@ Figure 4.3: Interactions between the variables of the simulated nonlinear system
 </div>
 <div id="empirical-experiment-information-flow-on-global-markets" class="section level2">
 <h2><span class="header-section-number">4.7</span> Empirical Experiment: Information Flow on Global Markets</h2>
+<p>The world’s financial markets form a complex, dynamic network in which individual markets interact with one another. This multitude of interactions can lead to highly significant and unexpected effects, and it is vital to understand precisely how various markets around the world influence one another <span class="citation">(Junior, Mullokandov, and Kenett <a href="#ref-junior2015dependency">2015</a>)</span>.</p>
+<p>In this section, we use Transfer Entropy for the identification of dependency relations among international stock market indices. First, we select some of the <a href="https://finance.yahoo.com/world-indices/">major global indices</a> for our analysis, namely the S&amp;P 500, the FTSE 100, the DAX, the EURONEXT 100 and the IBOVESPA, which track the following markets, respectively, the US, the UK, Germany, Europe and Brazil. They are defined by the following tickers:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">tickers&lt;-<span class="kw">c</span>(<span class="st">&quot;^GSPC&quot;</span>, <span class="st">&quot;^FTSE&quot;</span>, <span class="st">&quot;^GDAXI&quot;</span>, <span class="st">&quot;^N100&quot;</span>, <span class="st">&quot;^BVSP&quot;</span>)</code></pre></div>
+<p>Next, we will load log-returns of daily closing adjusted prices for the selected indices as follows (see Appendix <a href="datasets.html#dt-indices">B.1</a> for code used to generate this dataset):</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(xts)
+dataset&lt;-<span class="kw">as.xts</span>(<span class="kw">read.zoo</span>(<span class="st">&#39;./data/global_indices_returns.csv&#39;</span>,
+                  <span class="dt">header=</span><span class="ot">TRUE</span>,
+                  <span class="dt">index.column=</span><span class="dv">1</span>, <span class="dt">sep=</span><span class="st">&quot;,&quot;</span>))
+<span class="kw">head</span>(dataset)</code></pre></div>
+<pre><code>##                        X.GSPC   X.FTSE  X.GDAXI   X.N100   X.BVSP
+## 2000-01-02 19:00:00  0.000000       NA  0.00000  0.00000  0.00000
+## 2000-01-03 19:00:00 -0.039099  0.00000 -0.02456 -0.04179 -0.06585
+## 2000-01-04 19:00:00  0.001920 -0.01969 -0.01297 -0.02726  0.02455
+## 2000-01-05 19:00:00  0.000955 -0.01366 -0.00418 -0.00842 -0.00853
+## 2000-01-06 19:00:00  0.026730  0.00889  0.04618  0.02296  0.01246
+## 2000-01-09 19:00:00  0.011128  0.01570  0.02109  0.01716  0.04279</code></pre>
+<p>The influence that one market plays in another is dynamic. Here, we will consider the time period from 01/01/2014 until today and we will omit days with invalid returns due to bad data using the function <code>NARV.omit</code> from the package <strong>IDPmisc</strong> as follows:</p>
+<p>We will calculate pairwise Transfer Entropy among all indices considered and construct a matrix such that each value in the position <span class="math inline">\((i,j)\)</span> will contain the value Transfer Entropy from <span class="math inline">\(tickers[i]\)</span> to <span class="math inline">\(tickers[j]\)</span> as follows:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(RTransferEntropy)
+<span class="kw">library</span>(future)
+
+## Allow for parallel computing
+<span class="kw">plan</span>(multiprocess)</code></pre></div>
+<pre><code>## Warning: [ONE-TIME WARNING] Forked processing (&#39;multicore&#39;) is disabled
+## in future (&gt;= 1.13.0) when running R from RStudio, because it is
+## considered unstable. Because of this, plan(&quot;multicore&quot;) will fall
+## back to plan(&quot;sequential&quot;), and plan(&quot;multiprocess&quot;) will fall back to
+## plan(&quot;multisession&quot;) - not plan(&quot;multicore&quot;) as in the past. For more
+## details, how to control forked processing or not, and how to silence this
+## warning in future R sessions, see ?future::supportsMulticore</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Calculate pairwise Transfer Entropy among global indices</span>
+TE.matrix&lt;-<span class="kw">FApply.Pairwise</span>(dataset.post.crisis, <span class="kw">calc_ete</span>())
+<span class="kw">rownames</span>(TE.matrix)&lt;-<span class="kw">colnames</span>(TE.matrix)&lt;-tickers</code></pre></div>
+<p>The function <code>FApply.Pairwise</code> is an auxiliary function that simply applies a given function <code>D.Func</code> to all possible pairs of columns from a given matrix <code>X</code> as follows:</p>
+Fig. <a href="information-theory-and-statistical-causality.html#fig:TEmatrix">4.4</a> displays the resulting Transfer Entropy matrix. We normalize the Transfer Entropy values by dividing it by the maximum value in the matrix such that all values range from 0 to 1. We observe that the highest information flow is from the US market to the UK market (^GSPC -&gt; ^FTSE). The second highest information flow is from the UK market to the US market. That’s a result we would expect as the US and the UK markets are strongly coupled historically.
+<div class="figure" style="text-align: center"><span id="fig:TEmatrix"></span>
+<img src="open-quant-live-book_files/figure-html/TEmatrix-1.png" alt="Normalized Transfer Entropy among international stock market indices." width="100%" />
+<p class="caption">
+Figure 4.4: Normalized Transfer Entropy among international stock market indices.
+</p>
+</div>
+<p>We also calculate the marginal contribution of each market to the total Transfer Entropy in the system by calculating the sum of Transfer Entropy for each row in the Transfer Entropy matrix, which we also normalize such that all values range from 0 to 1:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">TE.marginal&lt;-<span class="kw">apply</span>(TE.matrix, <span class="dv">1</span>, sum)
+TE.marginal.norm&lt;-TE.marginal<span class="op">/</span><span class="kw">sum</span>(TE.marginal)
+<span class="kw">print</span>(TE.marginal.norm)</code></pre></div>
+<pre><code>##  ^GSPC  ^FTSE ^GDAXI  ^N100  ^BVSP 
+##  0.272  0.211  0.193  0.155  0.170</code></pre>
+<p>We observe that the US is the most influential market in the time period studied detaining 27.164% of the total Transfer Entropy followed by the UK and Germany with 21.059% and 19.276%, respectively. Japan and Brazil are the least influential markets with normalized Transfer Entropies of 15.549% and 16.952%, respectively.</p>
+<p>An experiment left to the reader is to build a daily trading strategy that exploits information flow among international markets. The proposed thesis is that one could build a profitable strategy by placing bets on futures of market indices that receive significant information flow from markets that observed unexpected returns/movements.</p>
+<p>For an extended analysis with a broader set of indices see <span class="citation">(Junior, Mullokandov, and Kenett <a href="#ref-junior2015dependency">2015</a>)</span>. The authors develop networks of international stock market indices using an information theoretical framework. They use 83 stock market indices of a diversity of countries, as well as their single day lagged values, to probe the correlation and the flow of information from one stock index to another taking into account different operating hours. They find that Transfer Entropy is an effective way to quantify the flow of information between indices, and that a high degree of information flow between indices lagged by one day coincides to same day correlation between them.</p>
 </div>
 <div id="other-applications" class="section level2">
 <h2><span class="header-section-number">4.8</span> Other Applications</h2>
@@ -378,15 +431,15 @@ Figure 4.3: Interactions between the variables of the simulated nonlinear system
 <h3><span class="header-section-number">4.8.1</span> Quantifying Information Flow Between Social Media and the Stock Market</h3>
 <p>Investors’ decisions are modulated not only by companies’ fundamentals but also by personal beliefs, peers influence and information generated from news and the Internet. Rational and irrational investor’s behavior and their relation with the market efficiency hypothesis <span class="citation">(Fama <a href="#ref-JOFI:JOFI518">1970</a>)</span> have been largely debated in the economics and financial literature <span class="citation">(Shleifer <a href="#ref-shleifer2000inefficient">2000</a>)</span>. However, it was only recently that the availability of vast amounts of data from online systems paved the way for the large-scale investigation of investor’s collective behavior in financial markets.</p>
 <p>A research paper <span class="citation">(Souza and Aste <a href="#ref-2016arXiv160104535S">2016</a>)</span> used some of the methods studied in this Chapter to uncover that information flows from social media to stock markets revealing that tweets are causing market movements through a nonlinear complex interaction. The authors provide empirical evidence that suggests social media and stock markets have a nonlinear causal relationship. They take advantage of an extensive data set composed of social media messages related to DJIA index components. By using information-theoretic measures to cope for possible nonlinear causal effects between social media and the stock market, the work points out stunning differences in the results with respect to linear coupling. Two main conclusions are drawn: First, social media significant causality on stocks’ returns are purely nonlinear in most cases; Second, social media dominates the directional coupling with stock market, an effect not observable within linear modeling. Results also serve as empirical guidance on model adequacy in the investigation of sociotechnical and financial systems.</p>
-<p>Fig. <a href="information-theory-and-statistical-causality.html#fig:sigpoints-0">4.4</a> shows the significant causality links found between social media and stocks’ returns considering both cases: nonlinear (Transfer Entropy) and linear G-causality (linear VAR framework). The linear analysis discovers only three stocks with significant causality: INTEL CORP., NIKE INC. and WALT DISNEY CO. The Nonlinear analysis discovers that several other stocks have significant causality. In addition to the 3 stocks identified with significant linear causality, other 8 stocks presented purely nonlinear causality.</p>
+<p>Fig. <a href="information-theory-and-statistical-causality.html#fig:sigpoints-0">4.5</a> shows the significant causality links found between social media and stocks’ returns considering both cases: nonlinear (Transfer Entropy) and linear G-causality (linear VAR framework). The linear analysis discovers only three stocks with significant causality: INTEL CORP., NIKE INC. and WALT DISNEY CO. The Nonlinear analysis discovers that several other stocks have significant causality. In addition to the 3 stocks identified with significant linear causality, other 8 stocks presented purely nonlinear causality.</p>
 <div class="figure" style="text-align: center"><span id="fig:sigpoints-0"></span>
 <img src="chapters/TransferEntropy/SM-R-33.png" alt="Demonstration that the causality between social media and stocks' returns are mostly nonlinear. Linear causality test indicated that social media caused stock's returns only for 3 stocks. Nonparametric analysis showed that almost 1/3 of the stocks rejected in the linear case have significant nonlinear causality. In the nonlinear case, Transfer Entropy was used to quantify causal inference between the systems with randomized permutations test for significance estimation. In the linear case, a standard linear G-causality test was performed with a F-test under a linear vector-autoregressive framework. A significant linear G-causality was accepted if its linear specification was not rejected by the BDS test. p-values are adjusted with the Bonferroni correction. Significance is given at p-value  &lt; 0.05." width="100%" />
 <p class="caption">
-Figure 4.4: Demonstration that the causality between social media and stocks’ returns are mostly nonlinear. Linear causality test indicated that social media caused stock’s returns only for 3 stocks. Nonparametric analysis showed that almost 1/3 of the stocks rejected in the linear case have significant nonlinear causality. In the nonlinear case, Transfer Entropy was used to quantify causal inference between the systems with randomized permutations test for significance estimation. In the linear case, a standard linear G-causality test was performed with a F-test under a linear vector-autoregressive framework. A significant linear G-causality was accepted if its linear specification was not rejected by the BDS test. p-values are adjusted with the Bonferroni correction. Significance is given at p-value &lt; 0.05.
+Figure 4.5: Demonstration that the causality between social media and stocks’ returns are mostly nonlinear. Linear causality test indicated that social media caused stock’s returns only for 3 stocks. Nonparametric analysis showed that almost 1/3 of the stocks rejected in the linear case have significant nonlinear causality. In the nonlinear case, Transfer Entropy was used to quantify causal inference between the systems with randomized permutations test for significance estimation. In the linear case, a standard linear G-causality test was performed with a F-test under a linear vector-autoregressive framework. A significant linear G-causality was accepted if its linear specification was not rejected by the BDS test. p-values are adjusted with the Bonferroni correction. Significance is given at p-value &lt; 0.05.
 </p>
 </div>
 <p>The low level of causality obtained under linear constraints is in-line with results from similar studies in the literature, where it was found that stocks’ returns show weak causality links <span class="citation">(Alanyali, Moat, and Preis <a href="#ref-Tobias:2013">2013</a>, <span class="citation">Antweiler and Frank (<a href="#ref-Antweiler+Frank:04a">2004</a>)</span>)</span> and social media sentiment analytics, at least when taken alone, have small or no predictive power <span class="citation">(Ranco <a href="#ref-10.1371/journal.pone.0138441">2015</a>)</span> and do not have significant lead-time information about stock’s movements for the majority of the stocks <span class="citation">(Zheludev, Smith, and Aste <a href="#ref-citeulike:13108056">2014</a>)</span>. Contrariwise, results from the nonlinear analyses unveiled a much higher level of causality indicating that linear constraints may be neglecting the relationship between social media and stock markets.</p>
-<p>In summary, the <span class="citation">(Souza and Aste <a href="#ref-2016arXiv160104535S">2016</a>)</span> is a good example on how causality can be not only complex but also misleading further highlighting the importance of choice in the methodology used to quantify it.</p>
+<p>In summary, this paper <span class="citation">(Souza and Aste <a href="#ref-2016arXiv160104535S">2016</a>)</span> is a good example on how causality can be not only complex but also misleading further highlighting the importance of choice in the methodology used to quantify it.</p>
 </div>
 <div id="detecting-causal-links-between-investor-sentiment-and-cryptocurrency-prices" class="section level3">
 <h3><span class="header-section-number">4.8.2</span> Detecting Causal Links Between Investor Sentiment and Cryptocurrency Prices</h3>
@@ -416,6 +469,9 @@ Figure 4.4: Demonstration that the causality between social media and stocks’ 
 </div>
 <div id="ref-PhysRevLett.103.238701">
 <p>Barnett, Lionel, Adam B. Barrett, and Anil K. Seth. 2009. “Granger Causality and Transfer Entropy Are Equivalent for Gaussian Variables.” <em>Phys. Rev. Lett.</em> 103 (23). American Physical Society: 238701. doi:<a href="https://doi.org/10.1103/PhysRevLett.103.238701">10.1103/PhysRevLett.103.238701</a>.</p>
+</div>
+<div id="ref-junior2015dependency">
+<p>Junior, Leonidas, Asher Mullokandov, and Dror Kenett. 2015. “Dependency Relations Among International Stock Market Indices.” <em>Journal of Risk and Financial Management</em> 8 (2). Multidisciplinary Digital Publishing Institute: 227–65.</p>
 </div>
 <div id="ref-JOFI:JOFI518">
 <p>Fama, E. F. 1970. “Efficient Capital Markets: A Review of Theory and Empirical Work.” <em>The Journal of Finance</em> 25 (2). Blackwell Publishing Ltd: 383–417. doi:<a href="https://doi.org/10.1111/j.1540-6261.1970.tb00518.x">10.1111/j.1540-6261.1970.tb00518.x</a>.</p>

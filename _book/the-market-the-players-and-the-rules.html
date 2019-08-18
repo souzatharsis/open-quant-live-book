@@ -25,7 +25,7 @@
 <meta name="author" content="OpenQuants.com">
 
 
-<meta name="date" content="2019-08-13">
+<meta name="date" content="2019-08-17">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -201,6 +201,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="A" data-path="statistical-methods.html"><a href="statistical-methods.html"><i class="fa fa-check"></i><b>A</b> Statistical Methods</a><ul>
 <li class="chapter" data-level="A.1" data-path="statistical-methods.html"><a href="statistical-methods.html#kde"><i class="fa fa-check"></i><b>A.1</b> Kernel Density Estimation</a></li>
 </ul></li>
+<li class="chapter" data-level="B" data-path="datasets.html"><a href="datasets.html"><i class="fa fa-check"></i><b>B</b> Datasets</a><ul>
+<li class="chapter" data-level="B.1" data-path="datasets.html"><a href="datasets.html#dt-indices"><i class="fa fa-check"></i><b>B.1</b> Log-Returns of International Stock Market Indices Prices</a></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://creativecommons.org/licenses/by/4.0/" target="blank">CC-BY 4.0</a></li>
@@ -237,7 +240,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p><strong>The amount spent in Alternative Data have been steadily increasing.</strong> More than half of all quantitative and fundamental investors surveyed recently are either considering or using alternative data as part of their workflow - <a href="https://www.valuewalk.com/2019/07/alternative-data-paradigms-of-fundamental-and-quantitative/">Greenwich Associates</a>.</p>
 </blockquote>
 <p>A recent <a href="https://www.valuewalk.com/2019/07/alternative-data-paradigms-of-fundamental-and-quantitative/">Greenwich Associates report</a> found that a wide majority of investment managers, 72%, stated that alternative data was improving enhanced their signal quality in an arena where filtering out signal noise. Of those who are implementing an alternative data strategy, more than one-fifth claim to have received 20% or more of their alpha from the practice.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-33"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-40"></span>
 <img src="https://cdn-images-1.medium.com/max/1600/0*GirclNZeAoiHWNne.png" alt="Total Buy-side spend on Alternative Data has been steadily increasing and its likely to nearly triple from 2018 to 2020." width="100%" />
 <p class="caption">
 Figure 6.1: Total Buy-side spend on Alternative Data has been steadily increasing and its likely to nearly triple from 2018 to 2020.
@@ -247,7 +250,7 @@ Figure 6.1: Total Buy-side spend on Alternative Data has been steadily increasin
 <div id="the-data" class="section level2">
 <h2><span class="header-section-number">6.2</span> The Data</h2>
 <p>But where’s Alternative Data coming from and who are the key players providing access to it?</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-34"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-41"></span>
 <img src="https://cdn-images-1.medium.com/max/1600/0*s_Pil2lOeWW6hJ_a.png" alt="Alternative Data are sourced by heterogeneous sources including individuals, businesses and sensors." width="100%" />
 <p class="caption">
 Figure 6.2: Alternative Data are sourced by heterogeneous sources including individuals, businesses and sensors.
@@ -259,7 +262,7 @@ Figure 6.2: Alternative Data are sourced by heterogeneous sources including indi
 <li>Sensors, particularly with the emergence of IoT, that generate satellite images, weather forecasts and geolocation data;</li>
 <li>Businesses from which data is generated in the form of traditional official filings and earning calls as well as banking records or supply chain data.</li>
 </ol>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-35"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-42"></span>
 <img src="https://cdn-images-1.medium.com/max/1600/0*VsYQ_IxQ2EHp1w8B.png" alt="The number of Alternative Data Providers is exploding." width="100%" />
 <p class="caption">
 Figure 6.3: The number of Alternative Data Providers is exploding.
@@ -277,7 +280,7 @@ Figure 6.3: The number of Alternative Data Providers is exploding.
 <p>While the alternative data offering is exploding there is a gap between what data vendors offer and what data buyers want.</p>
 </blockquote>
 <p>A <a href="https://alternativedata.org/new-alternative-data-pricing-report/">research</a> report conducted by BattleFin and AlternativeData.org has found that there is a gap between what data vendors offer and what data buyers actually want: - Data buyers view the three most-valuable data categories as: credit/debit cards (14.83%) web data (12.29%), and social/sentiment (11.02%). - By contrast, the percentage of data providers covering these data categories are: credit card (0.69%), web-crawled data (3.94%) and sentiment (4.40%). - Data providers report that the top-three categories their data covers are: business insights (6.48%), web traffic (4.63%) and sentiment (4.40%).</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-36"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-43"></span>
 <img src="https://cdn-images-1.medium.com/max/1600/1*I9bxxOlaZu5s7Vk5AhnVXA.png" alt="Data extracted from a research report conducted by BattleFin and AlternativeData.org, which compiles responses from 173 respondents made up of 69 alternative-data buyers and 104 data providers who responded to a 2018 survey conducted by BattleFin." width="100%" />
 <p class="caption">
 Figure 6.4: Data extracted from a research report conducted by BattleFin and AlternativeData.org, which compiles responses from 173 respondents made up of 69 alternative-data buyers and 104 data providers who responded to a 2018 survey conducted by BattleFin.
@@ -304,7 +307,7 @@ Figure 6.4: Data extracted from a research report conducted by BattleFin and Alt
 <li>What is the size/funding/team profile of your firm?</li>
 </ol>
 <p>There is one tricky question though: Whether the data was already licensed to other clients. Particularly if the buyer is looking for alpha, they actually would prefer to be one of the first to test the data and avoid using a dataset that is already “crowded”. By the same token, they would be happy to hear that the dataset was already licensed to reputable clients as a sign of credibility. It’s up to you to navigate through this trade-off.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-37"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-44"></span>
 <img src="https://cdn-images-1.medium.com/max/1600/1*MRcgvpX8o1RT8HZwOr12jw.png" alt="The sales life-cycle of an alternative data product can take up to seven months from lead generation to customer sign-up. Image by Quandl." width="100%" />
 <p class="caption">
 Figure 6.5: The sales life-cycle of an alternative data product can take up to seven months from lead generation to customer sign-up. Image by Quandl.

@@ -9,3 +9,6 @@ TTR
 quantmod
 iex
 finreportr
+IDPmisc
+RTransferEntropy
+future

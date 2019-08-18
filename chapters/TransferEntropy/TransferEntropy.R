@@ -16,6 +16,7 @@ FApply.Pairwise <- function(X, D.Func){
 
 #https://finance.yahoo.com/world-indices/
 tickers<-c("^GSPC", "^FTSE", "^GDAXI", "^N100", "^BVSP")
+
 data.env <- new.env()
 dataset<- xts() # Only run once
 
@@ -35,16 +36,22 @@ for(i in 1:length(tickers)) {
 }
 
 names(dataset)<-tickers
+write.csv(dataset, file="./data/global_indices_returns.csv", row.names = TRUE, )
+tmp <- tempfile()
+write.zoo(dataset,sep=",",file="./data/global_indices_returns.csv")
+
+dataset.post.crisis <- NaRV.omit(as.data.frame(dataset["2014-01-01/"]))
 
 
 ## Allow for parallel computing
 plan(multiprocess)
-dataset.post.crisis <- NaRV.omit(as.data.frame(dataset["2014-01-01/"]))
 # Calculate pairwise Transfer Entropy among global indices
-x<-FApply.Pairwise(dataset.post.crisis, calc_ete())
-rownames(x)<-colnames(x)<-tickers
+TE.matrix<-FApply.Pairwise(dataset.post.crisis, calc_ete())
+rownames(TE.matrix)<-colnames(TE.matrix)<-tickers
 
-x * 10000
-corrplot::corrplot(corr = x/max(x), diag = FALSE, order = "hclust")
+corrplot::corrplot(corr = TE.matrix/max(TE.matrix), diag = FALSE, order = "hclust", is.corr = FALSE)
 
 
+dataset2<-read.zoo('./data/global_indices_returns.csv',
+                  header=TRUE,
+                  index.column=1, sep=",")

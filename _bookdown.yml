@@ -19,4 +19,5 @@ rmd_files: ["index.Rmd",
 "./chapters/AltDataIntro/AltDataIntro.Rmd",
 "./chapters/Appendix.Rmd",
 "./chapters/StatisticalMethods/StatisticalMethods.Rmd",
+"./chapters/Datasets/Datasets.Rmd",
 "./chapters/References.Rmd"]

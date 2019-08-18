@@ -1,0 +1,33 @@
+# Datasets 
+
+This Chapter provides code for datasets produced for the book.
+
+## Log-Returns of International Stock Market Indices Prices {#dt-indices}
+```{r eval=FALSE, echo=TRUE, results='hide', include=FALSE}
+library(quantmod)
+
+tickers<-c("^GSPC", "^FTSE", "^GDAXI", "^N100", "^BVSP")
+
+data.env <- new.env()
+dataset<- xts() # Only run once
+
+
+# Download prices from AlphaVantage and calculate log-returns
+for(i in 1:length(tickers)) {
+  tickers[i]-> symbol
+  print(symbol)
+  getSymbols(symbol, src="av",
+             auto.assign=TRUE,
+             output.size="full",
+             adjusted=TRUE,
+             api.key=config::get()$alpha.vantage.key)
+
+    dataset <- merge(dataset, periodReturn(Ad(get(tickers[i])),period="daily", type='log'))
+    rm(symbol)
+}
+
+names(dataset)<-tickers
+
+tmp <- tempfile()
+write.zoo(dataset,sep=",",file="./data/global_indices_returns.csv")
+```

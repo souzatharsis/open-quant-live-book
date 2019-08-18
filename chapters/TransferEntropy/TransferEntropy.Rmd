@@ -15,7 +15,6 @@ A simple nonlinearity introduced in the relationship between $x_2$ and $x_1$ was
 knitr::include_graphics("./chapters/TransferEntropy/rand.png")
 ```
 
-
 Fortunately, we can take advantage of statistics and information theory to uncover complex causal relationships from observational data (remember, this is still a very very challenging task). We quantify causality by using the notion of the causal relation introduced by Granger [@Wiener56; @granger:econ], where a signal $X$ is said to Granger-cause $Y$ if the future realizations of $Y$ can be better explained using the past information from $X$ and $Y$ rather than $Y$ alone.
 
 In this Chapter, we will introduce a prediction-based definition of causality and its implementation using a vector auto-regression formulation. Next, we will introduce a probabilistic-definition of causality and its implementation using an information-theoretical framework. We will then symulate linear and nonlinear systems and uncover causal links with the proposed methods. In the final section, we will quantify information flow among global equity indexes further uncovering which indexes and markets are driving the global financial markets.
@@ -203,7 +202,89 @@ knitr::include_graphics("./chapters/TransferEntropy/S4Fig2.png")
 
 ## Empirical Experiment: Information Flow on Global Markets
 
+The world’s financial markets form a complex, dynamic network in which individual markets
+interact with one another. This multitude of interactions can lead to highly significant and unexpected
+effects, and it is vital to understand precisely how various markets around the world influence one
+another [@junior2015dependency].
 
+In this section, we use Transfer Entropy for the identification of dependency relations among international stock market indices. First, we select some of the [major global indices](https://finance.yahoo.com/world-indices/) for our analysis, namely the S&P 500, the FTSE 100, the DAX, the EURONEXT 100 and the IBOVESPA, which track the following markets, respectively, the US, the UK, Germany, Europe and Brazil. They are defined by the following tickers:
+```{r eval=TRUE, echo=TRUE, cache=TRUE}
+tickers<-c("^GSPC", "^FTSE", "^GDAXI", "^N100", "^BVSP")
+```
+
+Next, we will load log-returns of daily closing adjusted prices for the selected indices as follows (see Appendix \@ref(dt-indices) for code used to generate this dataset):
+```{r eval=TRUE, echo=TRUE, cache=TRUE}
+library(xts)
+dataset<-as.xts(read.zoo('./data/global_indices_returns.csv',
+                  header=TRUE,
+                  index.column=1, sep=","))
+head(dataset)
+```
+
+
+The influence that one market plays in another is dynamic. Here, we will consider the time period from 01/01/2014 until today and we will omit days with invalid returns due to bad data using the function `NARV.omit` from the package **IDPmisc** as follows:
+
+```{r eval=TRUE, echo=FALSE, cache=TRUE}
+library(IDPmisc)
+dataset.post.crisis <- NaRV.omit(as.data.frame(dataset["2014-01-01/"]))
+```
+
+We will calculate pairwise Transfer Entropy among all indices considered and construct a matrix such that each value in the position $(i,j)$ will contain the value Transfer Entropy from $tickers[i]$ to $tickers[j]$ as follows: 
+```{r eval=TRUE, echo=FALSE, cache=TRUE, results='hide', include=FALSE}
+FApply.Pairwise <- function(X, D.Func){
+  n = seq_len(ncol(X))
+
+  ff.TE.value = function(a, b) calc_te(X[,a], X[,b])
+
+  return(outer(n, n, Vectorize(ff.TE.value)))
+}
+```
+```{r eval=TRUE, echo=TRUE, cache=TRUE, message=FALSE}
+library(RTransferEntropy)
+library(future)
+
+## Allow for parallel computing
+plan(multiprocess)
+# Calculate pairwise Transfer Entropy among global indices
+TE.matrix<-FApply.Pairwise(dataset.post.crisis, calc_ete())
+rownames(TE.matrix)<-colnames(TE.matrix)<-tickers
+```
+
+The function `FApply.Pairwise` is an auxiliary function that simply applies a given function `D.Func` to all possible pairs of columns from a given matrix `X` as follows:  
+```{r eval=FALSE, echo=FALSE, cache=TRUE}
+FApply.Pairwise <- function(X, D.Func){
+  n = seq_len(ncol(X))
+
+  ff.TE.value = function(a, b) calc_te(X[,a], X[,b])
+
+  return(outer(n, n, Vectorize(ff.TE.value)))
+}
+```
+
+
+Fig. \@ref(fig:TEmatrix) displays the resulting Transfer Entropy matrix. We normalize the Transfer Entropy values by dividing it by the maximum value in the matrix such that all values range from 0 to 1. We observe that the highest information flow is from the US market to the UK market (^GSPC -> ^FTSE). The second highest information flow is from the UK market to the US market. That's a result we would expect as the US and the UK markets are strongly coupled historically.
+```{r TEmatrix,  eval=TRUE, echo=FALSE, cache=TRUE, out.width='100%', fig.align = "center", fig.cap="Normalized Transfer Entropy among international stock market indices."}
+corrplot::corrplot(corr = TE.matrix/max(TE.matrix), diag = FALSE, order = "hclust", is.corr = FALSE)
+```
+
+
+We also calculate the marginal contribution of each market to the total Transfer Entropy in the system by calculating the sum of Transfer Entropy for each row in the Transfer Entropy matrix, which we also normalize such that all values range from 0 to 1:
+```{r eval=TRUE, echo=TRUE, cache=TRUE}
+TE.marginal<-apply(TE.matrix, 1, sum)
+TE.marginal.norm<-TE.marginal/sum(TE.marginal)
+print(TE.marginal.norm)
+```
+
+We observe that the US is the most influential market in the time period studied detaining `r TE.marginal.norm[['^GSPC']]*100`% of the total Transfer Entropy followed by the UK and Germany with `r TE.marginal.norm[['^FTSE']]*100`% and `r TE.marginal.norm[['^GDAXI']]*100`%, respectively. Japan and Brazil are the least influential markets with normalized Transfer Entropies of `r TE.marginal.norm[['^N100']]*100`% and `r TE.marginal.norm[['^BVSP']]*100`%, respectively.
+
+An experiment left to the reader is to build a daily trading strategy that exploits information flow among international markets. The proposed thesis is that one could build a profitable strategy by placing bets on futures of market indices that receive significant information flow from markets that observed unexpected returns/movements.
+
+For an extended analysis with a broader set of indices see [@junior2015dependency]. The authors develop networks of international stock market indices using an information theoretical framework. They use 83 stock market indices of a diversity of
+countries, as well as their single day lagged values, to probe the correlation and the flow
+of information from one stock index to another taking into account different operating hours.
+They find that Transfer Entropy is an effective way to quantify
+the flow of information between indices, and that a high degree of information flow between
+indices lagged by one day coincides to same day correlation between them.
 
 ## Other Applications
 

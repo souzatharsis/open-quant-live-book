@@ -5,21 +5,21 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Chapter 3 Entropy | The Open Quant Live Book</title>
-  <meta name="description" content="Chapter 3 Entropy | The Open Quant Live Book">
+  <title>B Datasets | The Open Quant Live Book</title>
+  <meta name="description" content="B Datasets | The Open Quant Live Book">
   <meta name="generator" content="bookdown  and GitBook 2.6.7">
 
-  <meta property="og:title" content="Chapter 3 Entropy | The Open Quant Live Book" />
+  <meta property="og:title" content="B Datasets | The Open Quant Live Book" />
   <meta property="og:type" content="book" />
   
   <meta property="og:image" content="./fig/cover.jpg" />
-  <meta property="og:description" content="Chapter 3 Entropy | The Open Quant Live Book" />
+  <meta property="og:description" content="B Datasets | The Open Quant Live Book" />
   <meta name="github-repo" content="souzatharsis/open-quant-live-book" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 3 Entropy | The Open Quant Live Book" />
+  <meta name="twitter:title" content="B Datasets | The Open Quant Live Book" />
   
-  <meta name="twitter:description" content="Chapter 3 Entropy | The Open Quant Live Book" />
+  <meta name="twitter:description" content="B Datasets | The Open Quant Live Book" />
   <meta name="twitter:image" content="./fig/cover.jpg" />
 
 <meta name="author" content="OpenQuants.com">
@@ -32,8 +32,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="stylized-facts.html">
-<link rel="next" href="information-theory-and-statistical-causality.html">
+<link rel="prev" href="statistical-methods.html">
+<link rel="next" href="references.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -226,37 +226,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="entropy" class="section level1">
-<h1><span class="header-section-number">Chapter 3</span> Entropy</h1>
-<div id="definition" class="section level2">
-<h2><span class="header-section-number">3.1</span> Definition</h2>
-Let <span class="math inline">\(X\)</span> be a random variable and <span class="math inline">\(P_X(x)\)</span> be its probability density function (pdf). The entropy <span class="math inline">\(H(X)\)</span> is a measure of the uncertainty of <span class="math inline">\(X\)</span> and is defined in the discrete case as follows:
-<span class="math display">\[\begin{equation}
-H(X) = -\sum_{x \in X}{P_X(x)\log{P_X(x)}}.
-\label{eq:H}
-\end{equation}\]</span>
-<p>If the <span class="math inline">\(\log\)</span> is taken to base two, then the unit of <span class="math inline">\(H\)</span> is the  (binary digit). We employ the natural logarithm which implies the unit in  (natural unit of information).</p>
-<!-- library(quantmod) -->
-<!-- library(entropy) -->
-<!-- require(zoo) -->
-<!-- Entropy.Hist<-function(x){ -->
-<!--   return(entropy(hist(x, plot=FALSE, breaks=20)$counts)) -->
-<!-- } -->
-<!-- ########## Load SPY Prices from AlphaVantage -->
-<!-- getSymbols(Symbols='SPY', src="av", output.size="full", adjusted=TRUE, from=from.dat, -->
-<!--            api.key='XG3T5XUFFDLJ0JGY') -->
-<!-- SPY<-SPY[-(1:504),] -->
-<!-- ## Calculate daily returns -->
-<!-- SPY$SPY.return <- periodReturn(SPY$SPY.Adjusted, -->
-<!--                            period='daily') -->
-<!-- ############## ENTROPY -->
-<!-- ## Calculate 252-rolling window entropy -->
-<!-- SPY$SPY.entropy<-rollapply(SPY$SPY.return, width = 252, by = 1, FUN = Entropy.Hist, align = "right") -->
-<!-- ## Plot -->
-<!-- plot(SPY[!is.na(SPY$SPY.entropy),c("SPY.entropy")], main="SPY Daily Return 252-day Entropy") -->
-</div>
-<div id="efficiency-and-bubbles-a-case-study-in-the-crypto-and-equity-markets" class="section level2">
-<h2><span class="header-section-number">3.2</span> Efficiency and Bubbles: A Case Study in the Crypto and Equity Markets</h2>
+<div id="datasets" class="section level1">
+<h1><span class="header-section-number">B</span> Datasets</h1>
+<p>This Chapter provides code for datasets produced for the book.</p>
+<div id="dt-indices" class="section level2">
+<h2><span class="header-section-number">B.1</span> Log-Returns of International Stock Market Indices Prices</h2>
 
 </div>
 </div>
@@ -265,8 +239,8 @@ H(X) = -\sum_{x \in X}{P_X(x)\log{P_X(x)}}.
           </div>
         </div>
       </div>
-<a href="stylized-facts.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="information-theory-and-statistical-causality.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="statistical-methods.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -296,7 +270,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/souzatharsis/open-quant-live-book/edit/master/chapters/Entropy/Entropy.Rmd",
+"link": "https://github.com/souzatharsis/open-quant-live-book/edit/master/chapters/Datasets/Datasets.Rmd",
 "text": "Edit"
 },
 "history": {
