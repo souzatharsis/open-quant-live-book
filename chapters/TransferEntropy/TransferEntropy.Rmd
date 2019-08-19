@@ -167,7 +167,33 @@ x_3(n) &= -0.4x_1(n-1) + w_3\\ \nonumber
 x_4(n) &= -0.5x_1(n-1) + 0.25\sqrt{2}x_4(n-1) + 0.25\sqrt{2}x_5(n-1) + w_4\\ \nonumber
 x_5(n) &= -0.25\sqrt{2}x_4(n-1) + 0.25\sqrt{2}x_5(n-1) + w_5, \nonumber
 \end{align}
-where $w_1, w_2, w_3, w_4, w_5 \sim N(0, 1)$. To simulate this system we assume $x_i(0) = 0, i \in (1, 2, \ldots, 5)$ as initial condition and then iteratively generate $x_i$ for $n \in (1, 2, \ldots, N)$ with a total of $N = 200,000$ iterations by randomly sampling $w_i, i \in (1, 2, \ldots, 5)$ from a normal distribution with zero mean and unit variance. 
+where $w_1, w_2, w_3, w_4, w_5 \sim N(0, 1)$. To simulate this system we assume $x_i(0) = 0, i \in (1, 2, \ldots, 5)$ as initial condition and then iteratively generate $x_i$ for $n \in (1, 2, \ldots, N)$ with a total of $N = 2,000$ iterations by randomly sampling $w_i, i \in (1, 2, \ldots, 5)$ from a normal distribution with zero mean and unit variance.
+
+We can simulate this system with the following code:
+```{r eval=TRUE, echo=TRUE, cache=TRUE}
+set.seed(12345)
+n <- 2000
+x1 <- x2<-x3<-x4<-x5<-rep(0, n + 1)
+
+for (i in 2:(n + 1)) {
+  x1[i] <- 0.95 * sqrt(2)* x1[i - 1] -0.9025*x1[i - 1] + rnorm(1, mean=0, sd=1)
+  x2[i] <- 0.5*x1[i - 1] + rnorm(1, mean=0, sd=1)
+  x3[i] <- -0.4*x1[i - 1] + rnorm(1, mean=0, sd=1)
+  x4[i] <- -0.5*x1[i - 1] + 0.25*sqrt(2)*x4[i - 1] + 0.25*sqrt(2)*x5[i - 1] + rnorm(1, mean=0, sd=1)
+  x5[i] <- -0.25*sqrt(2)*x4[i - 1] + 0.25*sqrt(2)*x5[i - 1] + rnorm(1, mean=0, sd=1)
+}
+
+x1 <- x1[-1]
+x2 <- x2[-1]
+x3 <- x3[-1]
+x4 <- x4[-1]
+x5 <- x5[-1]
+linear.system <- data.frame(x1, x2, x3, x4, x5)
+```
+
+
+
+
 
 The Fig. \@ref(fig:causality-graph1) A) represents the dependencies of the simulated linear system. 
 The Fig. \@ref(fig:causality-graph1) B) and Fig. \@ref(fig:causality-graph1) C) show the linear and nonlinear Information Flows among the system's variables, respectively.
