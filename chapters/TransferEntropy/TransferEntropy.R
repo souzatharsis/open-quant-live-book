@@ -28,6 +28,7 @@ Linear.GC <- function(X, Y){
   var.eps.mult <- (summary(regression.mult)$sigma)^2
   GC <- log(var.eps.uni/var.eps.mult)
   return(GC)
+
 }
 
 

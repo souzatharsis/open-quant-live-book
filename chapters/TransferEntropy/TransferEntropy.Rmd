@@ -1,23 +1,44 @@
 # Information Theory and Statistical Causality
 
-We've all heard the say "correlation does not imply causation", but how can we quantify causation? This is an extremely difficult and often misleading task, particularly trying to infer causality from observational data and cannot perform controlled trials or A/B testing.
+We've all heard the say "correlation does not imply causation", but how can we quantify causation? This is an extremely difficult and often misleading task, particularly when trying to infer causality from observational data and we cannot perform controlled trials or A/B testing.
 
-Take for example the 2-dimensional system from Fig. \@ref(fig:rand). At a first glance, one could say that there is no clear relationship or causality between the random variables $x_1$ and $x_2$. However, this apparent random system presents a causal relationship defined by the following simple equations: 
+Take for example the 2-dimensional system from Fig. \@ref(fig:rand). 
+```{r eval=TRUE, echo=FALSE, cache=TRUE}
+set.seed(123)
+n <- 1000
+x1 <- x2 <-rep(0, n + 1)
+
+for (i in 2:(n + 1)) {
+  x1[i] <- 0.441 * x1[i - 1] + rnorm(1, mean=0, sd=1)
+  x2[i] <- 0.51*x1[i-1]^2 + rnorm(1, mean=0, sd=1)
+}
+
+x1 <- x1[-1]
+x2 <- x2[-1]
+```
+```{r rand, echo=FALSE, out.width='100%', fig.align = "center", fig.cap="Life is Random (or Nonlinear?)"}
+#knitr::include_graphics("./chapters/TransferEntropy/rand.png")
+plot(x2, x1)
+```
+
+
+At a first glance, one could say that there is no clear relationship or causality between the random variables $x_1$ and $x_2$. However, this apparent random system presents a causal relationship defined by the following simple equations: 
 \begin{align*}
-x_1 &= 0.441x_1 + \epsilon_1 \\
-x_2 &= 0.51x_1^2 + \epsilon_2, \\ 
+x_1(n) &= 0.441x_1(n-1) + \epsilon_1 \\
+x_2(n) &= 0.51x_1^2(n-1) + \epsilon_2, \\ 
 &\epsilon_1, \epsilon_2 \sim \mathcal{N}(0,1).
 \end{align*}
 
-A simple nonlinearity introduced in the relationship between $x_2$ and $x_1$ was enough to introduce enough complexity into the system and potentially mislead a naive (non-quant) human.
 
-```{r rand, echo=FALSE, out.width='50%', fig.align = "center", fig.cap="Life is Random (or Nonlinear?)"}
-knitr::include_graphics("./chapters/TransferEntropy/rand.png")
-```
+
+
+A simple nonlinearity introduced in the relationship between $x_2$ and $x_1$ was enough to introduce complexity into the system and potentially mislead a naive (non-quant) human.
+
+
 
 Fortunately, we can take advantage of statistics and information theory to uncover complex causal relationships from observational data (remember, this is still a very very challenging task). We quantify causality by using the notion of the causal relation introduced by Granger [@Wiener56; @granger:econ], where a signal $X$ is said to Granger-cause $Y$ if the future realizations of $Y$ can be better explained using the past information from $X$ and $Y$ rather than $Y$ alone.
 
-In this Chapter, we will introduce a prediction-based definition of causality and its implementation using a vector auto-regression formulation. Next, we will introduce a probabilistic-definition of causality and its implementation using an information-theoretical framework. We will then symulate linear and nonlinear systems and uncover causal links with the proposed methods. In the final section, we will quantify information flow among global equity indexes further uncovering which indexes and markets are driving the global financial markets.
+In this Chapter, we will introduce a prediction-based definition of causality and its implementation using a vector auto-regression formulation. Next, we will introduce a probabilistic-definition of causality and its implementation using an information-theoretical framework. We will then symulate linear and nonlinear systems and uncover causal links with the proposed methods. In the final section, we will quantify information flow among global equity indexes further uncovering which indexes and markets are driving the global financial markets. Finally, we will discuss further applications including the impact of social media sentiment in financial and crypto markets.
 
 ## A First Definition of Causality {#LinearG}
 
@@ -167,12 +188,12 @@ x_3(n) &= -0.4x_1(n-1) + w_3\\ \nonumber
 x_4(n) &= -0.5x_1(n-1) + 0.25\sqrt{2}x_4(n-1) + 0.25\sqrt{2}x_5(n-1) + w_4\\ \nonumber
 x_5(n) &= -0.25\sqrt{2}x_4(n-1) + 0.25\sqrt{2}x_5(n-1) + w_5, \nonumber
 \end{align}
-where $w_1, w_2, w_3, w_4, w_5 \sim N(0, 1)$. To simulate this system we assume $x_i(0) = 0, i \in (1, 2, \ldots, 5)$ as initial condition and then iteratively generate $x_i$ for $n \in (1, 2, \ldots, N)$ with a total of $N = 2,000$ iterations by randomly sampling $w_i, i \in (1, 2, \ldots, 5)$ from a normal distribution with zero mean and unit variance.
+where $w_1, w_2, w_3, w_4, w_5 \sim N(0, 1)$. To simulate this system we assume $x_i(0) = 0, i \in (1, 2, \ldots, 5)$ as initial condition and then iteratively generate $x_i$ for $n \in (1, 2, \ldots, N)$ with a total of $N = 10,000$ iterations by randomly sampling $w_i, i \in (1, 2, \ldots, 5)$ from a normal distribution with zero mean and unit variance.
 
-We can simulate this system with the following code:
+We simulate this linear system with the following code:
 ```{r eval=TRUE, echo=TRUE, cache=TRUE}
-set.seed(12345)
-n <- 2000
+set.seed(123)
+n <- 10000
 x1 <- x2<-x3<-x4<-x5<-rep(0, n + 1)
 
 for (i in 2:(n + 1)) {
@@ -192,18 +213,83 @@ linear.system <- data.frame(x1, x2, x3, x4, x5)
 ```
 
 
-
-
-
-The Fig. \@ref(fig:causality-graph1) A) represents the dependencies of the simulated linear system. 
-The Fig. \@ref(fig:causality-graph1) B) and Fig. \@ref(fig:causality-graph1) C) show the linear and nonlinear Information Flows among the system's variables, respectively.
-A cell $(x, y)$ presents the information flow from variable $y$ to variable $x$.
-From Fig. \@ref(fig:causality-graph1), we observe that both the linear and nonlinear approaches presented similar results, i.e., both methods captured the system's dependencies similarly. 
-This result is expected as the system is purely linear and the nonlinear information flow is able to capture both the linear and nonlinear interactions.
+The Fig. \@ref(fig:causality-graph1) represents the dependencies of the simulated linear system. 
 ```{r causality-graph1, echo=FALSE, out.width='100%', fig.align = "center",fig.cap="Interactions between the variables of the simulated linear system."}
 knitr::include_graphics("./chapters/TransferEntropy/S4Fig1.png")
 ```
 
+We first define a function that calculates a bi-variate measure for G-causality as defined in Eq. \@ref(eq:GCGC) as follows:
+```{r eval=TRUE, echo=TRUE, cache=TRUE}
+Linear.GC <- function(X, Y){
+
+  n<-length(X)
+  X.now<-X[1:(n-1)]
+  Y.now<-Y[1:(n-1)]
+  Y.fut<-Y[2:n]
+
+  regression.uni=lm(Y.fut~Y.now)
+  regression.mult=lm(Y.fut~Y.now+ X.now)
+  var.eps.uni <- (summary(regression.uni)$sigma)^2
+  var.eps.mult <- (summary(regression.mult)$sigma)^2
+  GC <- log(var.eps.uni/var.eps.mult)
+  return(GC)
+
+}
+```
+
+We use the function `calc_te` from the package **RTransferEntropy** and the previously defined function `Linear.GC` to calculate pairwise information flow among the simulated variables as follows:
+```{r eval=TRUE, echo=FALSE, results='hide', include=FALSE}
+FApply.Pairwise <- function(X, D.Func){
+  n = seq_len(ncol(X))
+
+  ff.TE.value = function(a, b) D.Func(X[,a], X[,b])
+
+  return(outer(n, n, Vectorize(ff.TE.value)))
+}
+```
+```{r eval=TRUE, echo=TRUE}
+library(RTransferEntropy)
+library(future)
+
+## Allow for parallel computing
+plan(multiprocess)
+
+## Calculates GC and TE
+GC.matrix<-FApply.Pairwise(linear.system, Linear.GC)
+TE.matrix<-FApply.Pairwise(linear.system, calc_te)
+
+rownames(TE.matrix)<-colnames(TE.matrix)<-var.names<-c("x1", "x2", "x3", "x4", "x5")
+rownames(GC.matrix)<-colnames(GC.matrix)<-var.names
+```
+The function `FApply.Pairwise` is an auxiliary function that simply applies a given function `D.Func` to all possible pairs of columns from a given matrix `X` as follows:  
+```{r eval=FALSE, echo=TRUE, cache=TRUE}
+FApply.Pairwise <- function(X, D.Func){
+  n = seq_len(ncol(X))
+
+  ff.TE.value = function(a, b) D.Func(X[,a], X[,b])
+
+  return(outer(n, n, Vectorize(ff.TE.value)))
+}
+```
+
+Fig. \@ref(fig:causality-graph-GC) and Fig. \@ref(fig:causality-graph-TE) show Granger-causality and Transfer Entropy among the system's variables, respectively.
+A cell $(x, y)$ presents the information flow from variable $y$ to variable $x$.
+We observe that both the Granger-causality (linear) and Transfer Entropy (nonlinear) approaches presented similar results, i.e., both methods captured the system's dependencies similarly. 
+This result is expected as the system is purely linear and Transfer Entropy is able to capture both the linear and nonlinear interactions.
+
+```{r causality-graph-GC, echo=FALSE, out.width='100%', fig.align = "center",fig.cap="Granger-Causality of simulated linear system"}
+corrplot::corrplot(corr = GC.matrix, diag = FALSE,
+                   is.corr = FALSE, outline = T,tl.col = "black",
+                   method = "color",
+                   col = colorRampPalette(c("blue","white", "red"))(100))
+```
+
+```{r causality-graph-TE, echo=FALSE, out.width='100%', fig.align = "center",fig.cap="Transfer Entropy of simulated linear system"}
+corrplot::corrplot(corr = TE.matrix, diag = FALSE,
+                   is.corr = FALSE, outline = T,tl.col = "black",
+                   method = "color",
+                   col = colorRampPalette(c("blue","white", "red"))(100))
+```
 
 
 We define a second system by introducing nonlinear interactions between $x_1$ and the variables $x_2$ and $x_5$ as follows:
@@ -215,15 +301,63 @@ x_3(n) &= -0.4x_1(n-1) + w_3\\ \nonumber
 x_4(n) &= -0.5x_1^2(n-1) + 0.25\sqrt{2}x_4(n-1) + 0.25\sqrt{2}x_5(n-1) + w_4\\ \nonumber
 x_5(n) &= -0.25\sqrt{2}x_4(n-1) + 0.25\sqrt{2}x_5(n-1) + w_5, \nonumber
 \end{align}
-where $w_1, w_2, w_3, w_4$ and $w_5 \sim N(0, 1)$. To simulate this system we assume $x_i(0) = 0, i \in (1, 2, ..., 5)$ as initial condition and then iteratively generate $x_i$ for $n \in (1, 2, ..., N)$ with a total of $N = 200,000$ iterations by randomly sampling $w_i, i \in (1, 2, ..., 5)$ from a normal distribution with zero mean and unit variance. 
+where $w_1, w_2, w_3, w_4$ and $w_5 \sim N(0, 1)$. To simulate this system we assume $x_i(0) = 0, i \in (1, 2, ..., 5)$ as initial condition and then iteratively generate $x_i$ for $n \in (1, 2, ..., N)$ with a total of $N = 10,000$ iterations by randomly sampling $w_i, i \in (1, 2, ..., 5)$ from a normal distribution with zero mean and unit variance. 
 
-The Fig. \@ref(fig:C3S4Fig2) A) represents the dependencies of the simulated nonlinear system.
-From Fig. \@ref(fig:C3S4Fig2) B) and Fig. \@ref(fig:C3S4Fig2) C), we observe that the nonlinear interactions introduced were not captured by the linear form of the information flow. 
+We simulate this nonlinear system with the following code:
+```{r eval=TRUE, echo=TRUE, cache=TRUE}
+set.seed(123)
+n <- 10000
+x1 <- x2<-x3<-x4<-x5<-rep(0, n + 1)
+
+for (i in 2:(n + 1)) {
+  x1[i] <- 0.95 * sqrt(2)* x1[i - 1] -0.9025*x1[i - 1] + rnorm(1, mean=0, sd=1)
+  x2[i] <- 0.5*x1[i - 1]^2 + rnorm(1, mean=0, sd=1)
+  x3[i] <- -0.4*x1[i - 1] + rnorm(1, mean=0, sd=1)
+  x4[i] <- -0.5*x1[i - 1]^2 + 0.25*sqrt(2)*x4[i - 1] + 0.25*sqrt(2)*x5[i - 1] + rnorm(1, mean=0, sd=1)
+  x5[i] <- -0.25*sqrt(2)*x4[i - 1] + 0.25*sqrt(2)*x5[i - 1] + rnorm(1, mean=0, sd=1)
+}
+
+x1 <- x1[-1]
+x2 <- x2[-1]
+x3 <- x3[-1]
+x4 <- x4[-1]
+x5 <- x5[-1]
+nonlinear.system <- data.frame(x1, x2, x3, x4, x5)
+```
+
+Fig. \@ref(fig:C3S4Fig2) represents the dependencies of the simulated nonlinear system.
+```{r C3S4Fig2, echo=FALSE, out.width='100%', fig.align = "center", fig.cap="Interactions between the variables of the simulated nonlinear system."}
+knitr::include_graphics("./chapters/TransferEntropy/S4Fig2.png")
+```
+
+We calculate Granger-causality and Transfer Entropy of the simulated nonlinear system as follows:
+```{r eval=TRUE, echo=TRUE}
+## Calculates GC and TE
+GC.matrix.nonlinear<-FApply.Pairwise(nonlinear.system, Linear.GC)
+TE.matrix.nonlinear<-FApply.Pairwise(nonlinear.system, calc_te)
+
+rownames(TE.matrix.nonlinear)<-colnames(TE.matrix.nonlinear)<-var.names
+rownames(GC.matrix.nonlinear)<-colnames(GC.matrix.nonlinear)<-var.names
+```
+
+
+From Fig. \@ref(fig:causality-graph-nonlinear-GC) and Fig. \@ref(fig:causality-graph-nonlinear-TE), we observe that the nonlinear interactions introduced were not captured by the linear form of the information flow. 
 While all linear interactions presented similar linear and nonlinear information flows, 
 the two nonlinear interactions introduced in the system presented relatively higher nonlinear information flow compared to the linear formulation.
 
-```{r C3S4Fig2, echo=FALSE, out.width='100%', fig.align = "center", fig.cap="Interactions between the variables of the simulated nonlinear system."}
-knitr::include_graphics("./chapters/TransferEntropy/S4Fig2.png")
+
+```{r causality-graph-nonlinear-GC, echo=FALSE, out.width='100%', fig.align = "center",fig.cap="Granger-Causality of simulated nonlinear system"}
+corrplot::corrplot(corr = GC.matrix.nonlinear, diag = FALSE,
+                   is.corr = FALSE, outline = T,tl.col = "black",
+                   method = "color",
+                   col = colorRampPalette(c("blue","white", "red"))(100))
+```
+
+```{r causality-graph-nonlinear-TE, echo=FALSE, out.width='100%', fig.align = "center",fig.cap="Transfer Entropy of simulated nonlinear system"}
+corrplot::corrplot(corr = TE.matrix.nonlinear, diag = FALSE,
+                   is.corr = FALSE, outline = T,tl.col = "black",
+                   method = "color",
+                   col = colorRampPalette(c("blue","white", "red"))(100))
 ```
 
 ## Information Flow among International Stock Market Indices
@@ -250,47 +384,26 @@ head(dataset)
 
 The influence that one market plays in another is dynamic. Here, we will consider the time period from 01/01/2014 until today and we will omit days with invalid returns due to bad data using the function `NARV.omit` from the package **IDPmisc** as follows:
 
-```{r eval=TRUE, echo=FALSE, cache=TRUE}
+```{r eval=TRUE, echo=TRUE, cache=TRUE}
 library(IDPmisc)
 dataset.post.crisis <- NaRV.omit(as.data.frame(dataset["2014-01-01/"]))
 ```
 
 We will calculate pairwise Transfer Entropy among all indices considered and construct a matrix such that each value in the position $(i,j)$ will contain the value Transfer Entropy from $tickers[i]$ to $tickers[j]$ as follows: 
-```{r eval=TRUE, echo=FALSE, cache=TRUE, results='hide', include=FALSE}
-FApply.Pairwise <- function(X, D.Func){
-  n = seq_len(ncol(X))
 
-  ff.TE.value = function(a, b) calc_te(X[,a], X[,b])
-
-  return(outer(n, n, Vectorize(ff.TE.value)))
-}
-```
 ```{r eval=TRUE, echo=TRUE, cache=TRUE, message=FALSE}
-library(RTransferEntropy)
-library(future)
-
-## Allow for parallel computing
-plan(multiprocess)
 # Calculate pairwise Transfer Entropy among global indices
-TE.matrix<-FApply.Pairwise(dataset.post.crisis, calc_ete())
+TE.matrix<-FApply.Pairwise(dataset.post.crisis, calc_ete)
 rownames(TE.matrix)<-colnames(TE.matrix)<-tickers
 ```
 
-The function `FApply.Pairwise` is an auxiliary function that simply applies a given function `D.Func` to all possible pairs of columns from a given matrix `X` as follows:  
-```{r eval=FALSE, echo=FALSE, cache=TRUE}
-FApply.Pairwise <- function(X, D.Func){
-  n = seq_len(ncol(X))
 
-  ff.TE.value = function(a, b) calc_te(X[,a], X[,b])
-
-  return(outer(n, n, Vectorize(ff.TE.value)))
-}
-```
-
-
-Fig. \@ref(fig:TEmatrix) displays the resulting Transfer Entropy matrix. We normalize the Transfer Entropy values by dividing it by the maximum value in the matrix such that all values range from 0 to 1. We observe that the highest information flow is from the US market to the UK market (^GSPC -> ^FTSE). The second highest information flow is from the UK market to the US market. That's a result we would expect as the US and the UK markets are strongly coupled historically.
+Fig. \@ref(fig:TEmatrix) displays the resulting Transfer Entropy matrix. We normalize the Transfer Entropy values by dividing it by the maximum value in the matrix such that all values range from 0 to 1. We observe that the international indices studied are highly interconnected in the period analyzed with the highest information flow going from the US market to the UK market (^GSPC -> ^FTSE). The second highest information flow is going from the UK market to the US market. That's a result we would expect as the US and the UK markets are strongly coupled, historically.
 ```{r TEmatrix,  eval=TRUE, echo=FALSE, cache=TRUE, out.width='100%', fig.align = "center", fig.cap="Normalized Transfer Entropy among international stock market indices."}
-corrplot::corrplot(corr = TE.matrix/max(TE.matrix), diag = FALSE, order = "hclust", is.corr = FALSE)
+corrplot::corrplot(corr = TE.matrix/max(TE.matrix), diag = FALSE,
+                   is.corr = FALSE, outline = T,tl.col = "black",
+                   method = "color",
+                   col = colorRampPalette(c("blue","white", "red"))(100))
 ```
 
 
