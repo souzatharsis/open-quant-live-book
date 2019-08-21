@@ -25,7 +25,7 @@
 <meta name="author" content="OpenQuants.com">
 
 
-<meta name="date" content="2019-08-20">
+<meta name="date" content="2019-08-21">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -250,7 +250,7 @@ x_2(n) &amp;= 0.51x_1^2(n-1) + \epsilon_2, \\
 \end{align*}\]</span>
 <p>A simple nonlinearity introduced in the relationship between <span class="math inline">\(x_2\)</span> and <span class="math inline">\(x_1\)</span> was enough to introduce complexity into the system and potentially mislead a naive (non-quant) human.</p>
 <p>Fortunately, we can take advantage of statistics and information theory to uncover complex causal relationships from observational data (remember, this is still a very very challenging task). We quantify causality by using the notion of the causal relation introduced by Granger <span class="citation">(Wiener <a href="#ref-Wiener56">1956</a>; Granger <a href="#ref-granger:econ">1969</a>)</span>, where a signal <span class="math inline">\(X\)</span> is said to Granger-cause <span class="math inline">\(Y\)</span> if the future realizations of <span class="math inline">\(Y\)</span> can be better explained using the past information from <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> rather than <span class="math inline">\(Y\)</span> alone.</p>
-<p>In this Chapter, we will introduce a prediction-based definition of causality and its implementation using a vector auto-regression formulation. Next, we will introduce a probabilistic-definition of causality and its implementation using an information-theoretical framework. We will then symulate linear and nonlinear systems and uncover causal links with the proposed methods. In the final section, we will quantify information flow among global equity indexes further uncovering which indexes and markets are driving the global financial markets. Finally, we will discuss further applications including the impact of social media sentiment in financial and crypto markets.</p>
+<p>In this Chapter, we will introduce a prediction-based definition of causality and its implementation using a vector auto-regression formulation. Next, we will introduce a probabilistic-definition of causality and its implementation using an information-theoretical framework. We will then simulate linear and nonlinear systems and uncover causal links with the proposed methods. In the final section, we will quantify information flow among global equity indexes further uncovering which indexes and markets are driving the global financial markets. Finally, we will discuss further applications including the impact of social media sentiment in financial and crypto markets.</p>
 <div id="LinearG" class="section level2">
 <h2><span class="header-section-number">4.1</span> A First Definition of Causality</h2>
 <p>The most common definitions of Granger-causality (<em>G-causality</em>) rely on the prediction of a future value of the variable <span class="math inline">\(Y\)</span> by using the past values of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> itself. In that form, <span class="math inline">\(X\)</span> is said to <em>G-cause</em> <span class="math inline">\(Y\)</span> if the use of <span class="math inline">\(X\)</span> improves the prediction of <span class="math inline">\(Y\)</span>.</p>
