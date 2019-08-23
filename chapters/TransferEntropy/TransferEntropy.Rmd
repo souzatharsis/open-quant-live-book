@@ -1,6 +1,6 @@
-# Information Theory and Statistical Causality
+# How to Measure Statistical Causality: A Transfer Entropy Approach with Financial Applications
 
-We've all heard the say "correlation does not imply causation", but how can we quantify causation? This is an extremely difficult and often misleading task, particularly when trying to infer causality from observational data and we cannot perform controlled trials or A/B testing.
+We’ve all heard the say “correlation does not imply causation”, but how can we quantify causation? This is an extremely difficult and often misleading task, particularly when trying to infer causality from observational data and we cannot perform controlled trials or A/B testing.
 
 Take for example the 2-dimensional system from Fig. \@ref(fig:rand). 
 ```{r eval=TRUE, echo=FALSE, cache=TRUE}
@@ -16,7 +16,7 @@ for (i in 2:(n + 1)) {
 x1 <- x1[-1]
 x2 <- x2[-1]
 ```
-```{r rand, echo=FALSE, out.width='100%', fig.align = "center", fig.cap="Life is Random (or Nonlinear?)"}
+```{r rand, echo=FALSE, out.width='50%', fig.align = "center", fig.cap="Life is Random (or Nonlinear?)"}
 #knitr::include_graphics("./chapters/TransferEntropy/rand.png")
 plot(x2, x1)
 ```
@@ -36,11 +36,24 @@ A simple nonlinearity introduced in the relationship between $x_2$ and $x_1$ was
 
 
 
-Fortunately, we can take advantage of statistics and information theory to uncover complex causal relationships from observational data (remember, this is still a very very challenging task). We quantify causality by using the notion of the causal relation introduced by Granger [@Wiener56; @granger:econ], where a signal $X$ is said to Granger-cause $Y$ if the future realizations of $Y$ can be better explained using the past information from $X$ and $Y$ rather than $Y$ alone.
+Fortunately, we can take advantage of statistics and information theory to uncover complex causal relationships from observational data (remember, this is still a very challenging task).
 
-In this Chapter, we will introduce a prediction-based definition of causality and its implementation using a vector auto-regression formulation. Next, we will introduce a probabilistic-definition of causality and its implementation using an information-theoretical framework. We will then simulate linear and nonlinear systems and uncover causal links with the proposed methods. In the final section, we will quantify information flow among global equity indexes further uncovering which indexes and markets are driving the global financial markets. Finally, we will discuss further applications including the impact of social media sentiment in financial and crypto markets.
+
+The objectives of this Chapter are the following:
+
+- Introduce a prediction-based definition of causality and its implementation using a vector auto-regression formulation.
+- Introduce a probabilistic-definition of causality and its implementation using an information-theoretical framework.
+- Simulate linear and nonlinear systems and uncover causal links with the proposed methods.
+- Quantify information flow among global equity indexes further uncovering which indexes are driving the global financial markets.
+- Discuss further applications including the impact of social media sentiment in financial and crypto markets.
 
 ## A First Definition of Causality {#LinearG}
+
+We quantify causality by using the notion of the causal relation introduced by Granger [@Wiener56; @granger:econ], where a signal $X$ is said to Granger-cause $Y$ if the future realizations of $Y$ can be better explained using the past information from $X$ and $Y$ rather than $Y$ alone.
+
+```{r G, echo=FALSE, out.width='50%', fig.align = "center", fig.cap="Economist Clive Granger, who won the 2003 Nobel Prize in Economics."}
+knitr::include_graphics("./chapters/TransferEntropy/G.jpg")
+```
 
 The most common definitions of Granger-causality (*G-causality*) rely on the prediction of a future 
 value of the variable $Y$ by using the past values of $X$ and $Y$ itself. 
@@ -79,7 +92,7 @@ Y(t) &= \widehat{\alpha} + \sum^k_{\Delta t=1}{{\widehat{\beta}}_{\Delta t} Y(t-
 \end{align}
 where $k$ is the number of lags considered. Alternatively, you can choose your DL/SVM/RF/GLM method of choice to fit the model.
 
-From Def \@ref(def:G1), $X$ does not G-cause $Y$ if and only if the prediction errors of $X$ in the restricted Eq. \@ref(eq:AR11) and unrestricted regression models Eq. \@ref(eq:AR22) are equal (i.e., they are statistically indistinguishable). A one-way ANOVA test can be utilized to test if the residuals from Eqs. \@ref(eq:AR11) and \@ref(eq:AR22) differ from each other significantly. When more than one lag $k$ is tested, a correction for multiple hypotheses testing should be applied, e.g. False Discovery Rate (FDR) or Bonferroni correction.
+From Def. \@ref(def:G1), $X$ does not G-cause $Y$ if and only if the prediction errors of $X$ in the restricted Eq. \@ref(eq:AR11) and unrestricted regression models Eq. \@ref(eq:AR22) are equal (i.e., they are statistically indistinguishable). A one-way ANOVA test can be utilized to test if the residuals from Eqs. \@ref(eq:AR11) and \@ref(eq:AR22) differ from each other significantly. When more than one lag $k$ is tested, a correction for multiple hypotheses testing should be applied, e.g. False Discovery Rate (FDR) or Bonferroni correction.
 
 
 ## A Probabilistic-Based Definition
@@ -116,6 +129,9 @@ H\left(Y\middle\vert X\right) = H(X,Y) - H(X).
 \end{equation}
 We can interpret $H\left(Y\middle\vert X\right)$ as the uncertainty of $Y$ given a realization of $X$.
 
+```{r S, echo=FALSE, out.width='50%', fig.align = "center", fig.cap="Shannon, Claude. The concept of information entropy was introduced by Claude Shannon in his 1948 paper: A Mathematical Theory of Communication."}
+knitr::include_graphics("./chapters/TransferEntropy/S.jpg")
+```
 
 To compute G-Causality, we use the concept of Transfer Entropy. Since its introduction [@PhysRevLett.85.461], Transfer Entropy has been recognized as an important tool in the analysis of causal relationships in nonlinear systems [@citeulike:1447442].
 It detects directional and dynamical information [@10.1371/journal.pone.0109462] while not assuming any particular functional form to describe interactions among systems.
@@ -237,7 +253,7 @@ Linear.GC <- function(X, Y){
 }
 ```
 
-We use the function `calc_te` from the package **RTransferEntropy** and the previously defined function `Linear.GC` to calculate pairwise information flow among the simulated variables as follows:
+We use the function `calc_te` from the package **RTransferEntropy** [@R-RTransferEntropy] and the previously defined function `Linear.GC` to calculate pairwise information flow among the simulated variables as follows:
 ```{r eval=TRUE, echo=FALSE, results='hide', include=FALSE}
 FApply.Pairwise <- function(X, D.Func){
   n = seq_len(ncol(X))
@@ -290,7 +306,6 @@ corrplot::corrplot(corr = TE.matrix, diag = FALSE,
                    method = "color",
                    col = colorRampPalette(c("blue","white", "red"))(100))
 ```
-
 
 We define a second system by introducing nonlinear interactions between $x_1$ and the variables $x_2$ and $x_5$ as follows:
 
@@ -482,3 +497,15 @@ knitr::include_graphics("./chapters/TransferEntropy/te-crypto.png")
 
 All analysis for this paper was performed using a
 Python package (PyCausality), which is available at https://github.com/ZacKeskin/PyCausality.
+
+## Conclusions
+
+Untangling cause and effect can be devilishly difficult. However, statistical tools can help us tell correlation from causation.
+
+In this Chapter, we introduced the notion of Granger-causality and its traditional implementation in a linear vector-autoregressive framework. We then defined information theoretical measures to quantify Transfer Entropy as a method to estimate statistical causality in nonlinear systems.
+
+We simulated linear and nonlinear systems further showing that the traditional linear G-causality approach failed to detect simple non-linearities introduced into the system while Transfer Entropy successfully detected such relationships.
+
+Finally, we showed how Transfer Entropy can be used to quantify relationships among global equity indexes. We also discussed further applications from the literature where Information Theoretical measures were used to quantify causal links between investor sentiment and movements in the equity and crypto markets.
+
+We hope you enjoyed this casual causal journey and remember: Quantify causality, responsibly.
