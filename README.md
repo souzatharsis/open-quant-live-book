@@ -3,7 +3,7 @@
 [![star this repo](http://githubbadges.com/star.svg?user=souzatharsis&repo=open-quant-live-book&style=default)](https://github.com/souzatharsis/open-quant-live-book)
 [![fork this repo](http://githubbadges.com/fork.svg?user=souzatharsis&repo=open-quant-live-book&style=default)](https://github.com/souzatharsis/open-quant-live-book/fork)
 [![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
-
+Made by the Community for the Community. Make Wall Street Great Again.
 <img src="./fig/cover.jpg" alt="The Open Quant Book" class="center">
 
 ### Description
