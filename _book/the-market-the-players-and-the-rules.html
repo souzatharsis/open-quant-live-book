@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<html >
-
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
 
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 6 The Market, The Players and The Rules | The Open Quant Live Book</title>
-  <meta name="description" content="Chapter 6 The Market, The Players and The Rules | The Open Quant Live Book">
-  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+  <meta name="description" content="Chapter 6 The Market, The Players and The Rules | The Open Quant Live Book" />
+  <meta name="generator" content="bookdown 0.13 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 6 The Market, The Players and The Rules | The Open Quant Live Book" />
   <meta property="og:type" content="book" />
@@ -22,18 +21,18 @@
   <meta name="twitter:description" content="Chapter 6 The Market, The Players and The Rules | The Open Quant Live Book" />
   <meta name="twitter:image" content="./fig/cover.jpg" />
 
-<meta name="author" content="OpenQuants.com">
+<meta name="author" content="OpenQuants.com" />
 
 
-<meta name="date" content="2019-08-24">
+<meta name="date" content="2019-08-26" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="financial-networks.html">
-<link rel="next" href="statistical-methods.html">
+<link rel="prev" href="financial-networks.html"/>
+<link rel="next" href="statistical-methods.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -135,7 +134,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="1.2.1" data-path="io.html"><a href="io.html#alpha-vantage"><i class="fa fa-check"></i><b>1.2.1</b> Alpha Vantage</a></li>
 <li class="chapter" data-level="1.2.2" data-path="io.html"><a href="io.html#iex"><i class="fa fa-check"></i><b>1.2.2</b> IEX</a></li>
 <li class="chapter" data-level="1.2.3" data-path="io.html"><a href="io.html#quandl"><i class="fa fa-check"></i><b>1.2.3</b> Quandl</a></li>
-<li class="chapter" data-level="1.2.4" data-path="io.html"><a href="io.html#sec"><i class="fa fa-check"></i><b>1.2.4</b> SEC</a></li>
 </ul></li>
 <li class="chapter" data-level="1.3" data-path="io.html"><a href="io.html#conclusion"><i class="fa fa-check"></i><b>1.3</b> Conclusion</a><ul>
 <li class="chapter" data-level="1.3.1" data-path="io.html"><a href="io.html#further-reading"><i class="fa fa-check"></i><b>1.3.1</b> Further Reading</a></li>
@@ -211,6 +209,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="B.1.5" data-path="datasets.html"><a href="datasets.html#dataset-scheme"><i class="fa fa-check"></i><b>B.1.5</b> Dataset Scheme</a></li>
 </ul></li>
 </ul></li>
+<li class="chapter" data-level="C" data-path="r-evaltrue-echotrue-cachetrue-headdataset.html"><a href="r-evaltrue-echotrue-cachetrue-headdataset.html"><i class="fa fa-check"></i><b>C</b> <code>{r eval=TRUE, echo=TRUE, cache=TRUE} # head(dataset) #</code></a></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://creativecommons.org/licenses/by/4.0/" target="blank">CC-BY 4.0</a></li>
@@ -247,7 +246,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p><strong>The amount spent in Alternative Data have been steadily increasing.</strong> More than half of all quantitative and fundamental investors surveyed recently are either considering or using alternative data as part of their workflow - <a href="https://www.valuewalk.com/2019/07/alternative-data-paradigms-of-fundamental-and-quantitative/">Greenwich Associates</a>.</p>
 </blockquote>
 <p>A recent <a href="https://www.valuewalk.com/2019/07/alternative-data-paradigms-of-fundamental-and-quantitative/">Greenwich Associates report</a> found that a wide majority of investment managers, 72%, stated that alternative data was improving enhanced their signal quality in an arena where filtering out signal noise. Of those who are implementing an alternative data strategy, more than one-fifth claim to have received 20% or more of their alpha from the practice.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-46"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-33"></span>
 <img src="https://cdn-images-1.medium.com/max/1600/0*GirclNZeAoiHWNne.png" alt="Total Buy-side spend on Alternative Data has been steadily increasing and its likely to nearly triple from 2018 to 2020." width="100%" />
 <p class="caption">
 Figure 6.1: Total Buy-side spend on Alternative Data has been steadily increasing and its likely to nearly triple from 2018 to 2020.
@@ -257,7 +256,7 @@ Figure 6.1: Total Buy-side spend on Alternative Data has been steadily increasin
 <div id="the-data" class="section level2">
 <h2><span class="header-section-number">6.2</span> The Data</h2>
 <p>But where’s Alternative Data coming from and who are the key players providing access to it?</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-47"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-34"></span>
 <img src="https://cdn-images-1.medium.com/max/1600/0*s_Pil2lOeWW6hJ_a.png" alt="Alternative Data are sourced by heterogeneous sources including individuals, businesses and sensors." width="100%" />
 <p class="caption">
 Figure 6.2: Alternative Data are sourced by heterogeneous sources including individuals, businesses and sensors.
@@ -269,7 +268,7 @@ Figure 6.2: Alternative Data are sourced by heterogeneous sources including indi
 <li>Sensors, particularly with the emergence of IoT, that generate satellite images, weather forecasts and geolocation data;</li>
 <li>Businesses from which data is generated in the form of traditional official filings and earning calls as well as banking records or supply chain data.</li>
 </ol>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-48"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-35"></span>
 <img src="https://cdn-images-1.medium.com/max/1600/0*VsYQ_IxQ2EHp1w8B.png" alt="The number of Alternative Data Providers is exploding." width="100%" />
 <p class="caption">
 Figure 6.3: The number of Alternative Data Providers is exploding.
@@ -287,7 +286,7 @@ Figure 6.3: The number of Alternative Data Providers is exploding.
 <p>While the alternative data offering is exploding there is a gap between what data vendors offer and what data buyers want.</p>
 </blockquote>
 <p>A <a href="https://alternativedata.org/new-alternative-data-pricing-report/">research</a> report conducted by BattleFin and AlternativeData.org has found that there is a gap between what data vendors offer and what data buyers actually want: - Data buyers view the three most-valuable data categories as: credit/debit cards (14.83%) web data (12.29%), and social/sentiment (11.02%). - By contrast, the percentage of data providers covering these data categories are: credit card (0.69%), web-crawled data (3.94%) and sentiment (4.40%). - Data providers report that the top-three categories their data covers are: business insights (6.48%), web traffic (4.63%) and sentiment (4.40%).</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-49"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-36"></span>
 <img src="https://cdn-images-1.medium.com/max/1600/1*I9bxxOlaZu5s7Vk5AhnVXA.png" alt="Data extracted from a research report conducted by BattleFin and AlternativeData.org, which compiles responses from 173 respondents made up of 69 alternative-data buyers and 104 data providers who responded to a 2018 survey conducted by BattleFin." width="100%" />
 <p class="caption">
 Figure 6.4: Data extracted from a research report conducted by BattleFin and AlternativeData.org, which compiles responses from 173 respondents made up of 69 alternative-data buyers and 104 data providers who responded to a 2018 survey conducted by BattleFin.
@@ -314,7 +313,7 @@ Figure 6.4: Data extracted from a research report conducted by BattleFin and Alt
 <li>What is the size/funding/team profile of your firm?</li>
 </ol>
 <p>There is one tricky question though: Whether the data was already licensed to other clients. Particularly if the buyer is looking for alpha, they actually would prefer to be one of the first to test the data and avoid using a dataset that is already “crowded”. By the same token, they would be happy to hear that the dataset was already licensed to reputable clients as a sign of credibility. It’s up to you to navigate through this trade-off.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-50"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-37"></span>
 <img src="https://cdn-images-1.medium.com/max/1600/1*MRcgvpX8o1RT8HZwOr12jw.png" alt="The sales life-cycle of an alternative data product can take up to seven months from lead generation to customer sign-up. Image by Quandl." width="100%" />
 <p class="caption">
 Figure 6.5: The sales life-cycle of an alternative data product can take up to seven months from lead generation to customer sign-up. Image by Quandl.
@@ -405,8 +404,9 @@ gitbook.start({
     script.type = "text/javascript";
     var src = "";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:" && /^https?:/.test(src))
-      src = src.replace(/^https?:/, '');
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
     script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();

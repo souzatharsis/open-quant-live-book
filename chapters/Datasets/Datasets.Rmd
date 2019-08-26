@@ -18,7 +18,7 @@ Alpha Vantage
 
 ### Code
 
-```{r eval=FALSE, echo=TRUE}
+```{r eval=FALSE, echo=TRUE, cache=TRUE}
 library(quantmod)
 
 tickers<-c("^GSPC", "^FTSE", "^GDAXI", "^N100", "^BVSP")
@@ -49,6 +49,6 @@ write.zoo(dataset,sep=",",file="./data/global_indices_returns.csv")
 
 ### Dataset Scheme
 
-```{r eval=TRUE, echo=TRUE, cache=TRUE}
-head(dataset)
-```
+# ```{r eval=TRUE, echo=TRUE, cache=TRUE}
+# head(dataset)
+# ```

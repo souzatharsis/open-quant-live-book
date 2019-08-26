@@ -3,7 +3,7 @@
 We’ve all heard the say “correlation does not imply causation”, but how can we quantify causation? This is an extremely difficult and often misleading task, particularly when trying to infer causality from observational data and we cannot perform controlled trials or A/B testing.
 
 Take for example the 2-dimensional system from Fig. \@ref(fig:rand). 
-```{r eval=TRUE, echo=FALSE, cache=TRUE}
+```{r sys1, eval=TRUE, echo=FALSE, cache=TRUE}
 set.seed(123)
 n <- 1000
 x1 <- x2 <-rep(0, n + 1)
@@ -17,7 +17,6 @@ x1 <- x1[-1]
 x2 <- x2[-1]
 ```
 ```{r rand, echo=FALSE, out.width='50%', fig.align = "center", fig.cap="Life is Random (or Nonlinear?)"}
-#knitr::include_graphics("./chapters/TransferEntropy/rand.png")
 plot(x2, x1)
 ```
 
@@ -50,6 +49,7 @@ The objectives of this Chapter are the following:
 ## A First Definition of Causality {#LinearG}
 
 We quantify causality by using the notion of the causal relation introduced by Granger [@Wiener56; @granger:econ], where a signal $X$ is said to Granger-cause $Y$ if the future realizations of $Y$ can be better explained using the past information from $X$ and $Y$ rather than $Y$ alone.
+
 
 ```{r G, echo=FALSE, out.width='50%', fig.align = "center", fig.cap="Economist Clive Granger, who won the 2003 Nobel Prize in Economics."}
 knitr::include_graphics("./chapters/TransferEntropy/G.jpg")
@@ -207,7 +207,7 @@ x_5(n) &= -0.25\sqrt{2}x_4(n-1) + 0.25\sqrt{2}x_5(n-1) + w_5, \nonumber
 where $w_1, w_2, w_3, w_4, w_5 \sim N(0, 1)$. To simulate this system we assume $x_i(0) = 0, i \in (1, 2, \ldots, 5)$ as initial condition and then iteratively generate $x_i$ for $n \in (1, 2, \ldots, N)$ with a total of $N = 10,000$ iterations by randomly sampling $w_i, i \in (1, 2, \ldots, 5)$ from a normal distribution with zero mean and unit variance.
 
 We simulate this linear system with the following code:
-```{r eval=TRUE, echo=TRUE, cache=TRUE}
+```{r sys2, eval=TRUE, echo=TRUE, cache=TRUE}
 set.seed(123)
 n <- 10000
 x1 <- x2<-x3<-x4<-x5<-rep(0, n + 1)
@@ -235,7 +235,7 @@ knitr::include_graphics("./chapters/TransferEntropy/S4Fig1.png")
 ```
 
 We first define a function that calculates a bi-variate measure for G-causality as defined in Eq. \@ref(eq:GCGC) as follows:
-```{r eval=TRUE, echo=TRUE, cache=TRUE}
+```{r, eval=TRUE, echo=TRUE, cache=TRUE}
 Linear.GC <- function(X, Y){
 
   n<-length(X)
@@ -254,7 +254,7 @@ Linear.GC <- function(X, Y){
 ```
 
 We use the function `calc_te` from the package **RTransferEntropy** [@R-RTransferEntropy] and the previously defined function `Linear.GC` to calculate pairwise information flow among the simulated variables as follows:
-```{r eval=TRUE, echo=FALSE, results='hide', include=FALSE}
+```{r FApply, eval=TRUE, echo=FALSE, results='hide', include=FALSE}
 FApply.Pairwise <- function(X, D.Func){
   n = seq_len(ncol(X))
 
@@ -263,7 +263,7 @@ FApply.Pairwise <- function(X, D.Func){
   return(outer(n, n, Vectorize(ff.TE.value)))
 }
 ```
-```{r eval=TRUE, echo=TRUE}
+```{r eval=TRUE, echo=TRUE, cache=TRUE}
 library(RTransferEntropy)
 library(future)
 
@@ -276,6 +276,9 @@ TE.matrix<-FApply.Pairwise(linear.system, calc_te)
 
 rownames(TE.matrix)<-colnames(TE.matrix)<-var.names<-c("x1", "x2", "x3", "x4", "x5")
 rownames(GC.matrix)<-colnames(GC.matrix)<-var.names
+
+## Back to sequential
+plan(sequential)
 ```
 The function `FApply.Pairwise` is an auxiliary function that simply applies a given function `D.Func` to all possible pairs of columns from a given matrix `X` as follows:  
 ```{r eval=FALSE, echo=TRUE, cache=TRUE}
@@ -293,14 +296,14 @@ A cell $(x, y)$ presents the information flow from variable $y$ to variable $x$.
 We observe that both the Granger-causality (linear) and Transfer Entropy (nonlinear) approaches presented similar results, i.e., both methods captured the system's dependencies similarly. 
 This result is expected as the system is purely linear and Transfer Entropy is able to capture both the linear and nonlinear interactions.
 
-```{r causality-graph-GC, echo=FALSE, out.width='100%', fig.align = "center",fig.cap="Granger-Causality of simulated linear system"}
+```{r causality-graph-GC, echo=FALSE, out.width='100%', fig.align = "center",fig.cap="Granger-Causality of simulated linear system", cache=TRUE}
 corrplot::corrplot(corr = GC.matrix, diag = FALSE,
                    is.corr = FALSE, outline = T,tl.col = "black",
                    method = "color",
                    col = colorRampPalette(c("blue","white", "red"))(100))
 ```
 
-```{r causality-graph-TE, echo=FALSE, out.width='100%', fig.align = "center",fig.cap="Transfer Entropy of simulated linear system"}
+```{r causality-graph-TE, echo=FALSE, out.width='100%', fig.align = "center",fig.cap="Transfer Entropy of simulated linear system", cache=TRUE}
 corrplot::corrplot(corr = TE.matrix, diag = FALSE,
                    is.corr = FALSE, outline = T,tl.col = "black",
                    method = "color",
@@ -346,13 +349,20 @@ knitr::include_graphics("./chapters/TransferEntropy/S4Fig2.png")
 ```
 
 We calculate Granger-causality and Transfer Entropy of the simulated nonlinear system as follows:
-```{r eval=TRUE, echo=TRUE}
+```{r eval=TRUE, echo=TRUE, cache=TRUE}
+## Allow for parallel computing
+plan(multiprocess)
+
+
 ## Calculates GC and TE
 GC.matrix.nonlinear<-FApply.Pairwise(nonlinear.system, Linear.GC)
 TE.matrix.nonlinear<-FApply.Pairwise(nonlinear.system, calc_te)
 
 rownames(TE.matrix.nonlinear)<-colnames(TE.matrix.nonlinear)<-var.names
 rownames(GC.matrix.nonlinear)<-colnames(GC.matrix.nonlinear)<-var.names
+
+## Back to sequential computing
+plan(sequential)
 ```
 
 
@@ -361,14 +371,14 @@ While all linear interactions presented similar linear and nonlinear information
 the two nonlinear interactions introduced in the system presented relatively higher nonlinear information flow compared to the linear formulation.
 
 
-```{r causality-graph-nonlinear-GC, echo=FALSE, out.width='100%', fig.align = "center",fig.cap="Granger-Causality of simulated nonlinear system"}
+```{r causality-graph-nonlinear-GC, echo=FALSE, out.width='100%', fig.align = "center",fig.cap="Granger-Causality of simulated nonlinear system", cache=TRUE}
 corrplot::corrplot(corr = GC.matrix.nonlinear, diag = FALSE,
                    is.corr = FALSE, outline = T,tl.col = "black",
                    method = "color",
                    col = colorRampPalette(c("blue","white", "red"))(100))
 ```
 
-```{r causality-graph-nonlinear-TE, echo=FALSE, out.width='100%', fig.align = "center",fig.cap="Transfer Entropy of simulated nonlinear system"}
+```{r causality-graph-nonlinear-TE, echo=FALSE, out.width='100%', fig.align = "center",fig.cap="Transfer Entropy of simulated nonlinear system", cache=TRUE}
 corrplot::corrplot(corr = TE.matrix.nonlinear, diag = FALSE,
                    is.corr = FALSE, outline = T,tl.col = "black",
                    method = "color",
@@ -406,15 +416,21 @@ dataset.post.crisis <- NaRV.omit(as.data.frame(dataset["2014-01-01/"]))
 
 We will calculate pairwise Transfer Entropy among all indices considered and construct a matrix such that each value in the position $(i,j)$ will contain the value Transfer Entropy from $tickers[i]$ to $tickers[j]$ as follows: 
 
-```{r eval=TRUE, echo=TRUE, cache=TRUE, message=FALSE}
+```{r eval=TRUE, echo=TRUE, message=FALSE, cache=TRUE}
+## Allow for parallel computing
+plan(multiprocess)
+
 # Calculate pairwise Transfer Entropy among global indices
 TE.matrix<-FApply.Pairwise(dataset.post.crisis, calc_ete)
 rownames(TE.matrix)<-colnames(TE.matrix)<-tickers
+
+## Back to sequential computing
+plan(sequential)
 ```
 
 
 Fig. \@ref(fig:TEmatrix) displays the resulting Transfer Entropy matrix. We normalize the Transfer Entropy values by dividing it by the maximum value in the matrix such that all values range from 0 to 1. We observe that the international indices studied are highly interconnected in the period analyzed with the highest information flow going from the US market to the UK market (^GSPC -> ^FTSE). The second highest information flow is going from the UK market to the US market. That's a result we would expect as the US and the UK markets are strongly coupled, historically.
-```{r TEmatrix,  eval=TRUE, echo=FALSE, cache=TRUE, out.width='100%', fig.align = "center", fig.cap="Normalized Transfer Entropy among international stock market indices."}
+```{r TEmatrix,  eval=TRUE, echo=FALSE, cache=TRUE, out.width='100%', fig.align = "center", fig.cap="Normalized Transfer Entropy among international stock market indices.", cache=TRUE}
 corrplot::corrplot(corr = TE.matrix/max(TE.matrix), diag = FALSE,
                    is.corr = FALSE, outline = T,tl.col = "black",
                    method = "color",
@@ -424,7 +440,7 @@ corrplot::corrplot(corr = TE.matrix/max(TE.matrix), diag = FALSE,
 
 We also calculate the marginal contribution of each market to the total Transfer Entropy in the system by calculating the sum of Transfer Entropy for each row in the Transfer Entropy matrix, which we also normalize such that all values range from 0 to 1:
 ```{r eval=TRUE, echo=TRUE, cache=TRUE}
-TE.marginal<-apply(TE.matrix, 1, sum)
+TE.marginal<-base::apply(TE.matrix, 1, sum)
 TE.marginal.norm<-TE.marginal/sum(TE.marginal)
 print(TE.marginal.norm)
 ```
@@ -463,7 +479,7 @@ The Nonlinear analysis discovers that several other
 stocks have significant causality. In addition to the 3 stocks identified with significant linear causality, other 8 stocks presented purely nonlinear causality.
 
 
-```{r sigpoints-0, echo=FALSE, out.width='100%', fig.align = "center", fig.cap="Demonstration that the causality between social media and stocks' returns are mostly nonlinear. Linear causality test indicated that social media caused stock's returns only for 3 stocks. Nonparametric analysis showed that almost 1/3 of the stocks rejected in the linear case have significant nonlinear causality. In the nonlinear case, Transfer Entropy was used to quantify causal inference between the systems with randomized permutations test for significance estimation. In the linear case, a standard linear G-causality test was performed with a F-test under a linear vector-autoregressive framework. A significant linear G-causality was accepted if its linear specification was not rejected by the BDS test. p-values are adjusted with the Bonferroni correction. Significance is given at p-value  < 0.05."}
+```{r sigpoints-0, echo=FALSE, out.width='100%', fig.align = "center", fig.cap="Demonstration that the causality between social media and stocks' returns are mostly nonlinear. Linear causality test indicated that social media caused stock's returns only for 3 stocks. Nonparametric analysis showed that almost 1/3 of the stocks rejected in the linear case have significant nonlinear causality. In the nonlinear case, Transfer Entropy was used to quantify causal inference between the systems with randomized permutations test for significance estimation. In the linear case, a standard linear G-causality test was performed with a F-test under a linear vector-autoregressive framework. A significant linear G-causality was accepted if its linear specification was not rejected by the BDS test. p-values are adjusted with the Bonferroni correction. Significance is given at p-value  < 0.05.", cache=TRUE}
 knitr::include_graphics("./chapters/TransferEntropy/SM-R-33.png")
 ```
 
@@ -490,7 +506,7 @@ XRP, over multiple timescales and in both the directions
 sentiment to price and price to sentiment. The effect was
 strongest and most consistent for BTC and LTC. Fig. \@ref(fig:te-crypto) shows Transfer Entropy results between BTC sentiment and BTC prices.
 
-```{r te-crypto, echo=FALSE, out.width='100%', fig.align = "center", fig.cap="Evidence that BTC sentiment and price are causally coupled in both directions in a non-linear way. Non-linear TE is calculated by multidimensional histograms with 6 quantile bins per dimension. Z-scores, calculated over 50 shuffles, show a high level of significance, especially during 2017 and 2018, in both directions."}
+```{r te-crypto, echo=FALSE, out.width='100%', fig.align = "center", fig.cap="Evidence that BTC sentiment and price are causally coupled in both directions in a non-linear way. Non-linear TE is calculated by multidimensional histograms with 6 quantile bins per dimension. Z-scores, calculated over 50 shuffles, show a high level of significance, especially during 2017 and 2018, in both directions.", cache=TRUE}
 knitr::include_graphics("./chapters/TransferEntropy/te-crypto.png")
 ```
 

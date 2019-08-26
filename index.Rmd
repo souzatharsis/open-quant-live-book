@@ -30,8 +30,14 @@ if(!knitr:::is_html_output())
   options("width"=56)
   knitr::opts_chunk$set(tidy.opts=list(width.cutoff=56, indent = 2), tidy = TRUE)
   knitr::opts_chunk$set(fig.pos = 'H', fig.align = "center")
+  knitr::opts_chunk$set(error = FALSE,     # suppress errors
+                      message = FALSE,   # suppress messages
+                      warning = FALSE   # suppress warnings
+                      )      # enable caching
 }
 ```
+
+
 
 
 \newcommand{\independent}{\perp\!\!\!\!\perp}
@@ -101,13 +107,17 @@ knitr::include_graphics('fig/by-nc-sa.png')
 
 ```{block2, type='flushright', html.tag='p'}
 Copyright (c) 2019. OpenQuants.com, New York, NY.
-```
 
+
+```{block2, type='flushright', html.tag='p'}
+[![Become a patron](https://github.com/souzatharsis/open-quant-live-book/blob/master/fig/patreon.png)](http://patreon.com/openquants)
+```
 
 ```{r include=FALSE}
 # automatically create a bib database for R packages
 knitr::write_bib(c(
-  .packages(), 'bookdown', 'knitr', 'rmarkdown', 'RTransferEntropy'
+  .packages(), 'bookdown', 'knitr', 'rmarkdown', 'RTransferEntropy', 'Quandl'
 ), 'packages.bib')
  ```
 
+ 

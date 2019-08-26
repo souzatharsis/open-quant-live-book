@@ -5,10 +5,7 @@ if(!require(iex)){
 }
 
 ###################### ALPHA VANTAGE
-
-config::get()$alpha.vantage.key
-
-setDefaults(getSymbols.av, api.key='XG3T5XUFFDLJ0JGY')
+setDefaults(getSymbols.av, api.key=config::get()$alpha.vantage.key)
 
 tickers<-c("AAPL", "MSFT", "SPY")
 
@@ -26,18 +23,9 @@ x<-getSymbols(Symbols='AAPL', src="av", output.size="full", output.size="full", 
 
 
 ######################## Quandl
-# library(Quandl)
-#
-#
-# Quandl.api_key('V2TuJHRGC5irmyAXBszA')
-#
-# from.dat <- as.Date("01/01/2010", format="%d/%m/%Y")
-# to.dat <- as.Date("01/01/2018", format="%d/%m/%Y")
-# ticker <- "AAPL"
-# dat<-Quandl(ticker, start_date = from.dat, end_date = to.dat, type="xts", adjusted=TRUE)
-#
-# plot(dat$)
-#
-# https://www.quandl.com/api/v3/databases?api_key=V2TuJHRGC5irmyAXBszA&current_page=2
-
-
+library(Quandl)
+Quandl.api_key(config::get()$quandl.key)
+from.dat <- as.Date("01/01/2010", format="%d/%m/%Y")
+to.dat <- as.Date("01/01/2019", format="%d/%m/%Y")
+crude.oil.futures<-Quandl("CHRIS/CME_CL1", start_date = from.dat, end_date = to.dat, type="xts")
+plot(crude.oil.futures$Last)

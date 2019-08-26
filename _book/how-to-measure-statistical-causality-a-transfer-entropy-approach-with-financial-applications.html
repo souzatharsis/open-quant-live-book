@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<html >
-
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
 
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 4 How to Measure Statistical Causality: A Transfer Entropy Approach with Financial Applications | The Open Quant Live Book</title>
-  <meta name="description" content="Chapter 4 How to Measure Statistical Causality: A Transfer Entropy Approach with Financial Applications | The Open Quant Live Book">
-  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+  <meta name="description" content="Chapter 4 How to Measure Statistical Causality: A Transfer Entropy Approach with Financial Applications | The Open Quant Live Book" />
+  <meta name="generator" content="bookdown 0.13 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 4 How to Measure Statistical Causality: A Transfer Entropy Approach with Financial Applications | The Open Quant Live Book" />
   <meta property="og:type" content="book" />
@@ -22,18 +21,18 @@
   <meta name="twitter:description" content="Chapter 4 How to Measure Statistical Causality: A Transfer Entropy Approach with Financial Applications | The Open Quant Live Book" />
   <meta name="twitter:image" content="./fig/cover.jpg" />
 
-<meta name="author" content="OpenQuants.com">
+<meta name="author" content="OpenQuants.com" />
 
 
-<meta name="date" content="2019-08-24">
+<meta name="date" content="2019-08-26" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="entropy.html">
-<link rel="next" href="financial-networks.html">
+<link rel="prev" href="entropy.html"/>
+<link rel="next" href="financial-networks.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -135,7 +134,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="1.2.1" data-path="io.html"><a href="io.html#alpha-vantage"><i class="fa fa-check"></i><b>1.2.1</b> Alpha Vantage</a></li>
 <li class="chapter" data-level="1.2.2" data-path="io.html"><a href="io.html#iex"><i class="fa fa-check"></i><b>1.2.2</b> IEX</a></li>
 <li class="chapter" data-level="1.2.3" data-path="io.html"><a href="io.html#quandl"><i class="fa fa-check"></i><b>1.2.3</b> Quandl</a></li>
-<li class="chapter" data-level="1.2.4" data-path="io.html"><a href="io.html#sec"><i class="fa fa-check"></i><b>1.2.4</b> SEC</a></li>
 </ul></li>
 <li class="chapter" data-level="1.3" data-path="io.html"><a href="io.html#conclusion"><i class="fa fa-check"></i><b>1.3</b> Conclusion</a><ul>
 <li class="chapter" data-level="1.3.1" data-path="io.html"><a href="io.html#further-reading"><i class="fa fa-check"></i><b>1.3.1</b> Further Reading</a></li>
@@ -211,6 +209,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="B.1.5" data-path="datasets.html"><a href="datasets.html#dataset-scheme"><i class="fa fa-check"></i><b>B.1.5</b> Dataset Scheme</a></li>
 </ul></li>
 </ul></li>
+<li class="chapter" data-level="C" data-path="r-evaltrue-echotrue-cachetrue-headdataset.html"><a href="r-evaltrue-echotrue-cachetrue-headdataset.html"><i class="fa fa-check"></i><b>C</b> <code>{r eval=TRUE, echo=TRUE, cache=TRUE} # head(dataset) #</code></a></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://creativecommons.org/licenses/by/4.0/" target="blank">CC-BY 4.0</a></li>
@@ -436,7 +435,10 @@ GC.matrix&lt;-<span class="kw">FApply.Pairwise</span>(linear.system, Linear.GC)
 TE.matrix&lt;-<span class="kw">FApply.Pairwise</span>(linear.system, calc_te)
 
 <span class="kw">rownames</span>(TE.matrix)&lt;-<span class="kw">colnames</span>(TE.matrix)&lt;-var.names&lt;-<span class="kw">c</span>(<span class="st">&quot;x1&quot;</span>, <span class="st">&quot;x2&quot;</span>, <span class="st">&quot;x3&quot;</span>, <span class="st">&quot;x4&quot;</span>, <span class="st">&quot;x5&quot;</span>)
-<span class="kw">rownames</span>(GC.matrix)&lt;-<span class="kw">colnames</span>(GC.matrix)&lt;-var.names</code></pre></div>
+<span class="kw">rownames</span>(GC.matrix)&lt;-<span class="kw">colnames</span>(GC.matrix)&lt;-var.names
+
+## Back to sequential
+<span class="kw">plan</span>(sequential)</code></pre></div>
 <p>The function <code>FApply.Pairwise</code> is an auxiliary function that simply applies a given function <code>D.Func</code> to all possible pairs of columns from a given matrix <code>X</code> as follows:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">FApply.Pairwise &lt;-<span class="st"> </span><span class="cf">function</span>(X, D.Func){
   n =<span class="st"> </span><span class="kw">seq_len</span>(<span class="kw">ncol</span>(X))
@@ -494,12 +496,19 @@ Figure 4.7: Interactions between the variables of the simulated nonlinear system
 </p>
 </div>
 <p>We calculate Granger-causality and Transfer Entropy of the simulated nonlinear system as follows:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## Calculates GC and TE
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## Allow for parallel computing
+<span class="kw">plan</span>(multiprocess)
+
+
+## Calculates GC and TE
 GC.matrix.nonlinear&lt;-<span class="kw">FApply.Pairwise</span>(nonlinear.system, Linear.GC)
 TE.matrix.nonlinear&lt;-<span class="kw">FApply.Pairwise</span>(nonlinear.system, calc_te)
 
 <span class="kw">rownames</span>(TE.matrix.nonlinear)&lt;-<span class="kw">colnames</span>(TE.matrix.nonlinear)&lt;-var.names
-<span class="kw">rownames</span>(GC.matrix.nonlinear)&lt;-<span class="kw">colnames</span>(GC.matrix.nonlinear)&lt;-var.names</code></pre></div>
+<span class="kw">rownames</span>(GC.matrix.nonlinear)&lt;-<span class="kw">colnames</span>(GC.matrix.nonlinear)&lt;-var.names
+
+## Back to sequential computing
+<span class="kw">plan</span>(sequential)</code></pre></div>
 <p>From Fig. <a href="how-to-measure-statistical-causality-a-transfer-entropy-approach-with-financial-applications.html#fig:causality-graph-nonlinear-GC">4.8</a> and Fig. <a href="how-to-measure-statistical-causality-a-transfer-entropy-approach-with-financial-applications.html#fig:causality-graph-nonlinear-TE">4.9</a>, we observe that the nonlinear interactions introduced were not captured by the linear form of the information flow. While all linear interactions presented similar linear and nonlinear information flows, the two nonlinear interactions introduced in the system presented relatively higher nonlinear information flow compared to the linear formulation.</p>
 <div class="figure" style="text-align: center"><span id="fig:causality-graph-nonlinear-GC"></span>
 <img src="open-quant-live-book_files/figure-html/causality-graph-nonlinear-GC-1.png" alt="Granger-Causality of simulated nonlinear system" width="100%" />
@@ -536,9 +545,15 @@ dataset&lt;-<span class="kw">as.xts</span>(<span class="kw">read.zoo</span>(<spa
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(IDPmisc)
 dataset.post.crisis &lt;-<span class="st"> </span><span class="kw">NaRV.omit</span>(<span class="kw">as.data.frame</span>(dataset[<span class="st">&quot;2014-01-01/&quot;</span>]))</code></pre></div>
 <p>We will calculate pairwise Transfer Entropy among all indices considered and construct a matrix such that each value in the position <span class="math inline">\((i,j)\)</span> will contain the value Transfer Entropy from <span class="math inline">\(tickers[i]\)</span> to <span class="math inline">\(tickers[j]\)</span> as follows:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Calculate pairwise Transfer Entropy among global indices</span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## Allow for parallel computing
+<span class="kw">plan</span>(multiprocess)
+
+<span class="co"># Calculate pairwise Transfer Entropy among global indices</span>
 TE.matrix&lt;-<span class="kw">FApply.Pairwise</span>(dataset.post.crisis, calc_ete)
-<span class="kw">rownames</span>(TE.matrix)&lt;-<span class="kw">colnames</span>(TE.matrix)&lt;-tickers</code></pre></div>
+<span class="kw">rownames</span>(TE.matrix)&lt;-<span class="kw">colnames</span>(TE.matrix)&lt;-tickers
+
+## Back to sequential computing
+<span class="kw">plan</span>(sequential)</code></pre></div>
 Fig. <a href="how-to-measure-statistical-causality-a-transfer-entropy-approach-with-financial-applications.html#fig:TEmatrix">4.10</a> displays the resulting Transfer Entropy matrix. We normalize the Transfer Entropy values by dividing it by the maximum value in the matrix such that all values range from 0 to 1. We observe that the international indices studied are highly interconnected in the period analyzed with the highest information flow going from the US market to the UK market (^GSPC -&gt; ^FTSE). The second highest information flow is going from the UK market to the US market. That’s a result we would expect as the US and the UK markets are strongly coupled, historically.
 <div class="figure" style="text-align: center"><span id="fig:TEmatrix"></span>
 <img src="open-quant-live-book_files/figure-html/TEmatrix-1.png" alt="Normalized Transfer Entropy among international stock market indices." width="100%" />
@@ -547,7 +562,7 @@ Figure 4.10: Normalized Transfer Entropy among international stock market indice
 </p>
 </div>
 <p>We also calculate the marginal contribution of each market to the total Transfer Entropy in the system by calculating the sum of Transfer Entropy for each row in the Transfer Entropy matrix, which we also normalize such that all values range from 0 to 1:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">TE.marginal&lt;-<span class="kw">apply</span>(TE.matrix, <span class="dv">1</span>, sum)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">TE.marginal&lt;-base<span class="op">::</span><span class="kw">apply</span>(TE.matrix, <span class="dv">1</span>, sum)
 TE.marginal.norm&lt;-TE.marginal<span class="op">/</span><span class="kw">sum</span>(TE.marginal)
 <span class="kw">print</span>(TE.marginal.norm)</code></pre></div>
 <pre><code>##  ^GSPC  ^FTSE ^GDAXI  ^N100  ^BVSP 
@@ -598,23 +613,11 @@ Figure 4.12: Evidence that BTC sentiment and price are causally coupled in both 
 </div>
 <h3>References</h3>
 <div id="refs" class="references">
-<div id="ref-Wiener56">
-<p>Wiener, N. 1956. “The theory of prediction.” In <em>Modern Mathematics for Engineers</em>, edited by E. F. Beckenbach. McGraw-Hill, New York.</p>
+<div id="ref-Tobias:2013">
+<p>Alanyali, M., H. S. Moat, and T. Preis. 2013. “Quantifying the Relationship Between Financial News and the Stock Market.” <em>Sci. Rep.</em> 3.</p>
 </div>
-<div id="ref-granger:econ">
-<p>Granger, Clive. 1969. “Investigating Causal Relations by Econometric Models and Cross-Spectral Methods.” <em>Econometrica</em> 37 (3): 424–38.</p>
-</div>
-<div id="ref-PhysRevLett.85.461">
-<p>Schreiber, Thomas. 2000. “Measuring Information Transfer.” <em>Phys. Rev. Lett.</em> 85 (2). American Physical Society: 461–64. doi:<a href="https://doi.org/10.1103/PhysRevLett.85.461">10.1103/PhysRevLett.85.461</a>.</p>
-</div>
-<div id="ref-citeulike:1447442">
-<p>Hlavackovaschindler, K., M. Palus, M. Vejmelka, and J. Bhattacharya. 2007. “Causality Detection Based on Information-Theoretic Approaches in Time Series Analysis.” <em>Physics Reports</em> 441 (1): 1–46. doi:<a href="https://doi.org/10.1016/j.physrep.2006.12.004">10.1016/j.physrep.2006.12.004</a>.</p>
-</div>
-<div id="ref-10.1371/journal.pone.0109462">
-<p>Montalto, Luca AND Marinazzo, Alessandro AND Faes. 2014. “MuTE: A Matlab Toolbox to Compare Established and Novel Estimators of the Multivariate Transfer Entropy.” <em>PLoS ONE</em> 9 (10). Public Library of Science: e109462. doi:<a href="https://doi.org/10.1371/journal.pone.0109462">10.1371/journal.pone.0109462</a>.</p>
-</div>
-<div id="ref-Michalowicz:2013:HDE:2601840">
-<p>Michalowicz, Joseph Victor, Jonathan M. Nichols, and Frank Bucholtz. 2013. <em>Handbook of Differential Entropy</em>. Chapman &amp; Hall/CRC.</p>
+<div id="ref-Antweiler+Frank:04a">
+<p>Antweiler, Werner, and Murray Z. Frank. 2004. “Is All That Talk Just Noise? The Information Content of Internet Stock Message Boards.” <em>Journal of Finance</em> 59 (3): 1259–94.</p>
 </div>
 <div id="ref-PhysRevLett.103.238701">
 <p>Barnett, Lionel, Adam B. Barrett, and Anil K. Seth. 2009. “Granger Causality and Transfer Entropy Are Equivalent for Gaussian Variables.” <em>Phys. Rev. Lett.</em> 103 (23). American Physical Society: 238701. doi:<a href="https://doi.org/10.1103/PhysRevLett.103.238701">10.1103/PhysRevLett.103.238701</a>.</p>
@@ -622,11 +625,32 @@ Figure 4.12: Evidence that BTC sentiment and price are causally coupled in both 
 <div id="ref-R-RTransferEntropy">
 <p>Behrendt, Simon, David Zimmermann, Thomas Dimpfl, and Franziska Peter. 2019. <em>RTransferEntropy: Measuring Information Flow Between Time Series with Shannon and Renyi Transfer Entropy</em>. <a href="https://CRAN.R-project.org/package=RTransferEntropy" class="uri">https://CRAN.R-project.org/package=RTransferEntropy</a>.</p>
 </div>
+<div id="ref-JOFI:JOFI518">
+<p>Fama, E. F. 1970. “Efficient Capital Markets: A Review of Theory and Empirical Work.” <em>The Journal of Finance</em> 25 (2). Blackwell Publishing Ltd: 383–417. doi:<a href="https://doi.org/10.1111/j.1540-6261.1970.tb00518.x">10.1111/j.1540-6261.1970.tb00518.x</a>.</p>
+</div>
+<div id="ref-granger:econ">
+<p>Granger, Clive. 1969. “Investigating Causal Relations by Econometric Models and Cross-Spectral Methods.” <em>Econometrica</em> 37 (3): 424–38.</p>
+</div>
+<div id="ref-citeulike:1447442">
+<p>Hlavackovaschindler, K., M. Palus, M. Vejmelka, and J. Bhattacharya. 2007. “Causality Detection Based on Information-Theoretic Approaches in Time Series Analysis.” <em>Physics Reports</em> 441 (1): 1–46. doi:<a href="https://doi.org/10.1016/j.physrep.2006.12.004">10.1016/j.physrep.2006.12.004</a>.</p>
+</div>
 <div id="ref-junior2015dependency">
 <p>Junior, Leonidas, Asher Mullokandov, and Dror Kenett. 2015. “Dependency Relations Among International Stock Market Indices.” <em>Journal of Risk and Financial Management</em> 8 (2). Multidisciplinary Digital Publishing Institute: 227–65.</p>
 </div>
-<div id="ref-JOFI:JOFI518">
-<p>Fama, E. F. 1970. “Efficient Capital Markets: A Review of Theory and Empirical Work.” <em>The Journal of Finance</em> 25 (2). Blackwell Publishing Ltd: 383–417. doi:<a href="https://doi.org/10.1111/j.1540-6261.1970.tb00518.x">10.1111/j.1540-6261.1970.tb00518.x</a>.</p>
+<div id="ref-keskin2019information">
+<p>Keskin, Z, and T Aste. 2019. “Information-Theoretic Measures for Non-Linear Causality Detection: Application to Social Media Sentiment and Cryptocurrency Prices.” <em>arXiv Preprint arXiv:1906.05740</em>.</p>
+</div>
+<div id="ref-Michalowicz:2013:HDE:2601840">
+<p>Michalowicz, Joseph Victor, Jonathan M. Nichols, and Frank Bucholtz. 2013. <em>Handbook of Differential Entropy</em>. Chapman &amp; Hall/CRC.</p>
+</div>
+<div id="ref-10.1371/journal.pone.0109462">
+<p>Montalto, Luca AND Marinazzo, Alessandro AND Faes. 2014. “MuTE: A Matlab Toolbox to Compare Established and Novel Estimators of the Multivariate Transfer Entropy.” <em>PLoS ONE</em> 9 (10). Public Library of Science: e109462. doi:<a href="https://doi.org/10.1371/journal.pone.0109462">10.1371/journal.pone.0109462</a>.</p>
+</div>
+<div id="ref-10.1371/journal.pone.0138441">
+<p>Ranco, D. AND Caldarelli, G. AND Aleksovski. 2015. “The Effects of Twitter Sentiment on Stock Price Returns.” <em>PLoS ONE</em> 10 (9). Public Library of Science: e0138441. doi:<a href="https://doi.org/10.1371/journal.pone.0138441">10.1371/journal.pone.0138441</a>.</p>
+</div>
+<div id="ref-PhysRevLett.85.461">
+<p>Schreiber, Thomas. 2000. “Measuring Information Transfer.” <em>Phys. Rev. Lett.</em> 85 (2). American Physical Society: 461–64. doi:<a href="https://doi.org/10.1103/PhysRevLett.85.461">10.1103/PhysRevLett.85.461</a>.</p>
 </div>
 <div id="ref-shleifer2000inefficient">
 <p>Shleifer, A. 2000. <em>Inefficient Markets: An Introduction to Behavioral Finance</em>. Clarendon Lectures in Economics. OUP Oxford.</p>
@@ -634,20 +658,11 @@ Figure 4.12: Evidence that BTC sentiment and price are causally coupled in both 
 <div id="ref-2016arXiv160104535S">
 <p>Souza, T. T. P., and T. Aste. 2016. “A nonlinear impact: evidences of causal effects of social media on market prices.” <em>ArXiv E-Prints. Http://Arxiv.org/Abs/1601.04535</em>, January. arXiv preprint. http://arxiv.org/abs/1601.04535.</p>
 </div>
-<div id="ref-Tobias:2013">
-<p>Alanyali, M., H. S. Moat, and T. Preis. 2013. “Quantifying the Relationship Between Financial News and the Stock Market.” <em>Sci. Rep.</em> 3.</p>
-</div>
-<div id="ref-Antweiler+Frank:04a">
-<p>Antweiler, Werner, and Murray Z. Frank. 2004. “Is All That Talk Just Noise? The Information Content of Internet Stock Message Boards.” <em>Journal of Finance</em> 59 (3): 1259–94.</p>
-</div>
-<div id="ref-10.1371/journal.pone.0138441">
-<p>Ranco, D. AND Caldarelli, G. AND Aleksovski. 2015. “The Effects of Twitter Sentiment on Stock Price Returns.” <em>PLoS ONE</em> 10 (9). Public Library of Science: e0138441. doi:<a href="https://doi.org/10.1371/journal.pone.0138441">10.1371/journal.pone.0138441</a>.</p>
+<div id="ref-Wiener56">
+<p>Wiener, N. 1956. “The theory of prediction.” In <em>Modern Mathematics for Engineers</em>, edited by E. F. Beckenbach. McGraw-Hill, New York.</p>
 </div>
 <div id="ref-citeulike:13108056">
 <p>Zheludev, I., R. Smith, and T. Aste. 2014. “When Can Social Media Lead Financial Markets?” <em>Scientific Reports</em> 4 (February).</p>
-</div>
-<div id="ref-keskin2019information">
-<p>Keskin, Z, and T Aste. 2019. “Information-Theoretic Measures for Non-Linear Causality Detection: Application to Social Media Sentiment and Cryptocurrency Prices.” <em>arXiv Preprint arXiv:1906.05740</em>.</p>
 </div>
 </div>
             </section>
@@ -709,8 +724,9 @@ gitbook.start({
     script.type = "text/javascript";
     var src = "";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:" && /^https?:/.test(src))
-      src = src.replace(/^https?:/, '');
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
     script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();

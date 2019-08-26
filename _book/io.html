@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<html >
-
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
 
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 1 I/O | The Open Quant Live Book</title>
-  <meta name="description" content="Chapter 1 I/O | The Open Quant Live Book">
-  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+  <meta name="description" content="Chapter 1 I/O | The Open Quant Live Book" />
+  <meta name="generator" content="bookdown 0.13 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 1 I/O | The Open Quant Live Book" />
   <meta property="og:type" content="book" />
@@ -22,18 +21,18 @@
   <meta name="twitter:description" content="Chapter 1 I/O | The Open Quant Live Book" />
   <meta name="twitter:image" content="./fig/cover.jpg" />
 
-<meta name="author" content="OpenQuants.com">
+<meta name="author" content="OpenQuants.com" />
 
 
-<meta name="date" content="2019-08-24">
+<meta name="date" content="2019-08-26" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="index.html">
-<link rel="next" href="stylized-facts.html">
+<link rel="prev" href="index.html"/>
+<link rel="next" href="stylized-facts.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -135,7 +134,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="1.2.1" data-path="io.html"><a href="io.html#alpha-vantage"><i class="fa fa-check"></i><b>1.2.1</b> Alpha Vantage</a></li>
 <li class="chapter" data-level="1.2.2" data-path="io.html"><a href="io.html#iex"><i class="fa fa-check"></i><b>1.2.2</b> IEX</a></li>
 <li class="chapter" data-level="1.2.3" data-path="io.html"><a href="io.html#quandl"><i class="fa fa-check"></i><b>1.2.3</b> Quandl</a></li>
-<li class="chapter" data-level="1.2.4" data-path="io.html"><a href="io.html#sec"><i class="fa fa-check"></i><b>1.2.4</b> SEC</a></li>
 </ul></li>
 <li class="chapter" data-level="1.3" data-path="io.html"><a href="io.html#conclusion"><i class="fa fa-check"></i><b>1.3</b> Conclusion</a><ul>
 <li class="chapter" data-level="1.3.1" data-path="io.html"><a href="io.html#further-reading"><i class="fa fa-check"></i><b>1.3.1</b> Further Reading</a></li>
@@ -211,6 +209,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="B.1.5" data-path="datasets.html"><a href="datasets.html#dataset-scheme"><i class="fa fa-check"></i><b>B.1.5</b> Dataset Scheme</a></li>
 </ul></li>
 </ul></li>
+<li class="chapter" data-level="C" data-path="r-evaltrue-echotrue-cachetrue-headdataset.html"><a href="r-evaltrue-echotrue-cachetrue-headdataset.html"><i class="fa fa-check"></i><b>C</b> <code>{r eval=TRUE, echo=TRUE, cache=TRUE} # head(dataset) #</code></a></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://creativecommons.org/licenses/by/4.0/" target="blank">CC-BY 4.0</a></li>
@@ -315,56 +314,56 @@ result_json &lt;-<span class="st"> </span><span class="kw">read_json</span>(<spa
 </thead>
 <tbody>
 <tr class="odd">
-<td align="right">13.6</td>
-<td align="right">16.2</td>
-<td align="right">13.5</td>
-<td align="right">16.2</td>
-<td align="right">6411700</td>
-<td align="right">0.510</td>
+<td align="right">60.4</td>
+<td align="right">60.8</td>
+<td align="right">59.9</td>
+<td align="right">60.4</td>
+<td align="right">1.26e+08</td>
+<td align="right">1.88</td>
 </tr>
 <tr class="even">
-<td align="right">16.5</td>
-<td align="right">16.6</td>
-<td align="right">15.2</td>
-<td align="right">15.9</td>
-<td align="right">5820300</td>
-<td align="right">0.499</td>
+<td align="right">60.7</td>
+<td align="right">61.5</td>
+<td align="right">60.1</td>
+<td align="right">61.4</td>
+<td align="right">7.38e+07</td>
+<td align="right">1.91</td>
 </tr>
 <tr class="odd">
-<td align="right">15.9</td>
-<td align="right">20.0</td>
-<td align="right">14.8</td>
-<td align="right">18.9</td>
-<td align="right">16182800</td>
-<td align="right">0.595</td>
+<td align="right">61.1</td>
+<td align="right">63.1</td>
+<td align="right">61.1</td>
+<td align="right">62.1</td>
+<td align="right">1.01e+08</td>
+<td align="right">1.94</td>
 </tr>
 <tr class="even">
-<td align="right">18.8</td>
-<td align="right">19.0</td>
-<td align="right">17.3</td>
-<td align="right">17.5</td>
-<td align="right">9300200</td>
-<td align="right">0.550</td>
+<td align="right">62.8</td>
+<td align="right">65.0</td>
+<td align="right">62.7</td>
+<td align="right">64.8</td>
+<td align="right">1.12e+08</td>
+<td align="right">2.02</td>
 </tr>
 <tr class="odd">
-<td align="right">17.4</td>
-<td align="right">18.6</td>
-<td align="right">16.9</td>
-<td align="right">18.2</td>
-<td align="right">6910900</td>
-<td align="right">0.571</td>
+<td align="right">65.0</td>
+<td align="right">65.0</td>
+<td align="right">62.0</td>
+<td align="right">62.1</td>
+<td align="right">8.41e+07</td>
+<td align="right">1.93</td>
 </tr>
 <tr class="even">
-<td align="right">18.1</td>
-<td align="right">19.4</td>
-<td align="right">17.5</td>
-<td align="right">18.2</td>
-<td align="right">7915600</td>
-<td align="right">0.571</td>
+<td align="right">62.6</td>
+<td align="right">65.9</td>
+<td align="right">62.1</td>
+<td align="right">65.2</td>
+<td align="right">1.59e+08</td>
+<td align="right">2.03</td>
 </tr>
 </tbody>
 </table>
-<p><img src="open-quant-live-book_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
+<p><img src="open-quant-live-book_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
 <p>We called the <code>quantmod::getSymbols</code> function with the following arguments:</p>
 <ul>
 <li><code>Symbols='AAPL'</code> defines a character vector specifying the names of each symbol to be loaded, here specified by the symbol of the company Apple Inc.;</li>
@@ -406,10 +405,10 @@ result_json &lt;-<span class="st"> </span><span class="kw">read_json</span>(<spa
 </ul>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">dat<span class="op">$</span>response</code></pre></div>
 <pre><code>## Response [https://api.iextrading.com/1.0/tops/last?symbols=AAPL&amp;filter=symbol%2Cprice%2Csize]
-##   Date: 2019-02-17 23:16
+##   Date: 2019-08-26 05:32
 ##   Status: 200
 ##   Content-Type: application/json; charset=utf-8
-##   Size: 45 B</code></pre>
+##   Size: 46 B</code></pre>
 <ul>
 <li>The <code>content</code> contains the parsed content from the API’s response:</li>
 </ul>
@@ -419,537 +418,32 @@ result_json &lt;-<span class="st"> </span><span class="kw">read_json</span>(<spa
 ## [1] &quot;AAPL&quot;
 ## 
 ## [[1]]$price
-## [1] 142
+## [1] 203
 ## 
 ## [[1]]$size
-## [1] 100</code></pre>
+## [1] 300</code></pre>
 <p>According to the developer, this package causes R to pause 0.2 seconds after executing an API call to avoid the user being throttled by the IEX API (which enforces a 5 request per second limit). Documentation about the other set of functions can be obtained at <a href="https://github.com/imanuelcostigan/iex/tree/master/man" class="uri">https://github.com/imanuelcostigan/iex/tree/master/man</a>.</p>
 </div>
 <div id="quandl" class="section level3">
 <h3><span class="header-section-number">1.2.3</span> Quandl</h3>
-</div>
-<div id="sec" class="section level3">
-<h3><span class="header-section-number">1.2.4</span> SEC</h3>
-<p>Official filings are freely available from the U.S. Securities and Exchange Commission’s EDGAR database. The package <code>finreportr</code> provides an interface in R to facilitate financial analysis from SEC’s 10K and 10K/A filings.</p>
-<p>We can obtain company basic information with the function the <code>CompanyInfo</code> function by passing the ticker symbol of the target company as follows:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(<span class="st">&quot;finreportr&quot;</span>)
-AAPL.Info&lt;-<span class="kw">CompanyInfo</span>(<span class="st">&quot;AAPL&quot;</span>)
-<span class="kw">print</span>(AAPL.Info)</code></pre></div>
-<pre><code>##     company        CIK  SIC state state.inc FY.end     street.address
-## 1 APPLE INC 0000320193 3571    CA        CA   0930 ONE APPLE PARK WAY
-##           city.state
-## 1 CUPERTINO CA 95014</code></pre>
-<p>As a result, we obtain the following information:</p>
+<p><a href="https://www.quandl.com"><strong>Quandl</strong></a> is likely the largest financial and alternative data aggregator/provider today. They leverage relationships with third-party providers to be a one-stop-shop for alternative data and traditional fundamental, pricing and estimates datasets.</p>
+<p>Quandl offer an API which usage is free for registered users. You can obtain an API key <a href="https://www.quandl.com/sign-up-modal?defaultModal=showSignUp">here</a>. After signing up, just append your API key to your call like this:</p>
+<pre><code>https://www.quandl.com/api/v3/datasets/WIKI/FB/data.csv?api_key=YOURAPIKEYHERE</code></pre>
+<p>At Quandl, every dataset is identified by “Quandl code”, which is a unique id. In the above example, you downloaded a dataset with the Quandl code “WIKI/FB”.</p>
+<p>Every Quandl code has 2 parts: the database code (“WIKI”) which specifies where the data comes from, and the dataset code (“FB”) which identifies the specific time series you want.</p>
+<p>You can find Quandl codes using their <a href="https://www.quandl.com/search">data browser</a>. Additional API documentation can be found <a href="https://docs.quandl.com/">here</a>.</p>
+<p>Quandl is also available via an R interface <span class="citation">(Raymond McTaggart, Gergely Daroczi, and Clement Leung <a href="#ref-R-Quandl">2019</a>)</span>. For instance, we can obtain Crude Oil Futures prices from 01/01/2010 to 01/01/2019 as follows:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(Quandl)
+<span class="kw">Quandl.api_key</span>(config<span class="op">::</span><span class="kw">get</span>()<span class="op">$</span>quandl.key)
+from.dat &lt;-<span class="st"> </span><span class="kw">as.Date</span>(<span class="st">&quot;01/01/2010&quot;</span>, <span class="dt">format=</span><span class="st">&quot;%d/%m/%Y&quot;</span>)
+to.dat &lt;-<span class="st"> </span><span class="kw">as.Date</span>(<span class="st">&quot;01/01/2019&quot;</span>, <span class="dt">format=</span><span class="st">&quot;%d/%m/%Y&quot;</span>)
+crude.oil.futures&lt;-<span class="kw">Quandl</span>(<span class="st">&quot;CHRIS/CME_CL1&quot;</span>, <span class="dt">start_date =</span> from.dat, <span class="dt">end_date =</span> to.dat, <span class="dt">type=</span><span class="st">&quot;xts&quot;</span>)
+<span class="kw">plot</span>(crude.oil.futures<span class="op">$</span>Last)</code></pre></div>
+<p><img src="open-quant-live-book_files/figure-html/unnamed-chunk-22-1.png" width="672" /> In the example above we specified the following Database/Dataset:</p>
 <ul>
-<li>Company name: APPLE INC;</li>
-<li>SEC Central Index Key (CIK): 0000320193;<br />
-</li>
-<li>Standard Industrial Classification (SIC): 3571, which is the industry code for Electronic Computers;</li>
-<li>Address: ONE APPLE PARK WAY, CUPERTINO CA 95014;</li>
-<li>Most recent period of report end is 0930.</li>
+<li>Database: “CHRIS”. Continuous contracts for all 600 futures on Quandl. Built on top of raw data from CME, ICE, LIFFE etc. Curated by the Quandl community. 50 years history.</li>
+<li>Dataset: “CME_CL1”. Historical futures prices of Crude Oil Futures, Continuous Contract #1. Non-adjusted price based on spot-month continuous contract calculations. Raw data from CME.</li>
 </ul>
-<p>The list of company annual reports with corresponding filing dates can be obtained with the function <em>AnnualReports</em> as follows:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">AAPL.reports&lt;-<span class="kw">AnnualReports</span>(<span class="st">&quot;AAPL&quot;</span>)</code></pre></div>
-<table>
-<caption><span id="tab:unnamed-chunk-23">Table 1.1: </span>Sample Annual Reports</caption>
-<thead>
-<tr class="header">
-<th align="left">filing.name</th>
-<th align="left">filing.date</th>
-<th align="left">accession.no</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">10-K</td>
-<td align="left">2018-11-05</td>
-<td align="left">0000320193-18-000145</td>
-</tr>
-<tr class="even">
-<td align="left">10-K</td>
-<td align="left">2017-11-03</td>
-<td align="left">0000320193-17-000070</td>
-</tr>
-<tr class="odd">
-<td align="left">10-K</td>
-<td align="left">2016-10-26</td>
-<td align="left">0001628280-16-020309</td>
-</tr>
-<tr class="even">
-<td align="left">10-K</td>
-<td align="left">2015-10-28</td>
-<td align="left">0001193125-15-356351</td>
-</tr>
-<tr class="odd">
-<td align="left">10-K</td>
-<td align="left">2014-10-27</td>
-<td align="left">0001193125-14-383437</td>
-</tr>
-<tr class="even">
-<td align="left">10-K</td>
-<td align="left">2013-10-30</td>
-<td align="left">0001193125-13-416534</td>
-</tr>
-</tbody>
-</table>
-<p>The accession number is a unique identifier that the SEC creates for each filing.</p>
-<p>Company financials are organized into 3 segments: Income Statement, Balance Sheet and Cash Flow.</p>
-<p><strong>Income Statement</strong></p>
-<p>Financials from the Income Statement segment can be obtained with the <em>GetIncome</em> function as follows:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">AAPL.IS&lt;-<span class="kw">GetIncome</span>(<span class="st">&quot;AAPL&quot;</span>, <span class="dv">2017</span>)</code></pre></div>
-<table>
-<caption><span id="tab:unnamed-chunk-25">Table 1.2: </span>Sample Income Statement Financials</caption>
-<thead>
-<tr class="header">
-<th align="left">Metric</th>
-<th align="left">Units</th>
-<th align="left">Amount</th>
-<th align="left">startDate</th>
-<th align="left">endDate</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">Revenue, Net</td>
-<td align="left">usd</td>
-<td align="left">233715000000</td>
-<td align="left">2014-09-28</td>
-<td align="left">2015-09-26</td>
-</tr>
-<tr class="even">
-<td align="left">Revenue, Net</td>
-<td align="left">usd</td>
-<td align="left">75872000000</td>
-<td align="left">2015-09-27</td>
-<td align="left">2015-12-26</td>
-</tr>
-<tr class="odd">
-<td align="left">Revenue, Net</td>
-<td align="left">usd</td>
-<td align="left">50557000000</td>
-<td align="left">2015-12-27</td>
-<td align="left">2016-03-26</td>
-</tr>
-<tr class="even">
-<td align="left">Revenue, Net</td>
-<td align="left">usd</td>
-<td align="left">42358000000</td>
-<td align="left">2016-03-27</td>
-<td align="left">2016-06-25</td>
-</tr>
-<tr class="odd">
-<td align="left">Revenue, Net</td>
-<td align="left">usd</td>
-<td align="left">46852000000</td>
-<td align="left">2016-06-26</td>
-<td align="left">2016-09-24</td>
-</tr>
-<tr class="even">
-<td align="left">Revenue, Net</td>
-<td align="left">usd</td>
-<td align="left">215639000000</td>
-<td align="left">2015-09-27</td>
-<td align="left">2016-09-24</td>
-</tr>
-</tbody>
-</table>
-<p>The Income Statement function returns data for the following metrics:</p>
-<table>
-<caption><span id="tab:unnamed-chunk-26">Table 1.3: </span>Income Statement Metrics</caption>
-<colgroup>
-<col width="100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th align="left">Metrics</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">Revenue, Net</td>
-</tr>
-<tr class="even">
-<td align="left">Cost of Goods and Services Sold</td>
-</tr>
-<tr class="odd">
-<td align="left">Gross Profit</td>
-</tr>
-<tr class="even">
-<td align="left">Research and Development Expense</td>
-</tr>
-<tr class="odd">
-<td align="left">Selling, General and Administrative Expense</td>
-</tr>
-<tr class="even">
-<td align="left">Operating Expenses</td>
-</tr>
-<tr class="odd">
-<td align="left">Operating Income (Loss)</td>
-</tr>
-<tr class="even">
-<td align="left">Nonoperating Income (Expense)</td>
-</tr>
-<tr class="odd">
-<td align="left">Income (Loss) from Continuing Operations before Income Taxes, Noncontrolling Interest</td>
-</tr>
-<tr class="even">
-<td align="left">Income Tax Expense (Benefit)</td>
-</tr>
-<tr class="odd">
-<td align="left">Net Income (Loss) Attributable to Parent</td>
-</tr>
-<tr class="even">
-<td align="left">Earnings Per Share, Basic</td>
-</tr>
-<tr class="odd">
-<td align="left">Earnings Per Share, Diluted</td>
-</tr>
-<tr class="even">
-<td align="left">Weighted Average Number of Shares Outstanding, Basic</td>
-</tr>
-<tr class="odd">
-<td align="left">Weighted Average Number of Shares Outstanding, Diluted</td>
-</tr>
-<tr class="even">
-<td align="left">Common Stock, Dividends, Per Share, Declared</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Balance Sheet</strong></p>
-<p>Financials from the Balance Sheet segment can be obtained with the <em>GetBalanceSheet</em> function as follows:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">AAPL.BS&lt;-<span class="kw">GetBalanceSheet</span>(<span class="st">&quot;AAPL&quot;</span>, <span class="dv">2017</span>)</code></pre></div>
-<table>
-<caption><span id="tab:unnamed-chunk-28">Table 1.4: </span>Sample Balance Sheet Financials</caption>
-<thead>
-<tr class="header">
-<th align="left">Metric</th>
-<th align="left">Units</th>
-<th align="left">Amount</th>
-<th align="left">startDate</th>
-<th align="left">endDate</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">Cash and Cash Equivalents, at Carrying Value</td>
-<td align="left">usd</td>
-<td align="left">13844000000</td>
-<td align="left">NA</td>
-<td align="left">2014-09-27</td>
-</tr>
-<tr class="even">
-<td align="left">Cash and Cash Equivalents, at Carrying Value</td>
-<td align="left">usd</td>
-<td align="left">21120000000</td>
-<td align="left">NA</td>
-<td align="left">2015-09-26</td>
-</tr>
-<tr class="odd">
-<td align="left">Cash and Cash Equivalents, at Carrying Value</td>
-<td align="left">usd</td>
-<td align="left">20484000000</td>
-<td align="left">NA</td>
-<td align="left">2016-09-24</td>
-</tr>
-<tr class="even">
-<td align="left">Cash and Cash Equivalents, at Carrying Value</td>
-<td align="left">usd</td>
-<td align="left">20289000000</td>
-<td align="left">NA</td>
-<td align="left">2017-09-30</td>
-</tr>
-<tr class="odd">
-<td align="left">Available-for-sale Securities, Current</td>
-<td align="left">usd</td>
-<td align="left">46671000000</td>
-<td align="left">NA</td>
-<td align="left">2016-09-24</td>
-</tr>
-<tr class="even">
-<td align="left">Available-for-sale Securities, Current</td>
-<td align="left">usd</td>
-<td align="left">53892000000</td>
-<td align="left">NA</td>
-<td align="left">2017-09-30</td>
-</tr>
-</tbody>
-</table>
-<p>The Balance Sheet function returns data for the following metrics:</p>
-<table>
-<caption><span id="tab:unnamed-chunk-29">Table 1.5: </span>Balance Sheet Metrics</caption>
-<thead>
-<tr class="header">
-<th align="left">Metrics</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">Cash and Cash Equivalents, at Carrying Value</td>
-</tr>
-<tr class="even">
-<td align="left">Available-for-sale Securities, Current</td>
-</tr>
-<tr class="odd">
-<td align="left">Accounts Receivable, Net, Current</td>
-</tr>
-<tr class="even">
-<td align="left">Inventory, Net</td>
-</tr>
-<tr class="odd">
-<td align="left">Nontrade Receivables, Current</td>
-</tr>
-<tr class="even">
-<td align="left">Other Assets, Current</td>
-</tr>
-<tr class="odd">
-<td align="left">Assets, Current</td>
-</tr>
-<tr class="even">
-<td align="left">Available-for-sale Securities, Noncurrent</td>
-</tr>
-<tr class="odd">
-<td align="left">Property, Plant and Equipment, Net</td>
-</tr>
-<tr class="even">
-<td align="left">Goodwill</td>
-</tr>
-<tr class="odd">
-<td align="left">Intangible Assets, Net (Excluding Goodwill)</td>
-</tr>
-<tr class="even">
-<td align="left">Other Assets, Noncurrent</td>
-</tr>
-<tr class="odd">
-<td align="left">Assets</td>
-</tr>
-<tr class="even">
-<td align="left">Accounts Payable, Current</td>
-</tr>
-<tr class="odd">
-<td align="left">Accrued Liabilities, Current</td>
-</tr>
-<tr class="even">
-<td align="left">Deferred Revenue, Current</td>
-</tr>
-<tr class="odd">
-<td align="left">Commercial Paper</td>
-</tr>
-<tr class="even">
-<td align="left">Long-term Debt, Current Maturities</td>
-</tr>
-<tr class="odd">
-<td align="left">Liabilities, Current</td>
-</tr>
-<tr class="even">
-<td align="left">Deferred Revenue, Noncurrent</td>
-</tr>
-<tr class="odd">
-<td align="left">Long-term Debt, Excluding Current Maturities</td>
-</tr>
-<tr class="even">
-<td align="left">Other Liabilities, Noncurrent</td>
-</tr>
-<tr class="odd">
-<td align="left">Liabilities</td>
-</tr>
-<tr class="even">
-<td align="left">Commitments and Contingencies</td>
-</tr>
-<tr class="odd">
-<td align="left">Common Stocks, Including Additional Paid in Capital</td>
-</tr>
-<tr class="even">
-<td align="left">Retained Earnings (Accumulated Deficit)</td>
-</tr>
-<tr class="odd">
-<td align="left">Accumulated Other Comprehensive Income (Loss), Net of Tax</td>
-</tr>
-<tr class="even">
-<td align="left">Stockholders’ Equity Attributable to Parent</td>
-</tr>
-<tr class="odd">
-<td align="left">Liabilities and Equity</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Cash Flow</strong></p>
-<p>Financials from the Cash Flow segment can be obtained with the <em>GetCashFlow</em> function as follows:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">AAPL.CF&lt;-<span class="kw">GetCashFlow</span>(<span class="st">&quot;AAPL&quot;</span>, <span class="dv">2017</span>)</code></pre></div>
-<table>
-<caption><span id="tab:unnamed-chunk-31">Table 1.6: </span>Sample Cash Flow Financials</caption>
-<thead>
-<tr class="header">
-<th align="left">Metric</th>
-<th align="left">Units</th>
-<th align="left">Amount</th>
-<th align="left">startDate</th>
-<th align="left">endDate</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">Cash and Cash Equivalents, at Carrying Value</td>
-<td align="left">usd</td>
-<td align="left">13844000000</td>
-<td align="left">NA</td>
-<td align="left">2014-09-27</td>
-</tr>
-<tr class="even">
-<td align="left">Cash and Cash Equivalents, at Carrying Value</td>
-<td align="left">usd</td>
-<td align="left">21120000000</td>
-<td align="left">NA</td>
-<td align="left">2015-09-26</td>
-</tr>
-<tr class="odd">
-<td align="left">Cash and Cash Equivalents, at Carrying Value</td>
-<td align="left">usd</td>
-<td align="left">20484000000</td>
-<td align="left">NA</td>
-<td align="left">2016-09-24</td>
-</tr>
-<tr class="even">
-<td align="left">Cash and Cash Equivalents, at Carrying Value</td>
-<td align="left">usd</td>
-<td align="left">20289000000</td>
-<td align="left">NA</td>
-<td align="left">2017-09-30</td>
-</tr>
-<tr class="odd">
-<td align="left">Net Income (Loss) Attributable to Parent</td>
-<td align="left">usd</td>
-<td align="left">53394000000</td>
-<td align="left">2014-09-28</td>
-<td align="left">2015-09-26</td>
-</tr>
-<tr class="even">
-<td align="left">Net Income (Loss) Attributable to Parent</td>
-<td align="left">usd</td>
-<td align="left">18361000000</td>
-<td align="left">2015-09-27</td>
-<td align="left">2015-12-26</td>
-</tr>
-</tbody>
-</table>
-<p>The Cash Flow function returns data for the following metrics:</p>
-<table>
-<caption><span id="tab:unnamed-chunk-32">Table 1.7: </span>Cash Flow Metrics</caption>
-<colgroup>
-<col width="100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th align="left">Metrics</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">Cash and Cash Equivalents, at Carrying Value</td>
-</tr>
-<tr class="even">
-<td align="left">Net Income (Loss) Attributable to Parent</td>
-</tr>
-<tr class="odd">
-<td align="left">Depreciation, Amortization and Accretion, Net</td>
-</tr>
-<tr class="even">
-<td align="left">Share-based Compensation</td>
-</tr>
-<tr class="odd">
-<td align="left">Deferred Income Tax Expense (Benefit)</td>
-</tr>
-<tr class="even">
-<td align="left">Other Noncash Income (Expense)</td>
-</tr>
-<tr class="odd">
-<td align="left">Increase (Decrease) in Accounts Receivable</td>
-</tr>
-<tr class="even">
-<td align="left">Increase (Decrease) in Inventories</td>
-</tr>
-<tr class="odd">
-<td align="left">Increase (Decrease) in Other Receivables</td>
-</tr>
-<tr class="even">
-<td align="left">Increase (Decrease) in Other Operating Assets</td>
-</tr>
-<tr class="odd">
-<td align="left">Increase (Decrease) in Accounts Payable</td>
-</tr>
-<tr class="even">
-<td align="left">Increase (Decrease) in Deferred Revenue</td>
-</tr>
-<tr class="odd">
-<td align="left">Increase (Decrease) in Other Operating Liabilities</td>
-</tr>
-<tr class="even">
-<td align="left">Net Cash Provided by (Used in) Operating Activities</td>
-</tr>
-<tr class="odd">
-<td align="left">Payments to Acquire Available-for-sale Securities</td>
-</tr>
-<tr class="even">
-<td align="left">Proceeds from Maturities, Prepayments and Calls of Available-for-sale Securities</td>
-</tr>
-<tr class="odd">
-<td align="left">Proceeds from Sale of Available-for-sale Securities</td>
-</tr>
-<tr class="even">
-<td align="left">Payments to Acquire Businesses, Net of Cash Acquired</td>
-</tr>
-<tr class="odd">
-<td align="left">Payments to Acquire Property, Plant, and Equipment</td>
-</tr>
-<tr class="even">
-<td align="left">Payments to Acquire Intangible Assets</td>
-</tr>
-<tr class="odd">
-<td align="left">Payments to Acquire Other Investments</td>
-</tr>
-<tr class="even">
-<td align="left">Payments for (Proceeds from) Other Investing Activities</td>
-</tr>
-<tr class="odd">
-<td align="left">Net Cash Provided by (Used in) Investing Activities</td>
-</tr>
-<tr class="even">
-<td align="left">Proceeds from Issuance of Common Stock</td>
-</tr>
-<tr class="odd">
-<td align="left">Excess Tax Benefit from Share-based Compensation, Financing Activities</td>
-</tr>
-<tr class="even">
-<td align="left">Payments Related to Tax Withholding for Share-based Compensation</td>
-</tr>
-<tr class="odd">
-<td align="left">Payments of Dividends</td>
-</tr>
-<tr class="even">
-<td align="left">Payments for Repurchase of Common Stock</td>
-</tr>
-<tr class="odd">
-<td align="left">Proceeds from Issuance of Long-term Debt</td>
-</tr>
-<tr class="even">
-<td align="left">Repayments of Long-term Debt</td>
-</tr>
-<tr class="odd">
-<td align="left">Proceeds from (Repayments of) Commercial Paper</td>
-</tr>
-<tr class="even">
-<td align="left">Net Cash Provided by (Used in) Financing Activities</td>
-</tr>
-<tr class="odd">
-<td align="left">Cash and Cash Equivalents, Period Increase (Decrease)</td>
-</tr>
-<tr class="even">
-<td align="left">Income Taxes Paid, Net</td>
-</tr>
-<tr class="odd">
-<td align="left">Interest Paid</td>
-</tr>
-</tbody>
-</table>
 </div>
 </div>
 <div id="conclusion" class="section level2">
@@ -978,6 +472,9 @@ AAPL.Info&lt;-<span class="kw">CompanyInfo</span>(<span class="st">&quot;AAPL&qu
 </div>
 <h3>References</h3>
 <div id="refs" class="references">
+<div id="ref-R-Quandl">
+<p>Raymond McTaggart, Gergely Daroczi, and Clement Leung. 2019. <em>Quandl: API Wrapper for Quandl.com</em>. <a href="https://CRAN.R-project.org/package=Quandl" class="uri">https://CRAN.R-project.org/package=Quandl</a>.</p>
+</div>
 <div id="ref-Wickham:2017:RDS:3086927">
 <p>Wickham, Hadley, and Garrett Grolemund. 2017. <em>R for Data Science: Import, Tidy, Transform, Visualize, and Model Data</em>. 1st ed. O’Reilly Media, Inc.</p>
 </div>
@@ -1041,8 +538,9 @@ gitbook.start({
     script.type = "text/javascript";
     var src = "";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:" && /^https?:/.test(src))
-      src = src.replace(/^https?:/, '');
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
     script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();

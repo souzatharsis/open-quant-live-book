@@ -1,0 +1,164 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<!--
+(c) XBRL US, Inc. 2007-2010; Financial Accounting Foundation, Inc. 2010-2015.  All Rights Reserved.
+Notice: Authorized Uses are Set Forth at http://xbrl.fasb.org/terms/TaxonomiesTermsConditions.html
+  -->
+<xs:schema elementFormDefault='qualified' targetNamespace='http://fasb.org/us-types/2015-01-31' xmlns:link='http://www.xbrl.org/2003/linkbase' xmlns:nonnum='http://www.xbrl.org/dtr/type/non-numeric' xmlns:num='http://www.xbrl.org/dtr/type/numeric' xmlns:us-types='http://fasb.org/us-types/2015-01-31' xmlns:xbrli='http://www.xbrl.org/2003/instance' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:xs='http://www.w3.org/2001/XMLSchema' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'>
+<xs:annotation>
+<xs:documentation>
+                This file is the schema file for us-types (us-types).
+                
+                The DTS starting with this schema file will not contain any linkbases.
+            </xs:documentation>
+</xs:annotation>
+<xs:import namespace='http://www.xbrl.org/2003/instance' schemaLocation='http://www.xbrl.org/2003/xbrl-instance-2003-12-31.xsd' />
+<xs:import namespace='http://www.xbrl.org/dtr/type/numeric' schemaLocation='http://www.xbrl.org/dtr/type/numeric-2009-12-16.xsd' />
+<xs:import namespace='http://www.xbrl.org/dtr/type/non-numeric' schemaLocation='http://www.xbrl.org/dtr/type/nonNumeric-2009-12-16.xsd' />
+<xs:complexType abstract='false' mixed='false' name='perUnitItemType'>
+<xs:simpleContent>
+<xs:restriction base='xbrli:decimalItemType' />
+</xs:simpleContent>
+</xs:complexType>
+<xs:complexType abstract='false' mixed='false' name='yesNoItemType'>
+<xs:simpleContent>
+<xs:restriction base='xbrli:tokenItemType'>
+<xs:enumeration value='Yes' />
+<xs:enumeration value='No' />
+<xs:attributeGroup ref='xbrli:nonNumericItemAttrs' />
+</xs:restriction>
+</xs:simpleContent>
+</xs:complexType>
+<xs:complexType abstract='false' mixed='false' name='threeDigitItemType'>
+<xs:simpleContent>
+<xs:restriction base='xbrli:stringItemType'>
+<xs:pattern value='[0-9][0-9][0-9]' />
+</xs:restriction>
+</xs:simpleContent>
+</xs:complexType>
+<xs:complexType abstract='false' mixed='false' name='zoneStatusItemType'>
+<xs:simpleContent>
+<xs:restriction base='xbrli:stringItemType'>
+<xs:enumeration value='Green' />
+<xs:enumeration value='Yellow' />
+<xs:enumeration value='Orange' />
+<xs:enumeration value='Red' />
+<xs:enumeration value='Other' />
+<xs:enumeration value='NA' />
+<xs:attributeGroup ref='xbrli:nonNumericItemAttrs' />
+</xs:restriction>
+</xs:simpleContent>
+</xs:complexType>
+<xs:complexType abstract='false' mixed='false' name='interestRateItemType'>
+<xs:simpleContent>
+<xs:restriction base='xbrli:stringItemType'>
+<xs:enumeration value='Floating' />
+<xs:enumeration value='Fixed' />
+<xs:attributeGroup ref='xbrli:nonNumericItemAttrs' />
+</xs:restriction>
+</xs:simpleContent>
+</xs:complexType>
+<xs:complexType abstract='false' mixed='false' name='nineDigitItemType'>
+<xs:simpleContent>
+<xs:restriction base='xbrli:tokenItemType'>
+<xs:pattern value='[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]' />
+<xs:attributeGroup ref='xbrli:nonNumericItemAttrs' />
+</xs:restriction>
+</xs:simpleContent>
+</xs:complexType>
+<xs:complexType abstract='false' mixed='false' name='MalpracticeInsurance-OccurrenceOrClaims-madeItemType'>
+<xs:simpleContent>
+<xs:restriction base='xbrli:stringItemType'>
+<xs:enumeration value='Occurrence' />
+<xs:enumeration value='Claims-made' />
+<xs:attributeGroup ref='xbrli:nonNumericItemAttrs' />
+</xs:restriction>
+</xs:simpleContent>
+</xs:complexType>
+<xs:complexType abstract='false' mixed='false' name='boeItemType'>
+<xs:simpleContent>
+<xs:restriction base='xbrli:decimalItemType' />
+</xs:simpleContent>
+</xs:complexType>
+<xs:complexType abstract='false' mixed='false' name='durationStringItemType'>
+<xs:simpleContent>
+<xs:restriction base='xbrli:normalizedStringItemType' />
+</xs:simpleContent>
+</xs:complexType>
+<xs:complexType abstract='false' mixed='false' name='fundedStatusItemType'>
+<xs:simpleContent>
+<xs:restriction base='xbrli:stringItemType'>
+<xs:enumeration value='Less than 65 percent' />
+<xs:enumeration value='Between 65 and less than 80 percent' />
+<xs:enumeration value='At least 80 percent' />
+<xs:enumeration value='NA' />
+<xs:attributeGroup ref='xbrli:nonNumericItemAttrs' />
+</xs:restriction>
+</xs:simpleContent>
+</xs:complexType>
+<xs:complexType abstract='false' mixed='false' name='fundingImprovementAndRehabilitationPlanItemType'>
+<xs:simpleContent>
+<xs:restriction base='xbrli:stringItemType'>
+<xs:enumeration value='No' />
+<xs:enumeration value='Pending' />
+<xs:enumeration value='Implemented' />
+<xs:enumeration value='Other' />
+<xs:enumeration value='NA' />
+<xs:attributeGroup ref='xbrli:nonNumericItemAttrs' />
+</xs:restriction>
+</xs:simpleContent>
+</xs:complexType>
+<xs:complexType abstract='false' mixed='false' name='investmentOnLoanForShortSalesItemType'>
+<xs:simpleContent>
+<xs:restriction base='xbrli:tokenItemType'>
+<xs:enumeration value='Investment on Loan' />
+<xs:enumeration value='Entire Investment on Loan' />
+<xs:enumeration value='Partial Investment on Loan' />
+<xs:attributeGroup ref='xbrli:nonNumericItemAttrs' />
+</xs:restriction>
+</xs:simpleContent>
+</xs:complexType>
+<xs:complexType abstract='false' mixed='false' name='investmentPledgedItemType'>
+<xs:simpleContent>
+<xs:restriction base='xbrli:tokenItemType'>
+<xs:enumeration value='Investment Pledged' />
+<xs:enumeration value='Entire Investment Pledged' />
+<xs:enumeration value='Partial Investment Pledged' />
+<xs:attributeGroup ref='xbrli:nonNumericItemAttrs' />
+</xs:restriction>
+</xs:simpleContent>
+</xs:complexType>
+<xs:complexType abstract='false' mixed='false' name='restrictedInvestmentItemType'>
+<xs:simpleContent>
+<xs:restriction base='xbrli:tokenItemType'>
+<xs:enumeration value='Restricted Investment' />
+<xs:enumeration value='Restricted Investment Exempt from Registration' />
+<xs:enumeration value='Restricted Investment Not Exempt from Registration' />
+<xs:attributeGroup ref='xbrli:nonNumericItemAttrs' />
+</xs:restriction>
+</xs:simpleContent>
+</xs:complexType>
+<xs:complexType abstract='false' mixed='false' name='surchargeItemType'>
+<xs:simpleContent>
+<xs:restriction base='xbrli:stringItemType'>
+<xs:enumeration value='No' />
+<xs:enumeration value='Yes' />
+<xs:enumeration value='NA' />
+<xs:attributeGroup ref='xbrli:nonNumericItemAttrs' />
+</xs:restriction>
+</xs:simpleContent>
+</xs:complexType>
+<xs:complexType abstract='false' mixed='false' name='flowItemType'>
+<xs:simpleContent>
+<xs:restriction base='xbrli:decimalItemType' />
+</xs:simpleContent>
+</xs:complexType>
+<xs:complexType abstract='false' mixed='false' name='authorizedUnlimitedItemType'>
+<xs:simpleContent>
+<xs:restriction base='xbrli:tokenItemType'>
+<xs:enumeration value='Unlimited' />
+<xs:attributeGroup ref='xbrli:nonNumericItemAttrs' />
+</xs:restriction>
+</xs:simpleContent>
+</xs:complexType>
+</xs:schema>

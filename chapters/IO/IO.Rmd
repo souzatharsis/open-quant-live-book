@@ -184,96 +184,31 @@ According to the developer, this package causes R to pause 0.2 seconds after exe
 
 ### Quandl
 
+[**Quandl**](https://www.quandl.com) is likely the largest financial and alternative data aggregator/provider today. They leverage relationships with third-party providers to be a one-stop-shop for alternative data and traditional fundamental, pricing and estimates datasets.
 
-### SEC
+Quandl offer an API which usage is free for registered users. You can obtain an API key [here](https://www.quandl.com/sign-up-modal?defaultModal=showSignUp). After signing up, just append your API key to your call like this:
+```
+https://www.quandl.com/api/v3/datasets/WIKI/FB/data.csv?api_key=YOURAPIKEYHERE
+```
+At Quandl, every dataset is identified by "Quandl code", which is a unique id. In the above example, you downloaded a dataset with the Quandl code “WIKI/FB”.
 
-Official filings are freely available from the U.S. Securities and Exchange Commission's EDGAR database. The package `finreportr` provides an interface in R to facilitate financial analysis from SEC's 10K and 10K/A filings.
+Every Quandl code has 2 parts: the database code (“WIKI”) which specifies where the data comes from, and the dataset code (“FB”) which identifies the specific time series you want.
 
-We can obtain company basic information with the function the `CompanyInfo` function by passing the ticker symbol of the target company as follows:
+You can find Quandl codes using their [data browser](https://www.quandl.com/search). Additional API documentation can be found [here](https://docs.quandl.com/).
+
+Quandl is also available via an R interface [@R-Quandl]. For instance, we can obtain Crude Oil Futures prices from 01/01/2010 to 01/01/2019 as follows:
 ```{r eval=TRUE, echo=TRUE, cache=TRUE}
-library("finreportr")
-AAPL.Info<-CompanyInfo("AAPL")
-print(AAPL.Info)
+library(Quandl)
+Quandl.api_key(config::get()$quandl.key)
+from.dat <- as.Date("01/01/2010", format="%d/%m/%Y")
+to.dat <- as.Date("01/01/2019", format="%d/%m/%Y")
+crude.oil.futures<-Quandl("CHRIS/CME_CL1", start_date = from.dat, end_date = to.dat, type="xts")
+plot(crude.oil.futures$Last)
 ```
-As a result, we obtain the following information:
+In the example above we specified the following Database/Dataset:
 
-* Company name: `r AAPL.Info$company`; 
-* SEC Central Index Key (CIK): `r AAPL.Info$CIK`;  
-* Standard Industrial Classification (SIC): `r AAPL.Info$SIC`, which is the industry code for Electronic Computers;
-* Address: `r AAPL.Info$street.address`, `r AAPL.Info$city.state`;
-* Most recent period of report end is `r AAPL.Info$FY.end`.
-
-The list of company annual reports with corresponding filing dates can be obtained with the function *AnnualReports* as follows:
-
-```{r eval=TRUE, echo=TRUE, cache=TRUE}
-AAPL.reports<-AnnualReports("AAPL")
-```
-```{r eval=TRUE, echo=FALSE, cache=TRUE}
-knitr::kable(
-  head(AAPL.reports), booktabs = TRUE, caption = "Sample Annual Reports"
-)
-```
-
-The accession number is a unique identifier that the SEC creates for each filing.
-
-Company financials are organized into 3 segments: Income Statement, Balance Sheet and Cash Flow. 
-
-**Income Statement**
-
-Financials from the Income Statement segment can be obtained with the *GetIncome* function as follows:
-```{r eval=TRUE, echo=TRUE, cache=TRUE}
-AAPL.IS<-GetIncome("AAPL", 2017)
-```
-```{r eval=TRUE, echo=FALSE, cache=TRUE}
-knitr::kable(
-  head(AAPL.IS), booktabs = TRUE, caption = "Sample Income Statement Financials"
-)
-```
-
-The Income Statement function returns data for the following metrics:
-```{r eval=TRUE, echo=FALSE, cache=TRUE}
-knitr::kable(
-  unique(AAPL.IS$Metric), booktabs = TRUE, caption = "Income Statement Metrics", col.names = "Metrics"
-)
-```
-
-**Balance Sheet**
-
-Financials from the Balance Sheet segment can be obtained with the *GetBalanceSheet* function as follows:
-```{r eval=TRUE, echo=TRUE, cache=TRUE}
-AAPL.BS<-GetBalanceSheet("AAPL", 2017)
-```
-```{r eval=TRUE, echo=FALSE, cache=TRUE}
-knitr::kable(
-  head(AAPL.BS), booktabs = TRUE, caption = "Sample Balance Sheet Financials"
-)
-```
-
-The Balance Sheet function returns data for the following metrics:
-```{r eval=TRUE, echo=FALSE, cache=TRUE}
-knitr::kable(
-  unique(AAPL.BS$Metric), booktabs = TRUE, caption = "Balance Sheet Metrics", col.names = "Metrics"
-)
-```
-
-**Cash Flow**
-
-Financials from the Cash Flow segment can be obtained with the *GetCashFlow* function as follows:
-```{r eval=TRUE, echo=TRUE, cache=TRUE}
-AAPL.CF<-GetCashFlow("AAPL", 2017)
-```
-```{r eval=TRUE, echo=FALSE, cache=TRUE}
-knitr::kable(
-  head(AAPL.CF), booktabs = TRUE, caption = "Sample Cash Flow Financials"
-)
-```
-
-The Cash Flow function returns data for the following metrics:
-```{r eval=TRUE, echo=FALSE, cache=TRUE}
-knitr::kable(
-  unique(AAPL.CF$Metric), booktabs = TRUE, caption = "Cash Flow Metrics", col.names = "Metrics"
-)
-```
+* Database: "CHRIS". Continuous contracts for all 600 futures on Quandl. Built on top of raw data from CME, ICE, LIFFE etc. Curated by the Quandl community. 50 years history.
+* Dataset: "CME_CL1". Historical futures prices of Crude Oil Futures, Continuous Contract #1. Non-adjusted price based on spot-month continuous contract calculations. Raw data from CME.
 
 
 ## Conclusion

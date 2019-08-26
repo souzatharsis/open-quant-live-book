@@ -1,0 +1,2118 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<!--
+(c) XBRL US, Inc. 2007-2010; Financial Accounting Foundation, Inc. 2010-2015.  All Rights Reserved.
+Notice: Authorized Uses are Set Forth at http://xbrl.fasb.org/terms/TaxonomiesTermsConditions.html
+  -->
+<xs:schema elementFormDefault='qualified' targetNamespace='http://fasb.org/us-roles/2015-01-31' xmlns:link='http://www.xbrl.org/2003/linkbase' xmlns:us-roles='http://fasb.org/us-roles/2015-01-31' xmlns:xbrli='http://www.xbrl.org/2003/instance' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:xs='http://www.w3.org/2001/XMLSchema' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'>
+<xs:annotation>
+<xs:appinfo>
+<link:roleType id='bsoff' roleURI='http://fasb.org/us-gaap/role/disclosure/BalanceSheetOffsetting'>
+<link:definition>210000 - Disclosure - Balance Sheet Offsetting</link:definition>
+<link:usedOn>link:calculationLink</link:usedOn>
+<link:usedOn>link:definitionLink</link:usedOn>
+<link:usedOn>link:presentationLink</link:usedOn>
+</link:roleType>
+<link:roleType id='othliab5' roleURI='http://fasb.org/us-gaap/role/disclosure/OtherLiabilitiesCalAlt2'>
+<link:definition>470200 - Disclosure - Other Liabilities</link:definition>
+<link:usedOn>link:calculationLink</link:usedOn>
+<link:usedOn>link:definitionLink</link:usedOn>
+<link:usedOn>link:presentationLink</link:usedOn>
+</link:roleType>
+<link:roleType id='ides1' roleURI='http://fasb.org/us-gaap/role/disclosure/InvestmentsDebtAndEquitySecuritiesCalcAlt1'>
+<link:definition>330001 - Disclosure - Investments, Debt and Equity Securities</link:definition>
+<link:usedOn>link:calculationLink</link:usedOn>
+<link:usedOn>link:definitionLink</link:usedOn>
+<link:usedOn>link:presentationLink</link:usedOn>
+</link:roleType>
+<link:roleType id='bsoff1' roleURI='http://fasb.org/us-gaap/role/disclosure/BalanceSheetOffsetting1'>
+<link:definition>210100 - Disclosure - Balance Sheet Offsetting</link:definition>
+<link:usedOn>link:calculationLink</link:usedOn>
+<link:usedOn>link:definitionLink</link:usedOn>
+<link:usedOn>link:presentationLink</link:usedOn>
+</link:roleType>
+<link:roleType id='schedoi-hold' roleURI='http://fasb.org/us-gaap/role/disclosure/InvestmentHoldings'>
+<link:definition>993500 - Disclosure - Investment Holdings</link:definition>
+<link:usedOn>link:calculationLink</link:usedOn>
+<link:usedOn>link:definitionLink</link:usedOn>
+<link:usedOn>link:presentationLink</link:usedOn>
+</link:roleType>
+<link:roleType id='schedoi-shorthold' roleURI='http://fasb.org/us-gaap/role/disclosure/InvestmentsSoldNotYetPurchased'>
+<link:definition>993540 - Disclosure - Investments Sold Not yet Purchased</link:definition>
+<link:usedOn>link:calculationLink</link:usedOn>
+<link:usedOn>link:definitionLink</link:usedOn>
+<link:usedOn>link:presentationLink</link:usedOn>
+</link:roleType>
+<link:roleType id='schedoi-sumhold' roleURI='http://fasb.org/us-gaap/role/disclosure/SummaryOfInvestmentHoldings'>
+<link:definition>993520 - Disclosure - Summary of Investment Holdings</link:definition>
+<link:usedOn>link:calculationLink</link:usedOn>
+<link:usedOn>link:definitionLink</link:usedOn>
+<link:usedOn>link:presentationLink</link:usedOn>
+</link:roleType>
+<link:roleType id='schedoi-oocw' roleURI='http://fasb.org/us-gaap/role/disclosure/OpenOptionContractsWritten'>
+<link:definition>993560 - Disclosure - Open Option Contracts Written</link:definition>
+<link:usedOn>link:calculationLink</link:usedOn>
+<link:usedOn>link:definitionLink</link:usedOn>
+<link:usedOn>link:presentationLink</link:usedOn>
+</link:roleType>
+<link:roleType id='schedoi-iiaa' roleURI='http://fasb.org/us-gaap/role/disclosure/InvestmentsInAndAdvancesToAffiliates'>
+<link:definition>993570 - Disclosure - Investments in and Advances to Affiliates</link:definition>
+<link:usedOn>link:calculationLink</link:usedOn>
+<link:usedOn>link:definitionLink</link:usedOn>
+<link:usedOn>link:presentationLink</link:usedOn>
+</link:roleType>
+<link:roleType id='schedoi-otsh' roleURI='http://fasb.org/us-gaap/role/disclosure/OtherThanSecuritiesInvestmentHoldings'>
+<link:definition>993510 - Disclosure - Other than Securities Investment Holdings</link:definition>
+<link:usedOn>link:calculationLink</link:usedOn>
+<link:usedOn>link:definitionLink</link:usedOn>
+<link:usedOn>link:presentationLink</link:usedOn>
+</link:roleType>
+<link:roleType id='schedoi-fednote' roleURI='http://fasb.org/us-gaap/role/disclosure/InvestmentsFederalTaxNote'>
+<link:definition>993530 - Disclosure - Investments Federal Income Tax Note</link:definition>
+<link:usedOn>link:calculationLink</link:usedOn>
+<link:usedOn>link:definitionLink</link:usedOn>
+<link:usedOn>link:presentationLink</link:usedOn>
+</link:roleType>
+<link:roleType id='soc2' roleURI='http://fasb.org/us-gaap/role/statement/StatementOfOtherComprehensiveIncomeAlternative'>
+<link:definition>148410 - Statement - Statement of Other Comprehensive Income</link:definition>
+<link:usedOn>link:calculationLink</link:usedOn>
+<link:usedOn>link:definitionLink</link:usedOn>
+<link:usedOn>link:presentationLink</link:usedOn>
+</link:roleType>
+<link:roleType id='com' roleURI='http://fasb.org/us-gaap/role/statement/CommonDomainMembers'>
+<link:definition>190000 - Statement - Common Domain Members</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+<link:usedOn>link:presentationLink</link:usedOn>
+</link:roleType>
+<link:roleType id='rlnro2' roleURI='http://fasb.org/us-gaap/role/disclosure/ReceivablesLoansNotesReceivableAndOthersLoansAlternate'>
+<link:definition>320500 - Disclosure - Receivables, Loans, Notes Receivable, and Others</link:definition>
+<link:usedOn>link:calculationLink</link:usedOn>
+<link:usedOn>link:definitionLink</link:usedOn>
+<link:usedOn>link:presentationLink</link:usedOn>
+</link:roleType>
+<link:roleType id='soi1' roleURI='http://fasb.org/us-gaap/role/statement/StatementOfIncomeDiscontinuedOperationsAlternate'>
+<link:definition>124001 - Statement - Statement of Income</link:definition>
+<link:usedOn>link:calculationLink</link:usedOn>
+<link:usedOn>link:definitionLink</link:usedOn>
+<link:usedOn>link:presentationLink</link:usedOn>
+</link:roleType>
+<link:roleType id='fs-interest' roleURI='http://fasb.org/us-gaap/role/disclosure/FinancialServicesBankingAndThriftInterest'>
+<link:definition>940050 - Disclosure - Financial Services, Banking and Thrift</link:definition>
+<link:usedOn>link:calculationLink</link:usedOn>
+<link:usedOn>link:definitionLink</link:usedOn>
+<link:usedOn>link:presentationLink</link:usedOn>
+</link:roleType>
+<link:roleType id='sfp-ucreo' roleURI='http://fasb.org/us-gaap/role/statement/StatementOfFinancialPositionUnclassified-RealEstateOperations'>
+<link:definition>110200 - Statement - Statement of Financial Position, Unclassified - Real Estate Operations</link:definition>
+<link:usedOn>link:calculationLink</link:usedOn>
+<link:usedOn>link:definitionLink</link:usedOn>
+<link:usedOn>link:presentationLink</link:usedOn>
+</link:roleType>
+<link:roleType id='sfp-clreo' roleURI='http://fasb.org/us-gaap/role/statement/StatementOfFinancialPositionClassified-RealEstateOperations'>
+<link:definition>110000 - Statement - Statement of Financial Position, Classified - Real Estate Operations</link:definition>
+<link:usedOn>link:calculationLink</link:usedOn>
+<link:usedOn>link:definitionLink</link:usedOn>
+<link:usedOn>link:presentationLink</link:usedOn>
+</link:roleType>
+<link:roleType id='sec-cndfir' roleURI='http://fasb.org/us-gaap/role/disclosure/SECScheduleArticle12-04CondensedFinancialInformation'>
+<link:definition>991000 - Disclosure - SEC Schedule, Article 12-04, Condensed Financial Information of Registrant</link:definition>
+<link:usedOn>link:calculationLink</link:usedOn>
+<link:usedOn>link:definitionLink</link:usedOn>
+<link:usedOn>link:presentationLink</link:usedOn>
+</link:roleType>
+<link:roleType id='soi-egm' roleURI='http://fasb.org/us-gaap/role/statement/StatementOfIncomeAlternative'>
+<link:definition>124100 - Statement - Statement of Income</link:definition>
+<link:usedOn>link:calculationLink</link:usedOn>
+<link:usedOn>link:definitionLink</link:usedOn>
+<link:usedOn>link:presentationLink</link:usedOn>
+</link:roleType>
+<link:roleType id='soi-re' roleURI='http://fasb.org/us-gaap/role/statement/StatementOfIncomeRealEstateExcludingREITs'>
+<link:definition>144000 - Statement - Statement of Income, Real Estate, Excluding REITs</link:definition>
+<link:usedOn>link:calculationLink</link:usedOn>
+<link:usedOn>link:definitionLink</link:usedOn>
+<link:usedOn>link:presentationLink</link:usedOn>
+</link:roleType>
+<link:roleType id='soi-reit' roleURI='http://fasb.org/us-gaap/role/statement/StatementOfIncomeRealEstateInvestmentTrusts'>
+<link:definition>145000 - Statement - Statement of Income, Real Estate Investment Trusts</link:definition>
+<link:usedOn>link:calculationLink</link:usedOn>
+<link:usedOn>link:definitionLink</link:usedOn>
+<link:usedOn>link:presentationLink</link:usedOn>
+</link:roleType>
+<link:roleType id='scf-re' roleURI='http://fasb.org/us-gaap/role/statement/StatementOfCashFlowsIndirectRealEstate'>
+<link:definition>170000 - Statement - Statement of Cash Flows, Real Estate, Including REITs</link:definition>
+<link:usedOn>link:calculationLink</link:usedOn>
+<link:usedOn>link:definitionLink</link:usedOn>
+<link:usedOn>link:presentationLink</link:usedOn>
+</link:roleType>
+<link:roleType id='sheci' roleURI='http://fasb.org/us-gaap/role/statement/StatementOfShareholdersEquityAndOtherComprehensiveIncome'>
+<link:definition>148600 - Statement - Statement of Shareholders' Equity</link:definition>
+<link:usedOn>link:calculationLink</link:usedOn>
+<link:usedOn>link:definitionLink</link:usedOn>
+<link:usedOn>link:presentationLink</link:usedOn>
+</link:roleType>
+<link:roleType id='sheci2' roleURI='http://fasb.org/us-gaap/role/statement/StatementOfShareholdersEquityAndOtherComprehensiveIncomeCalc2'>
+<link:definition>148610 - Statement - Statement of Shareholders' Equity and Other Comprehensive Income</link:definition>
+<link:usedOn>link:calculationLink</link:usedOn>
+<link:usedOn>link:definitionLink</link:usedOn>
+<link:usedOn>link:presentationLink</link:usedOn>
+</link:roleType>
+<link:roleType id='dep' roleURI='http://fasb.org/us-gaap/role/deprecated/deprecated'>
+<link:definition>999000 - Deprecated - Deprecated Concepts</link:definition>
+<link:usedOn>link:calculationLink</link:usedOn>
+<link:usedOn>link:definitionLink</link:usedOn>
+<link:usedOn>link:presentationLink</link:usedOn>
+</link:roleType>
+<link:roleType id='lea' roleURI='http://fasb.org/us-gaap/role/disclosure/Leases'>
+<link:definition>831000 - Disclosure - Leases</link:definition>
+<link:usedOn>link:calculationLink</link:usedOn>
+<link:usedOn>link:definitionLink</link:usedOn>
+<link:usedOn>link:presentationLink</link:usedOn>
+</link:roleType>
+<link:roleType id='axisDefault' roleURI='http://fasb.org/us-gaap/role/label/axisDefault'>
+<link:definition>Axis Default</link:definition>
+<link:usedOn>link:label</link:usedOn>
+</link:roleType>
+<link:roleType id='sfp-cls1' roleURI='http://fasb.org/us-gaap/role/statement/StatementOfFinancialPositionClassifiedFirstAlternative'>
+<link:definition>104050 - Statement - Statement of Financial Position, Classified</link:definition>
+<link:usedOn>link:calculationLink</link:usedOn>
+<link:usedOn>link:definitionLink</link:usedOn>
+<link:usedOn>link:presentationLink</link:usedOn>
+</link:roleType>
+<link:roleType id='fs-fhlb' roleURI='http://fasb.org/us-gaap/role/disclosure/FinancialServicesFederalHomeLoanBanks'>
+<link:definition>939000 - Disclosure - Financial Services, Federal Home Loan Banks</link:definition>
+<link:usedOn>link:calculationLink</link:usedOn>
+<link:usedOn>link:definitionLink</link:usedOn>
+<link:usedOn>link:presentationLink</link:usedOn>
+</link:roleType>
+<link:roleType id='ctbl' roleURI='http://fasb.org/us-gaap/role/disclosure/ComprehensiveTextBlockList'>
+<link:definition>195000 - Disclosure - Comprehensive Text Block List</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+<link:usedOn>link:presentationLink</link:usedOn>
+</link:roleType>
+<link:roleType id='soi-indira' roleURI='http://fasb.org/us-gaap/role/statement/StatementOfIncomeAlternateAggregations'>
+<link:definition>124200 - Statement - Statement of Income, Additional Statement of Income Elements</link:definition>
+<link:usedOn>link:calculationLink</link:usedOn>
+<link:usedOn>link:definitionLink</link:usedOn>
+<link:usedOn>link:presentationLink</link:usedOn>
+</link:roleType>
+<link:roleType id='changeLabel2012' roleURI='http://fasb.org/us-gaap/role/label/changeLabel2012'>
+<link:definition>Change Label 2012</link:definition>
+<link:usedOn>link:label</link:usedOn>
+</link:roleType>
+<link:roleType id='fragmentDocumentation' roleURI='http://fasb.org/us-gaap/role/label/fragmentDocumentation'>
+<link:definition>Fragment Documentation</link:definition>
+<link:usedOn>link:label</link:usedOn>
+</link:roleType>
+<link:roleType id='fragmentLabel' roleURI='http://fasb.org/us-gaap/role/label/fragmentLabel'>
+<link:definition>Fragment Label</link:definition>
+<link:usedOn>link:label</link:usedOn>
+</link:roleType>
+<link:roleType id='fs-bt1' roleURI='http://fasb.org/us-gaap/role/disclosure/FinancialServicesBankingAndThriftCalc1'>
+<link:definition>940001 - Disclosure - Financial Services, Banking and Thrift</link:definition>
+<link:usedOn>link:calculationLink</link:usedOn>
+<link:usedOn>link:definitionLink</link:usedOn>
+<link:usedOn>link:presentationLink</link:usedOn>
+</link:roleType>
+<link:roleType id='cc2' roleURI='http://fasb.org/us-gaap/role/disclosure/DisclosureCommitmentAndContingenciesRollingMaturitySchedules'>
+<link:definition>450100 - Disclosure - Commitment and Contingencies</link:definition>
+<link:usedOn>link:calculationLink</link:usedOn>
+<link:usedOn>link:definitionLink</link:usedOn>
+<link:usedOn>link:presentationLink</link:usedOn>
+</link:roleType>
+<link:roleType id='changeLabel2013' roleURI='http://fasb.org/us-gaap/role/label/changeLabel2013'>
+<link:definition>Change Label 2013</link:definition>
+<link:usedOn>link:label</link:usedOn>
+</link:roleType>
+<link:roleType id='changeLabel2014' roleURI='http://fasb.org/us-gaap/role/label/changeLabel2014'>
+<link:definition>Change Label 2014</link:definition>
+<link:usedOn>link:label</link:usedOn>
+</link:roleType>
+<link:roleType id='changeLabel2015' roleURI='http://fasb.org/us-gaap/role/label/changeLabel2015'>
+<link:definition>Change Label 2015</link:definition>
+<link:usedOn>link:label</link:usedOn>
+</link:roleType>
+<link:roleType id='ru' roleURI='http://fasb.org/us-gaap/role/disclosure/RisksAndUncertainties'>
+<link:definition>275000 - Disclosure - Risks and Uncertainties</link:definition>
+<link:usedOn>link:calculationLink</link:usedOn>
+<link:usedOn>link:definitionLink</link:usedOn>
+<link:usedOn>link:presentationLink</link:usedOn>
+</link:roleType>
+<link:roleType id='cce' roleURI='http://fasb.org/us-gaap/role/disclosure/CashAndCashEquivalents'>
+<link:definition>300000 - Disclosure - Cash and Cash Equivalents</link:definition>
+<link:usedOn>link:calculationLink</link:usedOn>
+<link:usedOn>link:definitionLink</link:usedOn>
+<link:usedOn>link:presentationLink</link:usedOn>
+</link:roleType>
+<link:roleType id='inv' roleURI='http://fasb.org/us-gaap/role/disclosure/Inventory'>
+<link:definition>340000 - Disclosure - Inventory</link:definition>
+<link:usedOn>link:calculationLink</link:usedOn>
+<link:usedOn>link:definitionLink</link:usedOn>
+<link:usedOn>link:presentationLink</link:usedOn>
+</link:roleType>
+<link:roleType id='iago' roleURI='http://fasb.org/us-gaap/role/disclosure/IntangibleAssetsGoodwillAndOther'>
+<link:definition>370000 - Disclosure - Intangible Assets, Goodwill and Other</link:definition>
+<link:usedOn>link:calculationLink</link:usedOn>
+<link:usedOn>link:definitionLink</link:usedOn>
+<link:usedOn>link:presentationLink</link:usedOn>
+</link:roleType>
+<link:roleType id='pay' roleURI='http://fasb.org/us-gaap/role/disclosure/PayablesAndAccruals'>
+<link:definition>400000 - Disclosure - Payables and Accruals</link:definition>
+<link:usedOn>link:calculationLink</link:usedOn>
+<link:usedOn>link:definitionLink</link:usedOn>
+<link:usedOn>link:presentationLink</link:usedOn>
+</link:roleType>
+<link:roleType id='aro' roleURI='http://fasb.org/us-gaap/role/disclosure/AssetRetirementObligations'>
+<link:definition>420000 - Disclosure - Asset Retirement Obligations</link:definition>
+<link:usedOn>link:calculationLink</link:usedOn>
+<link:usedOn>link:definitionLink</link:usedOn>
+<link:usedOn>link:presentationLink</link:usedOn>
+</link:roleType>
+<link:roleType id='soi' roleURI='http://fasb.org/us-gaap/role/statement/StatementOfIncome'>
+<link:definition>124000 - Statement - Statement of Income (Including Gross Margin)</link:definition>
+<link:usedOn>link:presentationLink</link:usedOn>
+<link:usedOn>link:calculationLink</link:usedOn>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='sfp-cls' roleURI='http://fasb.org/us-gaap/role/statement/StatementOfFinancialPositionClassified'>
+<link:definition>104000 - Statement - Statement of Financial Position, Classified</link:definition>
+<link:usedOn>link:presentationLink</link:usedOn>
+<link:usedOn>link:calculationLink</link:usedOn>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='scf-dir' roleURI='http://fasb.org/us-gaap/role/statement/StatementOfCashFlowsDirect'>
+<link:definition>172600 - Statement - Statement of Cash Flows, Direct Method Operating Activities</link:definition>
+<link:usedOn>link:presentationLink</link:usedOn>
+<link:usedOn>link:calculationLink</link:usedOn>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='scf-indir' roleURI='http://fasb.org/us-gaap/role/statement/StatementOfCashFlowsIndirect'>
+<link:definition>152200 - Statement - Statement of Cash Flows</link:definition>
+<link:usedOn>link:presentationLink</link:usedOn>
+<link:usedOn>link:calculationLink</link:usedOn>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='spc' roleURI='http://fasb.org/us-gaap/role/statement/StatementOfPartnersCapital'>
+<link:definition>152000 - Statement - Statement of Partners' Capital</link:definition>
+<link:usedOn>link:presentationLink</link:usedOn>
+<link:usedOn>link:calculationLink</link:usedOn>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='soc' roleURI='http://fasb.org/us-gaap/role/statement/StatementOfOtherComprehensiveIncome'>
+<link:definition>148400 - Statement - Statement of Comprehensive Income</link:definition>
+<link:usedOn>link:calculationLink</link:usedOn>
+<link:usedOn>link:definitionLink</link:usedOn>
+<link:usedOn>link:presentationLink</link:usedOn>
+</link:roleType>
+<link:roleType id='soi-int' roleURI='http://fasb.org/us-gaap/role/statement/StatementOfIncomeInterestBasedRevenue'>
+<link:definition>132001 - Statement - Statement of Income, Interest Based Revenue</link:definition>
+<link:usedOn>link:presentationLink</link:usedOn>
+<link:usedOn>link:calculationLink</link:usedOn>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='sfp-dbo' roleURI='http://fasb.org/us-gaap/role/statement/StatementOfFinancialPositionUnclassified-DepositBasedOperations'>
+<link:definition>108000 - Statement - Statement of Financial Position, Unclassified - Deposit Based Operations</link:definition>
+<link:usedOn>link:presentationLink</link:usedOn>
+<link:usedOn>link:calculationLink</link:usedOn>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='scf-dbo' roleURI='http://fasb.org/us-gaap/role/statement/StatementOfCashFlowsIndirectDepositBasedOperations'>
+<link:definition>160000 - Statement - Statement of Cash Flows, Deposit Based Operations</link:definition>
+<link:usedOn>link:presentationLink</link:usedOn>
+<link:usedOn>link:calculationLink</link:usedOn>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='soi-ins' roleURI='http://fasb.org/us-gaap/role/statement/StatementOfIncomeInsuranceBasedRevenue'>
+<link:definition>136000 - Statement - Statement of Income, Insurance Based Revenue</link:definition>
+<link:usedOn>link:presentationLink</link:usedOn>
+<link:usedOn>link:calculationLink</link:usedOn>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='sfp-ibo' roleURI='http://fasb.org/us-gaap/role/statement/StatementOfFinancialPositionUnclassified-InvestmentBasedOperations'>
+<link:definition>108200 - Statement - Statement of Financial Position, Unclassified - Insurance Based Operations</link:definition>
+<link:usedOn>link:presentationLink</link:usedOn>
+<link:usedOn>link:calculationLink</link:usedOn>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='scf-inv' roleURI='http://fasb.org/us-gaap/role/statement/StatementOfCashFlowsIndirectInvestmentBasedOperations'>
+<link:definition>164000 - Statement - Statement of Cash Flows, Insurance Based Operations</link:definition>
+<link:usedOn>link:presentationLink</link:usedOn>
+<link:usedOn>link:calculationLink</link:usedOn>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='soi-sbi' roleURI='http://fasb.org/us-gaap/role/statement/StatementOfIncomeSecuritiesBasedIncome'>
+<link:definition>140400 - Statement - Statement of Income, Securities Based Income</link:definition>
+<link:usedOn>link:presentationLink</link:usedOn>
+<link:usedOn>link:calculationLink</link:usedOn>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='sfp-sbo' roleURI='http://fasb.org/us-gaap/role/statement/StatementOfFinancialPositionUnclassified-SecuritiesBasedOperations'>
+<link:definition>112000 - Statement - Statement of Financial Position, Unclassified - Securities Based Operations</link:definition>
+<link:usedOn>link:presentationLink</link:usedOn>
+<link:usedOn>link:calculationLink</link:usedOn>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='scf-sbo' roleURI='http://fasb.org/us-gaap/role/statement/StatementOfCashFlowsIndirectSecuritiesBasedOperations'>
+<link:definition>168400 - Statement - Statement of Cash Flows, Securities Based Operations</link:definition>
+<link:usedOn>link:presentationLink</link:usedOn>
+<link:usedOn>link:calculationLink</link:usedOn>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='ocpfs' roleURI='http://fasb.org/us-gaap/role/disclosure/OrganizationConsolidationAndPresentationOfFinancialStatements'>
+<link:definition>200000 - Disclosure - Organization, Consolidation and Presentation of Financial Statements</link:definition>
+<link:usedOn>link:presentationLink</link:usedOn>
+<link:usedOn>link:calculationLink</link:usedOn>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='acec' roleURI='http://fasb.org/us-gaap/role/disclosure/AccountingChangesAndErrorCorrections'>
+<link:definition>250000 - Disclosure - Accounting Changes and Error Corrections</link:definition>
+<link:usedOn>link:presentationLink</link:usedOn>
+<link:usedOn>link:calculationLink</link:usedOn>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='ir' roleURI='http://fasb.org/us-gaap/role/disclosure/InterimReporting'>
+<link:definition>285000 - Disclosure - Interim Reporting</link:definition>
+<link:usedOn>link:presentationLink</link:usedOn>
+<link:usedOn>link:calculationLink</link:usedOn>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='ap' roleURI='http://fasb.org/us-gaap/role/disclosure/AccountingPolicies'>
+<link:definition>290000 - Disclosure - Accounting Policies</link:definition>
+<link:usedOn>link:presentationLink</link:usedOn>
+<link:usedOn>link:calculationLink</link:usedOn>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='rlnro' roleURI='http://fasb.org/us-gaap/role/disclosure/ReceivablesLoansNotesReceivableAndOthers'>
+<link:definition>320000 - Disclosure - Receivables, Loans, Notes Receivable, and Others</link:definition>
+<link:usedOn>link:presentationLink</link:usedOn>
+<link:usedOn>link:calculationLink</link:usedOn>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='ides' roleURI='http://fasb.org/us-gaap/role/disclosure/InvestmentsDebtAndEquitySecurities'>
+<link:definition>330000 - Disclosure - Investments, Debt and Equity Securities</link:definition>
+<link:usedOn>link:presentationLink</link:usedOn>
+<link:usedOn>link:calculationLink</link:usedOn>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='emjv' roleURI='http://fasb.org/us-gaap/role/disclosure/InvestmentsEquityMethodAndJointVentures'>
+<link:definition>333000 - Disclosure - Investments, Equity Method and Joint Ventures</link:definition>
+<link:usedOn>link:presentationLink</link:usedOn>
+<link:usedOn>link:calculationLink</link:usedOn>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='iaoi' roleURI='http://fasb.org/us-gaap/role/disclosure/InvestmentsAllOtherInvestments'>
+<link:definition>336000 - Disclosure - Investments, All Other Investments</link:definition>
+<link:usedOn>link:presentationLink</link:usedOn>
+<link:usedOn>link:calculationLink</link:usedOn>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='dccpoa' roleURI='http://fasb.org/us-gaap/role/disclosure/DeferredCostsCapitalizedPrepaidAndOtherAssets'>
+<link:definition>350000 - Disclosure - Deferred Costs, Capitalized, Prepaid, and Other Assets</link:definition>
+<link:usedOn>link:presentationLink</link:usedOn>
+<link:usedOn>link:calculationLink</link:usedOn>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='ppe' roleURI='http://fasb.org/us-gaap/role/disclosure/PropertyPlantAndEquipment'>
+<link:definition>360000 - Disclosure - Property, Plant, and Equipment</link:definition>
+<link:usedOn>link:presentationLink</link:usedOn>
+<link:usedOn>link:calculationLink</link:usedOn>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='ero' roleURI='http://fasb.org/us-gaap/role/disclosure/EnvironmentalRemediationObligations'>
+<link:definition>425000 - Disclosure - Environmental Remediation Obligations</link:definition>
+<link:usedOn>link:presentationLink</link:usedOn>
+<link:usedOn>link:calculationLink</link:usedOn>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='edco' roleURI='http://fasb.org/us-gaap/role/disclosure/ExitOrDisposalCostObligations'>
+<link:definition>430000 - Disclosure - Restructuring and Related Activities</link:definition>
+<link:usedOn>link:presentationLink</link:usedOn>
+<link:usedOn>link:calculationLink</link:usedOn>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='dr' roleURI='http://fasb.org/us-gaap/role/disclosure/DeferredRevenue'>
+<link:definition>440000 - Disclosure - Revenue Recognition and Deferred Revenue</link:definition>
+<link:usedOn>link:presentationLink</link:usedOn>
+<link:usedOn>link:calculationLink</link:usedOn>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='cc' roleURI='http://fasb.org/us-gaap/role/disclosure/CommitmentAndContingencies'>
+<link:definition>450000 - Disclosure - Commitment and Contingencies</link:definition>
+<link:usedOn>link:presentationLink</link:usedOn>
+<link:usedOn>link:calculationLink</link:usedOn>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='guarantees' roleURI='http://fasb.org/us-gaap/role/disclosure/Guarantees'>
+<link:definition>456000 - Disclosure - Guarantees</link:definition>
+<link:usedOn>link:presentationLink</link:usedOn>
+<link:usedOn>link:calculationLink</link:usedOn>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='debt' roleURI='http://fasb.org/us-gaap/role/disclosure/Debt'>
+<link:definition>460000 - Disclosure - Debt</link:definition>
+<link:usedOn>link:presentationLink</link:usedOn>
+<link:usedOn>link:calculationLink</link:usedOn>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='othliab' roleURI='http://fasb.org/us-gaap/role/disclosure/OtherLiabilities'>
+<link:definition>470000 - Disclosure - Other Liabilities</link:definition>
+<link:usedOn>link:presentationLink</link:usedOn>
+<link:usedOn>link:calculationLink</link:usedOn>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='ni' roleURI='http://fasb.org/us-gaap/role/disclosure/MinorityInterest'>
+<link:definition>472000 - Disclosure - Noncontrolling Interest</link:definition>
+<link:usedOn>link:presentationLink</link:usedOn>
+<link:usedOn>link:calculationLink</link:usedOn>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='te' roleURI='http://fasb.org/us-gaap/role/disclosure/TemporaryEquity'>
+<link:definition>480000 - Disclosure - Temporary Equity</link:definition>
+<link:usedOn>link:presentationLink</link:usedOn>
+<link:usedOn>link:calculationLink</link:usedOn>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='equity' roleURI='http://fasb.org/us-gaap/role/disclosure/Equity'>
+<link:definition>500000 - Disclosure - Equity</link:definition>
+<link:usedOn>link:presentationLink</link:usedOn>
+<link:usedOn>link:calculationLink</link:usedOn>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='crcgen' roleURI='http://fasb.org/us-gaap/role/disclosure/CompensationRelatedCostsGeneral'>
+<link:definition>705000 - Disclosure - Compensation Related Costs, General</link:definition>
+<link:usedOn>link:presentationLink</link:usedOn>
+<link:usedOn>link:calculationLink</link:usedOn>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='crcsbp' roleURI='http://fasb.org/us-gaap/role/disclosure/CompensationRelatedCostsStockCompensation'>
+<link:definition>710000 - Disclosure - Compensation Related Costs, Share Based Payments</link:definition>
+<link:usedOn>link:presentationLink</link:usedOn>
+<link:usedOn>link:calculationLink</link:usedOn>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='crcrb' roleURI='http://fasb.org/us-gaap/role/disclosure/CompensationRelatedCostsRetirementBenefits'>
+<link:definition>730000 - Disclosure - Compensation Related Costs, Retirement Benefits</link:definition>
+<link:usedOn>link:presentationLink</link:usedOn>
+<link:usedOn>link:calculationLink</link:usedOn>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='crcpb' roleURI='http://fasb.org/us-gaap/role/disclosure/CompensationRelatedCostsPostemploymentBenefits'>
+<link:definition>740000 - Disclosure - Compensation Related Costs, Postemployment Benefits</link:definition>
+<link:usedOn>link:presentationLink</link:usedOn>
+<link:usedOn>link:calculationLink</link:usedOn>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='otherexp' roleURI='http://fasb.org/us-gaap/role/disclosure/OtherExpenses'>
+<link:definition>750000 - Disclosure - Other Income and Expenses</link:definition>
+<link:usedOn>link:presentationLink</link:usedOn>
+<link:usedOn>link:calculationLink</link:usedOn>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='rd' roleURI='http://fasb.org/us-gaap/role/disclosure/ResearchAndDevelopment'>
+<link:definition>760000 - Disclosure - Research and Development</link:definition>
+<link:usedOn>link:presentationLink</link:usedOn>
+<link:usedOn>link:calculationLink</link:usedOn>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='inctax' roleURI='http://fasb.org/us-gaap/role/disclosure/IncomeTaxes'>
+<link:definition>770000 - Disclosure - Income Taxes</link:definition>
+<link:usedOn>link:presentationLink</link:usedOn>
+<link:usedOn>link:calculationLink</link:usedOn>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='disops' roleURI='http://fasb.org/us-gaap/role/disclosure/DiscontinuedOperations'>
+<link:definition>775000 - Disclosure - Discontinued Operations and Disposal Groups</link:definition>
+<link:usedOn>link:presentationLink</link:usedOn>
+<link:usedOn>link:calculationLink</link:usedOn>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='eui' roleURI='http://fasb.org/us-gaap/role/disclosure/ExtraordinaryAndUnusualItems'>
+<link:definition>778000 - Disclosure - Extraordinary and Unusual Items</link:definition>
+<link:usedOn>link:presentationLink</link:usedOn>
+<link:usedOn>link:calculationLink</link:usedOn>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='eps' roleURI='http://fasb.org/us-gaap/role/disclosure/EarningsPerShare'>
+<link:definition>780000 - Disclosure - Earnings Per Share</link:definition>
+<link:usedOn>link:presentationLink</link:usedOn>
+<link:usedOn>link:calculationLink</link:usedOn>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='sr' roleURI='http://fasb.org/us-gaap/role/disclosure/SegmentReporting'>
+<link:definition>790000 - Disclosure - Segment Reporting</link:definition>
+<link:usedOn>link:presentationLink</link:usedOn>
+<link:usedOn>link:calculationLink</link:usedOn>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='bc' roleURI='http://fasb.org/us-gaap/role/disclosure/BusinessCombinations'>
+<link:definition>800000 - Disclosure - Business Combinations</link:definition>
+<link:usedOn>link:presentationLink</link:usedOn>
+<link:usedOn>link:calculationLink</link:usedOn>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='reorg' roleURI='http://fasb.org/us-gaap/role/disclosure/Reorganizations'>
+<link:definition>802000 - Disclosure - Reorganizations</link:definition>
+<link:usedOn>link:presentationLink</link:usedOn>
+<link:usedOn>link:calculationLink</link:usedOn>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='diha' roleURI='http://fasb.org/us-gaap/role/disclosure/DerivativeInstrumentsAndHedgingActivities'>
+<link:definition>805000 - Disclosure - Derivative Instruments and Hedging Activities</link:definition>
+<link:usedOn>link:presentationLink</link:usedOn>
+<link:usedOn>link:calculationLink</link:usedOn>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='fifvd' roleURI='http://fasb.org/us-gaap/role/disclosure/FinancialInstrumentsFairValueDisclosures'>
+<link:definition>815000 - Disclosure - Fair Value Measures and Disclosures</link:definition>
+<link:usedOn>link:presentationLink</link:usedOn>
+<link:usedOn>link:calculationLink</link:usedOn>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='foct' roleURI='http://fasb.org/us-gaap/role/disclosure/ForeignOperationsAndCurrencyTranslation'>
+<link:definition>820000 - Disclosure - Foreign Operations and Currency Translation</link:definition>
+<link:usedOn>link:presentationLink</link:usedOn>
+<link:usedOn>link:calculationLink</link:usedOn>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='nt' roleURI='http://fasb.org/us-gaap/role/disclosure/NonmonetaryTransactions'>
+<link:definition>840000 - Disclosure - Nonmonetary Transactions</link:definition>
+<link:usedOn>link:presentationLink</link:usedOn>
+<link:usedOn>link:calculationLink</link:usedOn>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='rpd' roleURI='http://fasb.org/us-gaap/role/disclosure/RelatedPartyDisclosures'>
+<link:definition>845000 - Disclosure - Related Party Disclosures</link:definition>
+<link:usedOn>link:presentationLink</link:usedOn>
+<link:usedOn>link:calculationLink</link:usedOn>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='ts' roleURI='http://fasb.org/us-gaap/role/disclosure/TransfersAndServicing'>
+<link:definition>865000 - Disclosure - Transfers and Servicing</link:definition>
+<link:usedOn>link:presentationLink</link:usedOn>
+<link:usedOn>link:calculationLink</link:usedOn>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='se' roleURI='http://fasb.org/us-gaap/role/disclosure/SubsequentEvents'>
+<link:definition>870000 - Disclosure - Subsequent Events</link:definition>
+<link:usedOn>link:presentationLink</link:usedOn>
+<link:usedOn>link:calculationLink</link:usedOn>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='con' roleURI='http://fasb.org/us-gaap/role/disclosure/Contractors'>
+<link:definition>910000 - Disclosure - Contractors</link:definition>
+<link:usedOn>link:presentationLink</link:usedOn>
+<link:usedOn>link:calculationLink</link:usedOn>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='fs-bt' roleURI='http://fasb.org/us-gaap/role/disclosure/FinancialServicesBankingAndThrift'>
+<link:definition>940000 - Disclosure - Financial Services, Banking and Thrift</link:definition>
+<link:usedOn>link:presentationLink</link:usedOn>
+<link:usedOn>link:calculationLink</link:usedOn>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='fs-bd' roleURI='http://fasb.org/us-gaap/role/disclosure/FinancialServicesBrokersAndDealers'>
+<link:definition>942000 - Disclosure - Financial Services, Brokers and Dealers</link:definition>
+<link:usedOn>link:presentationLink</link:usedOn>
+<link:usedOn>link:calculationLink</link:usedOn>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='fs-ins' roleURI='http://fasb.org/us-gaap/role/disclosure/FinancialServicesInsurance'>
+<link:definition>944000 - Disclosure - Financial Services, Insurance</link:definition>
+<link:usedOn>link:presentationLink</link:usedOn>
+<link:usedOn>link:calculationLink</link:usedOn>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='fs-mort' roleURI='http://fasb.org/us-gaap/role/disclosure/FinancialServicesMortgageBanking'>
+<link:definition>948000 - Disclosure - Financial Services, Mortgage Banking</link:definition>
+<link:usedOn>link:presentationLink</link:usedOn>
+<link:usedOn>link:calculationLink</link:usedOn>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='hco' roleURI='http://fasb.org/us-gaap/role/disclosure/HealthCareOrganizations'>
+<link:definition>955000 - Disclosure - Health Care Organizations</link:definition>
+<link:usedOn>link:presentationLink</link:usedOn>
+<link:usedOn>link:calculationLink</link:usedOn>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='ei' roleURI='http://fasb.org/us-gaap/role/disclosure/ExtractiveIndustries'>
+<link:definition>965000 - Disclosure - Extractive Industries</link:definition>
+<link:usedOn>link:presentationLink</link:usedOn>
+<link:usedOn>link:calculationLink</link:usedOn>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='re' roleURI='http://fasb.org/us-gaap/role/disclosure/RealEstate'>
+<link:definition>975000 - Disclosure - Real Estate</link:definition>
+<link:usedOn>link:presentationLink</link:usedOn>
+<link:usedOn>link:calculationLink</link:usedOn>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='regop' roleURI='http://fasb.org/us-gaap/role/disclosure/RegulatedOperations'>
+<link:definition>980000 - Disclosure - Regulated Operations</link:definition>
+<link:usedOn>link:presentationLink</link:usedOn>
+<link:usedOn>link:calculationLink</link:usedOn>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='sec-vq' roleURI='http://fasb.org/us-gaap/role/disclosure/SECScheduleArticle12-09ValuationAndQualifyingAccounts'>
+<link:definition>993000 - Disclosure - SEC Schedule, Article 12-09, Valuation and Qualifying Accounts</link:definition>
+<link:usedOn>link:presentationLink</link:usedOn>
+<link:usedOn>link:calculationLink</link:usedOn>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='sec-re' roleURI='http://fasb.org/us-gaap/role/disclosure/SECScheduleArticle12-28RealEstateAndAccumulatedDepreciation'>
+<link:definition>993200 - Disclosure - SEC Schedule, Article 12-28, Real Estate and Accumulated Depreciation</link:definition>
+<link:usedOn>link:presentationLink</link:usedOn>
+<link:usedOn>link:calculationLink</link:usedOn>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='sec-mort' roleURI='http://fasb.org/us-gaap/role/disclosure/SECScheduleArticle12-29MortgageLoansOnRealEstate'>
+<link:definition>993400 - Disclosure - SEC Schedule, Article 12-29, Mortgage Loans on Real Estate</link:definition>
+<link:usedOn>link:presentationLink</link:usedOn>
+<link:usedOn>link:calculationLink</link:usedOn>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='sec-sum' roleURI='http://fasb.org/us-gaap/role/disclosure/SECScheduleArticle12-15SummaryOfInvestments-OtherThanInvestmentsInRelatedParties'>
+<link:definition>993600 - Disclosure - SEC Schedule, Article 12-15, Summary of Investments - Other than Investments in Related Parties</link:definition>
+<link:usedOn>link:presentationLink</link:usedOn>
+<link:usedOn>link:calculationLink</link:usedOn>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='sec-supins' roleURI='http://fasb.org/us-gaap/role/disclosure/SECScheduleArticle12-16SupplementaryInsuranceInformation'>
+<link:definition>993800 - Disclosure - SEC Schedule, Article 12-16, Supplementary Insurance Information</link:definition>
+<link:usedOn>link:presentationLink</link:usedOn>
+<link:usedOn>link:calculationLink</link:usedOn>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='sec-reins' roleURI='http://fasb.org/us-gaap/role/disclosure/SECScheduleArticle12-17Reinsurance'>
+<link:definition>994000 - Disclosure - SEC Schedule, Article 12-17, Reinsurance</link:definition>
+<link:usedOn>link:presentationLink</link:usedOn>
+<link:usedOn>link:calculationLink</link:usedOn>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='sec-suppc' roleURI='http://fasb.org/us-gaap/role/disclosure/SECScheduleArticle12-18SupplementalInformationForProperty-CasualtyInsuranceUnderwriters'>
+<link:definition>994200 - Disclosure - SEC Schedule, Article 12-18, Supplemental Information (for Property-Casualty Insurance Underwriters)</link:definition>
+<link:usedOn>link:presentationLink</link:usedOn>
+<link:usedOn>link:calculationLink</link:usedOn>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='sfp-dbo1' roleURI='http://fasb.org/us-gaap/role/statement/StatementOfFinancialPositionUnclassified-DepositBasedOperationsFirstAlternate'>
+<link:definition>108050 - Statement - Statement of Financial Position, Unclassified - Deposit Based Operations</link:definition>
+<link:usedOn>link:calculationLink</link:usedOn>
+<link:usedOn>link:definitionLink</link:usedOn>
+<link:usedOn>link:presentationLink</link:usedOn>
+</link:roleType>
+<link:roleType id='fs-bd3' roleURI='http://fasb.org/us-gaap/role/disclosure/FinancialServicesBrokersAndDealersCalc3'>
+<link:definition>943000 - Disclosure - Financial Services, Brokers and Dealers</link:definition>
+<link:usedOn>link:calculationLink</link:usedOn>
+<link:usedOn>link:definitionLink</link:usedOn>
+<link:usedOn>link:presentationLink</link:usedOn>
+</link:roleType>
+<link:roleType id='oi' roleURI='http://fasb.org/us-gaap/role/disclosure/MiscellaneousIndustries'>
+<link:definition>985000 - Disclosure - Other Industries</link:definition>
+<link:usedOn>link:calculationLink</link:usedOn>
+<link:usedOn>link:definitionLink</link:usedOn>
+<link:usedOn>link:presentationLink</link:usedOn>
+</link:roleType>
+<link:roleType id='scf-indira' roleURI='http://fasb.org/us-gaap/role/statement/StatementOfCashFlowsIndirectAdditionalElements'>
+<link:definition>152201 - Statement - Statement of Cash Flows, Additional Cash Flow Elements</link:definition>
+<link:usedOn>link:calculationLink</link:usedOn>
+<link:usedOn>link:definitionLink</link:usedOn>
+<link:usedOn>link:presentationLink</link:usedOn>
+</link:roleType>
+<link:roleType id='scf-sd' roleURI='http://fasb.org/us-gaap/role/statement/StatementOfCashFlowsSupplementalDisclosures'>
+<link:definition>152205 - Statement - Statement of Cash Flows, Supplemental Disclosures</link:definition>
+<link:usedOn>link:calculationLink</link:usedOn>
+<link:usedOn>link:definitionLink</link:usedOn>
+<link:usedOn>link:presentationLink</link:usedOn>
+</link:roleType>
+<link:roleType id='sfp-cls2' roleURI='http://fasb.org/us-gaap/role/statement/StatementOfFinancialPositionClassifiedSecondAlternative'>
+<link:definition>104100 - Statement - Statement of Financial Position, Classified</link:definition>
+<link:usedOn>link:calculationLink</link:usedOn>
+<link:usedOn>link:definitionLink</link:usedOn>
+<link:usedOn>link:presentationLink</link:usedOn>
+</link:roleType>
+<link:roleType id='soi4' roleURI='http://fasb.org/us-gaap/role/statement/StatementOfIncomeFirstAlternative'>
+<link:definition>124003 - Statement - Statement of Income</link:definition>
+<link:usedOn>link:presentationLink</link:usedOn>
+<link:usedOn>link:calculationLink</link:usedOn>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='soc3' roleURI='http://fasb.org/us-gaap/role/statement/StatementOfOtherComprehensiveIncomeSecondAlternative'>
+<link:definition>148411 - Statement - Statement of Other Comprehensive Income</link:definition>
+<link:usedOn>link:calculationLink</link:usedOn>
+<link:usedOn>link:definitionLink</link:usedOn>
+<link:usedOn>link:presentationLink</link:usedOn>
+</link:roleType>
+<link:roleType id='soc4' roleURI='http://fasb.org/us-gaap/role/statement/StatementOfOtherComprehensiveIncomeThirdAlternative'>
+<link:definition>148412 - Statement - Statement of Other Comprehensive Income</link:definition>
+<link:usedOn>link:calculationLink</link:usedOn>
+<link:usedOn>link:definitionLink</link:usedOn>
+<link:usedOn>link:presentationLink</link:usedOn>
+</link:roleType>
+<link:roleType id='soc5' roleURI='http://fasb.org/us-gaap/role/statement/StatementOfOtherComprehensiveIncomeFouthAlternative'>
+<link:definition>148413 - Statement - Statement of Other Comprehensive Income</link:definition>
+<link:usedOn>link:calculationLink</link:usedOn>
+<link:usedOn>link:definitionLink</link:usedOn>
+<link:usedOn>link:presentationLink</link:usedOn>
+</link:roleType>
+<link:roleType id='IntangibleAssetsGoodwillAndOtherScheduleOfAcquiredFiniteLivedIntangibleAssetByMajorClassTable' roleURI='http://fasb.org/us-gaap/role/disclosure/IntangibleAssetsGoodwillAndOtherScheduleOfAcquiredFiniteLivedIntangibleAssetByMajorClassTable'>
+<link:definition>370000 - Disclosure - Intangible Assets, Goodwill and Other, Schedule of Acquired Finite-Lived Intangible Asset by Major Class [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='IntangibleAssetsGoodwillAndOtherScheduleOfAcquiredIndefiniteLivedIntangibleAssetsByMajorClassTable' roleURI='http://fasb.org/us-gaap/role/disclosure/IntangibleAssetsGoodwillAndOtherScheduleOfAcquiredIndefiniteLivedIntangibleAssetsByMajorClassTable'>
+<link:definition>370000 - Disclosure - Intangible Assets, Goodwill and Other, Schedule of Acquired Indefinite-lived Intangible Assets by Major Class [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='StatementOfCashFlowsSupplementalDisclosuresNoncashOrPartNoncashAcquisitionsTable' roleURI='http://fasb.org/us-gaap/role/statement/StatementOfCashFlowsSupplementalDisclosuresNoncashOrPartNoncashAcquisitionsTable'>
+<link:definition>152205 - Statement - Statement of Cash Flows, Supplemental Disclosures, Noncash or Part Noncash Acquisitions [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='FinancialServicesBrokersAndDealersScheduleOfAssetsSoldUnderAgreementsToRepurchaseTable' roleURI='http://fasb.org/us-gaap/role/disclosure/FinancialServicesBrokersAndDealersScheduleOfAssetsSoldUnderAgreementsToRepurchaseTable'>
+<link:definition>942000 - Disclosure - Financial Services, Brokers and Dealers, Schedule of Assets Sold under Agreements to Repurchase [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='FinancialServicesBankingAndThriftScheduleOfAssetsSoldUnderAgreementsToRepurchaseTable' roleURI='http://fasb.org/us-gaap/role/disclosure/FinancialServicesBankingAndThriftScheduleOfAssetsSoldUnderAgreementsToRepurchaseTable'>
+<link:definition>940000 - Disclosure - Financial Services, Banking and Thrift, Schedule of Assets Sold under Agreements to Repurchase [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='TransfersAndServicingAssumptionForFairValueAsOfBalanceSheetDateOfInterestsContinuedToBeHeldByTransferorServicingAssetsOrLiabilitiesTable' roleURI='http://fasb.org/us-gaap/role/disclosure/TransfersAndServicingAssumptionForFairValueAsOfBalanceSheetDateOfInterestsContinuedToBeHeldByTransferorServicingAssetsOrLiabilitiesTable'>
+<link:definition>865000 - Disclosure - Transfers and Servicing, Schedule of Assumptions for Fair Value as of Balance Sheet Date of Assets or Liabilities that relate to Transferor's Continuing Involvement [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='TransfersAndServicingAssumptionForFairValueOnSecuritizationDateOfInterestsContinuedToBeHeldByTransferorServicingAssetsOrLiabilitiesTable' roleURI='http://fasb.org/us-gaap/role/disclosure/TransfersAndServicingAssumptionForFairValueOnSecuritizationDateOfInterestsContinuedToBeHeldByTransferorServicingAssetsOrLiabilitiesTable'>
+<link:definition>865000 - Disclosure - Transfers and Servicing, Schedule of Fair Value Assumption, Date of Securitization or Asset-backed Financing Arrangement, Transferor's Continuing Involvement, Servicing Assets or Liabilities [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='EquityAuctionMarketPreferredSecuritiesStockSeriesTable' roleURI='http://fasb.org/us-gaap/role/disclosure/EquityAuctionMarketPreferredSecuritiesStockSeriesTable'>
+<link:definition>500000 - Disclosure - Equity, Auction Market Preferred Securities, Stock Series [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='BusinessCombinationsScheduleOfBusinessAcquisitionsByAcquisitionContingentConsiderationTable' roleURI='http://fasb.org/us-gaap/role/disclosure/BusinessCombinationsScheduleOfBusinessAcquisitionsByAcquisitionContingentConsiderationTable'>
+<link:definition>800000 - Disclosure - Business Combinations, Schedule of Business Acquisitions by Acquisition, Contingent Consideration [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='BusinessCombinationsScheduleOfBusinessAcquisitionsByAcquisitionEquityInterestIssuedOrIssuableTable' roleURI='http://fasb.org/us-gaap/role/disclosure/BusinessCombinationsScheduleOfBusinessAcquisitionsByAcquisitionEquityInterestIssuedOrIssuableTable'>
+<link:definition>800000 - Disclosure - Business Combinations, Schedule of Business Acquisitions by Acquisition, Equity Interest Issued or Issuable [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='BusinessCombinationsScheduleOfBusinessAcquisitionsByAcquisitionTable' roleURI='http://fasb.org/us-gaap/role/disclosure/BusinessCombinationsScheduleOfBusinessAcquisitionsByAcquisitionTable'>
+<link:definition>800000 - Disclosure - Business Combinations, Schedule of Business Acquisitions, by Acquisition [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='EquityScheduleOfCapitalUnitsTable' roleURI='http://fasb.org/us-gaap/role/disclosure/EquityScheduleOfCapitalUnitsTable'>
+<link:definition>500000 - Disclosure - Equity, Schedule of Capital Units [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='ExtractiveIndustriesCapitalizedCostsRelatingToOilAndGasProducingActivitiesByGeographicAreaTable' roleURI='http://fasb.org/us-gaap/role/disclosure/ExtractiveIndustriesCapitalizedCostsRelatingToOilAndGasProducingActivitiesByGeographicAreaTable'>
+<link:definition>965000 - Disclosure - Extractive Industries, Capitalized Costs Relating to Oil and Gas Producing Activities, by Geographic Area [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='FinancialServicesInsuranceLiabilityForCatastropheClaimsTable' roleURI='http://fasb.org/us-gaap/role/disclosure/FinancialServicesInsuranceLiabilityForCatastropheClaimsTable'>
+<link:definition>944000 - Disclosure - Financial Services, Insurance, Liability for Catastrophe Claims [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='FinancialServicesInsuranceCausesOfIncreaseDecreaseInLiabilityForUnpaidClaimsAndClaimsAdjustmentExpenseTable' roleURI='http://fasb.org/us-gaap/role/disclosure/FinancialServicesInsuranceCausesOfIncreaseDecreaseInLiabilityForUnpaidClaimsAndClaimsAdjustmentExpenseTable'>
+<link:definition>944000 - Disclosure - Financial Services, Insurance, Causes of Increase (Decrease) in Liability for Unpaid Claims and Claims Adjustment Expense [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='FinancialServicesInsuranceCededCreditRiskTable' roleURI='http://fasb.org/us-gaap/role/disclosure/FinancialServicesInsuranceCededCreditRiskTable'>
+<link:definition>944000 - Disclosure - Financial Services, Insurance, Ceded Credit Risk [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='AccountingChangesAndErrorCorrectionsScheduleOfChangeInAccountingEstimateTable' roleURI='http://fasb.org/us-gaap/role/disclosure/AccountingChangesAndErrorCorrectionsScheduleOfChangeInAccountingEstimateTable'>
+<link:definition>250000 - Disclosure - Accounting Changes and Error Corrections, Schedule of Change in Accounting Estimate [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='CashAndCashEquivalentsScheduleOfCompensatingBalancesTable' roleURI='http://fasb.org/us-gaap/role/disclosure/CashAndCashEquivalentsScheduleOfCompensatingBalancesTable'>
+<link:definition>300000 - Disclosure - Cash and Cash Equivalents, Schedule of Compensating Balances [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='RisksAndUncertaintiesConcentrationRiskTable' roleURI='http://fasb.org/us-gaap/role/disclosure/RisksAndUncertaintiesConcentrationRiskTable'>
+<link:definition>275000 - Disclosure - Risks and Uncertainties, Concentration Risk [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='StatementOfCashFlowsSupplementalDisclosuresConversionOfStockTable' roleURI='http://fasb.org/us-gaap/role/statement/StatementOfCashFlowsSupplementalDisclosuresConversionOfStockTable'>
+<link:definition>152205 - Statement - Statement of Cash Flows, Supplemental Disclosures, Conversion of Stock [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='ExtractiveIndustriesCostsIncurredInOilAndGasPropertyAcquisitionExplorationAndDevelopmentActivitiesTable' roleURI='http://fasb.org/us-gaap/role/disclosure/ExtractiveIndustriesCostsIncurredInOilAndGasPropertyAcquisitionExplorationAndDevelopmentActivitiesTable'>
+<link:definition>965000 - Disclosure - Extractive Industries, Costs Incurred in Oil and Gas Property Acquisition, Exploration, and Development Activities [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='FinancialServicesBrokersAndDealersCustomerSecuritiesForWhichEntityHasRightToSellOrRepledgeTable' roleURI='http://fasb.org/us-gaap/role/disclosure/FinancialServicesBrokersAndDealersCustomerSecuritiesForWhichEntityHasRightToSellOrRepledgeTable'>
+<link:definition>942000 - Disclosure - Financial Services, Brokers and Dealers, Customer Securities for which Entity has Right to Sell or Repledge [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='TransfersAndServicingCustomerSecuritiesForWhichEntityHasRightToSellOrRepledgeTable' roleURI='http://fasb.org/us-gaap/role/disclosure/TransfersAndServicingCustomerSecuritiesForWhichEntityHasRightToSellOrRepledgeTable'>
+<link:definition>865000 - Disclosure - Transfers and Servicing, Customer Securities for which Entity has Right to Sell or Repledge [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='StatementOfCashFlowsSupplementalDisclosuresDebtConversionTable' roleURI='http://fasb.org/us-gaap/role/statement/StatementOfCashFlowsSupplementalDisclosuresDebtConversionTable'>
+<link:definition>152205 - Statement - Statement of Cash Flows, Supplemental Disclosures, Debt Conversion [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='DebtDebtInstrumentTable' roleURI='http://fasb.org/us-gaap/role/disclosure/DebtDebtInstrumentTable'>
+<link:definition>460000 - Disclosure - Debt, Schedule of Long-term Debt Instruments [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='DeferredRevenueDeferredRevenueArrangementByTypeTable' roleURI='http://fasb.org/us-gaap/role/disclosure/DeferredRevenueDeferredRevenueArrangementByTypeTable'>
+<link:definition>440000 - Disclosure - Revenue Recognition and Deferred Revenue, Deferred Revenue Arrangement, by Type [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='DerivativeInstrumentsAndHedgingActivitiesDerivativeTable' roleURI='http://fasb.org/us-gaap/role/disclosure/DerivativeInstrumentsAndHedgingActivitiesDerivativeTable'>
+<link:definition>805000 - Disclosure - Derivative Instruments and Hedging Activities, Derivative [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='GuaranteesScheduleOfGuaranteeObligationsTable' roleURI='http://fasb.org/us-gaap/role/disclosure/GuaranteesScheduleOfGuaranteeObligationsTable'>
+<link:definition>456000 - Disclosure - Guarantees, Schedule of Guarantor Obligations [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='ExtractiveIndustriesDevelopmentWellsDrilledTable' roleURI='http://fasb.org/us-gaap/role/disclosure/ExtractiveIndustriesDevelopmentWellsDrilledTable'>
+<link:definition>965000 - Disclosure - Extractive Industries, Development Wells Drilled [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='DiscontinuedOperationsIncomeStatementBalanceSheetAndAdditionalDisclosuresByDisposalGroupsIncludingDiscontinuedOperationsTable' roleURI='http://fasb.org/us-gaap/role/disclosure/DiscontinuedOperationsIncomeStatementBalanceSheetAndAdditionalDisclosuresByDisposalGroupsIncludingDiscontinuedOperationsTable'>
+<link:definition>775000 - Disclosure - Discontinued Operations and Disposal Groups, Disposal Groups, Including Discontinued Operations [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='ExtractiveIndustriesDiscountedFutureNetCashFlowsRelatingToProvedOilAndGasReservesTable' roleURI='http://fasb.org/us-gaap/role/disclosure/ExtractiveIndustriesDiscountedFutureNetCashFlowsRelatingToProvedOilAndGasReservesTable'>
+<link:definition>965000 - Disclosure - Extractive Industries, Discounted Future Net Cash Flows Relating to Proved Oil and Gas Reserves [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='StatementOfCashFlowsSupplementalDisclosuresNoncashOrPartNoncashDivestituresTable' roleURI='http://fasb.org/us-gaap/role/statement/StatementOfCashFlowsSupplementalDisclosuresNoncashOrPartNoncashDivestituresTable'>
+<link:definition>152205 - Statement - Statement of Cash Flows, Supplemental Disclosures, Noncash or Part Noncash Divestitures [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='StatementOfCashFlowsSupplementalDisclosuresDividendsPayableTable' roleURI='http://fasb.org/us-gaap/role/statement/StatementOfCashFlowsSupplementalDisclosuresDividendsPayableTable'>
+<link:definition>152205 - Statement - Statement of Cash Flows, Supplemental Disclosures, Dividends Payable [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='CompensationRelatedCostsStockCompensationScheduleOfEmployeeStockOwnershipPlanESOPDisclosuresTable' roleURI='http://fasb.org/us-gaap/role/disclosure/CompensationRelatedCostsStockCompensationScheduleOfEmployeeStockOwnershipPlanESOPDisclosuresTable'>
+<link:definition>710000 - Disclosure - Compensation Related Costs, Share Based Payments, Schedule of Employee Stock Ownership Plan (ESOP) Disclosures [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='SegmentReportingScheduleOfEntityWideRevenueByMajorCustomersByReportingSegmentsTable' roleURI='http://fasb.org/us-gaap/role/disclosure/SegmentReportingScheduleOfEntityWideRevenueByMajorCustomersByReportingSegmentsTable'>
+<link:definition>790000 - Disclosure - Segment Reporting, Schedule of Revenue by Major Customers, by Reporting Segments [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='EnvironmentalRemediationObligationsScheduleOfEnvironmentalExitCostTable' roleURI='http://fasb.org/us-gaap/role/disclosure/EnvironmentalRemediationObligationsScheduleOfEnvironmentalExitCostTable'>
+<link:definition>425000 - Disclosure - Environmental Remediation Obligations, Schedule of Environmental Exit Cost [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='AccountingChangesAndErrorCorrectionsScheduleOfErrorCorrectionsAndPriorPeriodAdjustmentRestatementTable' roleURI='http://fasb.org/us-gaap/role/disclosure/AccountingChangesAndErrorCorrectionsScheduleOfErrorCorrectionsAndPriorPeriodAdjustmentRestatementTable'>
+<link:definition>250000 - Disclosure - Accounting Changes and Error Corrections, Schedule of Error Corrections and Prior Period Adjustment Restatement [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='ExtractiveIndustriesExploratoryWellsDrilledTable' roleURI='http://fasb.org/us-gaap/role/disclosure/ExtractiveIndustriesExploratoryWellsDrilledTable'>
+<link:definition>965000 - Disclosure - Extractive Industries, Exploratory Wells Drilled [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='DebtScheduleOfExtinguishmentOfDebtTable' roleURI='http://fasb.org/us-gaap/role/disclosure/DebtScheduleOfExtinguishmentOfDebtTable'>
+<link:definition>460000 - Disclosure - Debt, Schedule of Extinguishment of Debt [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='ExtraordinaryAndUnusualItemsExtraordinaryItemsTable' roleURI='http://fasb.org/us-gaap/role/disclosure/ExtraordinaryAndUnusualItemsExtraordinaryItemsTable'>
+<link:definition>778000 - Disclosure - Extraordinary and Unusual Items, Extraordinary Items [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='FinancialServicesBankingAndThriftScheduleOfFederalHomeLoanBankAdvancesByBranchOfFHLBBankTable' roleURI='http://fasb.org/us-gaap/role/disclosure/FinancialServicesBankingAndThriftScheduleOfFederalHomeLoanBankAdvancesByBranchOfFHLBBankTable'>
+<link:definition>940000 - Disclosure - Financial Services, Banking and Thrift, Schedule of Federal Home Loan Bank Advances, by Branch of FHLB Bank [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='OtherLiabilitiesForwardContractIndexedToIssuersEquityTable' roleURI='http://fasb.org/us-gaap/role/disclosure/OtherLiabilitiesForwardContractIndexedToIssuersEquityTable'>
+<link:definition>470000 - Disclosure - Other Liabilities, Forward Contract Indexed to Issuer's Equity [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='ReorganizationsFreshStartAdjustmentsTable' roleURI='http://fasb.org/us-gaap/role/disclosure/ReorganizationsFreshStartAdjustmentsTable'>
+<link:definition>802000 - Disclosure - Reorganizations, Fresh-Start Adjustments [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='CommitmentAndContingenciesGainContingenciesTable' roleURI='http://fasb.org/us-gaap/role/disclosure/CommitmentAndContingenciesGainContingenciesTable'>
+<link:definition>450000 - Disclosure - Commitment and Contingencies, Gain Contingencies [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='ExtractiveIndustriesGasAndOilAcreageTable' roleURI='http://fasb.org/us-gaap/role/disclosure/ExtractiveIndustriesGasAndOilAcreageTable'>
+<link:definition>965000 - Disclosure - Extractive Industries, Gas and Oil Acreage [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='IntangibleAssetsGoodwillAndOtherScheduleOfGoodwillTable' roleURI='http://fasb.org/us-gaap/role/disclosure/IntangibleAssetsGoodwillAndOtherScheduleOfGoodwillTable'>
+<link:definition>370000 - Disclosure - Intangible Assets, Goodwill and Other, Schedule of Goodwill [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='EquityScheduleOfIncentiveDistributionMadeToManagingMemberOrGeneralPartnerTable' roleURI='http://fasb.org/us-gaap/role/disclosure/EquityScheduleOfIncentiveDistributionMadeToManagingMemberOrGeneralPartnerTable'>
+<link:definition>500000 - Disclosure - Equity, Schedule of Incentive Distribution Made to Managing Member or General Partner [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='IncomeTaxesIncomeTaxContingencyTable' roleURI='http://fasb.org/us-gaap/role/disclosure/IncomeTaxesIncomeTaxContingencyTable'>
+<link:definition>770000 - Disclosure - Income Taxes, Income Tax Contingency [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='IncomeTaxesIncomeTaxExaminationTable' roleURI='http://fasb.org/us-gaap/role/disclosure/IncomeTaxesIncomeTaxExaminationTable'>
+<link:definition>770000 - Disclosure - Income Taxes, Income Tax Examination [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='IncomeTaxesIncomeTaxHolidayTable' roleURI='http://fasb.org/us-gaap/role/disclosure/IncomeTaxesIncomeTaxHolidayTable'>
+<link:definition>770000 - Disclosure - Income Taxes, Income Tax Holiday [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='ForeignOperationsAndCurrencyTranslationScheduleOfIntercompanyForeignCurrencyBalanceTable' roleURI='http://fasb.org/us-gaap/role/disclosure/ForeignOperationsAndCurrencyTranslationScheduleOfIntercompanyForeignCurrencyBalanceTable'>
+<link:definition>820000 - Disclosure - Foreign Operations and Currency Translation, Schedule of Intercompany Foreign Currency Balance [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='RegulatedOperationsJointlyOwnedUtilityPlantInterestsTable' roleURI='http://fasb.org/us-gaap/role/disclosure/RegulatedOperationsJointlyOwnedUtilityPlantInterestsTable'>
+<link:definition>980000 - Disclosure - Regulated Operations, Jointly Owned Utility Plant Interests [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='FinancialServicesInsuranceLiabilitiesForGuaranteesOnLongDurationContractsTable' roleURI='http://fasb.org/us-gaap/role/disclosure/FinancialServicesInsuranceLiabilitiesForGuaranteesOnLongDurationContractsTable'>
+<link:definition>944000 - Disclosure - Financial Services, Insurance, Liabilities for Guarantees on Long-Duration Contracts [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='FinancialServicesInsuranceLiabilityForFuturePolicyBenefitByProductSegmentTable' roleURI='http://fasb.org/us-gaap/role/disclosure/FinancialServicesInsuranceLiabilityForFuturePolicyBenefitByProductSegmentTable'>
+<link:definition>944000 - Disclosure - Financial Services, Insurance, Liability for Future Policy Benefit, by Product Segment [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='DebtLineOfCreditFacilityTable' roleURI='http://fasb.org/us-gaap/role/disclosure/DebtLineOfCreditFacilityTable'>
+<link:definition>460000 - Disclosure - Debt, Line of Credit Facility [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='FinancialServicesInsuranceLongDurationContractsAssumptionsByProductAndGuaranteeTable' roleURI='http://fasb.org/us-gaap/role/disclosure/FinancialServicesInsuranceLongDurationContractsAssumptionsByProductAndGuaranteeTable'>
+<link:definition>944000 - Disclosure - Financial Services, Insurance, Long-Duration Contracts, Assumptions, by Product and Guarantee [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='CommitmentAndContingenciesRecordedUnconditionalPurchaseObligationTable' roleURI='http://fasb.org/us-gaap/role/disclosure/CommitmentAndContingenciesRecordedUnconditionalPurchaseObligationTable'>
+<link:definition>450000 - Disclosure - Commitment and Contingencies, Recorded Unconditional Purchase Obligation [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='CommitmentAndContingenciesLossContingenciesTable' roleURI='http://fasb.org/us-gaap/role/disclosure/CommitmentAndContingenciesLossContingenciesTable'>
+<link:definition>450000 - Disclosure - Commitment and Contingencies, Loss Contingencies [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='HealthCareOrganizationsScheduleOfMalpracticeInsuranceTable' roleURI='http://fasb.org/us-gaap/role/disclosure/HealthCareOrganizationsScheduleOfMalpracticeInsuranceTable'>
+<link:definition>955000 - Disclosure - Health Care Organizations, Schedule of Malpractice Insurance [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='IncomeTaxesSignificantChangeInUnrecognizedTaxBenefitsIsReasonablyPossibleTable' roleURI='http://fasb.org/us-gaap/role/disclosure/IncomeTaxesSignificantChangeInUnrecognizedTaxBenefitsIsReasonablyPossibleTable'>
+<link:definition>770000 - Disclosure - Income Taxes, Significant Change in Unrecognized Tax Benefits is Reasonably Possible [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='FinancialServicesInsuranceNetAmountAtRiskByProductAndGuaranteeTable' roleURI='http://fasb.org/us-gaap/role/disclosure/FinancialServicesInsuranceNetAmountAtRiskByProductAndGuaranteeTable'>
+<link:definition>944000 - Disclosure - Financial Services, Insurance, Net Amount at Risk, by Product and Guarantee [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='AccountingChangesAndErrorCorrectionsNewAccountingPronouncementsOrChangeInAccountingPrincipleTable' roleURI='http://fasb.org/us-gaap/role/disclosure/AccountingChangesAndErrorCorrectionsNewAccountingPronouncementsOrChangeInAccountingPrincipleTable'>
+<link:definition>250000 - Disclosure - Accounting Changes and Error Corrections, New Accounting Pronouncements or Change in Accounting Principle [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='NonmonetaryTransactionsNonmonetaryTransactionByTypeTable' roleURI='http://fasb.org/us-gaap/role/disclosure/NonmonetaryTransactionsNonmonetaryTransactionByTypeTable'>
+<link:definition>840000 - Disclosure - Nonmonetary Transactions, Nonmonetary Transaction, by Type [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='ExtractiveIndustriesOilAndGasDeliveryCommitmentsAndContractsTable' roleURI='http://fasb.org/us-gaap/role/disclosure/ExtractiveIndustriesOilAndGasDeliveryCommitmentsAndContractsTable'>
+<link:definition>965000 - Disclosure - Extractive Industries, Oil and Gas Delivery Commitments and Contracts [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='ExtractiveIndustriesProvedDevelopedAndUndevelopedOilAndGasReserveQuantitiesTable' roleURI='http://fasb.org/us-gaap/role/disclosure/ExtractiveIndustriesProvedDevelopedAndUndevelopedOilAndGasReserveQuantitiesTable'>
+<link:definition>965000 - Disclosure - Extractive Industries, Proved Developed and Undeveloped Oil and Gas Reserve Quantities [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='ExtractiveIndustriesAverageSalesPriceAndProductionCostsPerUnitOfProductionTable' roleURI='http://fasb.org/us-gaap/role/disclosure/ExtractiveIndustriesAverageSalesPriceAndProductionCostsPerUnitOfProductionTable'>
+<link:definition>965000 - Disclosure - Extractive Industries, Average Sales Price and Production Costs Per Unit of Production [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='OtherLiabilitiesOptionIndexedToIssuersEquityTable' roleURI='http://fasb.org/us-gaap/role/disclosure/OtherLiabilitiesOptionIndexedToIssuersEquityTable'>
+<link:definition>470000 - Disclosure - Other Liabilities, Option Indexed to Issuer's Equity [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='FinancialServicesBrokersAndDealersOtherInvestmentNotReadilyMarketableTable' roleURI='http://fasb.org/us-gaap/role/disclosure/FinancialServicesBrokersAndDealersOtherInvestmentNotReadilyMarketableTable'>
+<link:definition>942000 - Disclosure - Financial Services, Brokers and Dealers, Other Investment Not Readily Marketable [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='EquityScheduleOfOtherOwnershipInterestsTable' roleURI='http://fasb.org/us-gaap/role/disclosure/EquityScheduleOfOtherOwnershipInterestsTable'>
+<link:definition>500000 - Disclosure - Equity, Schedule of Other Ownership Interests [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='StatementOfCashFlowsSupplementalDisclosuresOtherSignificantNoncashTransactionsTable' roleURI='http://fasb.org/us-gaap/role/statement/StatementOfCashFlowsSupplementalDisclosuresOtherSignificantNoncashTransactionsTable'>
+<link:definition>152205 - Statement - Statement of Cash Flows, Supplemental Disclosures, Other Significant Noncash Transactions [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='DebtParticipatingMortgageLoansTable' roleURI='http://fasb.org/us-gaap/role/disclosure/DebtParticipatingMortgageLoansTable'>
+<link:definition>460000 - Disclosure - Debt, Participating Mortgage Loans [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='CompensationRelatedCostsRetirementBenefitsScheduleOfDefinedBenefitPlansDisclosuresTable' roleURI='http://fasb.org/us-gaap/role/disclosure/CompensationRelatedCostsRetirementBenefitsScheduleOfDefinedBenefitPlansDisclosuresTable'>
+<link:definition>730000 - Disclosure - Compensation Related Costs, Retirement Benefits, Schedule of Defined Benefit Plans Disclosures [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='EquityScheduleOfPreferredUnitsTable' roleURI='http://fasb.org/us-gaap/role/disclosure/EquityScheduleOfPreferredUnitsTable'>
+<link:definition>500000 - Disclosure - Equity, Schedule of Preferred Units [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='FinancialServicesBrokersAndDealersPrincipleTransactionRevenueTable' roleURI='http://fasb.org/us-gaap/role/disclosure/FinancialServicesBrokersAndDealersPrincipleTransactionRevenueTable'>
+<link:definition>942000 - Disclosure - Financial Services, Brokers and Dealers, Principal Transaction Revenue [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='ExtractiveIndustriesProductiveWellsTable' roleURI='http://fasb.org/us-gaap/role/disclosure/ExtractiveIndustriesProductiveWellsTable'>
+<link:definition>965000 - Disclosure - Extractive Industries, Productive Wells [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='RegulatedOperationsLongTermContractsForPurchaseOfElectricPowerTable' roleURI='http://fasb.org/us-gaap/role/disclosure/RegulatedOperationsLongTermContractsForPurchaseOfElectricPowerTable'>
+<link:definition>980000 - Disclosure - Regulated Operations, Long-term Contracts for Purchase of Electric Power [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='AccountingChangesAndErrorCorrectionsScheduleOfQuantifyingPriorYearMisstatementCorrectedInCurrentYearFinancialStatementsTable' roleURI='http://fasb.org/us-gaap/role/disclosure/AccountingChangesAndErrorCorrectionsScheduleOfQuantifyingPriorYearMisstatementCorrectedInCurrentYearFinancialStatementsTable'>
+<link:definition>250000 - Disclosure - Accounting Changes and Error Corrections, Schedule of Quantifying Prior Year Misstatement Corrected in Current Year Financial Statements [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='TransfersAndServicingSecuritizedAssetsAndAnyOtherFinancialAssetsManagedTogetherTable' roleURI='http://fasb.org/us-gaap/role/disclosure/TransfersAndServicingSecuritizedAssetsAndAnyOtherFinancialAssetsManagedTogetherTable'>
+<link:definition>865000 - Disclosure - Transfers and Servicing, Assets that Continue to be Recognized, Transferred Financial Assets and Other Financial Assets Managed Together [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='SECScheduleArticle12-28RealEstateAndAccumulatedDepreciationRealEstateAndAccumulatedDepreciationByPropertyTable' roleURI='http://fasb.org/us-gaap/role/disclosure/SECScheduleArticle12-28RealEstateAndAccumulatedDepreciationRealEstateAndAccumulatedDepreciationByPropertyTable'>
+<link:definition>993200 - Disclosure - SEC Schedule, Article 12-28, Real Estate and Accumulated Depreciation, SEC Schedule III, Real Estate and Accumulated Depreciation, by Property [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='ReceivablesLoansNotesReceivableAndOthersScheduleOfReceivablesWithImputedInterestTable' roleURI='http://fasb.org/us-gaap/role/disclosure/ReceivablesLoansNotesReceivableAndOthersScheduleOfReceivablesWithImputedInterestTable'>
+<link:definition>320000 - Disclosure - Receivables, Loans, Notes Receivable, and Others, Schedule of Receivables with Imputed Interest [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='CommitmentAndContingenciesRegistrationPaymentArrangementTable' roleURI='http://fasb.org/us-gaap/role/disclosure/CommitmentAndContingenciesRegistrationPaymentArrangementTable'>
+<link:definition>450000 - Disclosure - Commitment and Contingencies, Registration Payment Arrangement [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='SECScheduleArticle12-17ReinsuranceReinsurancePremiumsForInsuranceCompaniesByProductSegmentTable' roleURI='http://fasb.org/us-gaap/role/disclosure/SECScheduleArticle12-17ReinsuranceReinsurancePremiumsForInsuranceCompaniesByProductSegmentTable'>
+<link:definition>994000 - Disclosure - SEC Schedule, Article 12-17, Reinsurance, Reinsurance Premiums for Insurance Companies, by Product Segment [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='RelatedPartyDisclosuresScheduleOfRelatedPartyTransactionsByRelatedPartyTable' roleURI='http://fasb.org/us-gaap/role/disclosure/RelatedPartyDisclosuresScheduleOfRelatedPartyTransactionsByRelatedPartyTable'>
+<link:definition>845000 - Disclosure - Related Party Disclosures, Schedule of Related Party Transactions, by Related Party [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='FinancialServicesBrokersAndDealersScheduleOfRepurchaseAgreementCounterpartyTable' roleURI='http://fasb.org/us-gaap/role/disclosure/FinancialServicesBrokersAndDealersScheduleOfRepurchaseAgreementCounterpartyTable'>
+<link:definition>942000 - Disclosure - Financial Services, Brokers and Dealers, Schedule of Repurchase Agreement Counterparty [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='FinancialServicesBankingAndThriftScheduleOfRepurchaseAgreementCounterpartyTable' roleURI='http://fasb.org/us-gaap/role/disclosure/FinancialServicesBankingAndThriftScheduleOfRepurchaseAgreementCounterpartyTable'>
+<link:definition>940000 - Disclosure - Financial Services, Banking and Thrift, Schedule of Repurchase Agreement Counterparty [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='FinancialServicesBrokersAndDealersScheduleOfResaleAgreementCounterpartyTable' roleURI='http://fasb.org/us-gaap/role/disclosure/FinancialServicesBrokersAndDealersScheduleOfResaleAgreementCounterpartyTable'>
+<link:definition>942000 - Disclosure - Financial Services, Brokers and Dealers, Schedule of Resale Agreement Counterparty [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='FinancialServicesBankingAndThriftScheduleOfResaleAgreementCounterpartyTable' roleURI='http://fasb.org/us-gaap/role/disclosure/FinancialServicesBankingAndThriftScheduleOfResaleAgreementCounterpartyTable'>
+<link:definition>940000 - Disclosure - Financial Services, Banking and Thrift, Schedule of Resale Agreement Counterparty [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='IntangibleAssetsGoodwillAndOtherScheduleOfResearchAndDevelopmentAssetsAcquiredOtherThanThroughBusinessCombinationTable' roleURI='http://fasb.org/us-gaap/role/disclosure/IntangibleAssetsGoodwillAndOtherScheduleOfResearchAndDevelopmentAssetsAcquiredOtherThanThroughBusinessCombinationTable'>
+<link:definition>370000 - Disclosure - Intangible Assets, Goodwill and Other, Schedule of Research and Development Assets Acquired Other than Through Business Combination [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='CashAndCashEquivalentsScheduleOfRestrictedCashAndCashEquivalentsTable' roleURI='http://fasb.org/us-gaap/role/disclosure/CashAndCashEquivalentsScheduleOfRestrictedCashAndCashEquivalentsTable'>
+<link:definition>300000 - Disclosure - Cash and Cash Equivalents, Schedule of Restricted Cash and Cash Equivalents [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='ExtractiveIndustriesResultsOfOperationsForOilAndGasProducingActivitiesByGeographicAreaTable' roleURI='http://fasb.org/us-gaap/role/disclosure/ExtractiveIndustriesResultsOfOperationsForOilAndGasProducingActivitiesByGeographicAreaTable'>
+<link:definition>965000 - Disclosure - Extractive Industries, Results of Operations for Oil and Gas Producing Activities, by Geographic Area [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='TransfersAndServicingManagingOfRisksInherentInServicingAssetsAndServicingLiabilitiesTable' roleURI='http://fasb.org/us-gaap/role/disclosure/TransfersAndServicingManagingOfRisksInherentInServicingAssetsAndServicingLiabilitiesTable'>
+<link:definition>865000 - Disclosure - Transfers and Servicing, Schedule of Managing of Risks Inherent in Servicing Assets and Servicing Liabilities [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='LeasesSaleLeasebackTransactionTable' roleURI='http://fasb.org/us-gaap/role/disclosure/LeasesSaleLeasebackTransactionTable'>
+<link:definition>831000 - Disclosure - Leases, Sale Leaseback Transaction [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='FinancialServicesInsuranceScheduleOfFairValueOfSeparateAccountsByMajorCategoryOfInvestmentTable' roleURI='http://fasb.org/us-gaap/role/disclosure/FinancialServicesInsuranceScheduleOfFairValueOfSeparateAccountsByMajorCategoryOfInvestmentTable'>
+<link:definition>944000 - Disclosure - Financial Services, Insurance, Schedule of Fair Value of Separate Accounts by Major Category of Investment [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='SECScheduleArticle12-29MortgageLoansOnRealEstateMortgageLoansOnRealEstateScheduleTable' roleURI='http://fasb.org/us-gaap/role/disclosure/SECScheduleArticle12-29MortgageLoansOnRealEstateMortgageLoansOnRealEstateScheduleTable'>
+<link:definition>993400 - Disclosure - SEC Schedule, Article 12-29, Mortgage Loans on Real Estate, Mortgage Loans on Real Estate Schedule [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='SECScheduleArticle12-18SupplementalInformationForProperty-CasualtyInsuranceUnderwritersSupplementalInformationForPropertyCasualtyInsuranceUnderwritersTable' roleURI='http://fasb.org/us-gaap/role/disclosure/SECScheduleArticle12-18SupplementalInformationForProperty-CasualtyInsuranceUnderwritersSupplementalInformationForPropertyCasualtyInsuranceUnderwritersTable'>
+<link:definition>994200 - Disclosure - SEC Schedule, Article 12-18, Supplemental Information (for Property-Casualty Insurance Underwriters), Supplemental Information for Property, Casualty Insurance Underwriters [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='FinancialServicesBrokersAndDealersSecuritiesFinancingTransactionTable' roleURI='http://fasb.org/us-gaap/role/disclosure/FinancialServicesBrokersAndDealersSecuritiesFinancingTransactionTable'>
+<link:definition>942000 - Disclosure - Financial Services, Brokers and Dealers, Securities Financing Transaction [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='FinancialServicesBrokersAndDealersSecurityOwnedNotReadilyMarketableTable' roleURI='http://fasb.org/us-gaap/role/disclosure/FinancialServicesBrokersAndDealersSecurityOwnedNotReadilyMarketableTable'>
+<link:definition>942000 - Disclosure - Financial Services, Brokers and Dealers, Security Owned Not Readily Marketable [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='TransfersAndServicingSecuritizationFinancialAssetForWhichTransferIsAccountedAsSaleTable' roleURI='http://fasb.org/us-gaap/role/disclosure/TransfersAndServicingSecuritizationFinancialAssetForWhichTransferIsAccountedAsSaleTable'>
+<link:definition>865000 - Disclosure - Transfers and Servicing, Schedule of Securitization or Asset-backed Financing Arrangements, Financial Asset for which Transfer is Accounted as Sale [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='FinancialServicesBrokersAndDealersFinancialInstrumentsOwnedAndPledgedAsCollateralTable' roleURI='http://fasb.org/us-gaap/role/disclosure/FinancialServicesBrokersAndDealersFinancialInstrumentsOwnedAndPledgedAsCollateralTable'>
+<link:definition>942000 - Disclosure - Financial Services, Brokers and Dealers, Financial Instruments Owned and Pledged as Collateral [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='TransfersAndServicingFinancialInstrumentsOwnedAndPledgedAsCollateralTable' roleURI='http://fasb.org/us-gaap/role/disclosure/TransfersAndServicingFinancialInstrumentsOwnedAndPledgedAsCollateralTable'>
+<link:definition>865000 - Disclosure - Transfers and Servicing, Financial Instruments Owned and Pledged as Collateral [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='FinancialServicesBrokersAndDealersSecurityOwnedAndSoldNotYetPurchasedAtFairValueTable' roleURI='http://fasb.org/us-gaap/role/disclosure/FinancialServicesBrokersAndDealersSecurityOwnedAndSoldNotYetPurchasedAtFairValueTable'>
+<link:definition>942000 - Disclosure - Financial Services, Brokers and Dealers, Security Owned and Sold, Not yet Purchased, at Fair Value [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='SegmentReportingReconciliationOfAssetsFromSegmentToConsolidatedTable' roleURI='http://fasb.org/us-gaap/role/disclosure/SegmentReportingReconciliationOfAssetsFromSegmentToConsolidatedTable'>
+<link:definition>790000 - Disclosure - Segment Reporting, Reconciliation of Assets from Segment to Consolidated [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='SegmentReportingScheduleOfSegmentReportingInformationBySegmentTable' roleURI='http://fasb.org/us-gaap/role/disclosure/SegmentReportingScheduleOfSegmentReportingInformationBySegmentTable'>
+<link:definition>790000 - Disclosure - Segment Reporting, Schedule of Segment Reporting Information, by Segment [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='SegmentReportingReconciliationOfOtherSignificantReconcilingItemsFromSegmentsToConsolidatedTable' roleURI='http://fasb.org/us-gaap/role/disclosure/SegmentReportingReconciliationOfOtherSignificantReconcilingItemsFromSegmentsToConsolidatedTable'>
+<link:definition>790000 - Disclosure - Segment Reporting, Reconciliation of Other Significant Reconciling Items from Segments to Consolidated [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='SegmentReportingReconciliationOfOperatingProfitLossFromSegmentsToConsolidatedTable' roleURI='http://fasb.org/us-gaap/role/disclosure/SegmentReportingReconciliationOfOperatingProfitLossFromSegmentsToConsolidatedTable'>
+<link:definition>790000 - Disclosure - Segment Reporting, Reconciliation of Operating Profit (Loss) from Segments to Consolidated [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='SegmentReportingReconciliationOfRevenueFromSegmentsToConsolidatedTable' roleURI='http://fasb.org/us-gaap/role/disclosure/SegmentReportingReconciliationOfRevenueFromSegmentsToConsolidatedTable'>
+<link:definition>790000 - Disclosure - Segment Reporting, Reconciliation of Revenue from Segments to Consolidated [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='TransfersAndServicingSensitivityAnalysisOfFairValueOfInterestsContinuedToBeHeldByTransferorServicingAssetsOrLiabilitiesTable' roleURI='http://fasb.org/us-gaap/role/disclosure/TransfersAndServicingSensitivityAnalysisOfFairValueOfInterestsContinuedToBeHeldByTransferorServicingAssetsOrLiabilitiesTable'>
+<link:definition>865000 - Disclosure - Transfers and Servicing, Schedule of Sensitivity Analysis of Fair Value, Transferor's Interests in Transferred Financial Assets [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='TransfersAndServicingServicingAssetsAtAmortizedValueTable' roleURI='http://fasb.org/us-gaap/role/disclosure/TransfersAndServicingServicingAssetsAtAmortizedValueTable'>
+<link:definition>865000 - Disclosure - Transfers and Servicing, Servicing Asset at Amortized Cost [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='TransfersAndServicingServicingAssetsAtFairValueTable' roleURI='http://fasb.org/us-gaap/role/disclosure/TransfersAndServicingServicingAssetsAtFairValueTable'>
+<link:definition>865000 - Disclosure - Transfers and Servicing, Schedule of Servicing Assets at Fair Value [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='TransfersAndServicingServicingLiabilitiesAtFairValueTable' roleURI='http://fasb.org/us-gaap/role/disclosure/TransfersAndServicingServicingLiabilitiesAtFairValueTable'>
+<link:definition>865000 - Disclosure - Transfers and Servicing, Schedule of Servicing Liabilities at Fair Value [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='TransfersAndServicingServicingLiabilityAtAmortizedValueTable' roleURI='http://fasb.org/us-gaap/role/disclosure/TransfersAndServicingServicingLiabilityAtAmortizedValueTable'>
+<link:definition>865000 - Disclosure - Transfers and Servicing, Servicing Liability at Amortized Cost [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='CompensationRelatedCostsStockCompensationScheduleOfShareBasedCompensationSharesAuthorizedUnderStockOptionPlansByExercisePriceRangeTable' roleURI='http://fasb.org/us-gaap/role/disclosure/CompensationRelatedCostsStockCompensationScheduleOfShareBasedCompensationSharesAuthorizedUnderStockOptionPlansByExercisePriceRangeTable'>
+<link:definition>710000 - Disclosure - Compensation Related Costs, Share Based Payments, Schedule of Share-based Compensation, Shares Authorized under Stock Option Plans, by Exercise Price Range [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='CompensationRelatedCostsStockCompensationScheduleOfShareBasedCompensationArrangementsByShareBasedPaymentAwardTable' roleURI='http://fasb.org/us-gaap/role/disclosure/CompensationRelatedCostsStockCompensationScheduleOfShareBasedCompensationArrangementsByShareBasedPaymentAwardTable'>
+<link:definition>710000 - Disclosure - Compensation Related Costs, Share Based Payments, Schedule of Share-based Compensation Arrangements by Share-based Payment Award [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='CompensationRelatedCostsStockCompensationScheduleOfShareBasedGoodsAndNonemployeeServicesTransactionTable' roleURI='http://fasb.org/us-gaap/role/disclosure/CompensationRelatedCostsStockCompensationScheduleOfShareBasedGoodsAndNonemployeeServicesTransactionTable'>
+<link:definition>710000 - Disclosure - Compensation Related Costs, Share Based Payments, Schedule of Share-based Goods and Nonemployee Services Transaction [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='DebtScheduleOfShortTermDebtTable' roleURI='http://fasb.org/us-gaap/role/disclosure/DebtScheduleOfShortTermDebtTable'>
+<link:definition>460000 - Disclosure - Debt, Schedule of Short-term Debt [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='EnvironmentalRemediationObligationsSiteContingencyTable' roleURI='http://fasb.org/us-gaap/role/disclosure/EnvironmentalRemediationObligationsSiteContingencyTable'>
+<link:definition>425000 - Disclosure - Environmental Remediation Obligations, Site Contingency [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='FinancialServicesInsuranceStatutoryAccountingPracticesTable' roleURI='http://fasb.org/us-gaap/role/disclosure/FinancialServicesInsuranceStatutoryAccountingPracticesTable'>
+<link:definition>944000 - Disclosure - Financial Services, Insurance, Statutory Accounting Practices [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='FinancialServicesBrokersAndDealersSubordinatedBorrowingTable' roleURI='http://fasb.org/us-gaap/role/disclosure/FinancialServicesBrokersAndDealersSubordinatedBorrowingTable'>
+<link:definition>942000 - Disclosure - Financial Services, Brokers and Dealers, Subordinated Borrowing [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='SubsequentEventsSubsequentEventTable' roleURI='http://fasb.org/us-gaap/role/disclosure/SubsequentEventsSubsequentEventTable'>
+<link:definition>870000 - Disclosure - Subsequent Events, Subsequent Event [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='OrganizationConsolidationAndPresentationOfFinancialStatementsScheduleOfSubsidiaryOfLimitedLiabilityCompanyOrLimitedPartnershipTable' roleURI='http://fasb.org/us-gaap/role/disclosure/OrganizationConsolidationAndPresentationOfFinancialStatementsScheduleOfSubsidiaryOfLimitedLiabilityCompanyOrLimitedPartnershipTable'>
+<link:definition>200000 - Disclosure - Organization, Consolidation and Presentation of Financial Statements, Schedule of Subsidiary of Limited Liability Company or Limited Partnership [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='EquityScheduleOfSubsidiaryOrEquityMethodInvesteeTable' roleURI='http://fasb.org/us-gaap/role/disclosure/EquityScheduleOfSubsidiaryOrEquityMethodInvesteeTable'>
+<link:definition>500000 - Disclosure - Equity, Schedule of Subsidiary or Equity Method Investee [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='SECScheduleArticle12-16SupplementaryInsuranceInformationSupplementaryInsuranceInformationBySegmentTable' roleURI='http://fasb.org/us-gaap/role/disclosure/SECScheduleArticle12-16SupplementaryInsuranceInformationSupplementaryInsuranceInformationBySegmentTable'>
+<link:definition>993800 - Disclosure - SEC Schedule, Article 12-16, Supplementary Insurance Information, Supplementary Insurance Information, by Segment [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='IncomeTaxesTaxCreditCarryforwardTable' roleURI='http://fasb.org/us-gaap/role/disclosure/IncomeTaxesTaxCreditCarryforwardTable'>
+<link:definition>770000 - Disclosure - Income Taxes, Tax Credit Carryforward [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='DebtTroubledDebtRestructuringDebtorCurrentPeriodTable' roleURI='http://fasb.org/us-gaap/role/disclosure/DebtTroubledDebtRestructuringDebtorCurrentPeriodTable'>
+<link:definition>460000 - Disclosure - Debt, Troubled Debt Restructuring, Debtor, Current Period [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='DebtTroubledDebtRestructuringDebtorSubsequentPeriodsTable' roleURI='http://fasb.org/us-gaap/role/disclosure/DebtTroubledDebtRestructuringDebtorSubsequentPeriodsTable'>
+<link:definition>460000 - Disclosure - Debt, Troubled Debt Restructuring, Debtor, Subsequent Periods [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='CommitmentAndContingenciesUnrecordedUnconditionalPurchaseObligationTable' roleURI='http://fasb.org/us-gaap/role/disclosure/CommitmentAndContingenciesUnrecordedUnconditionalPurchaseObligationTable'>
+<link:definition>450000 - Disclosure - Commitment and Contingencies, Unrecorded Unconditional Purchase Obligation [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='ExtraordinaryAndUnusualItemsUnusualOrInfrequentItemTable' roleURI='http://fasb.org/us-gaap/role/disclosure/ExtraordinaryAndUnusualItemsUnusualOrInfrequentItemTable'>
+<link:definition>778000 - Disclosure - Extraordinary and Unusual Items, Unusual or Infrequent Item [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='RisksAndUncertaintiesUnusualRiskOrUncertaintyTable' roleURI='http://fasb.org/us-gaap/role/disclosure/RisksAndUncertaintiesUnusualRiskOrUncertaintyTable'>
+<link:definition>275000 - Disclosure - Risks and Uncertainties, Unusual Risk or Uncertainty [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='RegulatedOperationsPublicUtilitiesInventoryTable' roleURI='http://fasb.org/us-gaap/role/disclosure/RegulatedOperationsPublicUtilitiesInventoryTable'>
+<link:definition>980000 - Disclosure - Regulated Operations, Public Utilities, Inventory [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='TransfersAndServicingValuationAllowanceForImpairmentOfRecognizedServicingAssetsTable' roleURI='http://fasb.org/us-gaap/role/disclosure/TransfersAndServicingValuationAllowanceForImpairmentOfRecognizedServicingAssetsTable'>
+<link:definition>865000 - Disclosure - Transfers and Servicing, Schedule of Valuation Allowance for Impairment of Recognized Servicing Assets [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='IncomeTaxesValuationAllowanceTable' roleURI='http://fasb.org/us-gaap/role/disclosure/IncomeTaxesValuationAllowanceTable'>
+<link:definition>770000 - Disclosure - Income Taxes, Valuation Allowance [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='SECScheduleArticle12-09ValuationAndQualifyingAccountsValuationAndQualifyingAccountsDisclosureTable' roleURI='http://fasb.org/us-gaap/role/disclosure/SECScheduleArticle12-09ValuationAndQualifyingAccountsValuationAndQualifyingAccountsDisclosureTable'>
+<link:definition>993000 - Disclosure - SEC Schedule, Article 12-09, Valuation and Qualifying Accounts, Valuation and Qualifying Accounts Disclosure [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='OrganizationConsolidationAndPresentationOfFinancialStatementsScheduleOfVariableInterestEntitiesTable' roleURI='http://fasb.org/us-gaap/role/disclosure/OrganizationConsolidationAndPresentationOfFinancialStatementsScheduleOfVariableInterestEntitiesTable'>
+<link:definition>200000 - Disclosure - Organization, Consolidation and Presentation of Financial Statements, Schedule of Variable Interest Entities [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='AccountingPoliciesScheduleOfVariableInterestEntitiesTable' roleURI='http://fasb.org/us-gaap/role/disclosure/AccountingPoliciesScheduleOfVariableInterestEntitiesTable'>
+<link:definition>290000 - Disclosure - Accounting Policies, Schedule of Variable Interest Entities [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='FinancialServicesInsuranceWeightedAverageDiscountRateTable' roleURI='http://fasb.org/us-gaap/role/disclosure/FinancialServicesInsuranceWeightedAverageDiscountRateTable'>
+<link:definition>944000 - Disclosure - Financial Services, Insurance, Weighted Average Discount Rate [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='SECScheduleArticle12-28RealEstateAndAccumulatedDepreciationRealEstateWriteDownOrReserveTable' roleURI='http://fasb.org/us-gaap/role/disclosure/SECScheduleArticle12-28RealEstateAndAccumulatedDepreciationRealEstateWriteDownOrReserveTable'>
+<link:definition>993200 - Disclosure - SEC Schedule, Article 12-28, Real Estate and Accumulated Depreciation, SEC Schedule III, Real Estate, Write-down or Reserve [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='InvestmentsDebtAndEquitySecuritiesScheduleOfAvailableForSaleSecuritiesTable' roleURI='http://fasb.org/us-gaap/role/disclosure/InvestmentsDebtAndEquitySecuritiesScheduleOfAvailableForSaleSecuritiesTable'>
+<link:definition>330000 - Disclosure - Investments, Debt and Equity Securities, Schedule of Available-for-sale Securities [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='InvestmentsDebtAndEquitySecuritiesScheduleOfHeldToMaturitySecuritiesTable' roleURI='http://fasb.org/us-gaap/role/disclosure/InvestmentsDebtAndEquitySecuritiesScheduleOfHeldToMaturitySecuritiesTable'>
+<link:definition>330000 - Disclosure - Investments, Debt and Equity Securities, Schedule of Held-to-maturity Securities [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='EquityScheduleOfLimitedPartnersCapitalAccountByClassTable' roleURI='http://fasb.org/us-gaap/role/disclosure/EquityScheduleOfLimitedPartnersCapitalAccountByClassTable'>
+<link:definition>500000 - Disclosure - Equity, Schedule of Limited Partners' Capital Account by Class [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='InvestmentsDebtAndEquitySecuritiesScheduleOfTradingSecuritiesAndOtherTradingAssetsTable' roleURI='http://fasb.org/us-gaap/role/disclosure/InvestmentsDebtAndEquitySecuritiesScheduleOfTradingSecuritiesAndOtherTradingAssetsTable'>
+<link:definition>330000 - Disclosure - Investments, Debt and Equity Securities, Trading Securities [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='InvestmentsDebtAndEquitySecuritiesScheduleOfInvestmentIncomeReportedAmountsByCategoryTable' roleURI='http://fasb.org/us-gaap/role/disclosure/InvestmentsDebtAndEquitySecuritiesScheduleOfInvestmentIncomeReportedAmountsByCategoryTable'>
+<link:definition>330000 - Disclosure - Investments, Debt and Equity Securities, Investment Income [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='FinancialServicesInsuranceScheduleOfInvestmentIncomeReportedAmountsByCategoryTable' roleURI='http://fasb.org/us-gaap/role/disclosure/FinancialServicesInsuranceScheduleOfInvestmentIncomeReportedAmountsByCategoryTable'>
+<link:definition>944000 - Disclosure - Financial Services, Insurance, Investment Income [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='EquityTargetedOrTrackingStockStockTable' roleURI='http://fasb.org/us-gaap/role/disclosure/EquityTargetedOrTrackingStockStockTable'>
+<link:definition>500000 - Disclosure - Equity, Targeted or Tracking Stock, Stock [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='ExitOrDisposalCostObligationsScheduleOfRestructuringAndRelatedCostsTable' roleURI='http://fasb.org/us-gaap/role/disclosure/ExitOrDisposalCostObligationsScheduleOfRestructuringAndRelatedCostsTable'>
+<link:definition>430000 - Disclosure - Restructuring and Related Activities, Schedule of Restructuring and Related Costs [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='LeasesPropertySubjectToOrAvailableForOperatingLeaseByMajorPropertyClassTable' roleURI='http://fasb.org/us-gaap/role/disclosure/LeasesPropertySubjectToOrAvailableForOperatingLeaseByMajorPropertyClassTable'>
+<link:definition>831000 - Disclosure - Leases, Property Subject to or Available for Operating Lease, by Major Property Class [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='FinancialInstrumentsFairValueDisclosuresFairValueByBalanceSheetGroupingTable' roleURI='http://fasb.org/us-gaap/role/disclosure/FinancialInstrumentsFairValueDisclosuresFairValueByBalanceSheetGroupingTable'>
+<link:definition>815000 - Disclosure - Fair Value Measures and Disclosures, Fair Value, by Balance Sheet Grouping [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='StatementOfShareholdersEquityAndOtherComprehensiveIncomeStatementTable' roleURI='http://fasb.org/us-gaap/role/statement/StatementOfShareholdersEquityAndOtherComprehensiveIncomeStatementTable'>
+<link:definition>148600 - Statement - Statement of Shareholders' Equity, Statement [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='CommonDomainMembersStatementTable' roleURI='http://fasb.org/us-gaap/role/statement/CommonDomainMembersStatementTable'>
+<link:definition>190000 - Statement - Common Domain Members, Statement [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='StatementOfOtherComprehensiveIncomeStatementTable' roleURI='http://fasb.org/us-gaap/role/statement/StatementOfOtherComprehensiveIncomeStatementTable'>
+<link:definition>148400 - Statement - Statement of Comprehensive Income, Statement [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='StatementOfFinancialPositionClassifiedStatementTable' roleURI='http://fasb.org/us-gaap/role/statement/StatementOfFinancialPositionClassifiedStatementTable'>
+<link:definition>104000 - Statement - Statement of Financial Position, Classified, Statement [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='StatementOfFinancialPositionUnclassified-DepositBasedOperationsStatementTable' roleURI='http://fasb.org/us-gaap/role/statement/StatementOfFinancialPositionUnclassified-DepositBasedOperationsStatementTable'>
+<link:definition>108000 - Statement - Statement of Financial Position, Unclassified - Deposit Based Operations, Statement [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='StatementOfFinancialPositionUnclassified-InvestmentBasedOperationsStatementTable' roleURI='http://fasb.org/us-gaap/role/statement/StatementOfFinancialPositionUnclassified-InvestmentBasedOperationsStatementTable'>
+<link:definition>108200 - Statement - Statement of Financial Position, Unclassified - Insurance Based Operations, Statement [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='StatementOfFinancialPositionUnclassified-SecuritiesBasedOperationsStatementTable' roleURI='http://fasb.org/us-gaap/role/statement/StatementOfFinancialPositionUnclassified-SecuritiesBasedOperationsStatementTable'>
+<link:definition>112000 - Statement - Statement of Financial Position, Unclassified - Securities Based Operations, Statement [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='StatementOfIncomeStatementTable' roleURI='http://fasb.org/us-gaap/role/statement/StatementOfIncomeStatementTable'>
+<link:definition>124000 - Statement - Statement of Income (Including Gross Margin), Statement [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='StatementOfIncomeInterestBasedRevenueStatementTable' roleURI='http://fasb.org/us-gaap/role/statement/StatementOfIncomeInterestBasedRevenueStatementTable'>
+<link:definition>132001 - Statement - Statement of Income, Interest Based Revenue, Statement [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='StatementOfIncomeInsuranceBasedRevenueStatementTable' roleURI='http://fasb.org/us-gaap/role/statement/StatementOfIncomeInsuranceBasedRevenueStatementTable'>
+<link:definition>136000 - Statement - Statement of Income, Insurance Based Revenue, Statement [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='StatementOfIncomeSecuritiesBasedIncomeStatementTable' roleURI='http://fasb.org/us-gaap/role/statement/StatementOfIncomeSecuritiesBasedIncomeStatementTable'>
+<link:definition>140400 - Statement - Statement of Income, Securities Based Income, Statement [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='StatementOfCashFlowsIndirectStatementTable' roleURI='http://fasb.org/us-gaap/role/statement/StatementOfCashFlowsIndirectStatementTable'>
+<link:definition>152200 - Statement - Statement of Cash Flows, Statement [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='StatementOfCashFlowsIndirectDepositBasedOperationsStatementTable' roleURI='http://fasb.org/us-gaap/role/statement/StatementOfCashFlowsIndirectDepositBasedOperationsStatementTable'>
+<link:definition>160000 - Statement - Statement of Cash Flows, Deposit Based Operations, Statement [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='StatementOfCashFlowsIndirectInvestmentBasedOperationsStatementTable' roleURI='http://fasb.org/us-gaap/role/statement/StatementOfCashFlowsIndirectInvestmentBasedOperationsStatementTable'>
+<link:definition>164000 - Statement - Statement of Cash Flows, Insurance Based Operations, Statement [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='StatementOfCashFlowsIndirectSecuritiesBasedOperationsStatementTable' roleURI='http://fasb.org/us-gaap/role/statement/StatementOfCashFlowsIndirectSecuritiesBasedOperationsStatementTable'>
+<link:definition>168400 - Statement - Statement of Cash Flows, Securities Based Operations, Statement [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='StatementOfCashFlowsDirectStatementTable' roleURI='http://fasb.org/us-gaap/role/statement/StatementOfCashFlowsDirectStatementTable'>
+<link:definition>172600 - Statement - Statement of Cash Flows, Direct Method Operating Activities, Statement [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='StatementOfPartnersCapitalStatementTable' roleURI='http://fasb.org/us-gaap/role/statement/StatementOfPartnersCapitalStatementTable'>
+<link:definition>152000 - Statement - Statement of Partners' Capital, Statement [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='StatementOfFinancialPositionUnclassified-RealEstateOperationsStatementTable' roleURI='http://fasb.org/us-gaap/role/statement/StatementOfFinancialPositionUnclassified-RealEstateOperationsStatementTable'>
+<link:definition>110200 - Statement - Statement of Financial Position, Unclassified - Real Estate Operations, Statement [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='StatementOfFinancialPositionClassified-RealEstateOperationsStatementTable' roleURI='http://fasb.org/us-gaap/role/statement/StatementOfFinancialPositionClassified-RealEstateOperationsStatementTable'>
+<link:definition>110000 - Statement - Statement of Financial Position, Classified - Real Estate Operations, Statement [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='StatementOfIncomeAlternativeStatementTable' roleURI='http://fasb.org/us-gaap/role/statement/StatementOfIncomeAlternativeStatementTable'>
+<link:definition>124100 - Statement - Statement of Income, Statement [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='StatementOfIncomeRealEstateExcludingREITsStatementTable' roleURI='http://fasb.org/us-gaap/role/statement/StatementOfIncomeRealEstateExcludingREITsStatementTable'>
+<link:definition>144000 - Statement - Statement of Income, Real Estate, Excluding REITs, Statement [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='StatementOfIncomeRealEstateInvestmentTrustsStatementTable' roleURI='http://fasb.org/us-gaap/role/statement/StatementOfIncomeRealEstateInvestmentTrustsStatementTable'>
+<link:definition>145000 - Statement - Statement of Income, Real Estate Investment Trusts, Statement [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='StatementOfCashFlowsIndirectRealEstateStatementTable' roleURI='http://fasb.org/us-gaap/role/statement/StatementOfCashFlowsIndirectRealEstateStatementTable'>
+<link:definition>170000 - Statement - Statement of Cash Flows, Real Estate, Including REITs, Statement [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='FinancialInstrumentsFairValueDisclosuresFairValueEstimateNotPracticableTable' roleURI='http://fasb.org/us-gaap/role/disclosure/FinancialInstrumentsFairValueDisclosuresFairValueEstimateNotPracticableTable'>
+<link:definition>815000 - Disclosure - Fair Value Measures and Disclosures, Fair Value, Estimate Not Practicable [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='EquityOptionIndexedToIssuersEquityEquityTable' roleURI='http://fasb.org/us-gaap/role/disclosure/EquityOptionIndexedToIssuersEquityEquityTable'>
+<link:definition>500000 - Disclosure - Equity, Option Indexed to Issuer's Equity, Equity [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='FinancialInstrumentsFairValueDisclosuresFairValueConcentrationOfRiskTable' roleURI='http://fasb.org/us-gaap/role/disclosure/FinancialInstrumentsFairValueDisclosuresFairValueConcentrationOfRiskTable'>
+<link:definition>815000 - Disclosure - Fair Value Measures and Disclosures, Fair Value, Concentration of Risk [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='CompensationRelatedCostsRetirementBenefitsScheduleOfIncrementalEffectsOnBalanceSheetApplicationOfSFAS158RecognitionProvisionsTable' roleURI='http://fasb.org/us-gaap/role/disclosure/CompensationRelatedCostsRetirementBenefitsScheduleOfIncrementalEffectsOnBalanceSheetApplicationOfSFAS158RecognitionProvisionsTable'>
+<link:definition>730000 - Disclosure - Compensation Related Costs, Retirement Benefits, Schedule of Incremental Effects on Balance Sheet, Application of FAS 158 Recognition Provisions [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='FinancialInstrumentsFairValueDisclosuresFairValueAssetsMeasuredOnRecurringBasisUnobservableInputReconciliationTable' roleURI='http://fasb.org/us-gaap/role/disclosure/FinancialInstrumentsFairValueDisclosuresFairValueAssetsMeasuredOnRecurringBasisUnobservableInputReconciliationTable'>
+<link:definition>815000 - Disclosure - Fair Value Measures and Disclosures, Fair Value, Assets Measured on Recurring Basis, Unobservable Input Reconciliation [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='FinancialInstrumentsFairValueDisclosuresFairValueLiabilitiesMeasuredOnRecurringBasisUnobservableInputReconciliationTable' roleURI='http://fasb.org/us-gaap/role/disclosure/FinancialInstrumentsFairValueDisclosuresFairValueLiabilitiesMeasuredOnRecurringBasisUnobservableInputReconciliationTable'>
+<link:definition>815000 - Disclosure - Fair Value Measures and Disclosures, Fair Value, Liabilities Measured on Recurring Basis, Unobservable Input Reconciliation [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='EquityClassOfWarrantOrRightTable' roleURI='http://fasb.org/us-gaap/role/disclosure/EquityClassOfWarrantOrRightTable'>
+<link:definition>500000 - Disclosure - Equity, Class of Warrant or Right [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='OtherLiabilitiesClassOfWarrantOrRightTable' roleURI='http://fasb.org/us-gaap/role/disclosure/OtherLiabilitiesClassOfWarrantOrRightTable'>
+<link:definition>470000 - Disclosure - Other Liabilities, Class of Warrant or Right [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='IncomeTaxesOperatingLossCarryforwardsTable' roleURI='http://fasb.org/us-gaap/role/disclosure/IncomeTaxesOperatingLossCarryforwardsTable'>
+<link:definition>770000 - Disclosure - Income Taxes, Operating Loss Carryforwards [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='FinancialInstrumentsFairValueDisclosuresFairValueOptionQualitativeDisclosuresRelatedToElectionTable' roleURI='http://fasb.org/us-gaap/role/disclosure/FinancialInstrumentsFairValueDisclosuresFairValueOptionQualitativeDisclosuresRelatedToElectionTable'>
+<link:definition>815000 - Disclosure - Fair Value Measures and Disclosures, Fair Value, Option, Qualitative Disclosures Related to Election [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='FinancialInstrumentsFairValueDisclosuresFairValueOptionQuantitativeDisclosuresTable' roleURI='http://fasb.org/us-gaap/role/disclosure/FinancialInstrumentsFairValueDisclosuresFairValueOptionQuantitativeDisclosuresTable'>
+<link:definition>815000 - Disclosure - Fair Value Measures and Disclosures, Fair Value, Option, Quantitative Disclosures [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='EquitySubsidiaryOrEquityMethodInvesteeSaleOfStockBySubsidiaryOrEquityInvesteeTable' roleURI='http://fasb.org/us-gaap/role/disclosure/EquitySubsidiaryOrEquityMethodInvesteeSaleOfStockBySubsidiaryOrEquityInvesteeTable'>
+<link:definition>500000 - Disclosure - Equity, Subsidiary or Equity Method Investee, Sale of Stock by Subsidiary or Equity Investee [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='HealthCareOrganizationsHealthCareTrustFundTable' roleURI='http://fasb.org/us-gaap/role/disclosure/HealthCareOrganizationsHealthCareTrustFundTable'>
+<link:definition>955000 - Disclosure - Health Care Organizations, Health Care Trust Fund [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='SECScheduleArticle12-15SummaryOfInvestments-OtherThanInvestmentsInRelatedPartiesSummaryOfInvestmentsOtherThanInvestmentsInRelatedPartiesTable' roleURI='http://fasb.org/us-gaap/role/disclosure/SECScheduleArticle12-15SummaryOfInvestments-OtherThanInvestmentsInRelatedPartiesSummaryOfInvestmentsOtherThanInvestmentsInRelatedPartiesTable'>
+<link:definition>993600 - Disclosure - SEC Schedule, Article 12-15, Summary of Investments - Other than Investments in Related Parties, Summary of Investments, Other than Investments in Related Parties [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='CommitmentAndContingenciesLongTermPurchaseCommitmentTable' roleURI='http://fasb.org/us-gaap/role/disclosure/CommitmentAndContingenciesLongTermPurchaseCommitmentTable'>
+<link:definition>450000 - Disclosure - Commitment and Contingencies, Long-term Purchase Commitment [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='SECScheduleArticle12-29MortgageLoansOnRealEstateMortgageLoansOnRealEstateWriteDownOrReserveTable' roleURI='http://fasb.org/us-gaap/role/disclosure/SECScheduleArticle12-29MortgageLoansOnRealEstateMortgageLoansOnRealEstateWriteDownOrReserveTable'>
+<link:definition>993400 - Disclosure - SEC Schedule, Article 12-29, Mortgage Loans on Real Estate, Mortgage Loans on Real Estate, Write-down or Reserve [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='EquityClassOfTreasuryStockTable' roleURI='http://fasb.org/us-gaap/role/disclosure/EquityClassOfTreasuryStockTable'>
+<link:definition>500000 - Disclosure - Equity, Class of Treasury Stock [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='EarningsPerShareScheduleOfEarningsPerShareDilutedByCommonClassTable' roleURI='http://fasb.org/us-gaap/role/disclosure/EarningsPerShareScheduleOfEarningsPerShareDilutedByCommonClassTable'>
+<link:definition>780000 - Disclosure - Earnings Per Share, Schedule of Earnings Per Share, Diluted, by Common Class, Including Two Class Method [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='EarningsPerShareScheduleOfEarningsPerShareBasicByCommonClassTable' roleURI='http://fasb.org/us-gaap/role/disclosure/EarningsPerShareScheduleOfEarningsPerShareBasicByCommonClassTable'>
+<link:definition>780000 - Disclosure - Earnings Per Share, Schedule of Earnings Per Share, Basic, by Common Class, Including Two Class Method [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='EarningsPerShareScheduleOfAntidilutiveSecuritiesExcludedFromComputationOfEarningsPerShareTable' roleURI='http://fasb.org/us-gaap/role/disclosure/EarningsPerShareScheduleOfAntidilutiveSecuritiesExcludedFromComputationOfEarningsPerShareTable'>
+<link:definition>780000 - Disclosure - Earnings Per Share, Schedule of Antidilutive Securities Excluded from Computation of Earnings Per Share [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='ExitOrDisposalCostObligationsScheduleOfEffectsOnFutureEarningsAndCashFlowsResultingFromExitPlanTable' roleURI='http://fasb.org/us-gaap/role/disclosure/ExitOrDisposalCostObligationsScheduleOfEffectsOnFutureEarningsAndCashFlowsResultingFromExitPlanTable'>
+<link:definition>430000 - Disclosure - Restructuring and Related Activities, Schedule of Effects on Future Earnings and Cash Flows Resulting from Exit Plan [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='InvestmentsEquityMethodAndJointVenturesScheduleOfEquityMethodInvestmentsTable' roleURI='http://fasb.org/us-gaap/role/disclosure/InvestmentsEquityMethodAndJointVenturesScheduleOfEquityMethodInvestmentsTable'>
+<link:definition>333000 - Disclosure - Investments, Equity Method and Joint Ventures, Schedule of Equity Method Investments [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='CompensationRelatedCostsStockCompensationScheduleOfEmployeeServiceShareBasedCompensationAllocationOfRecognizedPeriodCostsTable' roleURI='http://fasb.org/us-gaap/role/disclosure/CompensationRelatedCostsStockCompensationScheduleOfEmployeeServiceShareBasedCompensationAllocationOfRecognizedPeriodCostsTable'>
+<link:definition>710000 - Disclosure - Compensation Related Costs, Share Based Payments, Schedule of Employee Service Share-based Compensation, Allocation of Recognized Period Costs [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='AccountingPoliciesScheduleOfPropertyPlantAndEquipmentTable' roleURI='http://fasb.org/us-gaap/role/disclosure/AccountingPoliciesScheduleOfPropertyPlantAndEquipmentTable'>
+<link:definition>290000 - Disclosure - Accounting Policies, Property, Plant and Equipment [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='PropertyPlantAndEquipmentScheduleOfPropertyPlantAndEquipmentTable' roleURI='http://fasb.org/us-gaap/role/disclosure/PropertyPlantAndEquipmentScheduleOfPropertyPlantAndEquipmentTable'>
+<link:definition>360000 - Disclosure - Property, Plant, and Equipment, Property, Plant and Equipment [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='PropertyPlantAndEquipmentScheduleOfImpairedLongLivedAssetsHeldAndUsedTable' roleURI='http://fasb.org/us-gaap/role/disclosure/PropertyPlantAndEquipmentScheduleOfImpairedLongLivedAssetsHeldAndUsedTable'>
+<link:definition>360000 - Disclosure - Property, Plant, and Equipment, Schedule of Impaired Long-Lived Assets Held and Used [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='PropertyPlantAndEquipmentImpairedAssetsToBeDisposedOfByMethodOtherThanSaleTable' roleURI='http://fasb.org/us-gaap/role/disclosure/PropertyPlantAndEquipmentImpairedAssetsToBeDisposedOfByMethodOtherThanSaleTable'>
+<link:definition>360000 - Disclosure - Property, Plant, and Equipment, Impaired Assets to be Disposed of by Method Other than Sale [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='PropertyPlantAndEquipmentScheduleOfLongLivedAssetsHeldForSaleTable' roleURI='http://fasb.org/us-gaap/role/disclosure/PropertyPlantAndEquipmentScheduleOfLongLivedAssetsHeldForSaleTable'>
+<link:definition>360000 - Disclosure - Property, Plant, and Equipment, Schedule of Long Lived Assets Held-for-sale [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='CompensationRelatedCostsStockCompensationScheduleOfDeferredCompensationArrangementWithIndividualShareBasedPaymentsTable' roleURI='http://fasb.org/us-gaap/role/disclosure/CompensationRelatedCostsStockCompensationScheduleOfDeferredCompensationArrangementWithIndividualShareBasedPaymentsTable'>
+<link:definition>710000 - Disclosure - Compensation Related Costs, Share Based Payments, Schedule of Deferred Compensation Arrangement with Individual, Share-based Payments [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='OtherLiabilitiesScheduleOfSharesSubjectToMandatoryRedemptionTable' roleURI='http://fasb.org/us-gaap/role/disclosure/OtherLiabilitiesScheduleOfSharesSubjectToMandatoryRedemptionTable'>
+<link:definition>470000 - Disclosure - Other Liabilities, Schedule of Financial Instruments Subject to Mandatory Redemption [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='RegulatedOperationsPublicUtilityPropertyPlantAndEquipmentTable' roleURI='http://fasb.org/us-gaap/role/disclosure/RegulatedOperationsPublicUtilityPropertyPlantAndEquipmentTable'>
+<link:definition>980000 - Disclosure - Regulated Operations, Public Utility, Property, Plant and Equipment [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='ExtractiveIndustriesProjectsWithExploratoryWellCostsCapitalizedForMoreThanOneYearTable' roleURI='http://fasb.org/us-gaap/role/disclosure/ExtractiveIndustriesProjectsWithExploratoryWellCostsCapitalizedForMoreThanOneYearTable'>
+<link:definition>965000 - Disclosure - Extractive Industries, Projects with Exploratory Well Costs Capitalized for More than One Year [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='FinancialServicesBankingAndThriftScheduleOfComplianceWithRegulatoryCapitalRequirementsUnderBankingRegulationsTable' roleURI='http://fasb.org/us-gaap/role/disclosure/FinancialServicesBankingAndThriftScheduleOfComplianceWithRegulatoryCapitalRequirementsUnderBankingRegulationsTable'>
+<link:definition>940000 - Disclosure - Financial Services, Banking and Thrift, Schedule of Compliance with Regulatory Capital Requirements under Banking Regulations [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='ExtractiveIndustriesOilAndGasInProcessActivitiesTable' roleURI='http://fasb.org/us-gaap/role/disclosure/ExtractiveIndustriesOilAndGasInProcessActivitiesTable'>
+<link:definition>965000 - Disclosure - Extractive Industries, Oil and Gas In Process Activities [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='ExtractiveIndustriesAmortizationExpensePerUnitOfProductionTable' roleURI='http://fasb.org/us-gaap/role/disclosure/ExtractiveIndustriesAmortizationExpensePerUnitOfProductionTable'>
+<link:definition>965000 - Disclosure - Extractive Industries, Amortization Expense Per Unit of Production [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='ExtractiveIndustriesCapitalizedCostsOfUnprovedPropertiesExcludedFromAmortizationTable' roleURI='http://fasb.org/us-gaap/role/disclosure/ExtractiveIndustriesCapitalizedCostsOfUnprovedPropertiesExcludedFromAmortizationTable'>
+<link:definition>965000 - Disclosure - Extractive Industries, Capitalized Costs of Unproved Properties Excluded from Amortization [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='BusinessCombinationsFiniteLivedIntangibleAssetsAcquiredAsPartOfBusinessCombinationTable' roleURI='http://fasb.org/us-gaap/role/disclosure/BusinessCombinationsFiniteLivedIntangibleAssetsAcquiredAsPartOfBusinessCombinationTable'>
+<link:definition>800000 - Disclosure - Business Combinations, Finite-Lived Intangible Assets Acquired as Part of Business Combination [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='BusinessCombinationsIndefiniteLivedIntangibleAssetsAcquiredAsPartOfBusinessCombinationTable' roleURI='http://fasb.org/us-gaap/role/disclosure/BusinessCombinationsIndefiniteLivedIntangibleAssetsAcquiredAsPartOfBusinessCombinationTable'>
+<link:definition>800000 - Disclosure - Business Combinations, Indefinite-lived Intangible Assets Acquired as Part of Business Combination [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='FinancialInstrumentsFairValueDisclosuresScheduleOfFairValueOffBalanceSheetRisksTable' roleURI='http://fasb.org/us-gaap/role/disclosure/FinancialInstrumentsFairValueDisclosuresScheduleOfFairValueOffBalanceSheetRisksTable'>
+<link:definition>815000 - Disclosure - Fair Value Measures and Disclosures, Schedule of Fair Value, Off-balance Sheet Risks [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='FinancialServicesMortgageBankingScheduleOfComplianceWithRegulatoryCapitalRequirementsForMortgageCompaniesTable' roleURI='http://fasb.org/us-gaap/role/disclosure/FinancialServicesMortgageBankingScheduleOfComplianceWithRegulatoryCapitalRequirementsForMortgageCompaniesTable'>
+<link:definition>948000 - Disclosure - Financial Services, Mortgage Banking, Schedule of Compliance with Regulatory Capital Requirements for Mortgage Companies [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='CompensationRelatedCostsGeneralScheduleOfDeferredCompensationArrangementWithIndividualExcludingShareBasedPaymentsAndPostretirementBenefitsByTitleOfIndividualAndByTypeOfDeferredCompensationTable' roleURI='http://fasb.org/us-gaap/role/disclosure/CompensationRelatedCostsGeneralScheduleOfDeferredCompensationArrangementWithIndividualExcludingShareBasedPaymentsAndPostretirementBenefitsByTitleOfIndividualAndByTypeOfDeferredCompensationTable'>
+<link:definition>705000 - Disclosure - Compensation Related Costs, General, Schedule of Deferred Compensation Arrangement with Individual, Excluding Share-based Payments and Postretirement Benefits, by Title of Individual and by Type of Deferred Compensation [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='CompensationRelatedCostsRetirementBenefitsScheduleOfDeferredCompensationArrangementWithIndividualPostretirementBenefitsTable' roleURI='http://fasb.org/us-gaap/role/disclosure/CompensationRelatedCostsRetirementBenefitsScheduleOfDeferredCompensationArrangementWithIndividualPostretirementBenefitsTable'>
+<link:definition>730000 - Disclosure - Compensation Related Costs, Retirement Benefits, Schedule of Deferred Compensation Arrangement with Individual, Postretirement Benefits [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='CommitmentAndContingenciesProductLiabilityContingencyTable' roleURI='http://fasb.org/us-gaap/role/disclosure/CommitmentAndContingenciesProductLiabilityContingencyTable'>
+<link:definition>450000 - Disclosure - Commitment and Contingencies, Product Liability Contingency [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='SECScheduleArticle12-04CondensedFinancialInformationScheduleOfCondensedFinancialStatementsTable' roleURI='http://fasb.org/us-gaap/role/disclosure/SECScheduleArticle12-04CondensedFinancialInformationScheduleOfCondensedFinancialStatementsTable'>
+<link:definition>991000 - Disclosure - SEC Schedule, Article 12-04, Condensed Financial Information of Registrant, Condensed Financial Statements [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='FinancialServicesInsuranceScheduleOfInsuredFinancialObligationsWithCreditDeteriorationTable' roleURI='http://fasb.org/us-gaap/role/disclosure/FinancialServicesInsuranceScheduleOfInsuredFinancialObligationsWithCreditDeteriorationTable'>
+<link:definition>944000 - Disclosure - Financial Services, Insurance, Schedule of Insured Financial Obligations with Credit Deterioration [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='InterimReportingScheduleOfEffectOfFourthQuarterEventsTable' roleURI='http://fasb.org/us-gaap/role/disclosure/InterimReportingScheduleOfEffectOfFourthQuarterEventsTable'>
+<link:definition>285000 - Disclosure - Interim Reporting, Schedule of Effect of Fourth Quarter Events [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='ResearchAndDevelopmentScheduleOfResearchAndDevelopmentArrangementContractToPerformForOthersTable' roleURI='http://fasb.org/us-gaap/role/disclosure/ResearchAndDevelopmentScheduleOfResearchAndDevelopmentArrangementContractToPerformForOthersTable'>
+<link:definition>760000 - Disclosure - Research and Development, Schedule of Research and Development Arrangement, Contract to Perform for Others [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='OtherLiabilitiesAcceleratedShareRepurchasesTable' roleURI='http://fasb.org/us-gaap/role/disclosure/OtherLiabilitiesAcceleratedShareRepurchasesTable'>
+<link:definition>470000 - Disclosure - Other Liabilities, Accelerated Share Repurchases [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='ReceivablesLoansNotesReceivableAndOthersScheduleOfAccountsNotesLoansAndFinancingReceivableTable' roleURI='http://fasb.org/us-gaap/role/disclosure/ReceivablesLoansNotesReceivableAndOthersScheduleOfAccountsNotesLoansAndFinancingReceivableTable'>
+<link:definition>320000 - Disclosure - Receivables, Loans, Notes Receivable, and Others, Schedule of Accounts, Notes, Loans and Financing Receivable [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='EquityScheduleOfStockByClassTable' roleURI='http://fasb.org/us-gaap/role/disclosure/EquityScheduleOfStockByClassTable'>
+<link:definition>500000 - Disclosure - Equity, Schedule of Stock by Class [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='OrganizationConsolidationAndPresentationOfFinancialStatementsConsolidationLessThanWhollyOwnedSubsidiaryParentOwnershipInterestEffectsOfChangesNetTable' roleURI='http://fasb.org/us-gaap/role/disclosure/OrganizationConsolidationAndPresentationOfFinancialStatementsConsolidationLessThanWhollyOwnedSubsidiaryParentOwnershipInterestEffectsOfChangesNetTable'>
+<link:definition>200000 - Disclosure - Organization, Consolidation and Presentation of Financial Statements, Consolidation, Less than Wholly Owned Subsidiary, Parent Ownership Interest, Effects of Changes, Net [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='MinorityInterestConsolidationLessThanWhollyOwnedSubsidiaryParentOwnershipInterestEffectsOfChangesNetTable' roleURI='http://fasb.org/us-gaap/role/disclosure/MinorityInterestConsolidationLessThanWhollyOwnedSubsidiaryParentOwnershipInterestEffectsOfChangesNetTable'>
+<link:definition>472000 - Disclosure - Noncontrolling Interest, Consolidation, Less than Wholly Owned Subsidiary, Parent Ownership Interest, Effects of Changes, Net [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='DerivativeInstrumentsAndHedgingActivitiesScheduleOfCreditDerivativesTable' roleURI='http://fasb.org/us-gaap/role/disclosure/DerivativeInstrumentsAndHedgingActivitiesScheduleOfCreditDerivativesTable'>
+<link:definition>805000 - Disclosure - Derivative Instruments and Hedging Activities, Schedule of Credit Derivatives [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='TransfersAndServicingScheduleOfDerecognizedAssetsSecuritizedOrAssetbackedFinancingArrangementAssetsAndAnyOtherFinancialAssetsManagedTogetherTable' roleURI='http://fasb.org/us-gaap/role/disclosure/TransfersAndServicingScheduleOfDerecognizedAssetsSecuritizedOrAssetbackedFinancingArrangementAssetsAndAnyOtherFinancialAssetsManagedTogetherTable'>
+<link:definition>865000 - Disclosure - Transfers and Servicing, Derecognized Transferred Financial Assets and Other Financial Assets Managed Together [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='TransfersAndServicingScheduleOfAssetsAndAssociatedLiabilitiesAccountedForAsSecuredBorrowingsTable' roleURI='http://fasb.org/us-gaap/role/disclosure/TransfersAndServicingScheduleOfAssetsAndAssociatedLiabilitiesAccountedForAsSecuredBorrowingsTable'>
+<link:definition>865000 - Disclosure - Transfers and Servicing, Schedule of Assets and Associated Liabilities Accounted for as Secured Borrowings [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='RegulatedOperationsScheduleOfCapitalizationLongtermDebtTable' roleURI='http://fasb.org/us-gaap/role/disclosure/RegulatedOperationsScheduleOfCapitalizationLongtermDebtTable'>
+<link:definition>980000 - Disclosure - Regulated Operations, Schedule of Capitalization, Long-term Debt [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='RegulatedOperationsScheduleOfCapitalizationEquityTable' roleURI='http://fasb.org/us-gaap/role/disclosure/RegulatedOperationsScheduleOfCapitalizationEquityTable'>
+<link:definition>980000 - Disclosure - Regulated Operations, Schedule of Capitalization, Equity [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='MinorityInterestRedeemableNoncontrollingInterestByLegalEntityTable' roleURI='http://fasb.org/us-gaap/role/disclosure/MinorityInterestRedeemableNoncontrollingInterestByLegalEntityTable'>
+<link:definition>472000 - Disclosure - Noncontrolling Interest, Redeemable Noncontrolling Interest, by Legal Entity [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='TemporaryEquityRedeemableNoncontrollingInterestByLegalEntityTable' roleURI='http://fasb.org/us-gaap/role/disclosure/TemporaryEquityRedeemableNoncontrollingInterestByLegalEntityTable'>
+<link:definition>480000 - Disclosure - Temporary Equity, Redeemable Noncontrolling Interest, by Legal Entity [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='TemporaryEquityTemporaryEquityByClassOfStockTable' roleURI='http://fasb.org/us-gaap/role/disclosure/TemporaryEquityTemporaryEquityByClassOfStockTable'>
+<link:definition>480000 - Disclosure - Temporary Equity, Temporary Equity, by Class of Stock [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='SegmentReportingScheduleOfRevenuesFromExternalCustomersAndLongLivedAssetsTable' roleURI='http://fasb.org/us-gaap/role/disclosure/SegmentReportingScheduleOfRevenuesFromExternalCustomersAndLongLivedAssetsTable'>
+<link:definition>790000 - Disclosure - Segment Reporting, Schedule of Revenues from External Customers and Long-Lived Assets [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='SegmentReportingScheduleOfEntityWideInformationRevenueFromExternalCustomersByProductsAndServicesTable' roleURI='http://fasb.org/us-gaap/role/disclosure/SegmentReportingScheduleOfEntityWideInformationRevenueFromExternalCustomersByProductsAndServicesTable'>
+<link:definition>790000 - Disclosure - Segment Reporting, Revenue from External Customers by Products and Services [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='AccountingPoliciesRevenueRecognitionMultipleDeliverableArrangementsTable' roleURI='http://fasb.org/us-gaap/role/disclosure/AccountingPoliciesRevenueRecognitionMultipleDeliverableArrangementsTable'>
+<link:definition>290000 - Disclosure - Accounting Policies, Revenue Recognition, Multiple-deliverable Arrangements [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='DeferredRevenueRevenueRecognitionMultipleDeliverableArrangementsTable' roleURI='http://fasb.org/us-gaap/role/disclosure/DeferredRevenueRevenueRecognitionMultipleDeliverableArrangementsTable'>
+<link:definition>440000 - Disclosure - Revenue Recognition and Deferred Revenue, Revenue Recognition, Multiple-deliverable Arrangements [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='FinancialInstrumentsFairValueDisclosuresFairValueInvestmentsEntitiesThatCalculateNetAssetValuePerShareTable' roleURI='http://fasb.org/us-gaap/role/disclosure/FinancialInstrumentsFairValueDisclosuresFairValueInvestmentsEntitiesThatCalculateNetAssetValuePerShareTable'>
+<link:definition>815000 - Disclosure - Fair Value Measures and Disclosures, Fair Value, Investments, Entities that Calculate Net Asset Value Per Share [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='TransfersAndServicingQualitativeAndQuantitativeInformationTransferorsContinuingInvolvementTable' roleURI='http://fasb.org/us-gaap/role/disclosure/TransfersAndServicingQualitativeAndQuantitativeInformationTransferorsContinuingInvolvementTable'>
+<link:definition>865000 - Disclosure - Transfers and Servicing, Qualitative and Quantitative Information, Transferor's Continuing Involvement [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='CommitmentAndContingenciesPurchaseCommitmentExcludingLongtermCommitmentTable' roleURI='http://fasb.org/us-gaap/role/disclosure/CommitmentAndContingenciesPurchaseCommitmentExcludingLongtermCommitmentTable'>
+<link:definition>450000 - Disclosure - Commitment and Contingencies, Purchase Commitment, Excluding Long-term Commitment [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='CommitmentAndContingenciesSupplyCommitmentTable' roleURI='http://fasb.org/us-gaap/role/disclosure/CommitmentAndContingenciesSupplyCommitmentTable'>
+<link:definition>450000 - Disclosure - Commitment and Contingencies, Supply Commitment [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='AccountingPoliciesRevenueRecognitionMilestoneMethodTable' roleURI='http://fasb.org/us-gaap/role/disclosure/AccountingPoliciesRevenueRecognitionMilestoneMethodTable'>
+<link:definition>290000 - Disclosure - Accounting Policies, Revenue Recognition, Milestone Method [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='AccountingChangesAndErrorCorrectionsNewAccountingPronouncementEarlyAdoptionTable' roleURI='http://fasb.org/us-gaap/role/disclosure/AccountingChangesAndErrorCorrectionsNewAccountingPronouncementEarlyAdoptionTable'>
+<link:definition>250000 - Disclosure - Accounting Changes and Error Corrections, New Accounting Pronouncement, Early Adoption [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='ForeignOperationsAndCurrencyTranslationScheduleOfDifferencesBetweenReportedAmountAndReportingCurrencyDenominatedAmountTable' roleURI='http://fasb.org/us-gaap/role/disclosure/ForeignOperationsAndCurrencyTranslationScheduleOfDifferencesBetweenReportedAmountAndReportingCurrencyDenominatedAmountTable'>
+<link:definition>820000 - Disclosure - Foreign Operations and Currency Translation, Schedule of Differences between Reported Amount and Reporting Currency Denominated Amount [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='ReceivablesLoansNotesReceivableAndOthersScheduleOfFinancingReceivablesPastDueTable' roleURI='http://fasb.org/us-gaap/role/disclosure/ReceivablesLoansNotesReceivableAndOthersScheduleOfFinancingReceivablesPastDueTable'>
+<link:definition>320000 - Disclosure - Receivables, Loans, Notes Receivable, and Others, Schedule of Financing Receivables Past Due [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='ReceivablesLoansNotesReceivableAndOthersScheduleOfFinancingReceivableAllowanceForCreditLossesTable' roleURI='http://fasb.org/us-gaap/role/disclosure/ReceivablesLoansNotesReceivableAndOthersScheduleOfFinancingReceivableAllowanceForCreditLossesTable'>
+<link:definition>320000 - Disclosure - Receivables, Loans, Notes Receivable, and Others, Schedule of Financing Receivable, Allowance for Credit Losses [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='AccountingPoliciesScheduleOfImpairedFinancingReceivableTable' roleURI='http://fasb.org/us-gaap/role/disclosure/AccountingPoliciesScheduleOfImpairedFinancingReceivableTable'>
+<link:definition>290000 - Disclosure - Accounting Policies, Schedule of Impaired Financing Receivable [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='ReceivablesLoansNotesReceivableAndOthersScheduleOfImpairedFinancingReceivableTable' roleURI='http://fasb.org/us-gaap/role/disclosure/ReceivablesLoansNotesReceivableAndOthersScheduleOfImpairedFinancingReceivableTable'>
+<link:definition>320000 - Disclosure - Receivables, Loans, Notes Receivable, and Others, Schedule of Impaired Financing Receivable [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='ReceivablesLoansNotesReceivableAndOthersScheduleOfFinancingReceivableTroubledDebtRestructuringsTable' roleURI='http://fasb.org/us-gaap/role/disclosure/ReceivablesLoansNotesReceivableAndOthersScheduleOfFinancingReceivableTroubledDebtRestructuringsTable'>
+<link:definition>320000 - Disclosure - Receivables, Loans, Notes Receivable, and Others, Schedule of Financing Receivable, Troubled Debt Restructurings [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='RegulatedOperationsScheduleOfRegulatoryAssetsTable' roleURI='http://fasb.org/us-gaap/role/disclosure/RegulatedOperationsScheduleOfRegulatoryAssetsTable'>
+<link:definition>980000 - Disclosure - Regulated Operations, Schedule of Regulatory Assets [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='RegulatedOperationsScheduleOfRegulatoryLiabilitiesTable' roleURI='http://fasb.org/us-gaap/role/disclosure/RegulatedOperationsScheduleOfRegulatoryLiabilitiesTable'>
+<link:definition>980000 - Disclosure - Regulated Operations, Schedule of Regulatory Liabilities [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='ReceivablesLoansNotesReceivableAndOthersScheduleOfFinancingReceivableRecordedInvestmentCreditQualityIndicatorTable' roleURI='http://fasb.org/us-gaap/role/disclosure/ReceivablesLoansNotesReceivableAndOthersScheduleOfFinancingReceivableRecordedInvestmentCreditQualityIndicatorTable'>
+<link:definition>320000 - Disclosure - Receivables, Loans, Notes Receivable, and Others, Schedule of Financing Receivable, Recorded Investment, Credit Quality Indicator [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='BusinessCombinationsBusinessCombinationSeparatelyRecognizedTransactionsTable' roleURI='http://fasb.org/us-gaap/role/disclosure/BusinessCombinationsBusinessCombinationSeparatelyRecognizedTransactionsTable'>
+<link:definition>800000 - Disclosure - Business Combinations, Business Combination, Separately Recognized Transactions [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='InterimReportingInterimPeriodCostsNotAllocableTable' roleURI='http://fasb.org/us-gaap/role/disclosure/InterimReportingInterimPeriodCostsNotAllocableTable'>
+<link:definition>285000 - Disclosure - Interim Reporting, Interim Period, Costs Not Allocable [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='FinancialServicesBankingAndThriftCapitalRequirementsOnForeignFinancialInstitutionsTable' roleURI='http://fasb.org/us-gaap/role/disclosure/FinancialServicesBankingAndThriftCapitalRequirementsOnForeignFinancialInstitutionsTable'>
+<link:definition>940000 - Disclosure - Financial Services, Banking and Thrift, Capital Requirements on Foreign Financial Institutions [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='OrganizationConsolidationAndPresentationOfFinancialStatementsScheduleOfProductInformationTable' roleURI='http://fasb.org/us-gaap/role/disclosure/OrganizationConsolidationAndPresentationOfFinancialStatementsScheduleOfProductInformationTable'>
+<link:definition>200000 - Disclosure - Organization, Consolidation and Presentation of Financial Statements, Schedule of Product Information [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='AccountingPoliciesScheduleOfProductInformationTable' roleURI='http://fasb.org/us-gaap/role/disclosure/AccountingPoliciesScheduleOfProductInformationTable'>
+<link:definition>290000 - Disclosure - Accounting Policies, Schedule of Product Information [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='OrganizationConsolidationAndPresentationOfFinancialStatementsScheduleOfRealEstatePropertiesTable' roleURI='http://fasb.org/us-gaap/role/disclosure/OrganizationConsolidationAndPresentationOfFinancialStatementsScheduleOfRealEstatePropertiesTable'>
+<link:definition>200000 - Disclosure - Organization, Consolidation and Presentation of Financial Statements, Schedule of Real Estate Properties [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='AccountingPoliciesScheduleOfRealEstatePropertiesTable' roleURI='http://fasb.org/us-gaap/role/disclosure/AccountingPoliciesScheduleOfRealEstatePropertiesTable'>
+<link:definition>290000 - Disclosure - Accounting Policies, Schedule of Real Estate Properties [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='OrganizationConsolidationAndPresentationOfFinancialStatementsScheduleOfFranchisorDisclosureTable' roleURI='http://fasb.org/us-gaap/role/disclosure/OrganizationConsolidationAndPresentationOfFinancialStatementsScheduleOfFranchisorDisclosureTable'>
+<link:definition>200000 - Disclosure - Organization, Consolidation and Presentation of Financial Statements, Schedule of Franchisor Disclosure [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='AccountingPoliciesScheduleOfFranchisorDisclosureTable' roleURI='http://fasb.org/us-gaap/role/disclosure/AccountingPoliciesScheduleOfFranchisorDisclosureTable'>
+<link:definition>290000 - Disclosure - Accounting Policies, Schedule of Franchisor Disclosure [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='InvestmentsDebtAndEquitySecuritiesScheduleOfOtherThanTemporaryImpairmentCreditLossesRecognizedInEarningsTable' roleURI='http://fasb.org/us-gaap/role/disclosure/InvestmentsDebtAndEquitySecuritiesScheduleOfOtherThanTemporaryImpairmentCreditLossesRecognizedInEarningsTable'>
+<link:definition>330000 - Disclosure - Investments, Debt and Equity Securities, Schedule of Other than Temporary Impairment, Credit Losses Recognized in Earnings [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='InvestmentsDebtAndEquitySecuritiesScheduleOfGainLossOnInvestmentsTable' roleURI='http://fasb.org/us-gaap/role/disclosure/InvestmentsDebtAndEquitySecuritiesScheduleOfGainLossOnInvestmentsTable'>
+<link:definition>330000 - Disclosure - Investments, Debt and Equity Securities, Schedule of Gain (Loss) on Investments [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='CompensationRelatedCostsRetirementBenefitsDefinedBenefitPlansAndOtherPostretirementBenefitPlansDisclosuresTable' roleURI='http://fasb.org/us-gaap/role/disclosure/CompensationRelatedCostsRetirementBenefitsDefinedBenefitPlansAndOtherPostretirementBenefitPlansDisclosuresTable'>
+<link:definition>730000 - Disclosure - Compensation Related Costs, Retirement Benefits, Defined Benefit Plans and Other Postretirement Benefit Plans Disclosures [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='BusinessCombinationsBusinessAcquisitionProFormaInformationNonrecurringAdjustmentsTable' roleURI='http://fasb.org/us-gaap/role/disclosure/BusinessCombinationsBusinessAcquisitionProFormaInformationNonrecurringAdjustmentsTable'>
+<link:definition>800000 - Disclosure - Business Combinations, Business Acquisition, Pro Forma Information, Nonrecurring Adjustments [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='FinancialInstrumentsFairValueDisclosuresFairValueAssetsAndLiabilitiesMeasuredOnRecurringAndNonrecurringBasisTable' roleURI='http://fasb.org/us-gaap/role/disclosure/FinancialInstrumentsFairValueDisclosuresFairValueAssetsAndLiabilitiesMeasuredOnRecurringAndNonrecurringBasisTable'>
+<link:definition>815000 - Disclosure - Fair Value Measures and Disclosures, Fair Value Measurements, Recurring and Nonrecurring [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='FinancialInstrumentsFairValueDisclosuresFairValueAssetsAndLiabilitiesMeasuredOnRecurringAndNonrecurringBasisValuationTechniquesTable' roleURI='http://fasb.org/us-gaap/role/disclosure/FinancialInstrumentsFairValueDisclosuresFairValueAssetsAndLiabilitiesMeasuredOnRecurringAndNonrecurringBasisValuationTechniquesTable'>
+<link:definition>815000 - Disclosure - Fair Value Measures and Disclosures, Fair Value Measurements, Recurring and Nonrecurring, Valuation Techniques [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='LeasesScheduleOfCapitalLeasedAsssetsTable' roleURI='http://fasb.org/us-gaap/role/disclosure/LeasesScheduleOfCapitalLeasedAsssetsTable'>
+<link:definition>831000 - Disclosure - Leases, Schedule of Capital Leased Assets [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='EquityScheduleOfRetainedEarningsAdjustmentsTable' roleURI='http://fasb.org/us-gaap/role/disclosure/EquityScheduleOfRetainedEarningsAdjustmentsTable'>
+<link:definition>500000 - Disclosure - Equity, Schedule of Retained Earnings Adjustments [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='AccountingChangesAndErrorCorrectionsProspectiveAdoptionOfNewAccountingPronouncementsTable' roleURI='http://fasb.org/us-gaap/role/disclosure/AccountingChangesAndErrorCorrectionsProspectiveAdoptionOfNewAccountingPronouncementsTable'>
+<link:definition>250000 - Disclosure - Accounting Changes and Error Corrections, Prospective Adoption of New Accounting Pronouncements [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='OrganizationConsolidationAndPresentationOfFinancialStatementsScheduleOfCollaborativeArrangementsAndNoncollaborativeArrangementTransactionsTable' roleURI='http://fasb.org/us-gaap/role/disclosure/OrganizationConsolidationAndPresentationOfFinancialStatementsScheduleOfCollaborativeArrangementsAndNoncollaborativeArrangementTransactionsTable'>
+<link:definition>200000 - Disclosure - Organization, Consolidation and Presentation of Financial Statements, Schedule of Collaborative Arrangements and Non-collaborative Arrangement Transactions [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='InvestmentsAllOtherInvestmentsScheduleOfCostMethodInvestmentsTable' roleURI='http://fasb.org/us-gaap/role/disclosure/InvestmentsAllOtherInvestmentsScheduleOfCostMethodInvestmentsTable'>
+<link:definition>336000 - Disclosure - Investments, All Other Investments, Schedule of Cost-method Investments [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='LeasesScheduleOfOperatingLeasedAssetsTable' roleURI='http://fasb.org/us-gaap/role/disclosure/LeasesScheduleOfOperatingLeasedAssetsTable'>
+<link:definition>831000 - Disclosure - Leases, Schedule of Operating Leased Assets [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='MiscellaneousIndustriesAirlineProductsAndServicesTable' roleURI='http://fasb.org/us-gaap/role/disclosure/MiscellaneousIndustriesAirlineProductsAndServicesTable'>
+<link:definition>985000 - Disclosure - Other Industries, Products and Services [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='ExtraordinaryAndUnusualItemsScheduleOfBusinessInsuranceRecoveriesTable' roleURI='http://fasb.org/us-gaap/role/disclosure/ExtraordinaryAndUnusualItemsScheduleOfBusinessInsuranceRecoveriesTable'>
+<link:definition>778000 - Disclosure - Extraordinary and Unusual Items, Schedule of Business Insurance Recoveries [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='IntangibleAssetsGoodwillAndOtherScheduleOfIndefiniteLivedIntangibleAssetsTable' roleURI='http://fasb.org/us-gaap/role/disclosure/IntangibleAssetsGoodwillAndOtherScheduleOfIndefiniteLivedIntangibleAssetsTable'>
+<link:definition>370000 - Disclosure - Intangible Assets, Goodwill and Other, Schedule of Indefinite-Lived Intangible Assets [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='IntangibleAssetsGoodwillAndOtherScheduleOfFiniteLivedIntangibleAssetsTable' roleURI='http://fasb.org/us-gaap/role/disclosure/IntangibleAssetsGoodwillAndOtherScheduleOfFiniteLivedIntangibleAssetsTable'>
+<link:definition>370000 - Disclosure - Intangible Assets, Goodwill and Other, Schedule of Finite-Lived Intangible Assets [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='HealthCareOrganizationsScheduleOfRevenueSourcesHealthCareOrganizationTable' roleURI='http://fasb.org/us-gaap/role/disclosure/HealthCareOrganizationsScheduleOfRevenueSourcesHealthCareOrganizationTable'>
+<link:definition>955000 - Disclosure - Health Care Organizations, Schedule of Revenue Sources, Health Care Organization [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='CashAndCashEquivalentsScheduleOfCashAndCashEquivalentsTable' roleURI='http://fasb.org/us-gaap/role/disclosure/CashAndCashEquivalentsScheduleOfCashAndCashEquivalentsTable'>
+<link:definition>300000 - Disclosure - Cash and Cash Equivalents, Schedule of Cash and Cash Equivalents [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='ReceivablesLoansNotesReceivableAndOthersCertainLoansAcquiredInTransferNotAccountedForAsDebtSecuritiesAcquiredDuringPeriodTable' roleURI='http://fasb.org/us-gaap/role/disclosure/ReceivablesLoansNotesReceivableAndOthersCertainLoansAcquiredInTransferNotAccountedForAsDebtSecuritiesAcquiredDuringPeriodTable'>
+<link:definition>320000 - Disclosure - Receivables, Loans, Notes Receivable, and Others, Certain Loans Acquired in Transfer Not Accounted for as Debt Securities Acquired During Period [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='MiscellaneousIndustriesTypesOfCommercialAircraftTable' roleURI='http://fasb.org/us-gaap/role/disclosure/MiscellaneousIndustriesTypesOfCommercialAircraftTable'>
+<link:definition>985000 - Disclosure - Other Industries, Types of Commercial Aircraft [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='MiscellaneousIndustriesAirlineDestinationTable' roleURI='http://fasb.org/us-gaap/role/disclosure/MiscellaneousIndustriesAirlineDestinationTable'>
+<link:definition>985000 - Disclosure - Other Industries, Airline Destination [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='FinancialInstrumentsFairValueDisclosuresFairValueNetDerivativeAssetLiabilityMeasuredOnRecurringBasisUnobservableInputReconciliationTable' roleURI='http://fasb.org/us-gaap/role/disclosure/FinancialInstrumentsFairValueDisclosuresFairValueNetDerivativeAssetLiabilityMeasuredOnRecurringBasisUnobservableInputReconciliationTable'>
+<link:definition>815000 - Disclosure - Fair Value Measures and Disclosures, Fair Value, Net Derivative Asset (Liability) Measured on Recurring Basis, Unobservable Input Reconciliation [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='FinancialInstrumentsFairValueDisclosuresFairValueInputsAssetsQuantitativeInformationTable' roleURI='http://fasb.org/us-gaap/role/disclosure/FinancialInstrumentsFairValueDisclosuresFairValueInputsAssetsQuantitativeInformationTable'>
+<link:definition>815000 - Disclosure - Fair Value Measures and Disclosures, Fair Value Inputs, Assets, Quantitative Information [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='FinancialInstrumentsFairValueDisclosuresFairValueInputsLiabilitiesQuantitativeInformationTable' roleURI='http://fasb.org/us-gaap/role/disclosure/FinancialInstrumentsFairValueDisclosuresFairValueInputsLiabilitiesQuantitativeInformationTable'>
+<link:definition>815000 - Disclosure - Fair Value Measures and Disclosures, Fair Value Inputs, Liabilities, Quantitative Information [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='FinancialInstrumentsFairValueDisclosuresFairValueInputsInstrumentsClassifiedInShareholdersEquityQuantitativeInformationTable' roleURI='http://fasb.org/us-gaap/role/disclosure/FinancialInstrumentsFairValueDisclosuresFairValueInputsInstrumentsClassifiedInShareholdersEquityQuantitativeInformationTable'>
+<link:definition>815000 - Disclosure - Fair Value Measures and Disclosures, Fair Value Inputs, Instruments Classified in Shareholders' Equity, Quantitative Information [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='FinancialInstrumentsFairValueDisclosuresFairValueInstrumentsClassifiedInShareholdersEquityMeasuredOnRecurringBasisUnobservableInputReconciliationTable' roleURI='http://fasb.org/us-gaap/role/disclosure/FinancialInstrumentsFairValueDisclosuresFairValueInstrumentsClassifiedInShareholdersEquityMeasuredOnRecurringBasisUnobservableInputReconciliationTable'>
+<link:definition>815000 - Disclosure - Fair Value Measures and Disclosures, Fair Value, Instruments Classified in Shareholders' Equity Measured on Recurring Basis, Unobservable Input Reconciliation [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='CompensationRelatedCostsRetirementBenefitsScheduleOfMultiemployerPlansTable' roleURI='http://fasb.org/us-gaap/role/disclosure/CompensationRelatedCostsRetirementBenefitsScheduleOfMultiemployerPlansTable'>
+<link:definition>730000 - Disclosure - Compensation Related Costs, Retirement Benefits, Schedule of Multiemployer Plans [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='DerivativeInstrumentsAndHedgingActivitiesTradingActivitiesGainLossByTypeTable' roleURI='http://fasb.org/us-gaap/role/disclosure/DerivativeInstrumentsAndHedgingActivitiesTradingActivitiesGainLossByTypeTable'>
+<link:definition>805000 - Disclosure - Derivative Instruments and Hedging Activities, Trading Activities, Gain and Losses, by Type, by Income Statement Location [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='DerivativeInstrumentsAndHedgingActivitiesDerivativeInstrumentsGainLossByHedgingRelationshipByIncomeStatementLocationByDerivativeInstrumentRiskTable' roleURI='http://fasb.org/us-gaap/role/disclosure/DerivativeInstrumentsAndHedgingActivitiesDerivativeInstrumentsGainLossByHedgingRelationshipByIncomeStatementLocationByDerivativeInstrumentRiskTable'>
+<link:definition>805000 - Disclosure - Derivative Instruments and Hedging Activities, Derivative Instruments, Gain (Loss) [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='DerivativeInstrumentsAndHedgingActivitiesFairValuesDerivativesBalanceSheetLocationByDerivativeContractTypeByHedgingDesignationTable' roleURI='http://fasb.org/us-gaap/role/disclosure/DerivativeInstrumentsAndHedgingActivitiesFairValuesDerivativesBalanceSheetLocationByDerivativeContractTypeByHedgingDesignationTable'>
+<link:definition>805000 - Disclosure - Derivative Instruments and Hedging Activities, Fair Values Derivatives, Balance Sheet Location, by Derivative Contract Type [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='InvestmentsSoldNotYetPurchasedInvestmentsSoldNotYetPurchasedTable' roleURI='http://fasb.org/us-gaap/role/disclosure/InvestmentsSoldNotYetPurchasedInvestmentsSoldNotYetPurchasedTable'>
+<link:definition>993540 - Disclosure - Investments Sold Not yet Purchased, Investments Sold, Not yet Purchased [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='OtherThanSecuritiesInvestmentHoldingsInvestmentHoldingsOtherThanSecuritiesTable' roleURI='http://fasb.org/us-gaap/role/disclosure/OtherThanSecuritiesInvestmentHoldingsInvestmentHoldingsOtherThanSecuritiesTable'>
+<link:definition>993510 - Disclosure - Other than Securities Investment Holdings, Investment Holdings, Other than Securities [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='InvestmentsFederalTaxNoteFederalIncomeTaxNoteTable' roleURI='http://fasb.org/us-gaap/role/disclosure/InvestmentsFederalTaxNoteFederalIncomeTaxNoteTable'>
+<link:definition>993530 - Disclosure - Investments Federal Income Tax Note, Federal Income Tax Note [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='InvestmentHoldingsScheduleOfInvestmentsTable' roleURI='http://fasb.org/us-gaap/role/disclosure/InvestmentHoldingsScheduleOfInvestmentsTable'>
+<link:definition>993500 - Disclosure - Investment Holdings, Schedule of Investments [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='SummaryOfInvestmentHoldingsScheduleOfInvestmentsTable' roleURI='http://fasb.org/us-gaap/role/disclosure/SummaryOfInvestmentHoldingsScheduleOfInvestmentsTable'>
+<link:definition>993520 - Disclosure - Summary of Investment Holdings, Schedule of Investments [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='InvestmentsSoldNotYetPurchasedScheduleOfInvestmentsTable' roleURI='http://fasb.org/us-gaap/role/disclosure/InvestmentsSoldNotYetPurchasedScheduleOfInvestmentsTable'>
+<link:definition>993540 - Disclosure - Investments Sold Not yet Purchased, Schedule of Investments [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='OpenOptionContractsWrittenScheduleOfInvestmentsTable' roleURI='http://fasb.org/us-gaap/role/disclosure/OpenOptionContractsWrittenScheduleOfInvestmentsTable'>
+<link:definition>993560 - Disclosure - Open Option Contracts Written, Schedule of Investments [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='InvestmentsInAndAdvancesToAffiliatesScheduleOfInvestmentsTable' roleURI='http://fasb.org/us-gaap/role/disclosure/InvestmentsInAndAdvancesToAffiliatesScheduleOfInvestmentsTable'>
+<link:definition>993570 - Disclosure - Investments in and Advances to Affiliates, Schedule of Investments [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='OtherThanSecuritiesInvestmentHoldingsScheduleOfInvestmentsTable' roleURI='http://fasb.org/us-gaap/role/disclosure/OtherThanSecuritiesInvestmentHoldingsScheduleOfInvestmentsTable'>
+<link:definition>993510 - Disclosure - Other than Securities Investment Holdings, Schedule of Investments [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='InvestmentsFederalTaxNoteScheduleOfInvestmentsTable' roleURI='http://fasb.org/us-gaap/role/disclosure/InvestmentsFederalTaxNoteScheduleOfInvestmentsTable'>
+<link:definition>993530 - Disclosure - Investments Federal Income Tax Note, Schedule of Investments [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='FinancialServicesInsuranceReinsuranceRetentionPolicyTable' roleURI='http://fasb.org/us-gaap/role/disclosure/FinancialServicesInsuranceReinsuranceRetentionPolicyTable'>
+<link:definition>944000 - Disclosure - Financial Services, Insurance, Reinsurance Retention Policy [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='ExitOrDisposalCostObligationsImpairmentEffectsOnEarningsPerShareTable' roleURI='http://fasb.org/us-gaap/role/disclosure/ExitOrDisposalCostObligationsImpairmentEffectsOnEarningsPerShareTable'>
+<link:definition>430000 - Disclosure - Restructuring and Related Activities, Impairment Effects on Earnings Per Share [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='FinancialServicesInsuranceEffectsOfReinsuranceTable' roleURI='http://fasb.org/us-gaap/role/disclosure/FinancialServicesInsuranceEffectsOfReinsuranceTable'>
+<link:definition>944000 - Disclosure - Financial Services, Insurance, Effects of Reinsurance [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='RegulatedOperationsPublicUtilitiesGeneralDisclosuresTable' roleURI='http://fasb.org/us-gaap/role/disclosure/RegulatedOperationsPublicUtilitiesGeneralDisclosuresTable'>
+<link:definition>980000 - Disclosure - Regulated Operations, Public Utilities General Disclosures [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='BalanceSheetOffsettingOffsettingAssetsTable' roleURI='http://fasb.org/us-gaap/role/disclosure/BalanceSheetOffsettingOffsettingAssetsTable'>
+<link:definition>210000 - Disclosure - Balance Sheet Offsetting, Offsetting Assets [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='BalanceSheetOffsettingOffsettingLiabilitiesTable' roleURI='http://fasb.org/us-gaap/role/disclosure/BalanceSheetOffsettingOffsettingLiabilitiesTable'>
+<link:definition>210000 - Disclosure - Balance Sheet Offsetting, Offsetting Liabilities [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='DerivativeInstrumentsAndHedgingActivitiesDerivativeInstrumentsAndHedgingActivitiesDisclosuresTable' roleURI='http://fasb.org/us-gaap/role/disclosure/DerivativeInstrumentsAndHedgingActivitiesDerivativeInstrumentsAndHedgingActivitiesDisclosuresTable'>
+<link:definition>805000 - Disclosure - Derivative Instruments and Hedging Activities, Derivative Instruments and Hedging Activities Disclosures [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='CommitmentAndContingenciesOtherCommitmentsTable' roleURI='http://fasb.org/us-gaap/role/disclosure/CommitmentAndContingenciesOtherCommitmentsTable'>
+<link:definition>450000 - Disclosure - Commitment and Contingencies, Other Commitments [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='EquityAccumulatedOtherComprehensiveIncomeLossTable' roleURI='http://fasb.org/us-gaap/role/disclosure/EquityAccumulatedOtherComprehensiveIncomeLossTable'>
+<link:definition>500000 - Disclosure - Equity, Accumulated Other Comprehensive Income (Loss) [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='SECScheduleArticle12-04CondensedFinancialInformationCondensedBalanceSheetStatementTable' roleURI='http://fasb.org/us-gaap/role/disclosure/SECScheduleArticle12-04CondensedFinancialInformationCondensedBalanceSheetStatementTable'>
+<link:definition>991000 - Disclosure - SEC Schedule, Article 12-04, Condensed Financial Information of Registrant, Condensed Balance Sheet Statement [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='EquityDistributionsMadeToLimitedLiabilityCompanyLLCMemberTable' roleURI='http://fasb.org/us-gaap/role/disclosure/EquityDistributionsMadeToLimitedLiabilityCompanyLLCMemberTable'>
+<link:definition>500000 - Disclosure - Equity, Distributions Made to Limited Liability Company (LLC) Member [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='EquityDistributionsMadeToLimitedPartnerTable' roleURI='http://fasb.org/us-gaap/role/disclosure/EquityDistributionsMadeToLimitedPartnerTable'>
+<link:definition>500000 - Disclosure - Equity, Distributions Made to Limited Partner [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='DebtDebtInstrumentRedemptionTable' roleURI='http://fasb.org/us-gaap/role/disclosure/DebtDebtInstrumentRedemptionTable'>
+<link:definition>460000 - Disclosure - Debt, Debt Instrument Redemption [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='SECScheduleArticle12-04CondensedFinancialInformationCondensedCashFlowStatementTable' roleURI='http://fasb.org/us-gaap/role/disclosure/SECScheduleArticle12-04CondensedFinancialInformationCondensedCashFlowStatementTable'>
+<link:definition>991000 - Disclosure - SEC Schedule, Article 12-04, Condensed Financial Information of Registrant, Condensed Cash Flow Statement [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='InventoryInventoryCurrentTable' roleURI='http://fasb.org/us-gaap/role/disclosure/InventoryInventoryCurrentTable'>
+<link:definition>340000 - Disclosure - Inventory, Inventory, Current [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='BusinessCombinationsBusinessCombinationSegmentAllocationTable' roleURI='http://fasb.org/us-gaap/role/disclosure/BusinessCombinationsBusinessCombinationSegmentAllocationTable'>
+<link:definition>800000 - Disclosure - Business Combinations, Business Combination, Segment Allocation [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='EquityReclassificationOutOfAccumulatedOtherComprehensiveIncomeTable' roleURI='http://fasb.org/us-gaap/role/disclosure/EquityReclassificationOutOfAccumulatedOtherComprehensiveIncomeTable'>
+<link:definition>500000 - Disclosure - Equity, Reclassification out of Accumulated Other Comprehensive Income [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='DerivativeInstrumentsAndHedgingActivitiesReclassificationOutOfAccumulatedOtherComprehensiveIncomeTable' roleURI='http://fasb.org/us-gaap/role/disclosure/DerivativeInstrumentsAndHedgingActivitiesReclassificationOutOfAccumulatedOtherComprehensiveIncomeTable'>
+<link:definition>805000 - Disclosure - Derivative Instruments and Hedging Activities, Reclassification out of Accumulated Other Comprehensive Income [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='DebtObligationWithJointAndSeveralLiabilityArrangementTable' roleURI='http://fasb.org/us-gaap/role/disclosure/DebtObligationWithJointAndSeveralLiabilityArrangementTable'>
+<link:definition>460000 - Disclosure - Debt, Obligation with Joint and Several Liability Arrangement [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='FinancialServicesFederalHomeLoanBanksFederalHomeLoanBankAdvancesTable' roleURI='http://fasb.org/us-gaap/role/disclosure/FinancialServicesFederalHomeLoanBanksFederalHomeLoanBankAdvancesTable'>
+<link:definition>939000 - Disclosure - Financial Services, Federal Home Loan Banks, Federal Home Loan Bank, Advances [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='FinancialServicesInsuranceLiabilityForClaimsAndClaimsAdjustmentExpenseTable' roleURI='http://fasb.org/us-gaap/role/disclosure/FinancialServicesInsuranceLiabilityForClaimsAndClaimsAdjustmentExpenseTable'>
+<link:definition>944000 - Disclosure - Financial Services, Insurance, Liability for Claims and Claims Adjustment Expense [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='SECScheduleArticle12-04CondensedFinancialInformationCondensedIncomeStatementTable' roleURI='http://fasb.org/us-gaap/role/disclosure/SECScheduleArticle12-04CondensedFinancialInformationCondensedIncomeStatementTable'>
+<link:definition>991000 - Disclosure - SEC Schedule, Article 12-04, Condensed Financial Information of Registrant, Condensed Income Statement [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='SECScheduleArticle12-04CondensedFinancialInformationCondensedStatementOfComprehensiveIncomeTable' roleURI='http://fasb.org/us-gaap/role/disclosure/SECScheduleArticle12-04CondensedFinancialInformationCondensedStatementOfComprehensiveIncomeTable'>
+<link:definition>991000 - Disclosure - SEC Schedule, Article 12-04, Condensed Financial Information of Registrant, Condensed Statement of Comprehensive Income [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='CompensationRelatedCostsRetirementBenefitsDefinedContributionPlanTable' roleURI='http://fasb.org/us-gaap/role/disclosure/CompensationRelatedCostsRetirementBenefitsDefinedContributionPlanTable'>
+<link:definition>730000 - Disclosure - Compensation Related Costs, Retirement Benefits, Defined Contribution Plan [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='RegulatedOperationsScheduleOfCapitalizationTable' roleURI='http://fasb.org/us-gaap/role/disclosure/RegulatedOperationsScheduleOfCapitalizationTable'>
+<link:definition>980000 - Disclosure - Regulated Operations, Schedule of Capitalization [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='FinancialServicesBrokersAndDealersTransferOfFinancialAssetsAccountedForAsSalesTable' roleURI='http://fasb.org/us-gaap/role/disclosure/FinancialServicesBrokersAndDealersTransferOfFinancialAssetsAccountedForAsSalesTable'>
+<link:definition>942000 - Disclosure - Financial Services, Brokers and Dealers, Transfer of Financial Assets Accounted for as Sales [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='TransfersAndServicingTransferOfFinancialAssetsAccountedForAsSalesTable' roleURI='http://fasb.org/us-gaap/role/disclosure/TransfersAndServicingTransferOfFinancialAssetsAccountedForAsSalesTable'>
+<link:definition>865000 - Disclosure - Transfers and Servicing, Transfer of Financial Assets Accounted for as Sales [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='FinancialServicesBankingAndThriftTransferOfFinancialAssetsAccountedForAsSalesTable' roleURI='http://fasb.org/us-gaap/role/disclosure/FinancialServicesBankingAndThriftTransferOfFinancialAssetsAccountedForAsSalesTable'>
+<link:definition>940000 - Disclosure - Financial Services, Banking and Thrift, Transfer of Financial Assets Accounted for as Sales [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='FinancialServicesBrokersAndDealersTransferOfCertainFinancialAssetsAccountedForAsSecuredBorrowingsTable' roleURI='http://fasb.org/us-gaap/role/disclosure/FinancialServicesBrokersAndDealersTransferOfCertainFinancialAssetsAccountedForAsSecuredBorrowingsTable'>
+<link:definition>942000 - Disclosure - Financial Services, Brokers and Dealers, Transfer of Certain Financial Assets Accounted for as Secured Borrowings [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='TransfersAndServicingTransferOfCertainFinancialAssetsAccountedForAsSecuredBorrowingsTable' roleURI='http://fasb.org/us-gaap/role/disclosure/TransfersAndServicingTransferOfCertainFinancialAssetsAccountedForAsSecuredBorrowingsTable'>
+<link:definition>865000 - Disclosure - Transfers and Servicing, Transfer of Certain Financial Assets Accounted for as Secured Borrowings [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='FinancialServicesBankingAndThriftTransferOfCertainFinancialAssetsAccountedForAsSecuredBorrowingsTable' roleURI='http://fasb.org/us-gaap/role/disclosure/FinancialServicesBankingAndThriftTransferOfCertainFinancialAssetsAccountedForAsSecuredBorrowingsTable'>
+<link:definition>940000 - Disclosure - Financial Services, Banking and Thrift, Transfer of Certain Financial Assets Accounted for as Secured Borrowings [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='TransfersAndServicingFeesEarnedInExchangeForServicingFinancialAssetsTable' roleURI='http://fasb.org/us-gaap/role/disclosure/TransfersAndServicingFeesEarnedInExchangeForServicingFinancialAssetsTable'>
+<link:definition>865000 - Disclosure - Transfers and Servicing, Fees Earned in Exchange for Servicing Financial Assets [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='FinancialServicesInsuranceFinancialGuaranteeInsuranceContractsClaimLiabilityTable' roleURI='http://fasb.org/us-gaap/role/disclosure/FinancialServicesInsuranceFinancialGuaranteeInsuranceContractsClaimLiabilityTable'>
+<link:definition>944000 - Disclosure - Financial Services, Insurance, Financial Guarantee Insurance Contracts, Claim Liability [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='FinancialServicesInsuranceFinancialGuaranteeInsuranceContractsPremiumReceivedOverContractPeriodTable' roleURI='http://fasb.org/us-gaap/role/disclosure/FinancialServicesInsuranceFinancialGuaranteeInsuranceContractsPremiumReceivedOverContractPeriodTable'>
+<link:definition>944000 - Disclosure - Financial Services, Insurance, Financial Guarantee Insurance Contracts, Premium Received over Contract Period [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='DerivativeInstrumentsAndHedgingActivitiesForeignCurrencyFairValueHedgeDerivativeTable' roleURI='http://fasb.org/us-gaap/role/disclosure/DerivativeInstrumentsAndHedgingActivitiesForeignCurrencyFairValueHedgeDerivativeTable'>
+<link:definition>805000 - Disclosure - Derivative Instruments and Hedging Activities, Foreign Currency Fair Value Hedge Derivative [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='DerivativeInstrumentsAndHedgingActivitiesPriceRiskDerivativesTable' roleURI='http://fasb.org/us-gaap/role/disclosure/DerivativeInstrumentsAndHedgingActivitiesPriceRiskDerivativesTable'>
+<link:definition>805000 - Disclosure - Derivative Instruments and Hedging Activities, Price Risk Derivatives [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='FinancialInstrumentsFairValueDisclosuresFairValueMeasuredOnRecurringBasisGainLossIncludedInEarningsTable' roleURI='http://fasb.org/us-gaap/role/disclosure/FinancialInstrumentsFairValueDisclosuresFairValueMeasuredOnRecurringBasisGainLossIncludedInEarningsTable'>
+<link:definition>815000 - Disclosure - Fair Value Measures and Disclosures, Fair Value, Measured on Recurring Basis, Gain (Loss) Included in Earnings [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='DerivativeInstrumentsAndHedgingActivitiesHybridInstrumentsTable' roleURI='http://fasb.org/us-gaap/role/disclosure/DerivativeInstrumentsAndHedgingActivitiesHybridInstrumentsTable'>
+<link:definition>805000 - Disclosure - Derivative Instruments and Hedging Activities, Hybrid Instruments [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='DerivativeInstrumentsAndHedgingActivitiesEmbeddedDerivativeTable' roleURI='http://fasb.org/us-gaap/role/disclosure/DerivativeInstrumentsAndHedgingActivitiesEmbeddedDerivativeTable'>
+<link:definition>805000 - Disclosure - Derivative Instruments and Hedging Activities, Embedded Derivative [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='InvestmentsDebtAndEquitySecuritiesCertainLoansAcquiredInTransferAccountedForAsDebtSecuritiesAccretableYieldMovementScheduleTable' roleURI='http://fasb.org/us-gaap/role/disclosure/InvestmentsDebtAndEquitySecuritiesCertainLoansAcquiredInTransferAccountedForAsDebtSecuritiesAccretableYieldMovementScheduleTable'>
+<link:definition>330000 - Disclosure - Investments, Debt and Equity Securities, Certain Loans Acquired in Transfer Accounted for as Debt Securities Accretable Yield Movement Schedule [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='InvestmentsDebtAndEquitySecuritiesCertainLoansAcquiredInTransferAccountedForAsDebtSecuritiesNotAccountedForUsingIncomeRecognitionModelTable' roleURI='http://fasb.org/us-gaap/role/disclosure/InvestmentsDebtAndEquitySecuritiesCertainLoansAcquiredInTransferAccountedForAsDebtSecuritiesNotAccountedForUsingIncomeRecognitionModelTable'>
+<link:definition>330000 - Disclosure - Investments, Debt and Equity Securities, Certain Loans Acquired in Transfer Accounted for as Debt Securities, Not Accounted for Using Income Recognition Model [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='EnvironmentalRemediationObligationsRecordedThirdPartyEnvironmentalRecoveriesTable' roleURI='http://fasb.org/us-gaap/role/disclosure/EnvironmentalRemediationObligationsRecordedThirdPartyEnvironmentalRecoveriesTable'>
+<link:definition>425000 - Disclosure - Environmental Remediation Obligations, Recorded Third-Party Environmental Recoveries [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+<link:roleType id='GuaranteesProductWarrantyLiabilityTable' roleURI='http://fasb.org/us-gaap/role/disclosure/GuaranteesProductWarrantyLiabilityTable'>
+<link:definition>456000 - Disclosure - Guarantees, Product Warranty Liability [Table]</link:definition>
+<link:usedOn>link:definitionLink</link:usedOn>
+</link:roleType>
+</xs:appinfo>
+</xs:annotation>
+</xs:schema>

@@ -1,0 +1,758 @@
+<?xml version="1.0" encoding="US-ASCII"?>
+<!--XBRL Document Created with Wdesk from Workiva-->
+<!-- -->
+<xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.google.com/20151231" xmlns:goog="http://www.google.com/20151231" xmlns:link="http://www.xbrl.org/2003/linkbase" xmlns:nonnum="http://www.xbrl.org/dtr/type/non-numeric" xmlns:num="http://www.xbrl.org/dtr/type/numeric" xmlns:xbrldt="http://xbrl.org/2005/xbrldt" xmlns:xbrli="http://www.xbrl.org/2003/instance" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:import namespace="http://fasb.org/us-gaap/2015-01-31" schemaLocation="http://xbrl.fasb.org/us-gaap/2015/elts/us-gaap-2015-01-31.xsd" />
+  <xsd:import namespace="http://fasb.org/us-roles/2015-01-31" schemaLocation="http://xbrl.fasb.org/us-gaap/2015/elts/us-roles-2015-01-31.xsd" />
+  <xsd:import namespace="http://fasb.org/us-types/2015-01-31" schemaLocation="http://xbrl.fasb.org/us-gaap/2015/elts/us-types-2015-01-31.xsd" />
+  <xsd:import namespace="http://www.xbrl.org/2003/instance" schemaLocation="http://www.xbrl.org/2003/xbrl-instance-2003-12-31.xsd" />
+  <xsd:import namespace="http://www.xbrl.org/2003/linkbase" schemaLocation="http://www.xbrl.org/2003/xbrl-linkbase-2003-12-31.xsd" />
+  <xsd:import namespace="http://www.xbrl.org/2009/arcrole/fact-explanatoryFact" schemaLocation="http://www.xbrl.org/lrr/arcrole/factExplanatory-2009-12-16.xsd" />
+  <xsd:import namespace="http://www.xbrl.org/2009/role/negated" schemaLocation="http://www.xbrl.org/lrr/role/negated-2009-12-16.xsd" />
+  <xsd:import namespace="http://www.xbrl.org/2009/role/net" schemaLocation="http://www.xbrl.org/lrr/role/net-2009-12-16.xsd" />
+  <xsd:import namespace="http://www.xbrl.org/dtr/type/non-numeric" schemaLocation="http://www.xbrl.org/dtr/type/nonNumeric-2009-12-16.xsd" />
+  <xsd:import namespace="http://www.xbrl.org/dtr/type/numeric" schemaLocation="http://www.xbrl.org/dtr/type/numeric-2009-12-16.xsd" />
+  <xsd:import namespace="http://xbrl.org/2005/xbrldt" schemaLocation="http://www.xbrl.org/2005/xbrldt-2005.xsd" />
+  <xsd:import namespace="http://xbrl.sec.gov/country/2013-01-31" schemaLocation="http://xbrl.sec.gov/country/2013/country-2013-01-31.xsd" />
+  <xsd:import namespace="http://xbrl.sec.gov/currency/2014-01-31" schemaLocation="http://xbrl.sec.gov/currency/2014/currency-2014-01-31.xsd" />
+  <xsd:import namespace="http://xbrl.sec.gov/dei/2014-01-31" schemaLocation="http://xbrl.sec.gov/dei/2014/dei-2014-01-31.xsd" />
+  <xsd:import namespace="http://xbrl.sec.gov/exch/2015-01-31" schemaLocation="http://xbrl.sec.gov/exch/2015/exch-2015-01-31.xsd" />
+  <xsd:import namespace="http://xbrl.sec.gov/invest/2013-01-31" schemaLocation="http://xbrl.sec.gov/invest/2013/invest-2013-01-31.xsd" />
+  <xsd:import namespace="http://xbrl.sec.gov/naics/2011-01-31" schemaLocation="http://xbrl.sec.gov/naics/2011/naics-2011-01-31.xsd" />
+  <xsd:import namespace="http://xbrl.sec.gov/sic/2011-01-31" schemaLocation="http://xbrl.sec.gov/sic/2011/sic-2011-01-31.xsd" />
+  <xsd:import namespace="http://xbrl.sec.gov/stpr/2011-01-31" schemaLocation="http://xbrl.sec.gov/stpr/2011/stpr-2011-01-31.xsd" />
+  <xsd:annotation>
+    <xsd:appinfo>
+      <link:linkbaseRef xlink:arcrole="http://www.w3.org/1999/xlink/properties/linkbase" xlink:href="goog-20151231_cal.xml" xlink:role="http://www.xbrl.org/2003/role/calculationLinkbaseRef" xlink:type="simple" />
+      <link:linkbaseRef xlink:arcrole="http://www.w3.org/1999/xlink/properties/linkbase" xlink:href="goog-20151231_def.xml" xlink:role="http://www.xbrl.org/2003/role/definitionLinkbaseRef" xlink:type="simple" />
+      <link:linkbaseRef xlink:arcrole="http://www.w3.org/1999/xlink/properties/linkbase" xlink:href="goog-20151231_lab.xml" xlink:role="http://www.xbrl.org/2003/role/labelLinkbaseRef" xlink:type="simple" />
+      <link:linkbaseRef xlink:arcrole="http://www.w3.org/1999/xlink/properties/linkbase" xlink:href="goog-20151231_pre.xml" xlink:role="http://www.xbrl.org/2003/role/presentationLinkbaseRef" xlink:type="simple" />
+      <link:roleType id="A401KPlans" roleURI="http://www.google.com/role/A401KPlans">
+        <link:definition>2114100 - Disclosure - 401(k) Plans</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="A401KPlansNarrativeDetails" roleURI="http://www.google.com/role/A401KPlansNarrativeDetails">
+        <link:definition>2414401 - Disclosure - 401(k) Plans (Narrative) (Details)</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="Acquisitions" roleURI="http://www.google.com/role/Acquisitions">
+        <link:definition>2106100 - Disclosure - Acquisitions</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="AcquisitionsNarrativeDetails" roleURI="http://www.google.com/role/AcquisitionsNarrativeDetails">
+        <link:definition>2406401 - Disclosure - Acquisitions (Narrative) (Details)</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="BalanceSheetComponents" roleURI="http://www.google.com/role/BalanceSheetComponents">
+        <link:definition>2105100 - Disclosure - Balance Sheet Components</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="BalanceSheetComponentsComponentsOfAccumulatedOtherComprehensiveIncomeDetails" roleURI="http://www.google.com/role/BalanceSheetComponentsComponentsOfAccumulatedOtherComprehensiveIncomeDetails">
+        <link:definition>2405404 - Disclosure - Balance Sheet Components (Components of Accumulated Other Comprehensive Income) (Details)</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="BalanceSheetComponentsNotesReceivableDetails" roleURI="http://www.google.com/role/BalanceSheetComponentsNotesReceivableDetails">
+        <link:definition>2405403 - Disclosure - Balance Sheet Components (Notes Receivable) (Details)</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="BalanceSheetComponentsPropertyAndEquipmentDetails" roleURI="http://www.google.com/role/BalanceSheetComponentsPropertyAndEquipmentDetails">
+        <link:definition>2405402 - Disclosure - Balance Sheet Components (Property and Equipment) (Details)</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="BalanceSheetComponentsReclassificationsOutOfAccumulatedOtherComprehensiveIncomeLossDetails" roleURI="http://www.google.com/role/BalanceSheetComponentsReclassificationsOutOfAccumulatedOtherComprehensiveIncomeLossDetails">
+        <link:definition>2405405 - Disclosure - Balance Sheet Components (Reclassifications Out of Accumulated Other Comprehensive Income (Loss)) (Details)</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="BalanceSheetComponentsTables" roleURI="http://www.google.com/role/BalanceSheetComponentsTables">
+        <link:definition>2305301 - Disclosure - Balance Sheet Components (Tables)</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="CollaborationAgreement" roleURI="http://www.google.com/role/CollaborationAgreement">
+        <link:definition>2107100 - Disclosure - Collaboration Agreement</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="CollaborationAgreementNarrativeDetails" roleURI="http://www.google.com/role/CollaborationAgreementNarrativeDetails">
+        <link:definition>2407401 - Disclosure - Collaboration Agreement (Narrative) (Details)</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="CommitmentsAndContingencies" roleURI="http://www.google.com/role/CommitmentsAndContingencies">
+        <link:definition>2111100 - Disclosure - Commitments and Contingencies</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="CommitmentsAndContingenciesFutureMinimumPaymentsUnderNonCancelableOperatingLeasesAlongWithSubleaseIncomeAmountsDetails" roleURI="http://www.google.com/role/CommitmentsAndContingenciesFutureMinimumPaymentsUnderNonCancelableOperatingLeasesAlongWithSubleaseIncomeAmountsDetails">
+        <link:definition>2411402 - Disclosure - Commitments and Contingencies (Future Minimum Payments Under Non-Cancelable Operating Leases, Along with Sublease Income Amounts) (Details)</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="CommitmentsAndContingenciesFutureMinimumPaymentsUnderNonCancelableOperatingLeasesAlongWithSubleaseIncomeAmountsDetailsCalc2" roleURI="http://www.google.com/role/CommitmentsAndContingenciesFutureMinimumPaymentsUnderNonCancelableOperatingLeasesAlongWithSubleaseIncomeAmountsDetailsCalc2">
+        <link:definition>2411402 - Disclosure - Commitments and Contingencies (Future Minimum Payments Under Non-Cancelable Operating Leases, Along with Sublease Income Amounts) (Details)</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="CommitmentsAndContingenciesNarrativeDetails" roleURI="http://www.google.com/role/CommitmentsAndContingenciesNarrativeDetails">
+        <link:definition>2411403 - Disclosure - Commitments and Contingencies (Narrative) (Details)</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="CommitmentsAndContingenciesTables" roleURI="http://www.google.com/role/CommitmentsAndContingenciesTables">
+        <link:definition>2311301 - Disclosure - Commitments and Contingencies (Tables)</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="ConsolidatedBalanceSheets" roleURI="http://www.google.com/role/ConsolidatedBalanceSheets">
+        <link:definition>1001000 - Statement - CONSOLIDATED BALANCE SHEETS</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="ConsolidatedBalanceSheetsParenthetical" roleURI="http://www.google.com/role/ConsolidatedBalanceSheetsParenthetical">
+        <link:definition>1001501 - Statement - CONSOLIDATED BALANCE SHEETS (Parenthetical)</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="ConsolidatedStatementsOfCashFlows" roleURI="http://www.google.com/role/ConsolidatedStatementsOfCashFlows">
+        <link:definition>1005000 - Statement - CONSOLIDATED STATEMENTS OF CASH FLOWS</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="ConsolidatedStatementsOfComprehensiveIncome" roleURI="http://www.google.com/role/ConsolidatedStatementsOfComprehensiveIncome">
+        <link:definition>1003000 - Statement - CONSOLIDATED STATEMENTS OF COMPREHENSIVE INCOME</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="ConsolidatedStatementsOfComprehensiveIncomeParenthetical" roleURI="http://www.google.com/role/ConsolidatedStatementsOfComprehensiveIncomeParenthetical">
+        <link:definition>1003501 - Statement - CONSOLIDATED STATEMENTS OF COMPREHENSIVE INCOME (Parenthetical)</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="ConsolidatedStatementsOfIncome" roleURI="http://www.google.com/role/ConsolidatedStatementsOfIncome">
+        <link:definition>1002000 - Statement - CONSOLIDATED STATEMENTS OF INCOME</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="ConsolidatedStatementsOfStockholdersEquity" roleURI="http://www.google.com/role/ConsolidatedStatementsOfStockholdersEquity">
+        <link:definition>1004000 - Statement - CONSOLIDATED STATEMENTS OF STOCKHOLDERS' EQUITY</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="Debt" roleURI="http://www.google.com/role/Debt">
+        <link:definition>2104100 - Disclosure - Debt</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="DebtFuturePrincipalPaymentsForBorrowingsDetails" roleURI="http://www.google.com/role/DebtFuturePrincipalPaymentsForBorrowingsDetails">
+        <link:definition>2404403 - Disclosure - Debt (Future Principal Payments for Borrowings) (Details)</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="DebtLongTermDebtDetails" roleURI="http://www.google.com/role/DebtLongTermDebtDetails">
+        <link:definition>2404402 - Disclosure - Debt (Long-Term Debt) (Details)</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="DebtNarrativeDetails" roleURI="http://www.google.com/role/DebtNarrativeDetails">
+        <link:definition>2404404 - Disclosure - Debt (Narrative) (Details)</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="DebtTables" roleURI="http://www.google.com/role/DebtTables">
+        <link:definition>2304301 - Disclosure - Debt (Tables)</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="DiscontinuedOperations" roleURI="http://www.google.com/role/DiscontinuedOperations">
+        <link:definition>2109100 - Disclosure - Discontinued Operations</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="DiscontinuedOperationsMajorClassesOfAssetsAndLiabilitiesDivestedDetails" roleURI="http://www.google.com/role/DiscontinuedOperationsMajorClassesOfAssetsAndLiabilitiesDivestedDetails">
+        <link:definition>2409403 - Disclosure - Discontinued Operations (Major Classes of Assets and Liabilities Divested) (Details)</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="DiscontinuedOperationsNarrativeDetails" roleURI="http://www.google.com/role/DiscontinuedOperationsNarrativeDetails">
+        <link:definition>2409404 - Disclosure - Discontinued Operations (Narrative) (Details)</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="DiscontinuedOperationsRevenuesAndEarningsAttributableToDivestitureDetails" roleURI="http://www.google.com/role/DiscontinuedOperationsRevenuesAndEarningsAttributableToDivestitureDetails">
+        <link:definition>2409402 - Disclosure - Discontinued Operations (Revenues and Earnings Attributable to Divestiture) (Details)</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="DiscontinuedOperationsTables" roleURI="http://www.google.com/role/DiscontinuedOperationsTables">
+        <link:definition>2309301 - Disclosure - Discontinued Operations (Tables)</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="DocumentAndEntityInformation" roleURI="http://www.google.com/role/DocumentAndEntityInformation">
+        <link:definition>0001000 - Document - Document and Entity Information</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="FinancialInstruments" roleURI="http://www.google.com/role/FinancialInstruments">
+        <link:definition>2102100 - Disclosure - Financial Instruments</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="FinancialInstrumentsCashCashEquivalentsAndMarketableSecuritiesMeasuredAtAdjustedCostGrossUnrealizedGainsGrossUnrealizedLossesAndFairValueBySignificantInvestmentCategoryDetails" roleURI="http://www.google.com/role/FinancialInstrumentsCashCashEquivalentsAndMarketableSecuritiesMeasuredAtAdjustedCostGrossUnrealizedGainsGrossUnrealizedLossesAndFairValueBySignificantInvestmentCategoryDetails">
+        <link:definition>2402402 - Disclosure - Financial Instruments (Cash, Cash Equivalents and Marketable Securities Measured at Adjusted Cost, Gross Unrealized Gains, Gross Unrealized Losses, and Fair Value By Significant Investment Category) (Details)</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="FinancialInstrumentsContractualMaturityDateOfMarketableDebtSecuritiesDetails" roleURI="http://www.google.com/role/FinancialInstrumentsContractualMaturityDateOfMarketableDebtSecuritiesDetails">
+        <link:definition>2402403 - Disclosure - Financial Instruments (Contractual Maturity Date of Marketable Debt Securities) (Details)</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="FinancialInstrumentsEffectOfDerivativeInstrumentsOnIncomeAndAccumulatedOtherComprehensiveIncomeDetails" roleURI="http://www.google.com/role/FinancialInstrumentsEffectOfDerivativeInstrumentsOnIncomeAndAccumulatedOtherComprehensiveIncomeDetails">
+        <link:definition>2402407 - Disclosure - Financial Instruments (Effect of Derivative Instruments on Income and Accumulated Other Comprehensive Income) (Details)</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="FinancialInstrumentsFairValuesOfOutstandingDerivativeInstrumentsDetails" roleURI="http://www.google.com/role/FinancialInstrumentsFairValuesOfOutstandingDerivativeInstrumentsDetails">
+        <link:definition>2402406 - Disclosure - Financial Instruments (Fair Values of Outstanding Derivative Instruments) (Details)</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="FinancialInstrumentsGrossUnrealizedLossesAndFairValuesForInvestmentsInUnrealizedLossPositionDetails" roleURI="http://www.google.com/role/FinancialInstrumentsGrossUnrealizedLossesAndFairValuesForInvestmentsInUnrealizedLossPositionDetails">
+        <link:definition>2402404 - Disclosure - Financial Instruments (Gross Unrealized Losses and Fair Values for Investments in Unrealized Loss Position) (Details)</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="FinancialInstrumentsNarrativeDetails" roleURI="http://www.google.com/role/FinancialInstrumentsNarrativeDetails">
+        <link:definition>2402409 - Disclosure - Financial Instruments (Narrative) (Details)</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="FinancialInstrumentsOffsettingOfFinancialAssetsAndFinancialLiabilitiesDetails" roleURI="http://www.google.com/role/FinancialInstrumentsOffsettingOfFinancialAssetsAndFinancialLiabilitiesDetails">
+        <link:definition>2402408 - Disclosure - Financial Instruments (Offsetting of Financial Assets and Financial Liabilities) (Details)</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="FinancialInstrumentsOffsettingOfFinancialAssetsAndFinancialLiabilitiesDetailsCalc2" roleURI="http://www.google.com/role/FinancialInstrumentsOffsettingOfFinancialAssetsAndFinancialLiabilitiesDetailsCalc2">
+        <link:definition>2402408 - Disclosure - Financial Instruments (Offsetting of Financial Assets and Financial Liabilities) (Details)</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="FinancialInstrumentsSecuritiesLendingProgramDetails" roleURI="http://www.google.com/role/FinancialInstrumentsSecuritiesLendingProgramDetails">
+        <link:definition>2402405 - Disclosure - Financial Instruments (Securities Lending Program) (Details)</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="FinancialInstrumentsTables" roleURI="http://www.google.com/role/FinancialInstrumentsTables">
+        <link:definition>2302301 - Disclosure - Financial Instruments (Tables)</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="GoodwillAndOtherIntangibleAssets" roleURI="http://www.google.com/role/GoodwillAndOtherIntangibleAssets">
+        <link:definition>2108100 - Disclosure - Goodwill and Other Intangible Assets</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="GoodwillAndOtherIntangibleAssetsAcquisitionRelatedIntangibleAssetsThatAreBeingAmortizedDetails" roleURI="http://www.google.com/role/GoodwillAndOtherIntangibleAssetsAcquisitionRelatedIntangibleAssetsThatAreBeingAmortizedDetails">
+        <link:definition>2408403 - Disclosure - Goodwill and Other Intangible Assets (Acquisition-Related Intangible Assets that are being Amortized) (Details)</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="GoodwillAndOtherIntangibleAssetsChangesInCarryingAmountOfGoodwillDetails" roleURI="http://www.google.com/role/GoodwillAndOtherIntangibleAssetsChangesInCarryingAmountOfGoodwillDetails">
+        <link:definition>2408402 - Disclosure - Goodwill and Other Intangible Assets (Changes in Carrying Amount of Goodwill) (Details)</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="GoodwillAndOtherIntangibleAssetsExpectedAmortizationExpenseForAcquisitionRelatedIntangibleAssetsDetails" roleURI="http://www.google.com/role/GoodwillAndOtherIntangibleAssetsExpectedAmortizationExpenseForAcquisitionRelatedIntangibleAssetsDetails">
+        <link:definition>2408404 - Disclosure - Goodwill and Other Intangible Assets (Expected Amortization Expense for Acquisition-Related Intangible Assets) (Details)</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="GoodwillAndOtherIntangibleAssetsNarrativeDetails" roleURI="http://www.google.com/role/GoodwillAndOtherIntangibleAssetsNarrativeDetails">
+        <link:definition>2408405 - Disclosure - Goodwill and Other Intangible Assets (Narrative) (Details)</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="GoodwillAndOtherIntangibleAssetsTables" roleURI="http://www.google.com/role/GoodwillAndOtherIntangibleAssetsTables">
+        <link:definition>2308301 - Disclosure - Goodwill and Other Intangible Assets (Tables)</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="IncomeTaxes" roleURI="http://www.google.com/role/IncomeTaxes">
+        <link:definition>2115100 - Disclosure - Income Taxes</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="IncomeTaxesNarrativeDetails" roleURI="http://www.google.com/role/IncomeTaxesNarrativeDetails">
+        <link:definition>2415406 - Disclosure - Income Taxes (Narrative) (Details)</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="IncomeTaxesProvisionForIncomeTaxesDetails" roleURI="http://www.google.com/role/IncomeTaxesProvisionForIncomeTaxesDetails">
+        <link:definition>2415402 - Disclosure - Income Taxes (Provision for Income Taxes) (Details)</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="IncomeTaxesReconciliationOfFederalStatutoryIncomeTaxRateToEffectiveIncomeTaxRateDetails" roleURI="http://www.google.com/role/IncomeTaxesReconciliationOfFederalStatutoryIncomeTaxRateToEffectiveIncomeTaxRateDetails">
+        <link:definition>2415403 - Disclosure - Income Taxes (Reconciliation of Federal Statutory Income Tax Rate to Effective Income Tax Rate) (Details)</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="IncomeTaxesSignificantComponentsOfDeferredTaxAssetsAndLiabilitiesDetails" roleURI="http://www.google.com/role/IncomeTaxesSignificantComponentsOfDeferredTaxAssetsAndLiabilitiesDetails">
+        <link:definition>2415404 - Disclosure - Income Taxes (Significant Components of Deferred Tax Assets and Liabilities) (Details)</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="IncomeTaxesSummaryOfActivityRelatedToGrossUnrecognizedTaxBenefitsDetails" roleURI="http://www.google.com/role/IncomeTaxesSummaryOfActivityRelatedToGrossUnrecognizedTaxBenefitsDetails">
+        <link:definition>2415405 - Disclosure - Income Taxes (Summary of Activity Related to Gross Unrecognized Tax Benefits) (Details)</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="IncomeTaxesTables" roleURI="http://www.google.com/role/IncomeTaxesTables">
+        <link:definition>2315301 - Disclosure - Income Taxes (Tables)</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="InformationAboutSegmentsAndGeographicAreas" roleURI="http://www.google.com/role/InformationAboutSegmentsAndGeographicAreas">
+        <link:definition>2116100 - Disclosure - Information about Segments and Geographic Areas</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="InformationAboutSegmentsAndGeographicAreasCapitalExpendituresBySegmentDetails" roleURI="http://www.google.com/role/InformationAboutSegmentsAndGeographicAreasCapitalExpendituresBySegmentDetails">
+        <link:definition>2416404 - Disclosure - Information about Segments and Geographic Areas (Capital Expenditures by Segment) (Details)</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="InformationAboutSegmentsAndGeographicAreasLongLivedAssetsByGeographicAreaDetails" roleURI="http://www.google.com/role/InformationAboutSegmentsAndGeographicAreasLongLivedAssetsByGeographicAreaDetails">
+        <link:definition>2416407 - Disclosure - Information about Segments and Geographic Areas (Long-Lived Assets by Geographic Area) (Details)</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="InformationAboutSegmentsAndGeographicAreasOperatingIncomeLossBySegmentDetails" roleURI="http://www.google.com/role/InformationAboutSegmentsAndGeographicAreasOperatingIncomeLossBySegmentDetails">
+        <link:definition>2416403 - Disclosure - Information about Segments and Geographic Areas (Operating Income/Loss by Segment) (Details)</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="InformationAboutSegmentsAndGeographicAreasRevenueBySegmentDetails" roleURI="http://www.google.com/role/InformationAboutSegmentsAndGeographicAreasRevenueBySegmentDetails">
+        <link:definition>2416402 - Disclosure - Information about Segments and Geographic Areas (Revenue by Segment) (Details)</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="InformationAboutSegmentsAndGeographicAreasRevenuesByGeographicAreaDetails" roleURI="http://www.google.com/role/InformationAboutSegmentsAndGeographicAreasRevenuesByGeographicAreaDetails">
+        <link:definition>2416406 - Disclosure - Information about Segments and Geographic Areas (Revenues by Geographic Area) (Details)</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="InformationAboutSegmentsAndGeographicAreasStockBasedCompensationAndDepreciationAmortizationAndImpairmentBySegmentDetails" roleURI="http://www.google.com/role/InformationAboutSegmentsAndGeographicAreasStockBasedCompensationAndDepreciationAmortizationAndImpairmentBySegmentDetails">
+        <link:definition>2416405 - Disclosure - Information about Segments and Geographic Areas (Stock-based Compensation and Depreciation, Amortization and Impairment by Segment) (Details)</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="InformationAboutSegmentsAndGeographicAreasTables" roleURI="http://www.google.com/role/InformationAboutSegmentsAndGeographicAreasTables">
+        <link:definition>2316301 - Disclosure - Information about Segments and Geographic Areas (Tables)</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="NatureOfOperationsAndSummaryOfSignificantAccountingPolicies" roleURI="http://www.google.com/role/NatureOfOperationsAndSummaryOfSignificantAccountingPolicies">
+        <link:definition>2101100 - Disclosure - Nature of Operations and Summary of Significant Accounting Policies</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="NatureOfOperationsAndSummaryOfSignificantAccountingPoliciesNarrativeDetails" roleURI="http://www.google.com/role/NatureOfOperationsAndSummaryOfSignificantAccountingPoliciesNarrativeDetails">
+        <link:definition>2401404 - Disclosure - Nature of Operations and Summary of Significant Accounting Policies (Narrative) (Details)</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="NatureOfOperationsAndSummaryOfSignificantAccountingPoliciesPolicies" roleURI="http://www.google.com/role/NatureOfOperationsAndSummaryOfSignificantAccountingPoliciesPolicies">
+        <link:definition>2201201 - Disclosure - Nature of Operations and Summary of Significant Accounting Policies (Policies)</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="NatureOfOperationsAndSummaryOfSignificantAccountingPoliciesRevenueByRevenueSourceDetails" roleURI="http://www.google.com/role/NatureOfOperationsAndSummaryOfSignificantAccountingPoliciesRevenueByRevenueSourceDetails">
+        <link:definition>2401403 - Disclosure - Nature of Operations and Summary of Significant Accounting Policies (Revenue by Revenue Source) (Details)</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="NatureOfOperationsAndSummaryOfSignificantAccountingPoliciesTables" roleURI="http://www.google.com/role/NatureOfOperationsAndSummaryOfSignificantAccountingPoliciesTables">
+        <link:definition>2301302 - Disclosure - Nature of Operations and Summary of Significant Accounting Policies (Tables)</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="NetIncomePerShare" roleURI="http://www.google.com/role/NetIncomePerShare">
+        <link:definition>2112100 - Disclosure - Net Income Per Share</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="NetIncomePerShareNarrativeDetails" roleURI="http://www.google.com/role/NetIncomePerShareNarrativeDetails">
+        <link:definition>2412403 - Disclosure - Net Income Per Share (Narrative) (Details)</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="NetIncomePerShareScheduleOfEarningsPerShareDetails" roleURI="http://www.google.com/role/NetIncomePerShareScheduleOfEarningsPerShareDetails">
+        <link:definition>2412402 - Disclosure - Net Income Per Share (Schedule of Earnings Per Share) (Details)</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="NetIncomePerShareTables" roleURI="http://www.google.com/role/NetIncomePerShareTables">
+        <link:definition>2312301 - Disclosure - Net Income Per Share (Tables)</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="NonMarketableInvestments" roleURI="http://www.google.com/role/NonMarketableInvestments">
+        <link:definition>2103100 - Disclosure - Non-Marketable Investments</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="NonMarketableInvestmentsNarrativeDetails" roleURI="http://www.google.com/role/NonMarketableInvestmentsNarrativeDetails">
+        <link:definition>2403403 - Disclosure - Non-Marketable Investments (Narrative) (Details)</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="NonMarketableInvestmentsNonMarketableDebtSecuritiesDetails" roleURI="http://www.google.com/role/NonMarketableInvestmentsNonMarketableDebtSecuritiesDetails">
+        <link:definition>2403402 - Disclosure - Non-Marketable Investments (Non-Marketable Debt Securities) (Details)</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="NonMarketableInvestmentsTables" roleURI="http://www.google.com/role/NonMarketableInvestmentsTables">
+        <link:definition>2303301 - Disclosure - Non-Marketable Investments (Tables)</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="OtherIncomeExpenseNet" roleURI="http://www.google.com/role/OtherIncomeExpenseNet">
+        <link:definition>2110100 - Disclosure - Other Income (Expense), Net</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="OtherIncomeExpenseNetComponentsOfInterestAndOtherIncomeNetDetails" roleURI="http://www.google.com/role/OtherIncomeExpenseNetComponentsOfInterestAndOtherIncomeNetDetails">
+        <link:definition>2410402 - Disclosure - Other Income (Expense), Net (Components of Interest and Other Income, Net) (Details)</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="OtherIncomeExpenseNetTables" roleURI="http://www.google.com/role/OtherIncomeExpenseNetTables">
+        <link:definition>2310301 - Disclosure - Other Income (Expense), Net (Tables)</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="RevisionOfPreviouslyIssuedFinancialStatements" roleURI="http://www.google.com/role/RevisionOfPreviouslyIssuedFinancialStatements">
+        <link:definition>2117100 - Disclosure - Revision of Previously Issued Financial Statements</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="RevisionOfPreviouslyIssuedFinancialStatementsBalanceSheetDetails" roleURI="http://www.google.com/role/RevisionOfPreviouslyIssuedFinancialStatementsBalanceSheetDetails">
+        <link:definition>2417402 - Disclosure - Revision of Previously Issued Financial Statements - Balance Sheet (Details)</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="RevisionOfPreviouslyIssuedFinancialStatementsCashFlowDetails" roleURI="http://www.google.com/role/RevisionOfPreviouslyIssuedFinancialStatementsCashFlowDetails">
+        <link:definition>2417405 - Disclosure - Revision of Previously Issued Financial Statements - Cash Flow (Details)</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="RevisionOfPreviouslyIssuedFinancialStatementsComprehensiveIncomeLossDetails" roleURI="http://www.google.com/role/RevisionOfPreviouslyIssuedFinancialStatementsComprehensiveIncomeLossDetails">
+        <link:definition>2417404 - Disclosure - Revision of Previously Issued Financial Statements - Comprehensive Income (Loss) (Details)</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="RevisionOfPreviouslyIssuedFinancialStatementsIncomeStatementDetails" roleURI="http://www.google.com/role/RevisionOfPreviouslyIssuedFinancialStatementsIncomeStatementDetails">
+        <link:definition>2417403 - Disclosure - Revision of Previously Issued Financial Statements - Income Statement (Details)</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="RevisionOfPreviouslyIssuedFinancialStatementsNarrativeDetails" roleURI="http://www.google.com/role/RevisionOfPreviouslyIssuedFinancialStatementsNarrativeDetails">
+        <link:definition>2417406 - Disclosure - Revision of Previously Issued Financial Statements - Narrative (Details)</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="RevisionOfPreviouslyIssuedFinancialStatementsTables" roleURI="http://www.google.com/role/RevisionOfPreviouslyIssuedFinancialStatementsTables">
+        <link:definition>2317301 - Disclosure - Revision of Previously Issued Financial Statements (Tables)</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="ScheduleIiValuationAndQualifyingAccounts" roleURI="http://www.google.com/role/ScheduleIiValuationAndQualifyingAccounts">
+        <link:definition>2130100 - Schedule - Schedule II: Valuation and Qualifying Accounts</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="ScheduleIiValuationAndQualifyingAccountsDetails" roleURI="http://www.google.com/role/ScheduleIiValuationAndQualifyingAccountsDetails">
+        <link:definition>2430401 - Schedule - Schedule II: Valuation and Qualifying Accounts (Details)</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="StockholdersEquity" roleURI="http://www.google.com/role/StockholdersEquity">
+        <link:definition>2113100 - Disclosure - Stockholders' Equity</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="StockholdersEquityNarrativeDetails" roleURI="http://www.google.com/role/StockholdersEquityNarrativeDetails">
+        <link:definition>2413405 - Disclosure - Stockholders' Equity (Narrative) (Details)</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="StockholdersEquityStockBasedCompensationExpenseDetails" roleURI="http://www.google.com/role/StockholdersEquityStockBasedCompensationExpenseDetails">
+        <link:definition>2413402 - Disclosure - Stockholders' Equity (Stock-based Compensation Expense) (Details)</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="StockholdersEquityStockOptionActivityDetails" roleURI="http://www.google.com/role/StockholdersEquityStockOptionActivityDetails">
+        <link:definition>2413403 - Disclosure - Stockholders' Equity (Stock Option Activity) (Details)</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="StockholdersEquityTables" roleURI="http://www.google.com/role/StockholdersEquityTables">
+        <link:definition>2313301 - Disclosure - Stockholders' Equity (Tables)</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="StockholdersEquityUnvestedRestrictedStockUnitsActivityDetails" roleURI="http://www.google.com/role/StockholdersEquityUnvestedRestrictedStockUnitsActivityDetails">
+        <link:definition>2413404 - Disclosure - Stockholders' Equity (Unvested Restricted Stock Units Activity) (Details)</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+    </xsd:appinfo>
+  </xsd:annotation>
+  <xsd:element abstract="true" id="goog_AbbVieIncMember" name="AbbVieIncMember" nillable="true" substitutionGroup="xbrli:item" type="nonnum:domainItemType" xbrli:periodType="duration" />
+  <xsd:element abstract="true" id="goog_AccruedExpensesAndOtherCurrentLiabilitiesMember" name="AccruedExpensesAndOtherCurrentLiabilitiesMember" nillable="true" substitutionGroup="xbrli:item" type="nonnum:domainItemType" xbrli:periodType="duration" />
+  <xsd:element abstract="true" id="goog_AccruedExpensesAndOtherLiabilitiesCurrentAndNonCurrentMember" name="AccruedExpensesAndOtherLiabilitiesCurrentAndNonCurrentMember" nillable="true" substitutionGroup="xbrli:item" type="nonnum:domainItemType" xbrli:periodType="duration" />
+  <xsd:element id="goog_AccruedRevenueShare" name="AccruedRevenueShare" nillable="true" substitutionGroup="xbrli:item" type="xbrli:monetaryItemType" xbrli:balance="credit" xbrli:periodType="instant" />
+  <xsd:element id="goog_AccumulatedOtherComprehensiveIncomeLossCumulativeChangesInNetGainLossFromCashFlowHedgesEffectPretax" name="AccumulatedOtherComprehensiveIncomeLossCumulativeChangesInNetGainLossFromCashFlowHedgesEffectPretax" nillable="true" substitutionGroup="xbrli:item" type="xbrli:monetaryItemType" xbrli:balance="credit" xbrli:periodType="instant" />
+  <xsd:element id="goog_AccumulatedPaymentstoAcquiredInterestinSubsidiariesandAffiliates" name="AccumulatedPaymentstoAcquiredInterestinSubsidiariesandAffiliates" nillable="true" substitutionGroup="xbrli:item" type="xbrli:monetaryItemType" xbrli:balance="credit" xbrli:periodType="instant" />
+  <xsd:element abstract="true" id="goog_AcquisitionrelatedIntangibleAssetsMember" name="AcquisitionrelatedIntangibleAssetsMember" nillable="true" substitutionGroup="xbrli:item" type="nonnum:domainItemType" xbrli:periodType="duration" />
+  <xsd:element id="goog_AcquisitionsNetOfCashAcquiredAndPurchasesOfIntangibleAndOtherAssets" name="AcquisitionsNetOfCashAcquiredAndPurchasesOfIntangibleAndOtherAssets" nillable="true" substitutionGroup="xbrli:item" type="xbrli:monetaryItemType" xbrli:balance="credit" xbrli:periodType="duration" />
+  <xsd:element id="goog_AdjustmentstoAdditionalPaidinCapitalParentCompanyTransaction" name="AdjustmentstoAdditionalPaidinCapitalParentCompanyTransaction" nillable="true" substitutionGroup="xbrli:item" type="xbrli:monetaryItemType" xbrli:balance="debit" xbrli:periodType="duration" />
+  <xsd:element id="goog_AdjustmentstoAdditionalPaidinCapitalSharesIssuedforLitigationSettlement" name="AdjustmentstoAdditionalPaidinCapitalSharesIssuedforLitigationSettlement" nillable="true" substitutionGroup="xbrli:item" type="xbrli:sharesItemType" xbrli:periodType="duration" />
+  <xsd:element id="goog_AdjustmentstoAdditionalPaidinCapitalValueofSharesIssuedandDividendPaymentforLitigationSettlement" name="AdjustmentstoAdditionalPaidinCapitalValueofSharesIssuedandDividendPaymentforLitigationSettlement" nillable="true" substitutionGroup="xbrli:item" type="xbrli:monetaryItemType" xbrli:balance="credit" xbrli:periodType="duration" />
+  <xsd:element id="goog_AllowanceforPromissoryNotedReceivedinConnectionwithDivestiture" name="AllowanceforPromissoryNotedReceivedinConnectionwithDivestiture" nillable="true" substitutionGroup="xbrli:item" type="xbrli:monetaryItemType" xbrli:balance="credit" xbrli:periodType="instant" />
+  <xsd:element abstract="true" id="goog_AlteraCorp.v.CommissionerMember" name="AlteraCorp.v.CommissionerMember" nillable="true" substitutionGroup="xbrli:item" type="nonnum:domainItemType" xbrli:periodType="duration" />
+  <xsd:element id="goog_AmortizationandImpairmentofIntangibleandOtherAssets" name="AmortizationandImpairmentofIntangibleandOtherAssets" nillable="true" substitutionGroup="xbrli:item" type="xbrli:monetaryItemType" xbrli:balance="debit" xbrli:periodType="duration" />
+  <xsd:element abstract="true" id="goog_ArrisMember" name="ArrisMember" nillable="true" substitutionGroup="xbrli:item" type="nonnum:domainItemType" xbrli:periodType="duration" />
+  <xsd:element abstract="true" id="goog_BalanceSheetComponentsDisclosureAbstract" name="BalanceSheetComponentsDisclosureAbstract" nillable="true" substitutionGroup="xbrli:item" type="xbrli:stringItemType" xbrli:periodType="duration" />
+  <xsd:element abstract="true" id="goog_BebopTechnologiesMember" name="BebopTechnologiesMember" nillable="true" substitutionGroup="xbrli:item" type="nonnum:domainItemType" xbrli:periodType="duration" />
+  <xsd:element abstract="true" id="goog_CalicoMember" name="CalicoMember" nillable="true" substitutionGroup="xbrli:item" type="nonnum:domainItemType" xbrli:periodType="duration" />
+  <xsd:element abstract="true" id="goog_CapitalClassCMember" name="CapitalClassCMember" nillable="true" substitutionGroup="xbrli:item" type="nonnum:domainItemType" xbrli:periodType="duration" />
+  <xsd:element id="goog_CashAndCashEquivalentsAndMarketableSecuritiesPolicyPolicyTextBlock" name="CashAndCashEquivalentsAndMarketableSecuritiesPolicyPolicyTextBlock" nillable="true" substitutionGroup="xbrli:item" type="nonnum:textBlockItemType" xbrli:periodType="duration" />
+  <xsd:element abstract="true" id="goog_CashCashEquivalentsAndMarketableSecuritiesLineItems" name="CashCashEquivalentsAndMarketableSecuritiesLineItems" nillable="true" substitutionGroup="xbrli:item" type="xbrli:stringItemType" xbrli:periodType="duration" />
+  <xsd:element abstract="true" id="goog_CashCashEquivalentsAndMarketableSecuritiesTable" name="CashCashEquivalentsAndMarketableSecuritiesTable" nillable="true" substitutionGroup="xbrldt:hypercubeItem" type="xbrli:stringItemType" xbrli:periodType="duration" />
+  <xsd:element id="goog_CashCashEquivalentsAndShortTermInvestmentsAmortizedCost" name="CashCashEquivalentsAndShortTermInvestmentsAmortizedCost" nillable="true" substitutionGroup="xbrli:item" type="xbrli:monetaryItemType" xbrli:balance="debit" xbrli:periodType="instant" />
+  <xsd:element id="goog_CashCashEquivalentsAndShortTermInvestmentsUnrealizedGains" name="CashCashEquivalentsAndShortTermInvestmentsUnrealizedGains" nillable="true" substitutionGroup="xbrli:item" type="xbrli:monetaryItemType" xbrli:balance="credit" xbrli:periodType="instant" />
+  <xsd:element id="goog_CashCashEquivalentsAndShortTermInvestmentsUnrealizedLosses" name="CashCashEquivalentsAndShortTermInvestmentsUnrealizedLosses" nillable="true" substitutionGroup="xbrli:item" type="xbrli:monetaryItemType" xbrli:balance="debit" xbrli:periodType="instant" />
+  <xsd:element id="goog_CashCollateralReceivedFromDerivativeFinancialInstruments" name="CashCollateralReceivedFromDerivativeFinancialInstruments" nillable="true" substitutionGroup="xbrli:item" type="xbrli:monetaryItemType" xbrli:balance="credit" xbrli:periodType="instant" />
+  <xsd:element id="goog_CashReceivedperaPurchaseandSaleAgreement" name="CashReceivedperaPurchaseandSaleAgreement" nillable="true" substitutionGroup="xbrli:item" type="xbrli:monetaryItemType" xbrli:balance="debit" xbrli:periodType="duration" />
+  <xsd:element id="goog_ClassCAdjustmentPayment" name="ClassCAdjustmentPayment" nillable="true" substitutionGroup="xbrli:item" type="xbrli:monetaryItemType" xbrli:balance="credit" xbrli:periodType="instant" />
+  <xsd:element abstract="true" id="goog_CommitmentsAndContingenciesDisclosureLineItems" name="CommitmentsAndContingenciesDisclosureLineItems" nillable="true" substitutionGroup="xbrli:item" type="xbrli:stringItemType" xbrli:periodType="duration" />
+  <xsd:element abstract="true" id="goog_CommitmentsAndContingenciesDisclosureTable" name="CommitmentsAndContingenciesDisclosureTable" nillable="true" substitutionGroup="xbrldt:hypercubeItem" type="xbrli:stringItemType" xbrli:periodType="duration" />
+  <xsd:element abstract="true" id="goog_CommonClassAandCommonClassBMember" name="CommonClassAandCommonClassBMember" nillable="true" substitutionGroup="xbrli:item" type="nonnum:domainItemType" xbrli:periodType="duration" />
+  <xsd:element id="goog_CommonStockNumberofVotes" name="CommonStockNumberofVotes" nillable="true" substitutionGroup="xbrli:item" type="xbrli:integerItemType" xbrli:periodType="instant" />
+  <xsd:element id="goog_ConcentrationRiskNumberofCustomers" name="ConcentrationRiskNumberofCustomers" nillable="true" substitutionGroup="xbrli:item" type="xbrli:integerItemType" xbrli:periodType="instant" />
+  <xsd:element id="goog_DebtInstrumentAuthorizedDebtLimit" name="DebtInstrumentAuthorizedDebtLimit" nillable="true" substitutionGroup="xbrli:item" type="xbrli:monetaryItemType" xbrli:balance="credit" xbrli:periodType="instant" />
+  <xsd:element id="goog_DeferredTaxAssetsAcquiredNetOperatingLosses" name="DeferredTaxAssetsAcquiredNetOperatingLosses" nillable="true" substitutionGroup="xbrli:item" type="xbrli:monetaryItemType" xbrli:balance="debit" xbrli:periodType="instant" />
+  <xsd:element id="goog_DeferredTaxAssetsBasisDifferenceInInvestmentInHomeBusiness" name="DeferredTaxAssetsBasisDifferenceInInvestmentInHomeBusiness" nillable="true" substitutionGroup="xbrli:item" type="xbrli:monetaryItemType" xbrli:balance="debit" xbrli:periodType="instant" />
+  <xsd:element id="goog_DeferredTaxAssetsDeferredCostSharing" name="DeferredTaxAssetsDeferredCostSharing" nillable="true" substitutionGroup="xbrli:item" type="xbrli:monetaryItemType" xbrli:balance="debit" xbrli:periodType="instant" />
+  <xsd:element id="goog_DeferredTaxLiabilitiesRenewableEnergyInvestments" name="DeferredTaxLiabilitiesRenewableEnergyInvestments" nillable="true" substitutionGroup="xbrli:item" type="xbrli:monetaryItemType" xbrli:balance="credit" xbrli:periodType="instant" />
+  <xsd:element id="goog_DefinedContributionPlanNumberofPlans" name="DefinedContributionPlanNumberofPlans" nillable="true" substitutionGroup="xbrli:item" type="xbrli:integerItemType" xbrli:periodType="duration" />
+  <xsd:element id="goog_DepreciationAmortizationandImpairmentonDispositionofPropertyandEquipment" name="DepreciationAmortizationandImpairmentonDispositionofPropertyandEquipment" nillable="true" substitutionGroup="xbrli:item" type="xbrli:monetaryItemType" xbrli:balance="debit" xbrli:periodType="duration" />
+  <xsd:element id="goog_DepreciationandImpairmentonDispositionofPropertyandEquipment" name="DepreciationandImpairmentonDispositionofPropertyandEquipment" nillable="true" substitutionGroup="xbrli:item" type="xbrli:monetaryItemType" xbrli:balance="debit" xbrli:periodType="duration" />
+  <xsd:element id="goog_DisposalGroupIncludingDiscontinuedOperationAccruedCompensationandBenefits" name="DisposalGroupIncludingDiscontinuedOperationAccruedCompensationandBenefits" nillable="true" substitutionGroup="xbrli:item" type="xbrli:monetaryItemType" xbrli:balance="credit" xbrli:periodType="instant" />
+  <xsd:element id="goog_DisposalGroupIncludingDiscontinuedOperationPrepaidRevenueShareExpensesAndOtherAssetsNoncurrent" name="DisposalGroupIncludingDiscontinuedOperationPrepaidRevenueShareExpensesAndOtherAssetsNoncurrent" nillable="true" substitutionGroup="xbrli:item" type="xbrli:monetaryItemType" xbrli:balance="debit" xbrli:periodType="instant" />
+  <xsd:element id="goog_DivestitureofBusinessConsiderationReceivedatTransactionCloseDate" name="DivestitureofBusinessConsiderationReceivedatTransactionCloseDate" nillable="true" substitutionGroup="xbrli:item" type="xbrli:monetaryItemType" xbrli:balance="debit" xbrli:periodType="instant" />
+  <xsd:element abstract="true" id="goog_DocumentandEntityInformationAbstract" name="DocumentandEntityInformationAbstract" nillable="true" substitutionGroup="xbrli:item" type="xbrli:stringItemType" xbrli:periodType="duration" />
+  <xsd:element abstract="true" id="goog_DropcamInc.Member" name="DropcamInc.Member" nillable="true" substitutionGroup="xbrli:item" type="nonnum:domainItemType" xbrli:periodType="duration" />
+  <xsd:element abstract="true" id="goog_EarningsPerShareDisclosureLineItems" name="EarningsPerShareDisclosureLineItems" nillable="true" substitutionGroup="xbrli:item" type="xbrli:stringItemType" xbrli:periodType="duration" />
+  <xsd:element abstract="true" id="goog_EarningsPerShareDisclosureTable" name="EarningsPerShareDisclosureTable" nillable="true" substitutionGroup="xbrldt:hypercubeItem" type="xbrli:stringItemType" xbrli:periodType="duration" />
+  <xsd:element id="goog_EffectiveIncomeTaxRateReconciliationTaxCreditResearchRetroactiveExtensionOfPriorPeriodTaxLaw" name="EffectiveIncomeTaxRateReconciliationTaxCreditResearchRetroactiveExtensionOfPriorPeriodTaxLaw" nillable="true" substitutionGroup="xbrli:item" type="xbrli:monetaryItemType" xbrli:balance="credit" xbrli:periodType="instant" />
+  <xsd:element id="goog_ErrorCorrectionsandPriorPeriodAdjustmentsCumulativeAdjustmentIncomeTaxExpenseBenefit" name="ErrorCorrectionsandPriorPeriodAdjustmentsCumulativeAdjustmentIncomeTaxExpenseBenefit" nillable="true" substitutionGroup="xbrli:item" type="xbrli:monetaryItemType" xbrli:balance="debit" xbrli:periodType="instant" />
+  <xsd:element abstract="true" id="goog_FinancialInstrumentsAndFairValueLineItems" name="FinancialInstrumentsAndFairValueLineItems" nillable="true" substitutionGroup="xbrli:item" type="xbrli:stringItemType" xbrli:periodType="duration" />
+  <xsd:element abstract="true" id="goog_FinancialInstrumentsAndFairValueTable" name="FinancialInstrumentsAndFairValueTable" nillable="true" substitutionGroup="xbrldt:hypercubeItem" type="xbrli:stringItemType" xbrli:periodType="duration" />
+  <xsd:element abstract="true" id="goog_FixedincomeBondFundsMember" name="FixedincomeBondFundsMember" nillable="true" substitutionGroup="xbrli:item" type="nonnum:domainItemType" xbrli:periodType="duration" />
+  <xsd:element id="goog_ForeignCurrencyTransactionGainLossNetofRecognizedForeignExchangeContracts" name="ForeignCurrencyTransactionGainLossNetofRecognizedForeignExchangeContracts" nillable="true" substitutionGroup="xbrli:item" type="xbrli:monetaryItemType" xbrli:balance="credit" xbrli:periodType="duration" />
+  <xsd:element id="goog_GainLossonMarketableandNonmarketableInvestmentsNet" name="GainLossonMarketableandNonmarketableInvestmentsNet" nillable="true" substitutionGroup="xbrli:item" type="xbrli:monetaryItemType" xbrli:balance="credit" xbrli:periodType="duration" />
+  <xsd:element id="goog_GainLossonSaleofBusinessIncludingDiscontinuedOperations" name="GainLossonSaleofBusinessIncludingDiscontinuedOperations" nillable="true" substitutionGroup="xbrli:item" type="xbrli:monetaryItemType" xbrli:balance="credit" xbrli:periodType="duration" />
+  <xsd:element abstract="true" id="goog_GoogleInc.Member" name="GoogleInc.Member" nillable="true" substitutionGroup="xbrli:item" type="nonnum:domainItemType" xbrli:periodType="duration" />
+  <xsd:element abstract="true" id="goog_GoogleNetworkWebSitesMember" name="GoogleNetworkWebSitesMember" nillable="true" substitutionGroup="xbrli:item" type="nonnum:domainItemType" xbrli:periodType="duration" />
+  <xsd:element abstract="true" id="goog_GoogleWebSitesMember" name="GoogleWebSitesMember" nillable="true" substitutionGroup="xbrli:item" type="nonnum:domainItemType" xbrli:periodType="duration" />
+  <xsd:element id="goog_ImpairmentOfMarketableAndNonMarketableSecuritiesPolicyPolicyTextBlock" name="ImpairmentOfMarketableAndNonMarketableSecuritiesPolicyPolicyTextBlock" nillable="true" substitutionGroup="xbrli:item" type="nonnum:textBlockItemType" xbrli:periodType="duration" />
+  <xsd:element id="goog_IncomeTaxExaminationIssuesPlannedtobeLitigatedinCourt" name="IncomeTaxExaminationIssuesPlannedtobeLitigatedinCourt" nillable="true" substitutionGroup="xbrli:item" type="xbrli:integerItemType" xbrli:periodType="instant" />
+  <xsd:element id="goog_IncomeTaxReconciliationBasisDifferenceInInvestmentInArris" name="IncomeTaxReconciliationBasisDifferenceInInvestmentInArris" nillable="true" substitutionGroup="xbrli:item" type="xbrli:monetaryItemType" xbrli:balance="debit" xbrli:periodType="duration" />
+  <xsd:element abstract="true" id="goog_IncomeTaxesLineItems" name="IncomeTaxesLineItems" nillable="true" substitutionGroup="xbrli:item" type="xbrli:stringItemType" xbrli:periodType="duration" />
+  <xsd:element abstract="true" id="goog_IncomeTaxesTable" name="IncomeTaxesTable" nillable="true" substitutionGroup="xbrldt:hypercubeItem" type="xbrli:stringItemType" xbrli:periodType="duration" />
+  <xsd:element id="goog_IncreaseDecreaseInAccruedRevenueShare" name="IncreaseDecreaseInAccruedRevenueShare" nillable="true" substitutionGroup="xbrli:item" type="xbrli:monetaryItemType" xbrli:balance="debit" xbrli:periodType="duration" />
+  <xsd:element id="goog_IncreaseDecreaseInPrepaidRevenueShareExpensesAndOtherAssets" name="IncreaseDecreaseInPrepaidRevenueShareExpensesAndOtherAssets" nillable="true" substitutionGroup="xbrli:item" type="xbrli:monetaryItemType" xbrli:balance="credit" xbrli:periodType="duration" />
+  <xsd:element id="goog_IncrementalCommonSharesAttributableToConversionOfCommonStock" name="IncrementalCommonSharesAttributableToConversionOfCommonStock" nillable="true" substitutionGroup="xbrli:item" type="xbrli:sharesItemType" xbrli:periodType="duration" />
+  <xsd:element id="goog_IncrementalCommonSharesAttributableToRestrictedStockUnits" name="IncrementalCommonSharesAttributableToRestrictedStockUnits" nillable="true" substitutionGroup="xbrli:item" type="xbrli:sharesItemType" xbrli:periodType="duration" />
+  <xsd:element id="goog_InvestmentOwnershipPercentage" name="InvestmentOwnershipPercentage" nillable="true" substitutionGroup="xbrli:item" type="num:percentItemType" xbrli:periodType="instant" />
+  <xsd:element id="goog_InvestmentsInReverseRepurchaseAgreements" name="InvestmentsInReverseRepurchaseAgreements" nillable="true" substitutionGroup="xbrli:item" type="xbrli:monetaryItemType" xbrli:balance="debit" xbrli:periodType="duration" />
+  <xsd:element abstract="true" id="goog_InvestmentsUnrealizedLossPositionLineItems" name="InvestmentsUnrealizedLossPositionLineItems" nillable="true" substitutionGroup="xbrli:item" type="xbrli:stringItemType" xbrli:periodType="duration" />
+  <xsd:element abstract="true" id="goog_InvestmentsUnrealizedLossPositionTable" name="InvestmentsUnrealizedLossPositionTable" nillable="true" substitutionGroup="xbrldt:hypercubeItem" type="xbrli:stringItemType" xbrli:periodType="duration" />
+  <xsd:element id="goog_LeaseRecordedOnBalanceSheetDuringThePeriod" name="LeaseRecordedOnBalanceSheetDuringThePeriod" nillable="true" substitutionGroup="xbrli:item" type="xbrli:monetaryItemType" xbrli:balance="debit" xbrli:periodType="duration" />
+  <xsd:element id="goog_LeaseRelatedLiabilityRecordedOnBalanceSheetDuringThePeriod" name="LeaseRelatedLiabilityRecordedOnBalanceSheetDuringThePeriod" nillable="true" substitutionGroup="xbrli:item" type="xbrli:monetaryItemType" xbrli:balance="credit" xbrli:periodType="duration" />
+  <xsd:element id="goog_LongLivedAssetsPolicyPolicyTextBlock" name="LongLivedAssetsPolicyPolicyTextBlock" nillable="true" substitutionGroup="xbrli:item" type="nonnum:textBlockItemType" xbrli:periodType="duration" />
+  <xsd:element id="goog_LongTermDebtMaturitiesRepaymentsOfPrincipalAfterYearFour" name="LongTermDebtMaturitiesRepaymentsOfPrincipalAfterYearFour" nillable="true" substitutionGroup="xbrli:item" type="xbrli:monetaryItemType" xbrli:balance="credit" xbrli:periodType="instant" />
+  <xsd:element abstract="true" id="goog_MoneyMarketAndOtherFundsMember" name="MoneyMarketAndOtherFundsMember" nillable="true" substitutionGroup="xbrli:item" type="nonnum:domainItemType" xbrli:periodType="duration" />
+  <xsd:element abstract="true" id="goog_MotorolaHomeMember" name="MotorolaHomeMember" nillable="true" substitutionGroup="xbrli:item" type="nonnum:domainItemType" xbrli:periodType="duration" />
+  <xsd:element abstract="true" id="goog_MotorolaMobilityHoldingsIncMember" name="MotorolaMobilityHoldingsIncMember" nillable="true" substitutionGroup="xbrli:item" type="nonnum:domainItemType" xbrli:periodType="duration" />
+  <xsd:element id="goog_NatureOfOperationsPolicyPolicyTextBlock" name="NatureOfOperationsPolicyPolicyTextBlock" nillable="true" substitutionGroup="xbrli:item" type="nonnum:textBlockItemType" xbrli:periodType="duration" />
+  <xsd:element abstract="true" id="goog_NestLabsMember" name="NestLabsMember" nillable="true" substitutionGroup="xbrli:item" type="nonnum:domainItemType" xbrli:periodType="duration" />
+  <xsd:element id="goog_NetProceedsPaymentsRelatedToStockBasedAwardActivities" name="NetProceedsPaymentsRelatedToStockBasedAwardActivities" nillable="true" substitutionGroup="xbrli:item" type="xbrli:monetaryItemType" xbrli:balance="credit" xbrli:periodType="duration" />
+  <xsd:element id="goog_NonCancelableFutureMinimumLeasePayments" name="NonCancelableFutureMinimumLeasePayments" nillable="true" substitutionGroup="xbrli:item" type="xbrli:monetaryItemType" xbrli:balance="credit" xbrli:periodType="instant" />
+  <xsd:element id="goog_NonMarketableEquityInvestmentsPolicyPolicyTextBlock" name="NonMarketableEquityInvestmentsPolicyPolicyTextBlock" nillable="true" substitutionGroup="xbrli:item" type="nonnum:textBlockItemType" xbrli:periodType="duration" />
+  <xsd:element id="goog_NumberOfClassesOfCommonStock" name="NumberOfClassesOfCommonStock" nillable="true" substitutionGroup="xbrli:item" type="xbrli:integerItemType" xbrli:periodType="instant" />
+  <xsd:element id="goog_NumberOfTaxJurisdictions" name="NumberOfTaxJurisdictions" nillable="true" substitutionGroup="xbrli:item" type="xbrli:integerItemType" xbrli:periodType="duration" />
+  <xsd:element id="goog_NumberOfTranches" name="NumberOfTranches" nillable="true" substitutionGroup="xbrli:item" type="xbrli:integerItemType" xbrli:periodType="instant" />
+  <xsd:element abstract="true" id="goog_October2015ShareRepurchaseProgramMember" name="October2015ShareRepurchaseProgramMember" nillable="true" substitutionGroup="xbrli:item" type="nonnum:domainItemType" xbrli:periodType="duration" />
+  <xsd:element abstract="true" id="goog_OperatingLeasesFutureMinimumPaymentsDueNetFiscalYearMaturityAbstract" name="OperatingLeasesFutureMinimumPaymentsDueNetFiscalYearMaturityAbstract" nillable="true" substitutionGroup="xbrli:item" type="xbrli:stringItemType" xbrli:periodType="duration" />
+  <xsd:element id="goog_OperatingLeasesFutureMinimumPaymentsDueNetNextTwelveMonths" name="OperatingLeasesFutureMinimumPaymentsDueNetNextTwelveMonths" nillable="true" substitutionGroup="xbrli:item" type="xbrli:monetaryItemType" xbrli:balance="credit" xbrli:periodType="instant" />
+  <xsd:element id="goog_OperatingLeasesFutureMinimumPaymentsDueNetThereafter" name="OperatingLeasesFutureMinimumPaymentsDueNetThereafter" nillable="true" substitutionGroup="xbrli:item" type="xbrli:monetaryItemType" xbrli:balance="credit" xbrli:periodType="instant" />
+  <xsd:element id="goog_OperatingLeasesFutureMinimumPaymentsDueNetTotal" name="OperatingLeasesFutureMinimumPaymentsDueNetTotal" nillable="true" substitutionGroup="xbrli:item" type="xbrli:monetaryItemType" xbrli:balance="credit" xbrli:periodType="instant" />
+  <xsd:element id="goog_OperatingLeasesFutureMinimumPaymentsDueNetinFiveYears" name="OperatingLeasesFutureMinimumPaymentsDueNetinFiveYears" nillable="true" substitutionGroup="xbrli:item" type="xbrli:monetaryItemType" xbrli:balance="credit" xbrli:periodType="instant" />
+  <xsd:element id="goog_OperatingLeasesFutureMinimumPaymentsDueNetinFourYears" name="OperatingLeasesFutureMinimumPaymentsDueNetinFourYears" nillable="true" substitutionGroup="xbrli:item" type="xbrli:monetaryItemType" xbrli:balance="credit" xbrli:periodType="instant" />
+  <xsd:element id="goog_OperatingLeasesFutureMinimumPaymentsDueNetinThreeYears" name="OperatingLeasesFutureMinimumPaymentsDueNetinThreeYears" nillable="true" substitutionGroup="xbrli:item" type="xbrli:monetaryItemType" xbrli:balance="credit" xbrli:periodType="instant" />
+  <xsd:element id="goog_OperatingLeasesFutureMinimumPaymentsDueNetinTwoYears" name="OperatingLeasesFutureMinimumPaymentsDueNetinTwoYears" nillable="true" substitutionGroup="xbrli:item" type="xbrli:monetaryItemType" xbrli:balance="credit" xbrli:periodType="instant" />
+  <xsd:element abstract="true" id="goog_OrganizationAndSummaryOfSignificantAccountingPoliciesLineItems" name="OrganizationAndSummaryOfSignificantAccountingPoliciesLineItems" nillable="true" substitutionGroup="xbrli:item" type="xbrli:stringItemType" xbrli:periodType="duration" />
+  <xsd:element abstract="true" id="goog_OrganizationAndSummaryOfSignificantAccountingPoliciesTable" name="OrganizationAndSummaryOfSignificantAccountingPoliciesTable" nillable="true" substitutionGroup="xbrldt:hypercubeItem" type="xbrli:stringItemType" xbrli:periodType="duration" />
+  <xsd:element id="goog_OtherInvestmentNotReadilyMarketablePurchasesDuringPeriod" name="OtherInvestmentNotReadilyMarketablePurchasesDuringPeriod" nillable="true" substitutionGroup="xbrli:item" type="xbrli:monetaryItemType" xbrli:balance="debit" xbrli:periodType="duration" />
+  <xsd:element abstract="true" id="goog_OtherInvestmentsNotReadilyMarketableRollForward" name="OtherInvestmentsNotReadilyMarketableRollForward" nillable="true" substitutionGroup="xbrli:item" type="xbrli:stringItemType" xbrli:periodType="duration" />
+  <xsd:element abstract="true" id="goog_PatentRoyaltyLicensingAgreementMember" name="PatentRoyaltyLicensingAgreementMember" nillable="true" substitutionGroup="xbrli:item" type="nonnum:domainItemType" xbrli:periodType="duration" />
+  <xsd:element abstract="true" id="goog_PatentsAndDevelopedTechnologyMember" name="PatentsAndDevelopedTechnologyMember" nillable="true" substitutionGroup="xbrli:item" type="nonnum:domainItemType" xbrli:periodType="duration" />
+  <xsd:element id="goog_PaymentsforParentCompanyTransaction" name="PaymentsforParentCompanyTransaction" nillable="true" substitutionGroup="xbrli:item" type="xbrli:monetaryItemType" xbrli:balance="credit" xbrli:periodType="duration" />
+  <xsd:element id="goog_PercentageOfTotalRevenuesInUnitedStates" name="PercentageOfTotalRevenuesInUnitedStates" nillable="true" substitutionGroup="xbrli:item" type="num:percentItemType" xbrli:periodType="duration" />
+  <xsd:element id="goog_PrepaidRevenueShareExpensesAndOtherAssetsCurrent" name="PrepaidRevenueShareExpensesAndOtherAssetsCurrent" nillable="true" substitutionGroup="xbrli:item" type="xbrli:monetaryItemType" xbrli:balance="debit" xbrli:periodType="instant" />
+  <xsd:element abstract="true" id="goog_PrepaidRevenueShareExpensesAndOtherAssetsCurrentAndNoncurrentMember" name="PrepaidRevenueShareExpensesAndOtherAssetsCurrentAndNoncurrentMember" nillable="true" substitutionGroup="xbrli:item" type="nonnum:domainItemType" xbrli:periodType="duration" />
+  <xsd:element id="goog_PrepaidRevenueShareExpensesAndOtherAssetsNoncurrent" name="PrepaidRevenueShareExpensesAndOtherAssetsNoncurrent" nillable="true" substitutionGroup="xbrli:item" type="xbrli:monetaryItemType" xbrli:balance="debit" xbrli:periodType="instant" />
+  <xsd:element id="goog_ProceedsFromPreviousDivestiture" name="ProceedsFromPreviousDivestiture" nillable="true" substitutionGroup="xbrli:item" type="xbrli:monetaryItemType" xbrli:balance="debit" xbrli:periodType="duration" />
+  <xsd:element id="goog_PromissoryNoteReceivedinConnectionwithDivestiture" name="PromissoryNoteReceivedinConnectionwithDivestiture" nillable="true" substitutionGroup="xbrli:item" type="xbrli:monetaryItemType" xbrli:balance="debit" xbrli:periodType="instant" />
+  <xsd:element id="goog_PromissoryNoteReceivedinConnectionwithDivestitureNet" name="PromissoryNoteReceivedinConnectionwithDivestitureNet" nillable="true" substitutionGroup="xbrli:item" type="xbrli:monetaryItemType" xbrli:balance="debit" xbrli:periodType="instant" />
+  <xsd:element id="goog_PromissoryNoteReceivedinConnectionwithDivestitureTerm" name="PromissoryNoteReceivedinConnectionwithDivestitureTerm" nillable="true" substitutionGroup="xbrli:item" type="xbrli:durationItemType" xbrli:periodType="duration" />
+  <xsd:element id="goog_PromissoryNoteReceivedinConnectionwithDivestitureUnamortizedDiscountonNoteReceivable" name="PromissoryNoteReceivedinConnectionwithDivestitureUnamortizedDiscountonNoteReceivable" nillable="true" substitutionGroup="xbrli:item" type="xbrli:monetaryItemType" xbrli:balance="credit" xbrli:periodType="instant" />
+  <xsd:element id="goog_RealizedGainLossOnNonmarketableInvestments" name="RealizedGainLossOnNonmarketableInvestments" nillable="true" substitutionGroup="xbrli:item" type="xbrli:monetaryItemType" xbrli:balance="credit" xbrli:periodType="duration" />
+  <xsd:element id="goog_ReallocationOfUndistributedEarnings" name="ReallocationOfUndistributedEarnings" nillable="true" substitutionGroup="xbrli:item" type="xbrli:monetaryItemType" xbrli:balance="debit" xbrli:periodType="duration" />
+  <xsd:element id="goog_ReallocationOfUndistributedEarningsAsResultOfConversionOfShares" name="ReallocationOfUndistributedEarningsAsResultOfConversionOfShares" nillable="true" substitutionGroup="xbrli:item" type="xbrli:monetaryItemType" xbrli:balance="credit" xbrli:periodType="duration" />
+  <xsd:element id="goog_ReceivableUnderReverseRepurchaseAgreements" name="ReceivableUnderReverseRepurchaseAgreements" nillable="true" substitutionGroup="xbrli:item" type="xbrli:monetaryItemType" xbrli:balance="debit" xbrli:periodType="instant" />
+  <xsd:element abstract="true" id="goog_ReceivableUnderReverseRepurchaseAgreementsMember" name="ReceivableUnderReverseRepurchaseAgreementsMember" nillable="true" substitutionGroup="xbrli:item" type="nonnum:domainItemType" xbrli:periodType="duration" />
+  <xsd:element id="goog_SecuritiesOwnedAndLoaned" name="SecuritiesOwnedAndLoaned" nillable="true" substitutionGroup="xbrli:item" type="xbrli:monetaryItemType" xbrli:balance="debit" xbrli:periodType="instant" />
+  <xsd:element abstract="true" id="goog_SegmentGeographicalRestoftheWorldExcludingUnitedStatesandUnitedKingdomMember" name="SegmentGeographicalRestoftheWorldExcludingUnitedStatesandUnitedKingdomMember" nillable="true" substitutionGroup="xbrli:item" type="nonnum:domainItemType" xbrli:periodType="duration" />
+  <xsd:element id="goog_ShareBasedCompensationArrangementByShareBasedPaymentAwardEquityInstrumentsOtherThanOptionsExpectedToVestNumber" name="ShareBasedCompensationArrangementByShareBasedPaymentAwardEquityInstrumentsOtherThanOptionsExpectedToVestNumber" nillable="true" substitutionGroup="xbrli:item" type="xbrli:sharesItemType" xbrli:periodType="instant" />
+  <xsd:element id="goog_ShareBasedCompensationArrangementByShareBasedPaymentAwardEquityInstrumentsOtherThanOptionsExpectedToVestWeightedAverageGrantDateFairValue" name="ShareBasedCompensationArrangementByShareBasedPaymentAwardEquityInstrumentsOtherThanOptionsExpectedToVestWeightedAverageGrantDateFairValue" nillable="true" substitutionGroup="xbrli:item" type="num:perShareItemType" xbrli:periodType="instant" />
+  <xsd:element abstract="true" id="goog_ShareBasedCompensationArrangementByShareBasedPaymentAwardOptionsAggregateIntrinsicValueAbstract" name="ShareBasedCompensationArrangementByShareBasedPaymentAwardOptionsAggregateIntrinsicValueAbstract" nillable="true" substitutionGroup="xbrli:item" type="xbrli:stringItemType" xbrli:periodType="duration" />
+  <xsd:element id="goog_ShareBasedCompensationArrangementByShareBasedPaymentAwardOptionsExpirationTerm" name="ShareBasedCompensationArrangementByShareBasedPaymentAwardOptionsExpirationTerm" nillable="true" substitutionGroup="xbrli:item" type="xbrli:durationItemType" xbrli:periodType="duration" />
+  <xsd:element abstract="true" id="goog_ShareBasedCompensationArrangementByShareBasedPaymentAwardOptionsWeightedAverageRemainingContractualTermAbstract" name="ShareBasedCompensationArrangementByShareBasedPaymentAwardOptionsWeightedAverageRemainingContractualTermAbstract" nillable="true" substitutionGroup="xbrli:item" type="xbrli:stringItemType" xbrli:periodType="duration" />
+  <xsd:element id="goog_SharebasedCompensationExcludingDiscontinuedOperationsandCashSettledAwards" name="SharebasedCompensationExcludingDiscontinuedOperationsandCashSettledAwards" nillable="true" substitutionGroup="xbrli:item" type="xbrli:monetaryItemType" xbrli:balance="debit" xbrli:periodType="duration" />
+  <xsd:element id="goog_SharesReceivedInConnectionWithDivestiture" name="SharesReceivedInConnectionWithDivestiture" nillable="true" substitutionGroup="xbrli:item" type="xbrli:sharesItemType" xbrli:periodType="instant" />
+  <xsd:element id="goog_SharesReceivedinConnectionwithDivestitureValue" name="SharesReceivedinConnectionwithDivestitureValue" nillable="true" substitutionGroup="xbrli:item" type="xbrli:monetaryItemType" xbrli:balance="debit" xbrli:periodType="instant" />
+  <xsd:element abstract="true" id="goog_SkyboxImagingMember" name="SkyboxImagingMember" nillable="true" substitutionGroup="xbrli:item" type="nonnum:domainItemType" xbrli:periodType="duration" />
+  <xsd:element abstract="true" id="goog_SpaceXMember" name="SpaceXMember" nillable="true" substitutionGroup="xbrli:item" type="nonnum:domainItemType" xbrli:periodType="duration" />
+  <xsd:element id="goog_StockRepurchaseProgramAdditionalSharesAuthorizedtobeRepurchased" name="StockRepurchaseProgramAdditionalSharesAuthorizedtobeRepurchased" nillable="true" substitutionGroup="xbrli:item" type="xbrli:sharesItemType" xbrli:periodType="instant" />
+  <xsd:element abstract="true" id="goog_StockholdersEquityNoteLineItems" name="StockholdersEquityNoteLineItems" nillable="true" substitutionGroup="xbrli:item" type="xbrli:stringItemType" xbrli:periodType="duration" />
+  <xsd:element abstract="true" id="goog_StockholdersEquityNoteTable" name="StockholdersEquityNoteTable" nillable="true" substitutionGroup="xbrldt:hypercubeItem" type="xbrli:stringItemType" xbrli:periodType="duration" />
+  <xsd:element id="goog_TaxBenefitFromStockBasedAwardActivity" name="TaxBenefitFromStockBasedAwardActivity" nillable="true" substitutionGroup="xbrli:item" type="xbrli:monetaryItemType" xbrli:balance="debit" xbrli:periodType="duration" />
+  <xsd:element id="goog_TaxWithholdingRelatedToVestingOfRestrictedStockUnits" name="TaxWithholdingRelatedToVestingOfRestrictedStockUnits" nillable="true" substitutionGroup="xbrli:item" type="xbrli:monetaryItemType" xbrli:balance="debit" xbrli:periodType="duration" />
+  <xsd:element abstract="true" id="goog_TradenamesAndOtherMember" name="TradenamesAndOtherMember" nillable="true" substitutionGroup="xbrli:item" type="nonnum:domainItemType" xbrli:periodType="duration" />
+  <xsd:element abstract="true" id="goog_UnsecuredSeniorNotesThreePointSixTwoFivePercentDueMayNineteenTwentyTwentyOneMember" name="UnsecuredSeniorNotesThreePointSixTwoFivePercentDueMayNineteenTwentyTwentyOneMember" nillable="true" substitutionGroup="xbrli:item" type="nonnum:domainItemType" xbrli:periodType="duration" />
+  <xsd:element abstract="true" id="goog_UnsecuredSeniorNotesThreePointThreeSevenFivedueonFebruaryTwentyFiveTwentyTwentyFourMember" name="UnsecuredSeniorNotesThreePointThreeSevenFivedueonFebruaryTwentyFiveTwentyTwentyFourMember" nillable="true" substitutionGroup="xbrli:item" type="nonnum:domainItemType" xbrli:periodType="duration" />
+  <xsd:element abstract="true" id="goog_UnsecuredSeniorNotesTwoPointOneTwoFivePercentDueMayNineteenTwentySixteenMember" name="UnsecuredSeniorNotesTwoPointOneTwoFivePercentDueMayNineteenTwentySixteenMember" nillable="true" substitutionGroup="xbrli:item" type="nonnum:domainItemType" xbrli:periodType="duration" />
+</xsd:schema>
