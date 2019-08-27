@@ -210,6 +210,111 @@ In the example above we specified the following Database/Dataset:
 * Database: "CHRIS". Continuous contracts for all 600 futures on Quandl. Built on top of raw data from CME, ICE, LIFFE etc. Curated by the Quandl community. 50 years history.
 * Dataset: "CME_CL1". Historical futures prices of Crude Oil Futures, Continuous Contract #1. Non-adjusted price based on spot-month continuous contract calculations. Raw data from CME.
 
+### SEC
+
+Official filings are freely available from the U.S. Securities and Exchange Commission's EDGAR database. The package `finreportr` provides an interface in R to facilitate financial analysis from SEC's 10K and 10K/A filings.
+
+We can obtain company basic information with the function the `CompanyInfo` function by passing the ticker symbol of the target company as follows:
+```{r eval=TRUE, echo=TRUE, cache=TRUE}
+library("finreportr")
+AAPL.Info<-CompanyInfo("AAPL")
+print(AAPL.Info)
+```
+As a result, we obtain the following information:
+
+* Company name: `r AAPL.Info$company`;
+* SEC Central Index Key (CIK): `r AAPL.Info$CIK`;
+* Standard Industrial Classification (SIC): `r AAPL.Info$SIC`, which is the industry code for Electronic Computers;
+* Address: `r AAPL.Info$street.address`, `r AAPL.Info$city.state`;
+* Most recent period of report end is `r AAPL.Info$FY.end`.
+
+The list of company annual reports with corresponding filing dates can be obtained with the function *AnnualReports* as follows:
+
+```{r eval=TRUE, echo=TRUE, cache=TRUE}
+AAPL.reports<-AnnualReports("AAPL")
+```
+```{r eval=TRUE, echo=FALSE, cache=TRUE}
+knitr::kable(
+  head(AAPL.reports), booktabs = TRUE, caption = "Sample Annual Reports"
+)
+```
+
+The accession number is a unique identifier that the SEC creates for each filing.
+
+Company financials are organized into 3 segments: Income Statement, Balance Sheet and Cash Flow.
+
+**Income Statement**
+
+Financials from the Income Statement segment can be obtained with the *GetIncome* function as follows:
+```{r eval=FALSE, echo=TRUE}
+AAPL.IS<-GetIncome("AAPL", 2017)
+```
+<!-- I have pre-cached this object as sometimes the above call can timeout if the EDGAR database is too slow. -->
+<!-- Be aware of that and include a try-catch clause for robustness. -->
+```{r eval=TRUE, echo=FALSE, cache=TRUE}
+AAPL.IS<-readRDS("./data/AAPL_IS.rds")
+```
+```{r eval=TRUE, echo=FALSE, cache=TRUE}
+knitr::kable(
+  head(AAPL.IS), booktabs = TRUE, caption = "Sample Income Statement Financials"
+)
+```
+
+The Income Statement function returns data for the following metrics:
+```{r eval=TRUE, echo=FALSE, cache=TRUE}
+knitr::kable(
+  unique(AAPL.IS$Metric), booktabs = TRUE, caption = "Income Statement Metrics", col.names = "Metrics"
+)
+```
+
+**Balance Sheet**
+
+Financials from the Balance Sheet segment can be obtained with the *GetBalanceSheet* function as follows:
+```{r eval=FALSE, echo=TRUE}
+AAPL.BS<-GetBalanceSheet("AAPL", 2017)
+```
+<!-- I have pre-cached this object as sometimes the above call can timeout if the EDGAR database is too slow. -->
+<!-- Be aware of that and include a try-catch clause for robustness. -->
+```{r eval=TRUE, echo=FALSE, cache=TRUE}
+AAPL.BS<-readRDS("./data/AAPL_BS.rds")
+```
+```{r eval=TRUE, echo=FALSE, cache=TRUE}
+knitr::kable(
+  head(AAPL.BS), booktabs = TRUE, caption = "Sample Balance Sheet Financials"
+)
+```
+
+The Balance Sheet function returns data for the following metrics:
+```{r eval=TRUE, echo=FALSE, cache=TRUE}
+knitr::kable(
+  unique(AAPL.BS$Metric), booktabs = TRUE, caption = "Balance Sheet Metrics", col.names = "Metrics"
+)
+```
+
+**Cash Flow**
+
+Financials from the Cash Flow segment can be obtained with the *GetCashFlow* function as follows:
+```{r eval=FALSE, echo=TRUE}
+AAPL.CF<-GetCashFlow("AAPL", 2017)
+```
+<!-- I have pre-cached this object as sometimes the above call can timeout if the EDGAR database is too slow. -->
+<!-- Be aware of that and include a try-catch clause for robustness. -->
+```{r eval=TRUE, echo=FALSE, cache=TRUE}
+AAPL.CF<-readRDS("./data/AAPL_CF.rds")
+```
+```{r eval=TRUE, echo=FALSE, cache=TRUE}
+knitr::kable(
+  head(AAPL.CF), booktabs = TRUE, caption = "Sample Cash Flow Financials"
+)
+```
+
+The Cash Flow function returns data for the following metrics:
+```{r eval=TRUE, echo=FALSE, cache=TRUE}
+knitr::kable(
+  unique(AAPL.CF$Metric), booktabs = TRUE, caption = "Cash Flow Metrics", col.names = "Metrics"
+)
+```
+
 
 ## Conclusion
 

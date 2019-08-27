@@ -8,8 +8,8 @@ xts
 TTR
 quantmod
 iex
+Quandl
 finreportr
-IDPmisc
 RTransferEntropy
 future
-Quandl
+IDPmisc
