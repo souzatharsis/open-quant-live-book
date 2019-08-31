@@ -10,18 +10,16 @@ This Chapter provides code for datasets produced for the book.
 
 ### Dataset Description 
 
-Log-returns of adjusted prices for the indices identified by the following tickers: ^GSPC, ^FTSE, ^GDAXI, ^N100, ^BVSP
+Log-returns of adjusted prices for the indices identified by the following tickers: ^GSPC, ^FTSE, ^GDAXI, ^N100 and ^BVSP.
 
-### Original Data Source 
+### Data Source 
 
 Alpha Vantage
 
 ### Code
-
-```{r eval=FALSE, echo=TRUE, cache=TRUE}
+```{r eval=TRUE, echo=TRUE, cache=TRUE}
+GetReturn <- function(tickers){
 library(quantmod)
-
-tickers<-c("^GSPC", "^FTSE", "^GDAXI", "^N100", "^BVSP")
 
 data.env <- new.env()
 dataset<- xts() # Only run once
@@ -43,6 +41,13 @@ for(i in 1:length(tickers)) {
 
 names(dataset)<-tickers
 
+return(dataset)
+}
+```
+
+```{r eval=FALSE, echo=TRUE, cache=TRUE}
+tickers<-c("^GSPC", "^FTSE", "^GDAXI", "^N100", "^BVSP")
+dataset<-GetReturn(tickers)
 tmp <- tempfile()
 write.zoo(dataset,sep=",",file="./data/global_indices_returns.csv")
 ```
@@ -50,5 +55,41 @@ write.zoo(dataset,sep=",",file="./data/global_indices_returns.csv")
 ### Dataset Scheme
 
 ```{r eval=TRUE, echo=TRUE, cache=TRUE}
-head(dataset)
+library(xts)
+dataset<-as.xts(read.zoo('./data/global_indices_returns.csv',
+                  header=TRUE,
+                  index.column=1, sep=","))
+tail(dataset)
 ```
+
+## Log-Returns of FAANG Prices {#dt-FAANG}
+
+### Dataset Location 
+
+./data/FAANG.csv
+
+### Dataset Description 
+
+Log-returns of adjusted prices for the stocks identified by the following tickers: FB, AMZN, AAPL, NFLX and GOOG.
+
+### Data Source 
+
+Alpha Vantage
+
+### Code
+```{r eval=FALSE, echo=TRUE, cache=TRUE}
+tickers<-c("FB", "AMZN", "AAPL", "NFLX", "GOOGL")
+dataset<-GetReturn(tickers)
+tmp <- tempfile()
+write.zoo(dataset,sep=",",file="./data/FAANG.csv")
+```
+
+### Dataset Scheme
+
+```{r eval=TRUE, echo=TRUE, cache=TRUE}
+dataset<-as.xts(read.zoo('./data/FAANG.csv',
+                  header=TRUE,
+                  index.column=1, sep=","))
+tail(dataset)
+```
+
