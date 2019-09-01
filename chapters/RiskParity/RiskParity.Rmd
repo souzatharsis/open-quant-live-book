@@ -1,5 +1,23 @@
 # Risk Parity Portfolios
 
+## Introduction
+
+## Vanilla Risk Parity Portfolio
+
+A risk parity portfolio denotes a class of portfolios whose assets verify the following equalities:
+\begin{equation}
+w_{i} \frac{\partial f(\mathbf{w})}{\partial w_{i}}=w_{j} \frac{\partial f(\mathbf{w})}{\partial w_{j}}, \forall i, j
+\end{equation}
+where $f$ is a positively homogeneous function of degree one that measures the total risk of the portfolio and $\mathbf{w}$ is the portfolio weight vector. In other words, the marginal risk contributions for every asset in a risk parity portfolio are equal. A common choice for $f$, for instance, is the standard deviation of the portfolio, which is usually called volatility, i.e., $f(\mathbf{w})=\sqrt{\mathbf{w}^{T} \mathbf{\Sigma} \mathbf{w}}$, where $\mathbf{\Sigma}$ is the covariance matrix of assets.
+
+When you analyze a set of assets using mean-variance analysis, the tangency portfolio is the portfolio with the highest Sharpe ratio. It’s called the tangency because it’s located at the tangency point of the Capital Allocation Line and the Efficient Frontier. 
+
+## Risk Budget Portfolio
+
+\begin{equation}
+w_{i}(\Sigma \mathbf{w})_{i}=b_{i} \mathbf{w}^{T} \Sigma \mathbf{w}, \forall i,
+\end{equation}
+where $\mathbf{b} \triangleq\left(b_{1}, b_{2}, \ldots, b_{N}\right)\left(\text { with } \mathbf{1}^{T} \mathbf{b}=1 \text { and } \mathbf{b} \geq \mathbf{0}\right)$ is the vector of desired marginal risk contributions.
 
 ## Conclusion
 

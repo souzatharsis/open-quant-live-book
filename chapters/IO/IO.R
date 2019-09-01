@@ -29,3 +29,6 @@ from.dat <- as.Date("01/01/2010", format="%d/%m/%Y")
 to.dat <- as.Date("01/01/2019", format="%d/%m/%Y")
 crude.oil.futures<-Quandl("CHRIS/CME_CL1", start_date = from.dat, end_date = to.dat, type="xts")
 plot(crude.oil.futures$Last)
+
+xx<-Quandl.datatable("ZACKS/MKTV", per_end_date='2008-09-30', ticker="MSFT", paginate = TRUE)
+

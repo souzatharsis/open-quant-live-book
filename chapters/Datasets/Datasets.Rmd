@@ -92,4 +92,3 @@ dataset<-as.xts(read.zoo('./data/FAANG.csv',
                   index.column=1, sep=","))
 tail(dataset)
 ```
-

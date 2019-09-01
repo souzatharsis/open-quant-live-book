@@ -1,0 +1,16 @@
+# Troubleshooting
+
+## Installing the fPortfolio R package
+
+### mvtnorm
+
+```{r eval=FALSE, echo=TRUE, cache=TRUE}
+install.packages("https://cran.r-project.org/src/contrib/Archive/mvtnorm/mvtnorm_1.0-8.tar.gz", repos=NULL)
+```
+
+### Rglpk
+
+```{bash eval=FALSE, echo=TRUE, cache=TRUE}
+sudo apt-get install glpk-utils libglpk-dev
+```
+
