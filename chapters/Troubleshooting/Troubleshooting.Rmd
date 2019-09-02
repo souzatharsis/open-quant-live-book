@@ -2,14 +2,18 @@
 
 ## Installing the fPortfolio R package
 
+You may run into package dependency issues while installing the fPortfolio package. Here's a few troubleshooting tips.
+
 ### mvtnorm
 
+You might have issues installing the package **mvtnorm** depending on your R version. If your R version is below 3.5.0, install **mvtnorm** v1.0.8 as below:
 ```{r eval=FALSE, echo=TRUE, cache=TRUE}
 install.packages("https://cran.r-project.org/src/contrib/Archive/mvtnorm/mvtnorm_1.0-8.tar.gz", repos=NULL)
 ```
 
 ### Rglpk
 
+If you cannot install the **Rglpk** from R, first make sure you have it installed in your OS. On Ubuntu you can install it as below:
 ```{bash eval=FALSE, echo=TRUE, cache=TRUE}
 sudo apt-get install glpk-utils libglpk-dev
 ```

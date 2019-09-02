@@ -5,6 +5,7 @@ library(fPortfolio)
 library(xts)
 library(purrr)
 library(rlist)
+
 # load FAANG returns
 faang.returns<-as.xts(read.zoo('./data/FAANG.csv',
                          header=TRUE,
@@ -40,6 +41,7 @@ portfolio.tangency <- tangencyPortfolio(as.timeSeries(faang.returns.filtered), c
 
 portfolio.weights <- rbind(portfolio.parity$w, getWeights(portfolio.tangency))
 row.names(portfolio.weights)<-c("Parity Portfolio", "Tangency Portfolio")
+
 # plot the portfolio designed
 barplot(portfolio.weights, main = "Portfolio Weights", xlab = "stocks", ylab = "dollars",
         beside = TRUE, legend = TRUE, col=c("black", "red"),
@@ -90,31 +92,44 @@ rolling.portfolio.tangency <- rollingTangencyPortfolio(faang.returns.ts,
                                                        spec=Spec)
 
 names(rolling.portfolio.tangency)<-rWindows$to
-tanweights <- sapply(rolling.portfolio.tangency,getWeights)
-rownames(tanweights) <- colnames(faang.returns.ts)
-tan.weights<-t(tanweights)
+tan.weights <- sapply(rolling.portfolio.tangency,getWeights)
+rownames(tan.weights) <- colnames(faang.returns.ts)
+tan.weights<-t(tan.weights)
+
 ######################### Performance Analytics
 library(PerformanceAnalytics)
 
 ### Weights per stock over time
-chart.StackedBar(tan.weights)
-chart.StackedBar(parity.weights)
+chart.StackedBar(tan.weights, xlab = "Rebalance Dates",
+                 ylab = "Weight",
+                 main = "FAANG Tangency Portfolio Weights")
+chart.StackedBar(parity.weights,
+                 xlab = "Rebalance Dates",
+                 ylab = "Weight",
+                 main = "FAANG Risk Parity Portfolio Weights")
+
 
 ### Calculate Weighted Returns
 tan.returns <- Return.portfolio(faang.returns.xts, weights=tan.weights,verbose=TRUE)
 parity.returns <- Return.portfolio(faang.returns.xts, weights=parity.weights,verbose=TRUE)
+
+# eq.weights<-matrix(rep(1/ncol(parity.weights), length(parity.weights)),
+#                    ncol=ncol(parity.weights),
+#                    dimnames = dimnames(parity.weights))
+# eq.returns <- Return.portfolio(faang.returns.xts, weights=eq.weights,verbose=TRUE)
+
 p.returns<-merge(tan.returns$returns, parity.returns$returns)
-names(p.returns)<-c("tangency.portfolio", "parity.portfolio")
+names(p.returns)<-c("FAANG Tangency Index", "FAANG Parity Index")
 
 ### Performance Summary (return / drawdown)
 charts.PerformanceSummary(p.returns, colorset=rich6equal,
-                          main = "Performance Summary: Tangency X Parity Portfolios",
+                          main = "Performance Summary",
                           lwd=2, cex.legend = 1.5, event.labels = TRUE)
 
 
 ### Calendar Returns
-t(table.CalendarReturns(p.returns$tangency.portfolio))
-t(table.CalendarReturns(p.returns$parity.portfolio))
+t(table.CalendarReturns(p.returns[,"FAANG Tangency Index"]))
+t(table.CalendarReturns(p.returns[,"FAANG Parity Index"]))
 
 ### Rolling annualized return / sd / Sharpe Ratio
 charts.RollingPerformance(p.returns, width = 252, colorset=rich6equal, event.labels = TRUE, legend.loc = "topleft")
