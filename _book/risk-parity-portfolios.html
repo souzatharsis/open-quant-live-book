@@ -301,7 +301,7 @@ portfolio.tangency &lt;-<span class="st"> </span><span class="kw">tangencyPortfo
 portfolio.weights &lt;-<span class="st"> </span><span class="kw">rbind</span>(portfolio.parity<span class="op">$</span>w, <span class="kw">getWeights</span>(portfolio.tangency))
 <span class="kw">row.names</span>(portfolio.weights)&lt;-<span class="kw">c</span>(<span class="st">&quot;Parity Portfolio&quot;</span>, <span class="st">&quot;Tangency Portfolio&quot;</span>)</code></pre></div>
 <p>Fig. <a href="risk-parity-portfolios.html#fig:parityweights">3.1</a> shows the portfolio weights obtained for both the Parity and the Tangency portfolios. We observe that the Tangency portfolio concentrates the weights between Amazon and Netflix with both companies having nearly the same weight while Facebook, Apple and Google are left out of the portfolio. On the other hand, the Parity portfolio presents a well-balanced distribution of weights among the FAANG companies with all company weights around 20%. Apple and Google have weights a little over 20% while Netflix is the company with the lowest weight (15%).</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">barplot</span>(portfolio.weights, <span class="dt">main =</span> <span class="st">&quot;Portfolio Weights&quot;</span>, <span class="dt">xlab =</span> <span class="st">&quot;stocks&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;dollars&quot;</span>,
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">barplot</span>(portfolio.weights, <span class="dt">main =</span> <span class="st">&quot;&quot;</span>, <span class="dt">xlab =</span> <span class="st">&quot;stocks&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;dollars&quot;</span>,
         <span class="dt">beside =</span> <span class="ot">TRUE</span>, <span class="dt">legend =</span> <span class="ot">TRUE</span>, <span class="dt">col=</span><span class="kw">c</span>(<span class="st">&quot;black&quot;</span>, <span class="st">&quot;red&quot;</span>),
         <span class="dt">args.legend =</span> <span class="kw">list</span>(<span class="dt">bg =</span> <span class="st">&quot;white&quot;</span>))</code></pre></div>
 <div class="figure"><span id="fig:parityweights"></span>
@@ -313,7 +313,7 @@ Figure 3.1: Portfolio weights for parity and tangency FAANG portfolios consideri
 <p>Fig. <a href="risk-parity-portfolios.html#fig:parityrisks">3.2</a> compares the (covariance) risk budget of the Parity and Tangency portfolios obtained. As expected, we observe that the Parity portfolio has a risk budget equally distributed among the portfolio assets. On the other hand, the Tangency portfolio concentrates the risk between Amazon and Netflix with the latter corresponding to over 56% of the risk budget of the portfolio.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">portfolio.risks &lt;-<span class="st"> </span><span class="kw">rbind</span>(portfolio.parity<span class="op">$</span>risk_contribution<span class="op">/</span><span class="kw">sum</span>(portfolio.parity<span class="op">$</span>risk_contribution), <span class="kw">getCovRiskBudgets</span>(portfolio.tangency))
 <span class="kw">row.names</span>(portfolio.risks)&lt;-<span class="kw">c</span>(<span class="st">&quot;Parity Portfolio&quot;</span>, <span class="st">&quot;Tangency Portfolio&quot;</span>)
-<span class="kw">barplot</span>(portfolio.risks, <span class="dt">main =</span> <span class="st">&quot;Portfolio Risk Budgets&quot;</span>, <span class="dt">xlab =</span> <span class="st">&quot;stocks&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;Covariance Risk Budget&quot;</span>,
+<span class="kw">barplot</span>(portfolio.risks, <span class="dt">main =</span> <span class="st">&quot;&quot;</span>, <span class="dt">xlab =</span> <span class="st">&quot;stocks&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;Covariance Risk Budget&quot;</span>,
         <span class="dt">beside =</span> <span class="ot">TRUE</span>, <span class="dt">legend =</span> <span class="ot">TRUE</span>, <span class="dt">col=</span><span class="kw">c</span>(<span class="st">&quot;black&quot;</span>, <span class="st">&quot;red&quot;</span>),
         <span class="dt">args.legend =</span> <span class="kw">list</span>(<span class="dt">bg =</span> <span class="st">&quot;white&quot;</span>))</code></pre></div>
 <div class="figure"><span id="fig:parityrisks"></span>
@@ -387,7 +387,7 @@ tan.weights&lt;-<span class="kw">t</span>(tan.weights)</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">PerformanceAnalytics<span class="op">::</span><span class="kw">chart.StackedBar</span>(parity.weights, 
                  <span class="dt">xlab =</span> <span class="st">&quot;Rebalance Dates&quot;</span>,
                  <span class="dt">ylab =</span> <span class="st">&quot;Weight&quot;</span>, 
-                 <span class="dt">main =</span> <span class="st">&quot;FAANG Risk Parity Portfolio Weights&quot;</span>)</code></pre></div>
+                 <span class="dt">main =</span> <span class="st">&quot;&quot;</span>)</code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:rollingparityweights"></span>
 <img src="open-quant-live-book_files/figure-html/rollingparityweights-1.png" alt="Portfolio weights for FAANG risk parity portfolios." width="672" />
 <p class="caption">
@@ -396,7 +396,7 @@ Figure 3.3: Portfolio weights for FAANG risk parity portfolios.
 </div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">PerformanceAnalytics<span class="op">::</span><span class="kw">chart.StackedBar</span>(tan.weights, <span class="dt">xlab =</span> <span class="st">&quot;Rebalance Dates&quot;</span>,
                  <span class="dt">ylab =</span> <span class="st">&quot;Weight&quot;</span>, 
-                 <span class="dt">main =</span> <span class="st">&quot;FAANG Tangency Portfolio Weights&quot;</span>)</code></pre></div>
+                 <span class="dt">main =</span> <span class="st">&quot;&quot;</span>)</code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:rollingtangencyweights"></span>
 <img src="open-quant-live-book_files/figure-html/rollingtangencyweights-1.png" alt="Portfolio weights for FAANG tangency portfolios." width="672" />
 <p class="caption">
@@ -412,7 +412,7 @@ p.returns&lt;-<span class="kw">merge</span>(tan.returns<span class="op">$</span>
 <p>Fig. <a href="risk-parity-portfolios.html#fig:perfsummary">3.5</a> shows the performance summary for the risk parity index versus the tangency portfolio index. Surprinsingly, the FAANG risk parity index outperforms the FAANG tangency portfolio index by quite a bit with a cumulative return of 169.482% versus 109.652% from the tangency portfolio index. The FAANG risk parity index also has a relatively lower drawdown across most of the period analyzed.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">### Performance Summary (return / drawdown)
 PerformanceAnalytics<span class="op">::</span><span class="kw">charts.PerformanceSummary</span>(p.returns, <span class="dt">colorset=</span>rich6equal,
-                          <span class="dt">lwd=</span><span class="dv">2</span>, <span class="dt">cex.legend =</span> <span class="fl">1.5</span>, <span class="dt">event.labels =</span> <span class="ot">TRUE</span>)</code></pre></div>
+                          <span class="dt">lwd=</span><span class="dv">2</span>, <span class="dt">cex.legend =</span> <span class="fl">1.5</span>, <span class="dt">event.labels =</span> <span class="ot">TRUE</span>, <span class="dt">main =</span> <span class="st">&quot;&quot;</span>)</code></pre></div>
 <div class="figure"><span id="fig:perfsummary"></span>
 <img src="open-quant-live-book_files/figure-html/perfsummary-1.png" alt="Performance summary for the risk parity index versus the tangency portfolio index" width="100%" />
 <p class="caption">

@@ -66,7 +66,7 @@ row.names(portfolio.weights)<-c("Parity Portfolio", "Tangency Portfolio")
 
 Fig. \@ref(fig:parityweights) shows the portfolio weights obtained for both the Parity and the Tangency portfolios. We observe that the Tangency portfolio concentrates the weights between Amazon and Netflix with both companies having nearly the same weight while Facebook, Apple and Google are left out of the portfolio. On the other hand, the Parity portfolio presents a well-balanced distribution of weights among the FAANG companies with all company weights around 20%. Apple and Google have weights a little over 20% while Netflix is the company with the lowest weight (15%).
 ```{r parityweights, eval=TRUE, echo=TRUE, cache=TRUE,fig.cap="Portfolio weights for parity and tangency FAANG portfolios considering returns from 2018."}
-barplot(portfolio.weights, main = "Portfolio Weights", xlab = "stocks", ylab = "dollars",
+barplot(portfolio.weights, main = "", xlab = "stocks", ylab = "dollars",
         beside = TRUE, legend = TRUE, col=c("black", "red"),
         args.legend = list(bg = "white"))
 ```
@@ -77,7 +77,7 @@ Fig. \@ref(fig:parityrisks) compares the (covariance) risk budget of the Parity 
 ```{r parityrisks, eval=TRUE, echo=TRUE, cache=TRUE, fig.cap="Portfolio covariance risk budget for parity and tangency FAANG portfolios considering returns from 2018."}
 portfolio.risks <- rbind(portfolio.parity$risk_contribution/sum(portfolio.parity$risk_contribution), getCovRiskBudgets(portfolio.tangency))
 row.names(portfolio.risks)<-c("Parity Portfolio", "Tangency Portfolio")
-barplot(portfolio.risks, main = "Portfolio Risk Budgets", xlab = "stocks", ylab = "Covariance Risk Budget",
+barplot(portfolio.risks, main = "", xlab = "stocks", ylab = "Covariance Risk Budget",
         beside = TRUE, legend = TRUE, col=c("black", "red"),
         args.legend = list(bg = "white"))
 ```
@@ -156,12 +156,12 @@ Figs. \@ref(fig:rollingparityweights) and \@ref(fig:rollingtangencyweights) show
 PerformanceAnalytics::chart.StackedBar(parity.weights, 
                  xlab = "Rebalance Dates",
                  ylab = "Weight", 
-                 main = "FAANG Risk Parity Portfolio Weights")
+                 main = "")
 ```
 ```{r rollingtangencyweights, eval=TRUE, echo=TRUE, cache=TRUE, fig.align = "center", fig.cap="Portfolio weights for FAANG tangency portfolios."}
 PerformanceAnalytics::chart.StackedBar(tan.weights, xlab = "Rebalance Dates",
                  ylab = "Weight", 
-                 main = "FAANG Tangency Portfolio Weights")
+                 main = "")
 ```
 
 We will use the time series of FAANG companies and the time series of risk parity and tangency portfolio weights to calculate the returns of the risk parity and tangency portfolio indexes as follows:
@@ -178,7 +178,7 @@ Surprinsingly, the FAANG risk parity index outperforms the FAANG tangency portfo
 ```{r perfsummary, eval=TRUE, echo=TRUE, cache=TRUE, out.width='100%', fig.cap="Performance summary for the risk parity index versus the tangency portfolio index"}
 ### Performance Summary (return / drawdown)
 PerformanceAnalytics::charts.PerformanceSummary(p.returns, colorset=rich6equal,
-                          lwd=2, cex.legend = 1.5, event.labels = TRUE)
+                          lwd=2, cex.legend = 1.5, event.labels = TRUE, main = "")
 ```
 Tables \@ref(tab:calretparity) and \@ref(tab:calrettangency) show the calendar returns for the risk parity and tangency portfolio indexes, respectively. Interestengly, in years where the tangency portfolio index had positive cumulative return, the risk parity index yielded less returns than the tangency portfolio index. Conversely, in years where the tangency portfolio index had negative cumulative return, the risk parity index showed superior performance than the tangency portfolio index. In that way, the risk parity index showed "not as good" but also "not as bad" yearly returns compared to the tangency portfolios. 
 
@@ -201,9 +201,9 @@ tab.annual.ret<-table.AnnualizedReturns(p.returns)
 As presented in Tab. \@ref(tab:annualret), the risk parity index has a total of `r tab.annual.ret["Annualized Return","FAANG Parity Index"]*100`% annualized return, `r tab.annual.ret["Annualized Std Dev","FAANG Parity Index"]*100`% standard deviation and `r tab.annual.ret["Annualized Sharpe (Rf=0%)","FAANG Parity Index"]` Sharpe-ratio versus `r tab.annual.ret["Annualized Return","FAANG Tangency Index"]*100`% annualized return, `r tab.annual.ret["Annualized Std Dev","FAANG Tangency Index"]*100`% standard deviation and `r tab.annual.ret["Annualized Sharpe (Rf=0%)","FAANG Tangency Index"]` Sharpe-ratio from the tangency portfolio index. 
 
 ```{r rollingperfsummary, eval=TRUE, echo=FALSE, cache=TRUE, out.width='100%', fig.cap="Performance summary in a rolling 252-day window for the risk parity index versus the tangency portfolio index"}
-PerformanceAnalytics::charts.PerformanceSummary(p.returns, colorset=rich6equal,
-                          lwd=2, cex.legend = 1.5, event.labels = TRUE)
+PerformanceAnalytics::charts.RollingPerformance(p.returns, width = 252, colorset=rich6equal, event.labels = TRUE, legend.loc = "topleft", main = "")
 ```
+
 ```{r annualret, eval=TRUE, echo=FALSE, cache=TRUE}
 knitr::kable(
 tab.annual.ret,booktabs = TRUE, caption = "Annualized Returns"
