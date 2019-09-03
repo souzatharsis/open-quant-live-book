@@ -1,33 +1,16 @@
-#RiskParity.R
+# RiskParity.R
 library(riskParityPortfolio)
 library(IDPmisc)
 library(fPortfolio)
 library(xts)
 library(purrr)
 library(rlist)
+library(lubridate)
 
 # load FAANG returns
 faang.returns<-as.xts(read.zoo('./data/FAANG.csv',
                          header=TRUE,
                          index.column=1, sep=","))
-
-
-######### Portfolio Rebalancing
-
-
-### Design
-
-## Data
-# FAANG Stock Returns
-
-## Methodology
-# Calculate quarterly weights for (i) parity portfolio; (ii) MWitz conservative; (iii) MWitz Agressive
-# Plot weights as of today
-# Calculate and discuss weights over time and performance
-# Calculate cross-similarity matrix
-# Do same but with mandates
-
-
 
 ######################## Calculate Risk Parity Portfolio vs MWitz as of 2018
 faang.returns.filtered <- NaRV.omit(as.matrix(faang.returns["2018"]))
@@ -123,9 +106,16 @@ names(p.returns)<-c("FAANG Tangency Index", "FAANG Parity Index")
 
 ### Performance Summary (return / drawdown)
 charts.PerformanceSummary(p.returns, colorset=rich6equal,
-                          main = "Performance Summary",
                           lwd=2, cex.legend = 1.5, event.labels = TRUE)
 
+### Turn Over
+TO.Portfolio <- function(ret.portfolio){
+  beginWeights <- ret.portfolio$BOP.Weight
+  endWeights <- ret.portfolio$EOP.Weight
+  txns <- beginWeights - lag(endWeights)
+  TO <- xts(rowSums(abs(txns)), order.by=index(txns))
+  return(TO)
+}
 
 ### Calendar Returns
 t(table.CalendarReturns(p.returns[,"FAANG Tangency Index"]))

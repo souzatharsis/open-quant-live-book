@@ -11,14 +11,46 @@ library(rlist)
 
 ## Introduction
 
+The “risk parity” approach was popularized by Ray Dalio's Bridgewater Associates - the largest hedge fund by assets under management ($132.8 billions of USD) - with the creation of the All Weather asset allocation strategy in 1996. "All Weather" is a term used to designate funds that tend to perform reasonably well during both favorable and unfavorable economic and market conditions. Today, several managers have employed "All Weather" concepts under a risk parity approach.
+
+```{r echo=FALSE, out.width='100%', fig.align = "center", fig.cap="7 November 2018; Ray Dalio, Bridgewater Associates on Centre Stage during day two of Web Summit 2018 at the Altice Arena in Lisbon, Portugal. Photo by David Fitzgerald/Web Summit via SportsfilePhoto by David Fitzgerald /Sportsfile."}
+knitr::include_graphics("./chapters/RiskParity/ray.jpg")
+```
+
+A risk parity portfolio seeks to achieve an equal balance between the risk associated with each asset class or portfolio component. In that way, lower risk asset classes will generally have higher notional allocations than higher risk asset classes.
+
+> Risk Parity is about **Balance** - [Bridgewater](https://www.bridgewater.com).
+ 
+Risk parity strategies suffered in recent history (2010-2017) as the bull market has pushed stocks to a record high hence favoring equity-concentrated portfolios. However, the increase in market volatility since 2018, the emergency of geo-political and tradewars risk as well as the growth in haven assets like Gold create conditions that strengthen the case for diversified portfolios. This is demonstrated in Fig. \@ref(fig:riskparityBLO) which shows that the S&P risk parity strategy has returned almost 10% over the last 12 months (Aug/2018 - Aug-2019), more than double the S&P 500 index of U.S. stocks.
+ 
+```{r riskparityBLO, echo=FALSE, out.width='100%', fig.align = "center", fig.cap="S&P 500 index versus S&P Risk Parity Index. Source: Bloomberg."}
+knitr::include_graphics("./chapters/RiskParity/riskparity.png")
+```
+
+In Aug/2019, there have been news about the launch of a new Risk Parity ETF in the US. The RPAR Risk Parity ETF plans to allocate across asset classes based on risk, regulatory filings show. The fund would be the first in the U.S. to follow this quantitative approach, allotting more money to securities with lower volatility according to [Bloomberg](https://www.bloomberg.com/news/articles/2019-08-19/ray-dalio-inspired-a-risk-parity-etf-by-bridgewater-bofa-alums).
+
+> [The RPAR Risk Parity ETF is] kind of like Bridgewater does, but they just do it for the wealthiest institutions in the world. The idea here is to build something that would work for everybody. - Alex Shahidi, former relationship manager at Dalio’s Bridgewater Associate and creator of the RPAR Risk Parity ETF. [Bloomberg](https://www.bloomberg.com/news/articles/2019-08-19/ray-dalio-inspired-a-risk-parity-etf-by-bridgewater-bofa-alums).
+
+But how can we a risk parity portfolio? How does it perform against a traditional mean/variance model?
+
+In this Chapter, 
+
+1. We will show how you can build your own Risk Parity portfolio
+2. We will create and compare the performance two indices:
+  - A FAANG Risk Parity Index of FAANG companies with equal risk balance
+  - A FAANG Tangency Portfolio Index of FAANG companies with weights such that return/risk ratio is maximized
+  
+By the end of the Chapter, you will be able to create your own risk parity / All Weather fund and compare it against your benchmark of choice.
+
 ## Risk Parity Portfolio
 
-A risk parity portfolio denotes a class of portfolios whose assets verify the following equalities:
+A risk parity portfolio denotes a class of portfolios whose assets verify the following equalities [@R-riskParityPortfolio]:
 \begin{equation}
 w_{i} \frac{\partial f(\mathbf{w})}{\partial w_{i}}=w_{j} \frac{\partial f(\mathbf{w})}{\partial w_{j}}, \forall i, j
 \end{equation}
 where $f$ is a positively homogeneous function of degree one that measures the total risk of the portfolio and $\mathbf{w}$ is the portfolio weight vector. In other words, the marginal risk contributions for every asset in a risk parity portfolio are equal. A common choice for $f$, for instance, is the standard deviation of the portfolio, which is usually called volatility, i.e., $f(\mathbf{w})=\sqrt{\mathbf{w}^{T} \mathbf{\Sigma} \mathbf{w}}$, where $\mathbf{\Sigma}$ is the covariance matrix of assets.
 
+In practice, risk and portfolio managers have risk mandates they follow or bounds for marginal risk contributions at the asset, country, regional or sector levels. Hence, a natural extension of the risk parity portfolio is the so called risk budget portfolio, in which the marginal risk contributions match preassigned quantities [@R-riskParityPortfolio]. Mathematically,
 \begin{equation}
 w_{i}(\Sigma \mathbf{w})_{i}=b_{i} \mathbf{w}^{T} \Sigma \mathbf{w}, \forall i,
 \end{equation}
@@ -26,7 +58,26 @@ where $\mathbf{b} \triangleq\left(b_{1}, b_{2}, \ldots, b_{N}\right)\left(\text 
 
 ## Tangency Portfolio
 
-When you analyze a set of assets using mean-variance analysis, the tangency portfolio is the portfolio with the highest Sharpe ratio. It’s called the tangency because it’s located at the tangency point of the Capital Allocation Line and the Efficient Frontier. 
+Mean variance optimization is a commonly used quantitative tool part of Modern Portfolio Theory that allows investors to perform allocation by considering the trade-off between risk and return.
+
+```{r  echo=FALSE, out.width='100%', fig.align = "center", fig.cap="In 1990, Dr. Harry M. Markowitz shared The Nobel Prize in Economics for his work on portfolio theory."}
+knitr::include_graphics("./chapters/RiskParity/harry.png")
+```
+
+In a mean-variance framework, the objective is to minimize portfolio risk $\sigma^2$ subject to a baseline expected rate of return $\mu_b$ as follows:
+\begin{equation}
+\begin{array}{ll}{\mathcal{M}} & {\text { minimize } \quad \frac{1}{2} w^{T} \Sigma w} \\ {\text { subject to }} & {\mathrm{m}^{T} w \geq \mu_{b}, \text { and } \mathbf{1}^{T} w=1}\end{array}
+\end{equation}
+where $m$ is the vector of expected returns for the portfolio assets.
+
+We will obtain an optimal portfolio (min risk) for each target rate of return $\mu_b$ thus forming an efficient frontier. 
+Each point in the efficient frontier in Fig. \@ref(fig:efficientport) is a portfolio with an optimal combination of securities that minimized risk given a level of risk (standard deviation). The dots below the efficient frontier are portfolios with inferior performance. They either offer the same returns but with higher risk, or they offer less return for the same risk.
+```{r efficientport, echo=FALSE, out.width='100%', fig.align = "center", fig.cap="Efficienty Frontier. Attribution: ShuBraque (CC BY-SA 3.0)"}
+knitr::include_graphics("./chapters/RiskParity/efficientport.jpg")
+```
+But how can we choose a portfolio from the efficient frontier? One approach is to choose the most efficient portfolio from a risk/return standpoint, i.e., the portfolio with the highest Sharpe ratio (ratio between excess return and portfolio standard deviation). This portfolio is called the tangency portfolio and it’s located at the tangency point of the Capital Allocation Line and the Efficient Frontier. 
+
+We will implement both a parity risk and a tangency portfolio in the next section.
 
 ## Optimizing FAANG: Ray Dalio versus Markowitz
 
@@ -151,17 +202,17 @@ tan.weights<-t(tan.weights)
 ```
 
 
-Figs. \@ref(fig:rollingparityweights) and \@ref(fig:rollingtangencyweights) show the portfolio weights obtained for parity risk and tangency portfolios, respectively. We observe that the risk parity weights are quite stable over time with Netflix having a slightly underweighting compared to the other portfolio constituents. On the other hand, the tangency portfolio weights vary considerably throughout the time period considered. The tangency portfolio overweights Apple and Amazon across many rebalance dates and it underweights Google in all rebalance dates.  From the portfolios weights alone, we can already conclude that the risk parity index can have considerably lower transaction costs to maintain as its turnover can be quite lower than the one the tangency portfolio strategy.
+Figs. \@ref(fig:rollingparityweights) and \@ref(fig:rollingtangencyweights) show the portfolio weights obtained for parity risk and tangency portfolios, respectively. We observe that the risk parity weights are quite stable over time with Netflix having a slightly underweighting compared to the other portfolio constituents. On the other hand, the tangency portfolio weights vary considerably throughout the time period considered, which can impose challenges in its maintenance as its turnover can be quite high. The tangency portfolio overweights Apple and Amazon across many rebalance dates and it underweights Google in all rebalance dates.
 ```{r rollingparityweights, eval=TRUE, echo=TRUE, cache=TRUE, fig.align = "center", fig.cap="Portfolio weights for FAANG risk parity portfolios."}
 PerformanceAnalytics::chart.StackedBar(parity.weights, 
                  xlab = "Rebalance Dates",
                  ylab = "Weight", 
-                 main = "")
+                 main = "FAANG Risk Parity")
 ```
 ```{r rollingtangencyweights, eval=TRUE, echo=TRUE, cache=TRUE, fig.align = "center", fig.cap="Portfolio weights for FAANG tangency portfolios."}
 PerformanceAnalytics::chart.StackedBar(tan.weights, xlab = "Rebalance Dates",
                  ylab = "Weight", 
-                 main = "")
+                 main = "FAANG Tangency Portfolio")
 ```
 
 We will use the time series of FAANG companies and the time series of risk parity and tangency portfolio weights to calculate the returns of the risk parity and tangency portfolio indexes as follows:
@@ -174,13 +225,13 @@ names(p.returns)<-c("FAANG Tangency Index", "FAANG Parity Index")
 ```
 
 Fig. \@ref(fig:perfsummary) shows the performance summary for the risk parity index versus the tangency portfolio index.
-Surprinsingly, the FAANG risk parity index outperforms the FAANG tangency portfolio index by quite a bit with a cumulative return of `r Return.cumulative(p.returns[,"FAANG Parity Index"])[1]*100`% versus `r Return.cumulative(p.returns[,"FAANG Tangency Index"])[1]*100`% from the tangency portfolio index. The FAANG risk parity index also has a relatively lower drawdown across most of the period analyzed. 
+Surprisingly, the FAANG risk parity index outperforms the FAANG tangency portfolio index by quite a bit with a cumulative return of `r Return.cumulative(p.returns[,"FAANG Parity Index"])[1]*100`% versus `r Return.cumulative(p.returns[,"FAANG Tangency Index"])[1]*100`% from the tangency portfolio index. The FAANG risk parity index also has a relatively lower drawdown across most of the period analyzed. 
 ```{r perfsummary, eval=TRUE, echo=TRUE, cache=TRUE, out.width='100%', fig.cap="Performance summary for the risk parity index versus the tangency portfolio index"}
 ### Performance Summary (return / drawdown)
 PerformanceAnalytics::charts.PerformanceSummary(p.returns, colorset=rich6equal,
-                          lwd=2, cex.legend = 1.5, event.labels = TRUE, main = "")
+                          lwd=2, cex.legend = 1.0, event.labels = TRUE, main = "")
 ```
-Tables \@ref(tab:calretparity) and \@ref(tab:calrettangency) show the calendar returns for the risk parity and tangency portfolio indexes, respectively. Interestengly, in years where the tangency portfolio index had positive cumulative return, the risk parity index yielded less returns than the tangency portfolio index. Conversely, in years where the tangency portfolio index had negative cumulative return, the risk parity index showed superior performance than the tangency portfolio index. In that way, the risk parity index showed "not as good" but also "not as bad" yearly returns compared to the tangency portfolios. 
+Tables \@ref(tab:calretparity) and \@ref(tab:calrettangency) show the calendar returns for the risk parity and tangency portfolio indexes, respectively. Interestingly, in years where the tangency portfolio index had positive cumulative return, the risk parity index yielded less returns than the tangency portfolio index. Conversely, in years where the tangency portfolio index had negative cumulative return, the risk parity index showed superior performance than the tangency portfolio index. In that way, the risk parity index showed "not as good" but also "not as bad" yearly returns compared to the tangency portfolios. 
 
 ```{r calretparity, eval=TRUE, echo=FALSE, cache=TRUE}
 knitr::kable(
@@ -193,12 +244,11 @@ t(table.CalendarReturns(p.returns[,"FAANG Tangency Index"])),booktabs = TRUE, ca
 )
 ```
 
-Fig. \@ref(fig:rollingperfsummary) shows the performance summary in a rolling 252-day window. Again, we observe that the risk parity index presents a superior performance compared to the tangency portfolio index. The risk parity index presents higher annualized return, lower standard deviation and superior Sharpe ratio in most of the period analyzed compared to the tangency portfolio index. 
 ```{r eval=TRUE, echo=FALSE, cache=TRUE}
 tab.annual.ret<-table.AnnualizedReturns(p.returns)
 ```
 
-As presented in Tab. \@ref(tab:annualret), the risk parity index has a total of `r tab.annual.ret["Annualized Return","FAANG Parity Index"]*100`% annualized return, `r tab.annual.ret["Annualized Std Dev","FAANG Parity Index"]*100`% standard deviation and `r tab.annual.ret["Annualized Sharpe (Rf=0%)","FAANG Parity Index"]` Sharpe-ratio versus `r tab.annual.ret["Annualized Return","FAANG Tangency Index"]*100`% annualized return, `r tab.annual.ret["Annualized Std Dev","FAANG Tangency Index"]*100`% standard deviation and `r tab.annual.ret["Annualized Sharpe (Rf=0%)","FAANG Tangency Index"]` Sharpe-ratio from the tangency portfolio index. 
+Fig. \@ref(fig:rollingperfsummary) shows the performance summary in a rolling 252-day window. Again, we observe that the risk parity index presents a superior performance compared to the tangency portfolio index. The risk parity index presents higher annualized return, lower standard deviation and superior Sharpe ratio in most of the period analyzed compared to the tangency portfolio index. As presented in Tab. \@ref(tab:annualret), the risk parity index has a total of `r tab.annual.ret["Annualized Return","FAANG Parity Index"]*100`% annualized return, `r tab.annual.ret["Annualized Std Dev","FAANG Parity Index"]*100`% standard deviation and `r tab.annual.ret["Annualized Sharpe (Rf=0%)","FAANG Parity Index"]` Sharpe-ratio versus `r tab.annual.ret["Annualized Return","FAANG Tangency Index"]*100`% annualized return, `r tab.annual.ret["Annualized Std Dev","FAANG Tangency Index"]*100`% standard deviation and `r tab.annual.ret["Annualized Sharpe (Rf=0%)","FAANG Tangency Index"]` Sharpe-ratio from the tangency portfolio index. 
 
 ```{r rollingperfsummary, eval=TRUE, echo=FALSE, cache=TRUE, out.width='100%', fig.cap="Performance summary in a rolling 252-day window for the risk parity index versus the tangency portfolio index"}
 PerformanceAnalytics::charts.RollingPerformance(p.returns, width = 252, colorset=rich6equal, event.labels = TRUE, legend.loc = "topleft", main = "")
@@ -212,6 +262,16 @@ tab.annual.ret,booktabs = TRUE, caption = "Annualized Returns"
 
 ## Discussion and Conclusion
 
+*What mix of assets has the best chance of delivering good returns over time through all economic environments?*
 
+That was the question posed by Bridgewater Associates before creating the All Weather funds with concepts today popularized in the so-called risk parity strategies.
 
+The traditional approach to asset allocation often tolerates higher concentration of risk with the objective to generate higher longer-term returns. Bridgewater argues that this approach has a serious flaw:
 
+>If the source of short-term risk is a heavy concentration in a single type of asset, this approach brings with it a significant risk of poor long-term returns that threatens the ability to meet future obligations. This is because every asset is susceptible to poor performance that can last for a decade or more, caused by a sustained shift in the economic environment - Bridgewater.
+
+In this Chapter, we introduced the concept of risk parity portfolios and compare it against a mean-variance model. We provided a simple practical example by constructing a FAANG risk parity index and comparing its performance against a FAANG tangency index, which selects the portfolio from the mean-variance efficient frontier with optimal Sharpe-ratio.
+
+The risk parity index presented higher annualized return, lower standard deviation and superior Sharpe ratio in most of the period analyzed compared to the tangency portfolio index. Of course, results should be taken with caution.
+
+In practice, both the risk parity and mean-variance approaches are employed in larger portfolios potentially across multiple asset classes. Those methodologies strive when there are assets that are uncorrelated in the portfolio which can increase the potential for diversification. Further, modern portfolio optimization strategies can be much more complex with a variety of objective functions and constraints. Our objective in this article was to give you a head start. Feel free to check out the source code in our github project and implement your own strategies!

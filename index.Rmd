@@ -116,8 +116,7 @@ Copyright (c) 2019. OpenQuants.com, New York, NY.
 ```{r include=FALSE}
 # automatically create a bib database for R packages
 knitr::write_bib(c(
-  .packages(), 'bookdown', 'knitr', 'rmarkdown', 'RTransferEntropy', 'Quandl'
+  .packages(), 'bookdown', 'knitr', 'rmarkdown', 'RTransferEntropy', 'Quandl', 'riskParityPortfolio', 'fPortfolio', 'xts',
+  'purrr', 'rlist', 'lubridate'
 ), 'packages.bib')
  ```
-
- 

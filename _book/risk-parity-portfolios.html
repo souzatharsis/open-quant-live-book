@@ -253,14 +253,48 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h1><span class="header-section-number">Chapter 3</span> Risk Parity Portfolios</h1>
 <div id="introduction-1" class="section level2">
 <h2><span class="header-section-number">3.1</span> Introduction</h2>
+<p>The “risk parity” approach was popularized by Ray Dalio’s Bridgewater Associates - the largest hedge fund by assets under management ($132.8 billions of USD) - with the creation of the All Weather asset allocation strategy in 1996. “All Weather” is a term used to designate funds that tend to perform reasonably well during both favorable and unfavorable economic and market conditions. Today, several managers have employed “All Weather” concepts under a risk parity approach.</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-39"></span>
+<img src="chapters/RiskParity/ray.jpg" alt="7 November 2018; Ray Dalio, Bridgewater Associates on Centre Stage during day two of Web Summit 2018 at the Altice Arena in Lisbon, Portugal. Photo by David Fitzgerald/Web Summit via SportsfilePhoto by David Fitzgerald /Sportsfile." width="100%" />
+<p class="caption">
+Figure 3.1: 7 November 2018; Ray Dalio, Bridgewater Associates on Centre Stage during day two of Web Summit 2018 at the Altice Arena in Lisbon, Portugal. Photo by David Fitzgerald/Web Summit via SportsfilePhoto by David Fitzgerald /Sportsfile.
+</p>
+</div>
+<p>A risk parity portfolio seeks to achieve an equal balance between the risk associated with each asset class or portfolio component. In that way, lower risk asset classes will generally have higher notional allocations than higher risk asset classes.</p>
+<blockquote>
+<p>Risk Parity is about <strong>Balance</strong> - <a href="https://www.bridgewater.com">Bridgewater</a>.</p>
+</blockquote>
+<p>Risk parity strategies suffered in recent history (2010-2017) as the bull market has pushed stocks to a record high hence favoring equity-concentrated portfolios. However, the increase in market volatility since 2018, the emergency of geo-political and tradewars risk as well as the growth in haven assets like Gold create conditions that strengthen the case for diversified portfolios. This is demonstrated in Fig. <a href="risk-parity-portfolios.html#fig:riskparityBLO">3.2</a> which shows that the S&amp;P risk parity strategy has returned almost 10% over the last 12 months (Aug/2018 - Aug-2019), more than double the S&amp;P 500 index of U.S. stocks.</p>
+<div class="figure" style="text-align: center"><span id="fig:riskparityBLO"></span>
+<img src="chapters/RiskParity/riskparity.png" alt="S&amp;P 500 index versus S&amp;P Risk Parity Index. Source: Bloomberg." width="100%" />
+<p class="caption">
+Figure 3.2: S&amp;P 500 index versus S&amp;P Risk Parity Index. Source: Bloomberg.
+</p>
+</div>
+<p>In Aug/2019, there have been news about the launch of a new Risk Parity ETF in the US. The RPAR Risk Parity ETF plans to allocate across asset classes based on risk, regulatory filings show. The fund would be the first in the U.S. to follow this quantitative approach, allotting more money to securities with lower volatility according to <a href="https://www.bloomberg.com/news/articles/2019-08-19/ray-dalio-inspired-a-risk-parity-etf-by-bridgewater-bofa-alums">Bloomberg</a>.</p>
+<blockquote>
+<p>[The RPAR Risk Parity ETF is] kind of like Bridgewater does, but they just do it for the wealthiest institutions in the world. The idea here is to build something that would work for everybody. - Alex Shahidi, former relationship manager at Dalio’s Bridgewater Associate and creator of the RPAR Risk Parity ETF. <a href="https://www.bloomberg.com/news/articles/2019-08-19/ray-dalio-inspired-a-risk-parity-etf-by-bridgewater-bofa-alums">Bloomberg</a>.</p>
+</blockquote>
+<p>But how can we a risk parity portfolio? How does it perform against a traditional mean/variance model?</p>
+<p>In this Chapter,</p>
+<ol style="list-style-type: decimal">
+<li>We will show how you can build your own Risk Parity portfolio</li>
+<li>We will create and compare the performance two indices:</li>
+</ol>
+<ul>
+<li>A FAANG Risk Parity Index of FAANG companies with equal risk balance</li>
+<li>A FAANG Tangency Portfolio Index of FAANG companies with weights such that return/risk ratio is maximized</li>
+</ul>
+<p>By the end of the Chapter, you will be able to create your own risk parity / All Weather fund and compare it against your benchmark of choice.</p>
 </div>
 <div id="risk-parity-portfolio" class="section level2">
 <h2><span class="header-section-number">3.2</span> Risk Parity Portfolio</h2>
-A risk parity portfolio denotes a class of portfolios whose assets verify the following equalities:
+A risk parity portfolio denotes a class of portfolios whose assets verify the following equalities <span class="citation">(Vinicius and Palomar <a href="#ref-R-riskParityPortfolio">2019</a>)</span>:
 <span class="math display">\[\begin{equation}
 w_{i} \frac{\partial f(\mathbf{w})}{\partial w_{i}}=w_{j} \frac{\partial f(\mathbf{w})}{\partial w_{j}}, \forall i, j
 \end{equation}\]</span>
 <p>where <span class="math inline">\(f\)</span> is a positively homogeneous function of degree one that measures the total risk of the portfolio and <span class="math inline">\(\mathbf{w}\)</span> is the portfolio weight vector. In other words, the marginal risk contributions for every asset in a risk parity portfolio are equal. A common choice for <span class="math inline">\(f\)</span>, for instance, is the standard deviation of the portfolio, which is usually called volatility, i.e., <span class="math inline">\(f(\mathbf{w})=\sqrt{\mathbf{w}^{T} \mathbf{\Sigma} \mathbf{w}}\)</span>, where <span class="math inline">\(\mathbf{\Sigma}\)</span> is the covariance matrix of assets.</p>
+In practice, risk and portfolio managers have risk mandates they follow or bounds for marginal risk contributions at the asset, country, regional or sector levels. Hence, a natural extension of the risk parity portfolio is the so called risk budget portfolio, in which the marginal risk contributions match preassigned quantities <span class="citation">(Vinicius and Palomar <a href="#ref-R-riskParityPortfolio">2019</a>)</span>. Mathematically,
 <span class="math display">\[\begin{equation}
 w_{i}(\Sigma \mathbf{w})_{i}=b_{i} \mathbf{w}^{T} \Sigma \mathbf{w}, \forall i,
 \end{equation}\]</span>
@@ -268,7 +302,27 @@ w_{i}(\Sigma \mathbf{w})_{i}=b_{i} \mathbf{w}^{T} \Sigma \mathbf{w}, \forall i,
 </div>
 <div id="tangency-portfolio" class="section level2">
 <h2><span class="header-section-number">3.3</span> Tangency Portfolio</h2>
-<p>When you analyze a set of assets using mean-variance analysis, the tangency portfolio is the portfolio with the highest Sharpe ratio. It’s called the tangency because it’s located at the tangency point of the Capital Allocation Line and the Efficient Frontier.</p>
+<p>Mean variance optimization is a commonly used quantitative tool part of Modern Portfolio Theory that allows investors to perform allocation by considering the trade-off between risk and return.</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-40"></span>
+<img src="chapters/RiskParity/harry.png" alt="In 1990, Dr. Harry M. Markowitz shared The Nobel Prize in Economics for his work on portfolio theory." width="100%" />
+<p class="caption">
+Figure 3.3: In 1990, Dr. Harry M. Markowitz shared The Nobel Prize in Economics for his work on portfolio theory.
+</p>
+</div>
+In a mean-variance framework, the objective is to minimize portfolio risk <span class="math inline">\(\sigma^2\)</span> subject to a baseline expected rate of return <span class="math inline">\(\mu_b\)</span> as follows:
+<span class="math display">\[\begin{equation}
+\begin{array}{ll}{\mathcal{M}} &amp; {\text { minimize } \quad \frac{1}{2} w^{T} \Sigma w} \\ {\text { subject to }} &amp; {\mathrm{m}^{T} w \geq \mu_{b}, \text { and } \mathbf{1}^{T} w=1}\end{array}
+\end{equation}\]</span>
+<p>where <span class="math inline">\(m\)</span> is the vector of expected returns for the portfolio assets.</p>
+We will obtain an optimal portfolio (min risk) for each target rate of return <span class="math inline">\(\mu_b\)</span> thus forming an efficient frontier. Each point in the efficient frontier in Fig. <a href="risk-parity-portfolios.html#fig:efficientport">3.4</a> is a portfolio with an optimal combination of securities that minimized risk given a level of risk (standard deviation). The dots below the efficient frontier are portfolios with inferior performance. They either offer the same returns but with higher risk, or they offer less return for the same risk.
+<div class="figure" style="text-align: center"><span id="fig:efficientport"></span>
+<img src="chapters/RiskParity/efficientport.jpg" alt="Efficienty Frontier. Attribution: ShuBraque (CC BY-SA 3.0)" width="100%" />
+<p class="caption">
+Figure 3.4: Efficienty Frontier. Attribution: ShuBraque (CC BY-SA 3.0)
+</p>
+</div>
+<p>But how can we choose a portfolio from the efficient frontier? One approach is to choose the most efficient portfolio from a risk/return standpoint, i.e., the portfolio with the highest Sharpe ratio (ratio between excess return and portfolio standard deviation). This portfolio is called the tangency portfolio and it’s located at the tangency point of the Capital Allocation Line and the Efficient Frontier.</p>
+<p>We will implement both a parity risk and a tangency portfolio in the next section.</p>
 </div>
 <div id="optimizing-faang-ray-dalio-versus-markowitz" class="section level2">
 <h2><span class="header-section-number">3.4</span> Optimizing FAANG: Ray Dalio versus Markowitz</h2>
@@ -300,17 +354,17 @@ portfolio.tangency &lt;-<span class="st"> </span><span class="kw">tangencyPortfo
                                         <span class="dt">constraints =</span> <span class="st">&quot;LongOnly&quot;</span>)
 portfolio.weights &lt;-<span class="st"> </span><span class="kw">rbind</span>(portfolio.parity<span class="op">$</span>w, <span class="kw">getWeights</span>(portfolio.tangency))
 <span class="kw">row.names</span>(portfolio.weights)&lt;-<span class="kw">c</span>(<span class="st">&quot;Parity Portfolio&quot;</span>, <span class="st">&quot;Tangency Portfolio&quot;</span>)</code></pre></div>
-<p>Fig. <a href="risk-parity-portfolios.html#fig:parityweights">3.1</a> shows the portfolio weights obtained for both the Parity and the Tangency portfolios. We observe that the Tangency portfolio concentrates the weights between Amazon and Netflix with both companies having nearly the same weight while Facebook, Apple and Google are left out of the portfolio. On the other hand, the Parity portfolio presents a well-balanced distribution of weights among the FAANG companies with all company weights around 20%. Apple and Google have weights a little over 20% while Netflix is the company with the lowest weight (15%).</p>
+<p>Fig. <a href="risk-parity-portfolios.html#fig:parityweights">3.5</a> shows the portfolio weights obtained for both the Parity and the Tangency portfolios. We observe that the Tangency portfolio concentrates the weights between Amazon and Netflix with both companies having nearly the same weight while Facebook, Apple and Google are left out of the portfolio. On the other hand, the Parity portfolio presents a well-balanced distribution of weights among the FAANG companies with all company weights around 20%. Apple and Google have weights a little over 20% while Netflix is the company with the lowest weight (15%).</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">barplot</span>(portfolio.weights, <span class="dt">main =</span> <span class="st">&quot;&quot;</span>, <span class="dt">xlab =</span> <span class="st">&quot;stocks&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;dollars&quot;</span>,
         <span class="dt">beside =</span> <span class="ot">TRUE</span>, <span class="dt">legend =</span> <span class="ot">TRUE</span>, <span class="dt">col=</span><span class="kw">c</span>(<span class="st">&quot;black&quot;</span>, <span class="st">&quot;red&quot;</span>),
         <span class="dt">args.legend =</span> <span class="kw">list</span>(<span class="dt">bg =</span> <span class="st">&quot;white&quot;</span>))</code></pre></div>
 <div class="figure"><span id="fig:parityweights"></span>
 <img src="open-quant-live-book_files/figure-html/parityweights-1.png" alt="Portfolio weights for parity and tangency FAANG portfolios considering returns from 2018." width="672" />
 <p class="caption">
-Figure 3.1: Portfolio weights for parity and tangency FAANG portfolios considering returns from 2018.
+Figure 3.5: Portfolio weights for parity and tangency FAANG portfolios considering returns from 2018.
 </p>
 </div>
-<p>Fig. <a href="risk-parity-portfolios.html#fig:parityrisks">3.2</a> compares the (covariance) risk budget of the Parity and Tangency portfolios obtained. As expected, we observe that the Parity portfolio has a risk budget equally distributed among the portfolio assets. On the other hand, the Tangency portfolio concentrates the risk between Amazon and Netflix with the latter corresponding to over 56% of the risk budget of the portfolio.</p>
+<p>Fig. <a href="risk-parity-portfolios.html#fig:parityrisks">3.6</a> compares the (covariance) risk budget of the Parity and Tangency portfolios obtained. As expected, we observe that the Parity portfolio has a risk budget equally distributed among the portfolio assets. On the other hand, the Tangency portfolio concentrates the risk between Amazon and Netflix with the latter corresponding to over 56% of the risk budget of the portfolio.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">portfolio.risks &lt;-<span class="st"> </span><span class="kw">rbind</span>(portfolio.parity<span class="op">$</span>risk_contribution<span class="op">/</span><span class="kw">sum</span>(portfolio.parity<span class="op">$</span>risk_contribution), <span class="kw">getCovRiskBudgets</span>(portfolio.tangency))
 <span class="kw">row.names</span>(portfolio.risks)&lt;-<span class="kw">c</span>(<span class="st">&quot;Parity Portfolio&quot;</span>, <span class="st">&quot;Tangency Portfolio&quot;</span>)
 <span class="kw">barplot</span>(portfolio.risks, <span class="dt">main =</span> <span class="st">&quot;&quot;</span>, <span class="dt">xlab =</span> <span class="st">&quot;stocks&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;Covariance Risk Budget&quot;</span>,
@@ -319,7 +373,7 @@ Figure 3.1: Portfolio weights for parity and tangency FAANG portfolios consideri
 <div class="figure"><span id="fig:parityrisks"></span>
 <img src="open-quant-live-book_files/figure-html/parityrisks-1.png" alt="Portfolio covariance risk budget for parity and tangency FAANG portfolios considering returns from 2018." width="672" />
 <p class="caption">
-Figure 3.2: Portfolio covariance risk budget for parity and tangency FAANG portfolios considering returns from 2018.
+Figure 3.6: Portfolio covariance risk budget for parity and tangency FAANG portfolios considering returns from 2018.
 </p>
 </div>
 </div>
@@ -383,24 +437,24 @@ rolling.portfolio.tangency &lt;-<span class="st"> </span><span class="kw">rollin
 tan.weights &lt;-<span class="st"> </span><span class="kw">sapply</span>(rolling.portfolio.tangency,getWeights)
 <span class="kw">rownames</span>(tan.weights) &lt;-<span class="st"> </span><span class="kw">colnames</span>(faang.returns.ts)
 tan.weights&lt;-<span class="kw">t</span>(tan.weights)</code></pre></div>
-<p>Figs. <a href="risk-parity-portfolios.html#fig:rollingparityweights">3.3</a> and <a href="risk-parity-portfolios.html#fig:rollingtangencyweights">3.4</a> show the portfolio weights obtained for parity risk and tangency portfolios, respectively. We observe that the risk parity weights are quite stable over time with Netflix having a slightly underweighting compared to the other portfolio constituents. On the other hand, the tangency portfolio weights vary considerably throughout the time period considered. The tangency portfolio overweights Apple and Amazon across many rebalance dates and it underweights Google in all rebalance dates. From the portfolios weights alone, we can already conclude that the risk parity index can have considerably lower transaction costs to maintain as its turnover can be quite lower than the one the tangency portfolio strategy.</p>
+<p>Figs. <a href="risk-parity-portfolios.html#fig:rollingparityweights">3.7</a> and <a href="risk-parity-portfolios.html#fig:rollingtangencyweights">3.8</a> show the portfolio weights obtained for parity risk and tangency portfolios, respectively. We observe that the risk parity weights are quite stable over time with Netflix having a slightly underweighting compared to the other portfolio constituents. On the other hand, the tangency portfolio weights vary considerably throughout the time period considered, which can impose challenges in its maintenance as its turnover can be quite high. The tangency portfolio overweights Apple and Amazon across many rebalance dates and it underweights Google in all rebalance dates.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">PerformanceAnalytics<span class="op">::</span><span class="kw">chart.StackedBar</span>(parity.weights, 
                  <span class="dt">xlab =</span> <span class="st">&quot;Rebalance Dates&quot;</span>,
                  <span class="dt">ylab =</span> <span class="st">&quot;Weight&quot;</span>, 
-                 <span class="dt">main =</span> <span class="st">&quot;&quot;</span>)</code></pre></div>
+                 <span class="dt">main =</span> <span class="st">&quot;FAANG Risk Parity&quot;</span>)</code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:rollingparityweights"></span>
 <img src="open-quant-live-book_files/figure-html/rollingparityweights-1.png" alt="Portfolio weights for FAANG risk parity portfolios." width="672" />
 <p class="caption">
-Figure 3.3: Portfolio weights for FAANG risk parity portfolios.
+Figure 3.7: Portfolio weights for FAANG risk parity portfolios.
 </p>
 </div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">PerformanceAnalytics<span class="op">::</span><span class="kw">chart.StackedBar</span>(tan.weights, <span class="dt">xlab =</span> <span class="st">&quot;Rebalance Dates&quot;</span>,
                  <span class="dt">ylab =</span> <span class="st">&quot;Weight&quot;</span>, 
-                 <span class="dt">main =</span> <span class="st">&quot;&quot;</span>)</code></pre></div>
+                 <span class="dt">main =</span> <span class="st">&quot;FAANG Tangency Portfolio&quot;</span>)</code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:rollingtangencyweights"></span>
 <img src="open-quant-live-book_files/figure-html/rollingtangencyweights-1.png" alt="Portfolio weights for FAANG tangency portfolios." width="672" />
 <p class="caption">
-Figure 3.4: Portfolio weights for FAANG tangency portfolios.
+Figure 3.8: Portfolio weights for FAANG tangency portfolios.
 </p>
 </div>
 <p>We will use the time series of FAANG companies and the time series of risk parity and tangency portfolio weights to calculate the returns of the risk parity and tangency portfolio indexes as follows:</p>
@@ -409,17 +463,17 @@ tan.returns &lt;-<span class="st"> </span><span class="kw">Return.portfolio</spa
 parity.returns &lt;-<span class="st"> </span><span class="kw">Return.portfolio</span>(faang.returns.xts, <span class="dt">weights=</span>parity.weights,<span class="dt">verbose=</span><span class="ot">TRUE</span>)
 p.returns&lt;-<span class="kw">merge</span>(tan.returns<span class="op">$</span>returns, parity.returns<span class="op">$</span>returns)
 <span class="kw">names</span>(p.returns)&lt;-<span class="kw">c</span>(<span class="st">&quot;FAANG Tangency Index&quot;</span>, <span class="st">&quot;FAANG Parity Index&quot;</span>)</code></pre></div>
-<p>Fig. <a href="risk-parity-portfolios.html#fig:perfsummary">3.5</a> shows the performance summary for the risk parity index versus the tangency portfolio index. Surprinsingly, the FAANG risk parity index outperforms the FAANG tangency portfolio index by quite a bit with a cumulative return of 169.482% versus 109.652% from the tangency portfolio index. The FAANG risk parity index also has a relatively lower drawdown across most of the period analyzed.</p>
+<p>Fig. <a href="risk-parity-portfolios.html#fig:perfsummary">3.9</a> shows the performance summary for the risk parity index versus the tangency portfolio index. Surprisingly, the FAANG risk parity index outperforms the FAANG tangency portfolio index by quite a bit with a cumulative return of 169.482% versus 109.652% from the tangency portfolio index. The FAANG risk parity index also has a relatively lower drawdown across most of the period analyzed.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">### Performance Summary (return / drawdown)
 PerformanceAnalytics<span class="op">::</span><span class="kw">charts.PerformanceSummary</span>(p.returns, <span class="dt">colorset=</span>rich6equal,
-                          <span class="dt">lwd=</span><span class="dv">2</span>, <span class="dt">cex.legend =</span> <span class="fl">1.5</span>, <span class="dt">event.labels =</span> <span class="ot">TRUE</span>, <span class="dt">main =</span> <span class="st">&quot;&quot;</span>)</code></pre></div>
+                          <span class="dt">lwd=</span><span class="dv">2</span>, <span class="dt">cex.legend =</span> <span class="fl">1.0</span>, <span class="dt">event.labels =</span> <span class="ot">TRUE</span>, <span class="dt">main =</span> <span class="st">&quot;&quot;</span>)</code></pre></div>
 <div class="figure"><span id="fig:perfsummary"></span>
 <img src="open-quant-live-book_files/figure-html/perfsummary-1.png" alt="Performance summary for the risk parity index versus the tangency portfolio index" width="100%" />
 <p class="caption">
-Figure 3.5: Performance summary for the risk parity index versus the tangency portfolio index
+Figure 3.9: Performance summary for the risk parity index versus the tangency portfolio index
 </p>
 </div>
-<p>Tables <a href="risk-parity-portfolios.html#tab:calretparity">3.1</a> and <a href="risk-parity-portfolios.html#tab:calrettangency">3.2</a> show the calendar returns for the risk parity and tangency portfolio indexes, respectively. Interestengly, in years where the tangency portfolio index had positive cumulative return, the risk parity index yielded less returns than the tangency portfolio index. Conversely, in years where the tangency portfolio index had negative cumulative return, the risk parity index showed superior performance than the tangency portfolio index. In that way, the risk parity index showed “not as good” but also “not as bad” yearly returns compared to the tangency portfolios.</p>
+<p>Tables <a href="risk-parity-portfolios.html#tab:calretparity">3.1</a> and <a href="risk-parity-portfolios.html#tab:calrettangency">3.2</a> show the calendar returns for the risk parity and tangency portfolio indexes, respectively. Interestingly, in years where the tangency portfolio index had positive cumulative return, the risk parity index yielded less returns than the tangency portfolio index. Conversely, in years where the tangency portfolio index had negative cumulative return, the risk parity index showed superior performance than the tangency portfolio index. In that way, the risk parity index showed “not as good” but also “not as bad” yearly returns compared to the tangency portfolios.</p>
 <table>
 <caption><span id="tab:calretparity">Table 3.1: </span>Calendar Returns (%): FAANG Parity Index</caption>
 <thead>
@@ -658,12 +712,11 @@ Figure 3.5: Performance summary for the risk parity index versus the tangency po
 </tr>
 </tbody>
 </table>
-<p>Fig. <a href="risk-parity-portfolios.html#fig:rollingperfsummary">3.6</a> shows the performance summary in a rolling 252-day window. Again, we observe that the risk parity index presents a superior performance compared to the tangency portfolio index. The risk parity index presents higher annualized return, lower standard deviation and superior Sharpe ratio in most of the period analyzed compared to the tangency portfolio index.</p>
-<p>As presented in Tab. <a href="risk-parity-portfolios.html#tab:annualret">3.3</a>, the risk parity index has a total of 23.71% annualized return, 22.55% standard deviation and 1.051 Sharpe-ratio versus 17.22% annualized return, 26.42% standard deviation and 0.652 Sharpe-ratio from the tangency portfolio index.</p>
+<p>Fig. <a href="risk-parity-portfolios.html#fig:rollingperfsummary">3.10</a> shows the performance summary in a rolling 252-day window. Again, we observe that the risk parity index presents a superior performance compared to the tangency portfolio index. The risk parity index presents higher annualized return, lower standard deviation and superior Sharpe ratio in most of the period analyzed compared to the tangency portfolio index. As presented in Tab. <a href="risk-parity-portfolios.html#tab:annualret">3.3</a>, the risk parity index has a total of 23.71% annualized return, 22.55% standard deviation and 1.051 Sharpe-ratio versus 17.22% annualized return, 26.42% standard deviation and 0.652 Sharpe-ratio from the tangency portfolio index.</p>
 <div class="figure"><span id="fig:rollingperfsummary"></span>
 <img src="open-quant-live-book_files/figure-html/rollingperfsummary-1.png" alt="Performance summary in a rolling 252-day window for the risk parity index versus the tangency portfolio index" width="100%" />
 <p class="caption">
-Figure 3.6: Performance summary in a rolling 252-day window for the risk parity index versus the tangency portfolio index
+Figure 3.10: Performance summary in a rolling 252-day window for the risk parity index versus the tangency portfolio index
 </p>
 </div>
 <table>
@@ -697,6 +750,15 @@ Figure 3.6: Performance summary in a rolling 252-day window for the risk parity 
 </div>
 <div id="discussion-and-conclusion" class="section level2">
 <h2><span class="header-section-number">3.5</span> Discussion and Conclusion</h2>
+<p><em>What mix of assets has the best chance of delivering good returns over time through all economic environments?</em></p>
+<p>That was the question posed by Bridgewater Associates before creating the All Weather funds with concepts today popularized in the so-called risk parity strategies.</p>
+<p>The traditional approach to asset allocation often tolerates higher concentration of risk with the objective to generate higher longer-term returns. Bridgewater argues that this approach has a serious flaw:</p>
+<blockquote>
+<p>If the source of short-term risk is a heavy concentration in a single type of asset, this approach brings with it a significant risk of poor long-term returns that threatens the ability to meet future obligations. This is because every asset is susceptible to poor performance that can last for a decade or more, caused by a sustained shift in the economic environment - Bridgewater.</p>
+</blockquote>
+<p>In this Chapter, we introduced the concept of risk parity portfolios and compare it against a mean-variance model. We provided a simple practical example by constructing a FAANG risk parity index and comparing its performance against a FAANG tangency index, which selects the portfolio from the mean-variance efficient frontier with optimal Sharpe-ratio.</p>
+<p>The risk parity index presented higher annualized return, lower standard deviation and superior Sharpe ratio in most of the period analyzed compared to the tangency portfolio index. Of course, results should be taken with caution.</p>
+<p>In practice, both the risk parity and mean-variance approaches are employed in larger portfolios potentially across multiple asset classes. Those methodologies strive when there are assets that are uncorrelated in the portfolio which can increase the potential for diversification. Further, modern portfolio optimization strategies can be much more complex with a variety of objective functions and constraints. Our objective in this article was to give you a head start. Feel free to check out the source code in our github project and implement your own strategies!</p>
 
 </div>
 </div>
@@ -707,6 +769,12 @@ Figure 3.6: Performance summary in a rolling 252-day window for the risk parity 
 
 
 
+</div>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-R-riskParityPortfolio">
+<p>Vinicius, Ze, and Daniel P. Palomar. 2019. <em>RiskParityPortfolio: Design of Risk Parity Portfolios</em>. <a href="https://CRAN.R-project.org/package=riskParityPortfolio" class="uri">https://CRAN.R-project.org/package=riskParityPortfolio</a>.</p>
+</div>
 </div>
             </section>
 
