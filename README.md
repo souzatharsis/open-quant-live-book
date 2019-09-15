@@ -47,6 +47,7 @@ The Book is Open and we welcome co-authors. Feel free to [reach out](https://www
 
 + Entropy, Efficiency and Bubbles
 + Nonparametric Statistical Causality: An Information-Theoretical Approach
++ Fractals and Scaling Laws
 + Financial Networks
 
 6. Alternative Data
