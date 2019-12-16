@@ -17,13 +17,14 @@ The Book is Open and we welcome co-authors. Feel free to [reach out](https://www
 
 1. The Basics
 
-+ I/O
++ Free Data for Markets
 + Stylized Facts
 
 2. Algo Trading   
 
 + Investment Process
 + Backtesting
++ Trading Strategies
 + Factor Investing
 + Limit Order
 
@@ -37,13 +38,16 @@ The Book is Open and we welcome co-authors. Feel free to [reach out](https://www
 + Intro
 + Agent-Based Models
 + Binary Classifiers
-+ AutoML
++ Reinforcement Learning
++ Deep Learning
 + Hierarchical Risk Parity
++ AutoML
 
 5. Econophysics
 
 + Entropy, Efficiency and Bubbles
 + Nonparametric Statistical Causality: An Information-Theoretical Approach
++ Fractals and Scaling Laws
 + Financial Networks
 
 6. Alternative Data
