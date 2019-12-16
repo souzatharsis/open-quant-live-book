@@ -24,7 +24,7 @@
 <meta name="author" content="OpenQuants.com" />
 
 
-<meta name="date" content="2019-12-15" />
+<meta name="date" content="2019-12-16" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -171,7 +171,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="part"><span><b>IV Machine Learning</b></span></li>
 <li class="part"><span><b>V Econophysics</b></span></li>
 <li class="chapter" data-level="4" data-path="entropy.html"><a href="entropy.html"><i class="fa fa-check"></i><b>4</b> Entropy</a><ul>
-<li class="chapter" data-level="4.1" data-path="entropy.html"><a href="entropy.html#definition"><i class="fa fa-check"></i><b>4.1</b> Definition</a></li>
+<li class="chapter" data-level="4.1" data-path="entropy.html"><a href="entropy.html#introduction-2"><i class="fa fa-check"></i><b>4.1</b> Introduction</a></li>
 <li class="chapter" data-level="4.2" data-path="entropy.html"><a href="entropy.html#nonlinear-coupling"><i class="fa fa-check"></i><b>4.2</b> Nonlinear Coupling</a><ul>
 <li class="chapter" data-level="4.2.1" data-path="entropy.html"><a href="entropy.html#simulated-systems"><i class="fa fa-check"></i><b>4.2.1</b> Simulated Systems</a></li>
 <li class="chapter" data-level="4.2.2" data-path="entropy.html"><a href="entropy.html#equity-commodities-relationship"><i class="fa fa-check"></i><b>4.2.2</b> Equity-Commodities Relationship</a></li>
@@ -193,7 +193,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="5.9" data-path="how-to-measure-statistical-causality-a-transfer-entropy-approach-with-financial-applications.html"><a href="how-to-measure-statistical-causality-a-transfer-entropy-approach-with-financial-applications.html#conclusions"><i class="fa fa-check"></i><b>5.9</b> Conclusions</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="financial-networks.html"><a href="financial-networks.html"><i class="fa fa-check"></i><b>6</b> Financial Networks</a><ul>
-<li class="chapter" data-level="6.1" data-path="financial-networks.html"><a href="financial-networks.html#introduction-2"><i class="fa fa-check"></i><b>6.1</b> Introduction</a></li>
+<li class="chapter" data-level="6.1" data-path="financial-networks.html"><a href="financial-networks.html#introduction-3"><i class="fa fa-check"></i><b>6.1</b> Introduction</a></li>
 <li class="chapter" data-level="6.2" data-path="financial-networks.html"><a href="financial-networks.html#network-construction"><i class="fa fa-check"></i><b>6.2</b> Network Construction</a><ul>
 <li class="chapter" data-level="6.2.1" data-path="financial-networks.html"><a href="financial-networks.html#network-filtering-asset-graphs"><i class="fa fa-check"></i><b>6.2.1</b> Network Filtering: Asset Graphs</a></li>
 <li class="chapter" data-level="6.2.2" data-path="financial-networks.html"><a href="financial-networks.html#network-filtering-mst"><i class="fa fa-check"></i><b>6.2.2</b> Network Filtering: MST</a></li>
@@ -255,8 +255,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="entropy" class="section level1">
 <h1><span class="header-section-number">Chapter 4</span> Entropy</h1>
-<div id="definition" class="section level2">
-<h2><span class="header-section-number">4.1</span> Definition</h2>
+<div id="introduction-2" class="section level2">
+<h2><span class="header-section-number">4.1</span> Introduction</h2>
 Let <span class="math inline">\(X\)</span> be a random variable and <span class="math inline">\(P_X(x)\)</span> be its probability density function (pdf). The entropy <span class="math inline">\(H(X)\)</span> can be interpreted sa measure of the uncertainty of <span class="math inline">\(X\)</span> and is defined in the discrete case as follows:
 <span class="math display">\[\begin{equation}
 H(X) = -\sum_{x \in X}{P_X(x)\log{P_X(x)}}.
@@ -266,16 +266,51 @@ H(X) = -\sum_{x \in X}{P_X(x)\log{P_X(x)}}.
 </div>
 <div id="nonlinear-coupling" class="section level2">
 <h2><span class="header-section-number">4.2</span> Nonlinear Coupling</h2>
+<p>Entropy works well when describing the order, uncertainty or variability of a unique variable, however it cannot work properly for more than one variable. This is where joint entropy, mutual information and conditional entropy come in.</p>
+Given a coupled system <span class="math inline">\((X,Y)\)</span>, where <span class="math inline">\(P_Y(y)\)</span> is the pdf of the random variable <span class="math inline">\(Y\)</span> and <span class="math inline">\(P_{X,Y}\)</span> the joint pdf between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>, the joint entropy is given by:
+<span class="math display">\[\begin{equation}
+H(X,Y) = -\sum_{x \in X}{\sum_{y \in Y}{P_{X,Y}(x,y)\log{\frac{P_{X,Y}(x,y)}{P_X(x)}}}}.
+\label{eq:HXY}
+\end{equation}\]</span>
+The conditional entropy is defined by:
+<span class="math display">\[\begin{equation}
+H\left(X\middle\vert Y\right) = H(X,Y) - H(X).
+\end{equation}\]</span>
+We can interpret <span class="math inline">\(H\left(Y\middle\vert X\right)\)</span> as the uncertainty of <span class="math inline">\(Y\)</span> given a realization of <span class="math inline">\(X\)</span>. The average amount by which a measurement of <span class="math inline">\(X\)</span> reduces the uncertainty of <span class="math inline">\(Y\)</span> is the mutual information:
+<span class="math display">\[\begin{align}
+I(Y, X) &amp;= H(Y) - H\left(Y\middle\vert X\right) \\
+&amp;=\sum_{x \in X}{\sum_{y \in Y}{P_{X,Y}(x,y)\log{\frac{P_{X,Y}(x,y)}{P_X(x)P_Y(y)}}}}.
+\end{align}\]</span>
+<p>Noticed that, by definition, mutual information is symmetric and non-negative. We have <span class="math inline">\(I(X,Y) = 0\)</span> if and only if <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are statistically independent. Therefore, the mutual information between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> can be considered a measure of dependence between these variables, with both linear and non linear generalization.</p>
+Mutual information is a measure that ranges from zero to infinite. A common scaling method <span class="citation">(Lin and Granger <a href="#ref-doi:10.1002/for.3980130102">1994</a>)</span> defines a normalized global correlation coefficient given by
+<span class="math display">\[\begin{equation}
+\lambda = \sqrt{1 - exp^{-2I(X,Y)}},
+\end{equation}\]</span>
+<p>such that <span class="math inline">\(\lambda \in [-1, 1]\)</span>. This normalization allows us to have a mutual information-based correlation measure that has the same scale as other traditional correlation measures such as Pearson’s or Kendall’s correlation.</p>
 <div id="simulated-systems" class="section level3">
 <h3><span class="header-section-number">4.2.1</span> Simulated Systems</h3>
 </div>
 <div id="equity-commodities-relationship" class="section level3">
 <h3><span class="header-section-number">4.2.2</span> Equity-Commodities Relationship</h3>
+<p>GSCI is widely recognised as a leading measure of general price movements. It provides investors with a reliable and publicly-available benchmark for investment performance in the commodity markets.</p>
+<p>A commodity index measures the returns of a passive investment strategy which has the following characteristics:</p>
+<ul>
+<li>Holds only long positions in commodity futures</li>
+<li>Uses only real assets</li>
+<li>Fully collateralises those futures positions</li>
+<li>Passively allocates a variety of commodity futures, taking no active view on individual commodities</li>
+</ul>
 </div>
 </div>
 <div id="efficiency-and-bubbles-a-case-study-in-the-crypto-and-equity-markets" class="section level2">
 <h2><span class="header-section-number">4.3</span> Efficiency and Bubbles: A Case Study in the Crypto and Equity Markets</h2>
 
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-doi:10.1002/for.3980130102">
+<p>Lin, Jin-Lung, and C. W. J. Granger. 1994. “Forecasting from Non-Linear Models in Practice.” <em>Journal of Forecasting</em> 13 (1): 1–9. doi:<a href="https://doi.org/10.1002/for.3980130102">10.1002/for.3980130102</a>.</p>
 </div>
 </div>
             </section>

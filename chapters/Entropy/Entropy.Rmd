@@ -1,6 +1,6 @@
 # Entropy {#entropy}
 
-## Definition
+## Introduction
 
 Let $X$ be a random variable and $P_X(x)$ be its probability density function (pdf). The entropy $H(X)$ can be interpreted sa measure of the uncertainty of $X$ and is defined in the discrete case as follows:
 \begin{equation}
@@ -14,9 +14,45 @@ We employ the natural logarithm which implies the unit in \textit{nat} (natural 
 
 ## Nonlinear Coupling
 
+Entropy  works  well  when  describing  the  order, uncertainty or variability of a unique  variable, however it cannot  work properly for more  than  one  variable.  This  is  where  joint  entropy,  mutual  information  and conditional entropy come in. 
+
+Given a coupled system $(X,Y)$, where $P_Y(y)$ is the pdf of the random variable $Y$ and $P_{X,Y}$ the joint pdf between $X$ and $Y$, the joint entropy is given by:
+\begin{equation}
+H(X,Y) = -\sum_{x \in X}{\sum_{y \in Y}{P_{X,Y}(x,y)\log{\frac{P_{X,Y}(x,y)}{P_X(x)}}}}.
+\label{eq:HXY}
+\end{equation}
+ 
+The conditional entropy is defined by:
+\begin{equation}
+H\left(X\middle\vert Y\right) = H(X,Y) - H(X).
+\end{equation}
+
+We can interpret $H\left(Y\middle\vert X\right)$ as the uncertainty of $Y$ given a realization of $X$. The average amount by which a measurement of $X$ reduces the uncertainty of $Y$ is the mutual information:
+\begin{align}
+I(Y, X) &= H(Y) - H\left(Y\middle\vert X\right) \\
+&=\sum_{x \in X}{\sum_{y \in Y}{P_{X,Y}(x,y)\log{\frac{P_{X,Y}(x,y)}{P_X(x)P_Y(y)}}}}.
+\end{align}
+
+Noticed that, by definition, mutual information is symmetric and non-negative. We have $I(X,Y) = 0$ if and only if $X$ and $Y$ are statistically independent. Therefore, the mutual information between $X$ and $Y$ can be considered a measure of dependence between these variables, with both linear and non linear generalization.
+
+Mutual information is a measure that ranges from zero to infinite. A common scaling method [@doi:10.1002/for.3980130102] defines a normalized global correlation coefficient given by 
+\begin{equation}
+\lambda = \sqrt{1 - exp^{-2I(X,Y)}},
+\end{equation}
+such that $\lambda \in [-1, 1]$. This normalization allows us to have a mutual information-based correlation measure that has the same scale as other traditional correlation measures such as Pearson's or Kendall's correlation.
+
 ### Simulated Systems
 
 ### Equity-Commodities Relationship
+
+GSCI is widely recognised as a leading measure of general price movements. It provides investors with a reliable and publicly-available benchmark for investment performance in the commodity markets.
+
+A commodity index measures the returns of a passive investment strategy which has the following characteristics:
+
+* Holds only long positions in commodity futures 
+* Uses only real assets 
+* Fully collateralises those futures positions 
+* Passively allocates a variety of commodity futures, taking no active view on individual commodities 
 
 ## Efficiency and Bubbles: A Case Study in the Crypto and Equity Markets
 

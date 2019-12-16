@@ -24,7 +24,7 @@
 <meta name="author" content="OpenQuants.com" />
 
 
-<meta name="date" content="2019-12-15" />
+<meta name="date" content="2019-12-16" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -171,7 +171,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="part"><span><b>IV Machine Learning</b></span></li>
 <li class="part"><span><b>V Econophysics</b></span></li>
 <li class="chapter" data-level="4" data-path="entropy.html"><a href="entropy.html"><i class="fa fa-check"></i><b>4</b> Entropy</a><ul>
-<li class="chapter" data-level="4.1" data-path="entropy.html"><a href="entropy.html#definition"><i class="fa fa-check"></i><b>4.1</b> Definition</a></li>
+<li class="chapter" data-level="4.1" data-path="entropy.html"><a href="entropy.html#introduction-2"><i class="fa fa-check"></i><b>4.1</b> Introduction</a></li>
 <li class="chapter" data-level="4.2" data-path="entropy.html"><a href="entropy.html#nonlinear-coupling"><i class="fa fa-check"></i><b>4.2</b> Nonlinear Coupling</a><ul>
 <li class="chapter" data-level="4.2.1" data-path="entropy.html"><a href="entropy.html#simulated-systems"><i class="fa fa-check"></i><b>4.2.1</b> Simulated Systems</a></li>
 <li class="chapter" data-level="4.2.2" data-path="entropy.html"><a href="entropy.html#equity-commodities-relationship"><i class="fa fa-check"></i><b>4.2.2</b> Equity-Commodities Relationship</a></li>
@@ -193,7 +193,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="5.9" data-path="how-to-measure-statistical-causality-a-transfer-entropy-approach-with-financial-applications.html"><a href="how-to-measure-statistical-causality-a-transfer-entropy-approach-with-financial-applications.html#conclusions"><i class="fa fa-check"></i><b>5.9</b> Conclusions</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="financial-networks.html"><a href="financial-networks.html"><i class="fa fa-check"></i><b>6</b> Financial Networks</a><ul>
-<li class="chapter" data-level="6.1" data-path="financial-networks.html"><a href="financial-networks.html#introduction-2"><i class="fa fa-check"></i><b>6.1</b> Introduction</a></li>
+<li class="chapter" data-level="6.1" data-path="financial-networks.html"><a href="financial-networks.html#introduction-3"><i class="fa fa-check"></i><b>6.1</b> Introduction</a></li>
 <li class="chapter" data-level="6.2" data-path="financial-networks.html"><a href="financial-networks.html#network-construction"><i class="fa fa-check"></i><b>6.2</b> Network Construction</a><ul>
 <li class="chapter" data-level="6.2.1" data-path="financial-networks.html"><a href="financial-networks.html#network-filtering-asset-graphs"><i class="fa fa-check"></i><b>6.2.1</b> Network Filtering: Asset Graphs</a></li>
 <li class="chapter" data-level="6.2.2" data-path="financial-networks.html"><a href="financial-networks.html#network-filtering-mst"><i class="fa fa-check"></i><b>6.2.2</b> Network Filtering: MST</a></li>
@@ -281,7 +281,7 @@ x_2(n) &amp;= 0.51x_1^2(n-1) + \epsilon_2, \\
 </ul>
 <div id="LinearG" class="section level2">
 <h2><span class="header-section-number">5.1</span> A First Definition of Causality</h2>
-<p>We quantify causality by using the notion of the causal relation introduced by Granger <span class="citation">(Wiener <a href="#ref-Wiener56">1956</a>; Granger <a href="#ref-granger:econ">1969</a>)</span>, where a signal <span class="math inline">\(X\)</span> is said to Granger-cause <span class="math inline">\(Y\)</span> if the future realizations of <span class="math inline">\(Y\)</span> can be better explained using the past information from <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> rather than <span class="math inline">\(Y\)</span> alone.</p>
+<p>We quantify causality by using the notion of the causal relation introduced by Granger <span class="citation">(Wiener <a href="#ref-Wiener56">1956</a>; C. Granger <a href="#ref-granger:econ">1969</a>)</span>, where a signal <span class="math inline">\(X\)</span> is said to Granger-cause <span class="math inline">\(Y\)</span> if the future realizations of <span class="math inline">\(Y\)</span> can be better explained using the past information from <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> rather than <span class="math inline">\(Y\)</span> alone.</p>
 <div class="figure" style="text-align: center"><span id="fig:G"></span>
 <img src="chapters/TransferEntropy/G.jpg" alt="Economist Clive Granger, who won the 2003 Nobel Prize in Economics." width="50%" />
 <p class="caption">
@@ -308,7 +308,7 @@ Figure 5.2: Economist Clive Granger, who won the 2003 Nobel Prize in Economics.
 <span id="def:G1" class="definition"><strong>Definition 5.1  </strong></span><span class="math inline">\(X\)</span> does not Granger-cause <span class="math inline">\(Y\)</span> relative to side information <span class="math inline">\(Z\)</span> if and only if <span class="math inline">\(\mathcal{R}(Y_{t+1} \; | \; X^t, Y^t, Z^t) = \mathcal{R}(Y_{t+1} \; | \; Y^t, Z^t)\)</span>.
 </div>
 <p> <br /></p>
-<p>Standard Granger-causality tests assume a functional form in the relationship among the causes and effects and are implemented by fitting autoregressive models <span class="citation">(Wiener <a href="#ref-Wiener56">1956</a>; Granger <a href="#ref-granger:econ">1969</a>)</span>.</p>
+<p>Standard Granger-causality tests assume a functional form in the relationship among the causes and effects and are implemented by fitting autoregressive models <span class="citation">(Wiener <a href="#ref-Wiener56">1956</a>; C. Granger <a href="#ref-granger:econ">1969</a>)</span>.</p>
 Consider the linear vector-autoregressive (VAR) equations:
 <span class="math display" id="eq:AR22" id="eq:AR11">\[\begin{align}
 Y(t) &amp;= {\alpha} + \sum^k_{\Delta t=1}{{\beta}_{\Delta t} Y(t-\Delta t)} + \epsilon_t, \tag{5.1}\\
