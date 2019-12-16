@@ -81,8 +81,10 @@ The Book is Open and we welcome co-authors. Feel free to [reach out](https://www
 + Intro
 + Agent-Based Models
 + Binary Classifiers
-+ AutoML
++ Reinforcement Learning
++ Deep Learning
 + Hierarchical Risk Parity
++ AutoML
 
 5. Econophysics
 
