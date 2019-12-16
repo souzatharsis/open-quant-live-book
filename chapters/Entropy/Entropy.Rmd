@@ -2,8 +2,7 @@
 
 ## Definition
 
-Let $X$ be a random variable and $P_X(x)$ be its probability density function (pdf). The entropy $H(X)$ is a measure of the uncertainty of $X$ 
-and is defined in the discrete case as follows:
+Let $X$ be a random variable and $P_X(x)$ be its probability density function (pdf). The entropy $H(X)$ can be interpreted sa measure of the uncertainty of $X$ and is defined in the discrete case as follows:
 \begin{equation}
 H(X) = -\sum_{x \in X}{P_X(x)\log{P_X(x)}}.
 \label{eq:H}
@@ -12,39 +11,17 @@ H(X) = -\sum_{x \in X}{P_X(x)\log{P_X(x)}}.
 If the $\log$ is taken to base two, then the unit of $H$ is the \textit{bit} (binary digit). 
 We employ the natural logarithm which implies the unit in \textit{nat} (natural unit of information).
 
-<!-- library(quantmod) -->
-<!-- library(entropy) -->
-<!-- require(zoo) -->
 
+## Nonlinear Coupling
 
-<!-- Entropy.Hist<-function(x){ -->
-<!--   return(entropy(hist(x, plot=FALSE, breaks=20)$counts)) -->
-<!-- } -->
+### Simulated Systems
 
-
-
-
-<!-- ########## Load SPY Prices from AlphaVantage -->
-<!-- getSymbols(Symbols='SPY', src="av", output.size="full", adjusted=TRUE, from=from.dat, -->
-<!--            api.key='XG3T5XUFFDLJ0JGY') -->
-
-<!-- SPY<-SPY[-(1:504),] -->
-
-<!-- ## Calculate daily returns -->
-<!-- SPY$SPY.return <- periodReturn(SPY$SPY.Adjusted, -->
-<!--                            period='daily') -->
-
-
-<!-- ############## ENTROPY -->
-
-<!-- ## Calculate 252-rolling window entropy -->
-<!-- SPY$SPY.entropy<-rollapply(SPY$SPY.return, width = 252, by = 1, FUN = Entropy.Hist, align = "right") -->
-<!-- ## Plot -->
-<!-- plot(SPY[!is.na(SPY$SPY.entropy),c("SPY.entropy")], main="SPY Daily Return 252-day Entropy") -->
-
-
-
-
-
+### Equity-Commodities Relationship
 
 ## Efficiency and Bubbles: A Case Study in the Crypto and Equity Markets
+
+
+
+
+
+

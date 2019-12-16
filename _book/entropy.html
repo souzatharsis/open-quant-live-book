@@ -24,7 +24,7 @@
 <meta name="author" content="OpenQuants.com" />
 
 
-<meta name="date" content="2019-09-02" />
+<meta name="date" content="2019-12-15" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -172,7 +172,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="part"><span><b>V Econophysics</b></span></li>
 <li class="chapter" data-level="4" data-path="entropy.html"><a href="entropy.html"><i class="fa fa-check"></i><b>4</b> Entropy</a><ul>
 <li class="chapter" data-level="4.1" data-path="entropy.html"><a href="entropy.html#definition"><i class="fa fa-check"></i><b>4.1</b> Definition</a></li>
-<li class="chapter" data-level="4.2" data-path="entropy.html"><a href="entropy.html#efficiency-and-bubbles-a-case-study-in-the-crypto-and-equity-markets"><i class="fa fa-check"></i><b>4.2</b> Efficiency and Bubbles: A Case Study in the Crypto and Equity Markets</a></li>
+<li class="chapter" data-level="4.2" data-path="entropy.html"><a href="entropy.html#nonlinear-coupling"><i class="fa fa-check"></i><b>4.2</b> Nonlinear Coupling</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="entropy.html"><a href="entropy.html#simulated-systems"><i class="fa fa-check"></i><b>4.2.1</b> Simulated Systems</a></li>
+<li class="chapter" data-level="4.2.2" data-path="entropy.html"><a href="entropy.html#equity-commodities-relationship"><i class="fa fa-check"></i><b>4.2.2</b> Equity-Commodities Relationship</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="entropy.html"><a href="entropy.html#efficiency-and-bubbles-a-case-study-in-the-crypto-and-equity-markets"><i class="fa fa-check"></i><b>4.3</b> Efficiency and Bubbles: A Case Study in the Crypto and Equity Markets</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="how-to-measure-statistical-causality-a-transfer-entropy-approach-with-financial-applications.html"><a href="how-to-measure-statistical-causality-a-transfer-entropy-approach-with-financial-applications.html"><i class="fa fa-check"></i><b>5</b> How to Measure Statistical Causality: A Transfer Entropy Approach with Financial Applications</a><ul>
 <li class="chapter" data-level="5.1" data-path="how-to-measure-statistical-causality-a-transfer-entropy-approach-with-financial-applications.html"><a href="how-to-measure-statistical-causality-a-transfer-entropy-approach-with-financial-applications.html#LinearG"><i class="fa fa-check"></i><b>5.1</b> A First Definition of Causality</a></li>
@@ -253,33 +257,24 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h1><span class="header-section-number">Chapter 4</span> Entropy</h1>
 <div id="definition" class="section level2">
 <h2><span class="header-section-number">4.1</span> Definition</h2>
-Let <span class="math inline">\(X\)</span> be a random variable and <span class="math inline">\(P_X(x)\)</span> be its probability density function (pdf). The entropy <span class="math inline">\(H(X)\)</span> is a measure of the uncertainty of <span class="math inline">\(X\)</span> and is defined in the discrete case as follows:
+Let <span class="math inline">\(X\)</span> be a random variable and <span class="math inline">\(P_X(x)\)</span> be its probability density function (pdf). The entropy <span class="math inline">\(H(X)\)</span> can be interpreted sa measure of the uncertainty of <span class="math inline">\(X\)</span> and is defined in the discrete case as follows:
 <span class="math display">\[\begin{equation}
 H(X) = -\sum_{x \in X}{P_X(x)\log{P_X(x)}}.
 \label{eq:H}
 \end{equation}\]</span>
 <p>If the <span class="math inline">\(\log\)</span> is taken to base two, then the unit of <span class="math inline">\(H\)</span> is the  (binary digit). We employ the natural logarithm which implies the unit in  (natural unit of information).</p>
-<!-- library(quantmod) -->
-<!-- library(entropy) -->
-<!-- require(zoo) -->
-<!-- Entropy.Hist<-function(x){ -->
-<!--   return(entropy(hist(x, plot=FALSE, breaks=20)$counts)) -->
-<!-- } -->
-<!-- ########## Load SPY Prices from AlphaVantage -->
-<!-- getSymbols(Symbols='SPY', src="av", output.size="full", adjusted=TRUE, from=from.dat, -->
-<!--            api.key='XG3T5XUFFDLJ0JGY') -->
-<!-- SPY<-SPY[-(1:504),] -->
-<!-- ## Calculate daily returns -->
-<!-- SPY$SPY.return <- periodReturn(SPY$SPY.Adjusted, -->
-<!--                            period='daily') -->
-<!-- ############## ENTROPY -->
-<!-- ## Calculate 252-rolling window entropy -->
-<!-- SPY$SPY.entropy<-rollapply(SPY$SPY.return, width = 252, by = 1, FUN = Entropy.Hist, align = "right") -->
-<!-- ## Plot -->
-<!-- plot(SPY[!is.na(SPY$SPY.entropy),c("SPY.entropy")], main="SPY Daily Return 252-day Entropy") -->
+</div>
+<div id="nonlinear-coupling" class="section level2">
+<h2><span class="header-section-number">4.2</span> Nonlinear Coupling</h2>
+<div id="simulated-systems" class="section level3">
+<h3><span class="header-section-number">4.2.1</span> Simulated Systems</h3>
+</div>
+<div id="equity-commodities-relationship" class="section level3">
+<h3><span class="header-section-number">4.2.2</span> Equity-Commodities Relationship</h3>
+</div>
 </div>
 <div id="efficiency-and-bubbles-a-case-study-in-the-crypto-and-equity-markets" class="section level2">
-<h2><span class="header-section-number">4.2</span> Efficiency and Bubbles: A Case Study in the Crypto and Equity Markets</h2>
+<h2><span class="header-section-number">4.3</span> Efficiency and Bubbles: A Case Study in the Crypto and Equity Markets</h2>
 
 </div>
 </div>
