@@ -14,7 +14,7 @@ We employ the natural logarithm which implies the unit in \textit{nat} (natural 
 
 ## Nonlinear Coupling
 
-Entropy  works  well  when  describing  the  order, uncertainty or variability of a unique  variable, however it cannot  work properly for more  than  one  variable.  This  is  where  joint  entropy,  mutual  information  and conditional entropy come in. 
+Entropy  works  well  when  describing  the  order, uncertainty or variability of a single random variable, however it cannot  work properly for more  than  one  variable.  This  is  where  joint  entropy,  mutual  information  and conditional entropy come in. 
 
 Given a coupled system $(X,Y)$, where $P_Y(y)$ is the pdf of the random variable $Y$ and $P_{X,Y}$ the joint pdf between $X$ and $Y$, the joint entropy is given by:
 \begin{equation}
@@ -33,7 +33,7 @@ I(Y, X) &= H(Y) - H\left(Y\middle\vert X\right) \\
 &=\sum_{x \in X}{\sum_{y \in Y}{P_{X,Y}(x,y)\log{\frac{P_{X,Y}(x,y)}{P_X(x)P_Y(y)}}}}.
 \end{align}
 
-Noticed that, by definition, mutual information is symmetric and non-negative. We have $I(X,Y) = 0$ if and only if $X$ and $Y$ are statistically independent. Therefore, the mutual information between $X$ and $Y$ can be considered a measure of dependence between these variables, with both linear and non linear generalization.
+Notice that, by definition, mutual information is symmetric and non-negative. We have $I(X,Y) = 0$ if and only if $X$ and $Y$ are statistically independent. Therefore, the mutual information between $X$ and $Y$ can be considered a measure of dependence between these variables, with both linear and nonlinear generalization.
 
 Mutual information is a measure that ranges from zero to infinite. A common scaling method [@doi:10.1002/for.3980130102] defines a normalized global correlation coefficient given by 
 \begin{equation}
