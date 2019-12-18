@@ -85,16 +85,19 @@ GetLogLinSystem <- function(n, a=1, b=3){
   return(list(cause=cause, effect=effect))
 }
 
+
+ProcessSystem<- function(size, s.system, FUN.aux){
+  FUN.aux(s.system(size)$cause, s.system(size)$effect)
+}
+
 ## Mutual Information-based correlation
-Correlation.MI<- function(size,s.system){
-  EffectiveMutualInformation(s.system(size)$cause, s.system(size)$effect, MutualInformation) %>%
+Correlation.MI<- function(X, Y){
+  EffectiveMutualInformation(X, Y, MutualInformation) %>%
     LambdaCorrelation
 }
 
-## Linear correlation
-Correlation.Linear <- function(size,s.system){
-  cor(s.system(size)$cause, s.system(size)$effect)
-}
+
+
 
 
 
@@ -108,8 +111,8 @@ l.systems<-c(random=GetRandomSystem,
 size<-10000
 ts.sample.sizes<-seq(from=500, to=size, by=500)
 
-MI.res<-outer(ts.sample.sizes, l.systems, Vectorize(Correlation.MI))
-cor.res<-outer(ts.sample.sizes, l.systems, Vectorize(Correlation.Linear))
+MI.res<-outer(ts.sample.sizes, l.systems, FUN=Vectorize(ProcessSystem), FUN.aux=list(Correlation.MI))
+cor.res<-outer(ts.sample.sizes, l.systems, Vectorize(ProcessSystem), FUN.aux=list(cor))
 
 
 #
