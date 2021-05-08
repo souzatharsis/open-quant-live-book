@@ -35,20 +35,6 @@ dat.table <- read.table(file = "<name of your file>.txt")
 dat.csv <- read.csv(file = "<name of your file>.csv")
 ```
 
-The package **readr** provides functions for reading text data into R that are much faster that the functions from the **r-base**. The ``read_table`` function from the package **readr** provides a near-replacement for the `read.table` function.
-
-```{r eval=FALSE}
-library(readr)
-dat.table <- readr::read_table2(file = "<name of your file>.txt")
-dat.csv <- readr::read_csv(file = "<name of your file>.csv")
-```
-
-Another option to save data is to write it in `rds` format. Data stored in `rds` format has the advantage to keep the original data struture and type of the object saved. Also, `.rds` files are compressed and consume less space than files saved in `.csv` format. A data.frame object can be saved in `rds` format and then loaded back as follows: 
-```{r eval=FALSE}
-write_rds(dat.frame, path = "<name of your file>.rds")
-dat.frame <- read_rds(path = "<name of your file>.rds")
-```
-
 ### Excel Files
 
 The package `readxl` has an ease to use interface to functions that load excel documents in R. The functions `read_xls` and `read_xlsx` can be used to read excel files as follows:
@@ -81,8 +67,21 @@ result_json <- read_json("<json file>")
 
 ### Large Files
 
-Fast data manipulation in a short and flexible syntax.
+<!-- Fast data manipulation in a short and flexible syntax.  -->
 <!-- https://stackoverflow.com/questions/1727772/quickly-reading-very-large-tables-as-dataframes -->
+
+The package **readr** provides functions for reading large text file into R that are much faster that the functions from the **r-base**. The ``read_table`` function from the package **readr** provides a near-replacement for the `read.table` function.
+
+```{r eval=FALSE}
+library(readr)
+dat.table <- readr::read_table2(file = "<name of your file>.txt")
+dat.csv <- readr::read_csv(file = "<name of your file>.csv")
+```
+To save a large file, one method is to write it in `rds` format. Data stored in `rds` format has the advantage to keep the original data struture and type of the object saved. Also, `.rds` files are compressed and consume less space than files saved in `.csv` format. A data.frame object can be saved in `rds` format and then loaded back as follows: 
+```{r eval=FALSE}
+write_rds(dat.frame, path = "<name of your file>.rds")
+dat.frame <- read_rds(path = "<name of your file>.rds")
+```
 
 ## Data Sources
 
